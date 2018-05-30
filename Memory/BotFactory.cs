@@ -8,8 +8,8 @@ namespace Memory
 {
     public class BotFactory
     {
-        public Bot GetEasyBot() => new Bot(new EasyBotStrategy());
-        public Bot GetNormalBot() => new Bot(new NormalBotStrategy());
-        public Bot GetHardBot() => new Bot(new HardBotStrategy());
+        public static Bot GetEasyBot() => new Bot(new EasyBotStrategy());
+        public static Bot GetNormalBot() => new Bot(new NormalBotStrategy());
+        public static Bot GetHardBot() => new Bot(new HardBotStrategy());
     }
 }

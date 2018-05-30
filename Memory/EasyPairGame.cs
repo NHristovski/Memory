@@ -43,13 +43,15 @@ namespace Memory
 
         private void EasyPairGame_Load(object sender, EventArgs e)
         {   // NEEDS CHANGE: PLAYERS
-            game = new PairGame(new HumanPlayer("FirstPlayer"), new HumanPlayer("SecondPlayer"), picBoxes);
+            game = new PairGame(new HumanPlayer("FirstPlayer"),BotFactory.GetHardBot(), picBoxes,
+                labelCurrentPlayer, labelP1points, labelP2points);
             game.startGame();
 
             // just for checking
-            labelCurrentPlayer.Text = game.currentPlayer.Name;
-            labelP1points.Text = game.Player1.Score.Points + "";
-            labelP2points.Text = game.Player2.Score.Points + "";
+            game.updateLabels();
+            //labelCurrentPlayer.Text = game.currentPlayer.Name;
+            //labelP1points.Text = game.Player1.Score.Points + "";
+            //labelP2points.Text = game.Player2.Score.Points + "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -62,10 +64,10 @@ namespace Memory
             game.validateCard(pb);
 
             //just for checking
-            labelCurrentPlayer.Text = game.currentPlayer.Name;
-            labelP1points.Text = game.Player1.Score.Points + "";
-            labelP2points.Text = game.Player2.Score.Points + "";
-
+            //labelCurrentPlayer.Text = game.currentPlayer.Name;
+            //labelP1points.Text = game.Player1.Score.Points + "";
+            //labelP2points.Text = game.Player2.Score.Points + "";
+            
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {

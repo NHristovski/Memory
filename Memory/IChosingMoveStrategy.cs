@@ -62,19 +62,22 @@ namespace Memory
                     if (i != firstIndex)
                     {
                         secondIndex = i;
+                       // MessageBox.Show("Treba da ja otvoram pb " + openedCards[i].Name);
                     }
                 }
             }
+            
 
             if (secondIndex == -1) // no match so return random cards
             {
+                //MessageBox.Show("Nema druga vakva karta pa prodolzuvam random");
                 EasyBotStrategy easyBotStrategy = new EasyBotStrategy();
                 return easyBotStrategy
                     .ChoseMove(unpairedOpenPairs, openedCards, validPicutreBoxes, cardsDictionary, rand);
             }
             else
             {
-                return new Tuple<PictureBox, PictureBox>(validPBs[firstIndex], validPBs[secondIndex]);
+                return new Tuple<PictureBox, PictureBox>(validPBs[firstIndex], openedCards[secondIndex]);
             }
         }
     }
@@ -86,9 +89,11 @@ namespace Memory
         {
             if (unpairedOpenPairs.Any())
             {
+                //MessageBox.Show("Ke vratam od canBeOpened");
                 return unpairedOpenPairs.First();
             }
 
+            //MessageBox.Show("Prodolzhuvam kako normal");
             NormalBotStrategy normalBotStrategy = new NormalBotStrategy();
             return normalBotStrategy
                     .ChoseMove(unpairedOpenPairs, openedCards, validPicutreBoxes, cardsDictionary, rand);
