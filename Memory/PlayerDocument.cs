@@ -19,7 +19,7 @@ namespace Memory
 
         public void addPlayer(Player player)
         {
-            if (player.isHuman())
+            if (!player.isBot())
             {
                 Players.Add(player);
             }

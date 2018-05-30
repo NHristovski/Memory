@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BotFactory.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="EasyPairGame.cs">
       <SubType>Form</SubType>

@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;   
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Windows.Forms;
 
 namespace Memory
 {
@@ -15,9 +16,13 @@ namespace Memory
         public DateTime gameEnded { get; set; }
         public Score Score { get; set; }
 
-        public Player(string name)
+        protected IChosingMoveStrategy chosingMoveStrategy;
+
+        public Player(string name,IChosingMoveStrategy chosingMoveStrategy)
         {
             Name = name;
+            this.chosingMoveStrategy = chosingMoveStrategy;
+
             Score = new Score();
             gameStarted = DateTime.Now; // gameStarted and gameEnded are non null variables,
             gameEnded = DateTime.Now;   // so I put DateTime.Now instead of null
@@ -39,34 +44,44 @@ namespace Memory
             Score.Time = duration;
         }
 
-        public abstract bool isHuman(); 
+        public abstract bool isBot();
+        public abstract Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand);
     }
 
     public class HumanPlayer : Player
     {
         public bool Turn { get; set; }
 
-        public HumanPlayer(string name) : base(name)
+        public HumanPlayer(string name) : base(name,null)
         {
-
         }
-        public override bool isHuman()
+
+        public override bool isBot()
         {
-            return true;
+            return false;
+        }
+        public override Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand)
+        {
+            return null;
         }
     }
 
-    public abstract class Bot : Player
+    public class Bot : Player
     {
-        public IChosingMoveStrategy chosingMoveStrategy;
-        public Bot(IChosingMoveStrategy strategy) : base("NOT-A-BOT")
+        
+        public Bot(IChosingMoveStrategy strategy) : base("NOT-A-BOT",strategy)
         {
-            this.chosingMoveStrategy = strategy;
         }
         
-        public override bool isHuman()
+        public override bool isBot()
         {
-            return false;
+            return true;
+        }
+
+        public override Tuple<PictureBox,PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs,List<PictureBox> openedCards,HashSet<PictureBox> validPicutreBoxes,Dictionary<PictureBox, Card> cardsDictionary,Random rand)
+        {
+            return chosingMoveStrategy
+                .ChoseMove(unpairedOpenPairs, openedCards, validPicutreBoxes, cardsDictionary, rand);
         }
     }
 

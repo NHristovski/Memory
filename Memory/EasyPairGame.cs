@@ -11,22 +11,9 @@ using System.Windows.Forms;
 namespace Memory
 {
     public partial class EasyPairGameForm : Form
-    {
-        //readonly string pathToClosedCard = System.IO.Directory.GetCurrentDirectory() + @"\shapes\closedCard.jpg";
-        // the closed card is now in resources and we dont need the pathToClosedCard
-        
-        
-        // MORA DA SE REFAKTORIRA, OVA SE TREBA DA E VO KLASATA PAIR GAME!!!!!!!!
-
-
+    { 
         List<PictureBox> picBoxes;
-        Game game;
-        Player Player1;
-        Player Player2;
-        Player currentPlayer;
-        Tuple<string, PictureBox> previousCard; // shape -> in witch pictureBox was the shape
-        HashSet<PictureBox> validCards;
-        bool secondCard;
+        PairGame game;
 
         public EasyPairGameForm()
         {
@@ -50,22 +37,19 @@ namespace Memory
             picBoxes.Add(this.pictureBox15);
             picBoxes.Add(this.pictureBox16);
 
-            validCards = new HashSet<PictureBox>(picBoxes);
 
-            Player1 = new HumanPlayer("FirstPlayer");
-            Player2 = new HumanPlayer("SecondPlayer");
 
-            currentPlayer = Player1;
-            secondCard = false;
-            labelCurrentPlayer.Text = currentPlayer.Name;
-            labelP1points.Text = Player1.Score.Points + "";
-            labelP2points.Text = Player2.Score.Points + "";
         }
 
         private void EasyPairGame_Load(object sender, EventArgs e)
-        {
-            game = new PairGame(Player1,Player2, picBoxes);
+        {   // NEEDS CHANGE: PLAYERS
+            game = new PairGame(new HumanPlayer("FirstPlayer"), new HumanPlayer("SecondPlayer"), picBoxes);
             game.startGame();
+
+            // just for checking
+            labelCurrentPlayer.Text = game.currentPlayer.Name;
+            labelP1points.Text = game.Player1.Score.Points + "";
+            labelP2points.Text = game.Player2.Score.Points + "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -73,102 +57,15 @@ namespace Memory
             Application.Exit();
         }
 
-        private void animateOpeningCard(PictureBox pb)
-        {
-            Card card = ((PairGame)game).getCard(pb);
-            if (!card.Guessed)
-            {
-                GifImage gifImage = new GifImage(card.pathToOpenCard);
-                for (int i = 0; i < gifImage.frameCount; i++)
-                {
-                    pb.Enabled = true;
-                    pb.Image = gifImage.GetNextFrame();
-                    pb.Enabled = false;
-                }
-            }
-        }
-        private void animateClosingCard(PictureBox pb)
-        {
-            GifImage gifImage = new GifImage(((PairGame)game).getCard(pb).pathToCloseCard);
-            for (int i = 0; i < gifImage.frameCount; i++)
-            {
-                pb.Enabled = true;
-                pb.Image = gifImage.GetNextFrame();
-                pb.Enabled = false;
-            }
-            closeCard(pb);
-        }
-        private void closeCard(PictureBox pb)
-        {
-            //pb.ImageLocation = pathToClosedCard;
-            pb.Image = Properties.Resources.closedCard;
-            pb.Enabled = true; ;
-        }
-        private void makeCardStill(PictureBox pb)
-        {
-            pb.Enabled = true;
-            pb.ImageLocation = ((PairGame)game).getCard(pb).pathToStillCard;
-            pb.Enabled = false;
-        }
-
-        private void changeTurn()
-        {
-            if (currentPlayer == Player2)
-            {
-                currentPlayer = Player1;
-            }
-            else
-            {
-                currentPlayer = Player2;
-            }
-        }
-
         private void validateCard(PictureBox pb)
         {
-            Card card = ((PairGame)game).getCard(pb);
-            animateOpeningCard(pb);
-            if (secondCard)
-            {
-                foreach (var pBox in validCards)
-                {
-                    pBox.Enabled = false;
-                }
-                if (card.Shape.Equals(previousCard.Item1)) // 2 same cards 
-                {
-                    currentPlayer.Score.Points += 100; // add points to current player;
-                    makeCardStill(pb);
-                    makeCardStill(previousCard.Item2);
-                    validCards.Remove(pb);
-                    validCards.Remove(previousCard.Item2);
+            game.validateCard(pb);
 
-                }
-                else // 2 different cards
-                {
-                    animateClosingCard(pb);
-                    animateClosingCard(previousCard.Item2);
-                    changeTurn();
-                }
-                foreach (var pBox in validCards)
-                {
-                    pBox.Enabled = true; 
-                }
-                previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
-                secondCard = false;
-                
-            }
-            else
-            {
-                secondCard = true;
-                previousCard = new Tuple<string, PictureBox>(card.Shape, pb);
-            }
-            labelCurrentPlayer.Text = currentPlayer.Name;
-            labelP1points.Text = Player1.Score.Points + "";
-            labelP2points.Text = Player2.Score.Points + "";
+            //just for checking
+            labelCurrentPlayer.Text = game.currentPlayer.Name;
+            labelP1points.Text = game.Player1.Score.Points + "";
+            labelP2points.Text = game.Player2.Score.Points + "";
 
-            if (validCards.Count == 0) // every card is guessed
-            {
-                game.endGame();
-            }
         }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
