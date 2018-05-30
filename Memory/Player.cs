@@ -58,18 +58,19 @@ namespace Memory
 
     public abstract class Bot : Player
     {
-        public Bot() : base("NOT-A-BOT")
+        public IChosingMoveStrategy chosingMoveStrategy;
+        public Bot(IChosingMoveStrategy strategy) : base("NOT-A-BOT")
         {
-
+            this.chosingMoveStrategy = strategy;
         }
+        
         public override bool isHuman()
         {
             return false;
         }
-        public abstract void chooseMove();
     }
 
-    public class EasyBot : Bot
+    /*public class EasyBot : Bot
     {
         public EasyBot() : base()
         {
@@ -101,5 +102,5 @@ namespace Memory
         {
             throw new NotImplementedException();
         }
-    }
+    }*/
 }

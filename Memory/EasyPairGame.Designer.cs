@@ -1,6 +1,6 @@
 ﻿namespace Memory
 {
-    partial class EasyPairGame
+    partial class EasyPairGameForm
     {
         /// <summary>
         /// Required designer variable.
@@ -325,7 +325,7 @@
             this.labelP2points.TabIndex = 22;
             this.labelP2points.Text = "Points";
             // 
-            // EasyPairGame
+            // EasyPairGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -353,7 +353,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "EasyPairGame";
+            this.Name = "EasyPairGameForm";
             this.Text = "EasyPairGame";
             this.Load += new System.EventHandler(this.EasyPairGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

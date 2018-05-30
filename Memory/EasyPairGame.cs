@@ -10,20 +10,25 @@ using System.Windows.Forms;
 
 namespace Memory
 {
-    public partial class EasyPairGame : Form
+    public partial class EasyPairGameForm : Form
     {
-        readonly string pathToClosedCard = System.IO.Directory.GetCurrentDirectory() + @"\shapes\closedCard.jpg";
+        //readonly string pathToClosedCard = System.IO.Directory.GetCurrentDirectory() + @"\shapes\closedCard.jpg";
+        // the closed card is now in resources and we dont need the pathToClosedCard
+        
+        
+        // MORA DA SE REFAKTORIRA, OVA SE TREBA DA E VO KLASATA PAIR GAME!!!!!!!!
+
 
         List<PictureBox> picBoxes;
         Game game;
         Player Player1;
         Player Player2;
         Player currentPlayer;
-        KeyValuePair<string, PictureBox> previousCard; // shape -> in witch pictureBox was the shape
+        Tuple<string, PictureBox> previousCard; // shape -> in witch pictureBox was the shape
         HashSet<PictureBox> validCards;
         bool secondCard;
 
-        public EasyPairGame()
+        public EasyPairGameForm()
         {
             InitializeComponent();
             picBoxes = new List<PictureBox>();
@@ -47,8 +52,9 @@ namespace Memory
 
             validCards = new HashSet<PictureBox>(picBoxes);
 
-            Player1 = new HumanPlayer("eden");
-            Player2 = new HumanPlayer("dva");
+            Player1 = new HumanPlayer("FirstPlayer");
+            Player2 = new HumanPlayer("SecondPlayer");
+
             currentPlayer = Player1;
             secondCard = false;
             labelCurrentPlayer.Text = currentPlayer.Name;
@@ -94,7 +100,8 @@ namespace Memory
         }
         private void closeCard(PictureBox pb)
         {
-            pb.ImageLocation = pathToClosedCard;
+            //pb.ImageLocation = pathToClosedCard;
+            pb.Image = Properties.Resources.closedCard;
             pb.Enabled = true; ;
         }
         private void makeCardStill(PictureBox pb)
@@ -126,32 +133,33 @@ namespace Memory
                 {
                     pBox.Enabled = false;
                 }
-                if (card.Shape.Equals(previousCard.Key)) // 2 same cards 
+                if (card.Shape.Equals(previousCard.Item1)) // 2 same cards 
                 {
                     currentPlayer.Score.Points += 100; // add points to current player;
                     makeCardStill(pb);
-                    makeCardStill(previousCard.Value);
+                    makeCardStill(previousCard.Item2);
                     validCards.Remove(pb);
-                    validCards.Remove(previousCard.Value);
+                    validCards.Remove(previousCard.Item2);
 
                 }
                 else // 2 different cards
                 {
                     animateClosingCard(pb);
-                    animateClosingCard(previousCard.Value);
+                    animateClosingCard(previousCard.Item2);
                     changeTurn();
                 }
                 foreach (var pBox in validCards)
                 {
                     pBox.Enabled = true; 
                 }
-                previousCard = new KeyValuePair<string, PictureBox>(string.Empty, null); // set previous to null
+                previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
                 secondCard = false;
+                
             }
             else
             {
                 secondCard = true;
-                previousCard = new KeyValuePair<string, PictureBox>(card.Shape, pb);
+                previousCard = new Tuple<string, PictureBox>(card.Shape, pb);
             }
             labelCurrentPlayer.Text = currentPlayer.Name;
             labelP1points.Text = Player1.Score.Points + "";
