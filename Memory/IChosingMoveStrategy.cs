@@ -55,31 +55,31 @@ namespace Memory
 
             int secondIndex = -1;
 
-            StringBuilder sb = new StringBuilder();
-            sb.Append("Current card " + firstCard.Shape + " Na pozicija "  + validPBs[firstIndex].Name + "\n");
+            //StringBuilder sb = new StringBuilder();
+            //sb.Append("Current card " + firstCard.Shape + " Na pozicija "  + validPBs[firstIndex].Name + "\n");
             for (int i = 0; i < openedCards.Count; i++)
             {
-                sb.Append(cardsDictionary[openedCards[i]].Shape + "\n");
+                //sb.Append(cardsDictionary[openedCards[i]].Shape + "\n");
                 if (cardsDictionary[openedCards[i]].Equals(firstCard))
                 {
                     if (validPBs[firstIndex] != openedCards[i]) // not the same picture box
                     {
                         secondIndex = i;
-                        MessageBox.Show("Treba da ja otvoram pb " + openedCards[i].Name);
+                        //MessageBox.Show("Treba da ja otvoram pb " + openedCards[i].Name);
                     }
                     // DEBUGING
-                    else
-                    {
-                        MessageBox.Show("ISTI SE NO NA ISTA POZICIJA!!!");
-                    }
+                    //else
+                    //{
+                    //    MessageBox.Show("ISTI SE NO NA ISTA POZICIJA!!!");
+                    //}
                 }
             }
 
-            MessageBox.Show(sb.ToString());
+            //MessageBox.Show(sb.ToString());
 
             if (secondIndex == -1) // no match so return random cards
             {
-                MessageBox.Show("Nema druga vakva karta pa prodolzuvam random");
+                //MessageBox.Show("Nema druga vakva karta pa prodolzuvam random");
 
                 //EasyBotStrategy easyBotStrategy = new EasyBotStrategy();
                 //return easyBotStrategy
@@ -109,11 +109,11 @@ namespace Memory
         {
             if (unpairedOpenPairs.Any())
             {
-                MessageBox.Show("Ke vratam od canBeOpened " + unpairedOpenPairs.First().Item1.Name + "-" + unpairedOpenPairs.First().Item2.Name);
+                //MessageBox.Show("Ke vratam od canBeOpened " + unpairedOpenPairs.First().Item1.Name + "-" + unpairedOpenPairs.First().Item2.Name);
                 return unpairedOpenPairs.First();
             }
 
-            MessageBox.Show("Prodolzhuvam kako normal");
+            //MessageBox.Show("Prodolzhuvam kako normal");
             NormalBotStrategy normalBotStrategy = new NormalBotStrategy();
             return normalBotStrategy
                     .ChoseMove(unpairedOpenPairs, openedCards, validPicutreBoxes, cardsDictionary, rand);

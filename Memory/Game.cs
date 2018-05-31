@@ -154,7 +154,7 @@ namespace Memory
                     previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
                     secondCard = false;
 
-                    StringBuilder sb = new StringBuilder();
+                    /*StringBuilder sb = new StringBuilder();
                     sb.Append("Second card \ncanBeOpened: ");
                     foreach (var elem in canBePairedCards)
                     {
@@ -166,7 +166,7 @@ namespace Memory
                     {
                         sb.Append(c.Name + " ");
                     }
-                    MessageBox.Show(sb.ToString());
+                    MessageBox.Show(sb.ToString());*/
 
                     return true;
 
@@ -204,7 +204,7 @@ namespace Memory
                     previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
                     secondCard = false;
 
-                    StringBuilder sb = new StringBuilder();
+                    /*StringBuilder sb = new StringBuilder();
                     sb.Append("Second card \ncanBeOpened: ");
                     foreach (var elem in canBePairedCards)
                     {
@@ -216,7 +216,7 @@ namespace Memory
                     {
                         sb.Append(c.Name + " ");
                     }
-                    MessageBox.Show(sb.ToString());
+                    MessageBox.Show(sb.ToString());*/
 
                     if (!currentPlayer.isBot())
                     {
@@ -263,7 +263,7 @@ namespace Memory
                 secondCard = true;
                 previousCard = new Tuple<string, PictureBox>(card.Shape, pb);
 
-                StringBuilder sb = new StringBuilder();
+                /*StringBuilder sb = new StringBuilder();
                 sb.Append("First card \ncanBeOpened: ");
                 foreach (var elem in canBePairedCards)
                 {
@@ -275,7 +275,7 @@ namespace Memory
                 {
                     sb.Append(c.Name + " ");
                 }
-                MessageBox.Show(sb.ToString());
+                MessageBox.Show(sb.ToString());*/
 
                 return true;
             }
