@@ -154,7 +154,7 @@ namespace Memory
                     previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
                     secondCard = false;
 
-                    /*StringBuilder sb = new StringBuilder();
+                    StringBuilder sb = new StringBuilder();
                     sb.Append("Second card \ncanBeOpened: ");
                     foreach (var elem in canBePairedCards)
                     {
@@ -166,7 +166,7 @@ namespace Memory
                     {
                         sb.Append(c.Name + " ");
                     }
-                    MessageBox.Show(sb.ToString());*/
+                    MessageBox.Show(sb.ToString());
 
                     return true;
 
@@ -204,7 +204,7 @@ namespace Memory
                     previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
                     secondCard = false;
 
-                    /*StringBuilder sb = new StringBuilder();
+                    StringBuilder sb = new StringBuilder();
                     sb.Append("Second card \ncanBeOpened: ");
                     foreach (var elem in canBePairedCards)
                     {
@@ -216,7 +216,7 @@ namespace Memory
                     {
                         sb.Append(c.Name + " ");
                     }
-                    MessageBox.Show(sb.ToString());*/
+                    MessageBox.Show(sb.ToString());
 
                     if (!currentPlayer.isBot())
                     {
@@ -263,7 +263,7 @@ namespace Memory
                 secondCard = true;
                 previousCard = new Tuple<string, PictureBox>(card.Shape, pb);
 
-                /*StringBuilder sb = new StringBuilder();
+                StringBuilder sb = new StringBuilder();
                 sb.Append("First card \ncanBeOpened: ");
                 foreach (var elem in canBePairedCards)
                 {
@@ -275,7 +275,8 @@ namespace Memory
                 {
                     sb.Append(c.Name + " ");
                 }
-                MessageBox.Show(sb.ToString());*/
+                MessageBox.Show(sb.ToString());
+
                 return true;
             }
 
@@ -295,6 +296,29 @@ namespace Memory
             pb.Enabled = false;
         }
 
+
+        private void playBotMoves()
+        {
+            // Bot makes moves until he misses
+            updateLabels();
+
+            Tuple<PictureBox, PictureBox> move = currentPlayer.ChoseMove(canBePairedCards, openedCards, validCards, cardsDictionary, rand);
+            validateCard(move.Item1);
+
+            while (validateCard(move.Item2))
+            {
+                updateLabels();
+                if (validCards.Count == 0)
+                {
+                    break;
+                }
+                move = currentPlayer.ChoseMove(canBePairedCards, openedCards, validCards, cardsDictionary, rand);
+                validateCard(move.Item1);
+            }
+
+            changeTurn();
+        }
+
         public void changeTurn()
         {
             if (currentPlayer == Player2)
@@ -305,23 +329,11 @@ namespace Memory
             {
                 currentPlayer = Player2;
             }
+            updateLabels();
 
             if (currentPlayer.isBot())
             {
-                // Bot makes moves until he misses
-                updateLabels();
-
-                Tuple<PictureBox, PictureBox> move = currentPlayer.ChoseMove(canBePairedCards, openedCards, validCards, cardsDictionary, rand);
-                validateCard(move.Item1);
-
-                while (validCards.Count != 0 && validateCard(move.Item2))
-                {
-                    updateLabels();
-                    move = currentPlayer.ChoseMove(canBePairedCards, openedCards, validCards, cardsDictionary, rand);
-                    validateCard(move.Item1);
-                }
-
-                changeTurn();
+                playBotMoves();   
             }
             
         }
@@ -362,7 +374,6 @@ namespace Memory
 
         public override void startGame()
         {
-            Random rand = new Random();
             HashSet<int> picked = new HashSet<int>();
             for (int i = 0; i < pictureBoxes.Count / 2; i++)
             {
