@@ -355,7 +355,6 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "EasyPairGameForm";
             this.Text = "EasyPairGame";
-            this.Load += new System.EventHandler(this.EasyPairGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

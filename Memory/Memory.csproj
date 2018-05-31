@@ -61,7 +61,28 @@
     </Compile>
     <Compile Include="Game.cs" />
     <Compile Include="GifImage.cs" />
+    <Compile Include="HardPairGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HardPairGameForm.Designer.cs">
+      <DependentUpon>HardPairGameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IChosingMoveStrategy.cs" />
+    <Compile Include="PairGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Launcher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Launcher.Designer.cs">
+      <DependentUpon>Launcher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NormalPairGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NormalPairGameForm.Designer.cs">
+      <DependentUpon>NormalPairGameForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +93,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Launcher.resx">
+      <DependentUpon>Launcher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NormalPairGameForm.resx">
+      <DependentUpon>NormalPairGameForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

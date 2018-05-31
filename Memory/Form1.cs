@@ -26,10 +26,12 @@ namespace Memory
 
         private void buttonStartGame_Click(object sender, EventArgs e)
         {
-            EasyPairGameForm epg = new EasyPairGameForm();
+            //EasyPairGameForm epg = new EasyPairGameForm();
             //this.Hide();
-            epg.ShowDialog();
+            //epg.ShowDialog();
             //this.Show();
+            Launcher launcher = new Launcher();
+            launcher.ShowDialog();
         }
 
         private void buttonEnd_Click(object sender, EventArgs e)

@@ -33,7 +33,9 @@ namespace Memory
         public Player Player2 { get; set; }
         public Player currentPlayer {get;set;}
 
-        private Label l1, l2, l3;
+        private Label labelName;
+        private Label labelP1Points;
+        private Label labelP2Points;
 
         protected List<PictureBox> pictureBoxes;
         protected List<Card> cards;
@@ -50,7 +52,7 @@ namespace Memory
 
         // Sega za sega mora PairGame klasata da se spravuva so labelite za poeni i currentPlayer
         public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes
-            ,Label l1,Label l2,Label l3) : base(player1)
+            ,Label labelName,Label labelP1Points,Label labelP2Points) : base(player1)
         {
             Player2 = player2;
             shapes = new string[] { "spade", "heart" }; // not complete
@@ -66,16 +68,17 @@ namespace Memory
             cards = new List<Card>();
             this.validCards = new HashSet<PictureBox>(pictureBoxes);
 
-            this.l1 = l1;
-            this.l2 = l2;
-            this.l3 = l3;
+            this.labelName = labelName;
+            this.labelP1Points = labelP1Points;
+            this.labelP2Points = labelP2Points;
+
         }
 
         public void updateLabels()
         {
-            l1.Text = currentPlayer.Name;
-            l2.Text = Player1.Score.Points + "";
-            l3.Text = Player2.Score.Points + "";
+            labelName.Text = currentPlayer.Name;
+            labelP1Points.Text = Player1.Score.Points + "";
+            labelP2Points.Text = Player2.Score.Points + "";
         }
         private void animateOpeningCard(PictureBox pb)
         {
@@ -105,8 +108,10 @@ namespace Memory
 
         public bool validateCard(PictureBox pb)
         {
-            updateLabels();
+            //updateLabels();
             Card card = getCard(pb);
+            MessageBox.Show(card.ToString());
+
             animateOpeningCard(pb);
             if (secondCard)
             {
@@ -401,6 +406,14 @@ namespace Memory
                 cardsDictionary.Add(pictureBoxes[i], cards[index]);
                 cards.RemoveAt(index);
             }
+
+            StringBuilder sb = new StringBuilder();
+
+            foreach (var elem in cardsDictionary)
+            {
+                sb.Append(elem.Key.Name).Append("-").Append(elem.Value.Shape).Append("\n");
+            } 
+            MessageBox.Show(sb.ToString());
         }
 
 
