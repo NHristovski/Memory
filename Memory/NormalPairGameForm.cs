@@ -49,21 +49,23 @@ namespace Memory
 
             
 
-            game = new PairGame(Player1, Player2, picBoxes,
-               labelCurrentPlayer, labelP1points, labelP2points);
-
+            game = new PairGame(Player1, Player2, picBoxes);
             game.startGame();
-            game.updateLabels();
+
+            updateLabels();
         }
+        private void updateLabels()
+        {
+            labelCurrentPlayer.Text = game.currentPlayer.Name;
+            labelP1points.Text = game.Player1.Score.Points + "";
+            labelP2points.Text = game.Player2.Score.Points + "";
+        }
+
         private void validateCard(PictureBox pb)
         {
+            updateLabels();
             game.validateCard(pb);
-
-            //just for checking
-            //labelCurrentPlayer.Text = game.currentPlayer.Name;
-            //labelP1points.Text = game.Player1.Score.Points + "";
-            //labelP2points.Text = game.Player2.Score.Points + "";
-
+            updateLabels();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

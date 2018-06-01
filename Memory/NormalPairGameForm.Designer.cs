@@ -112,7 +112,7 @@
             // labelP1points
             // 
             this.labelP1points.AutoSize = true;
-            this.labelP1points.Location = new System.Drawing.Point(66, 97);
+            this.labelP1points.Location = new System.Drawing.Point(28, 130);
             this.labelP1points.Name = "labelP1points";
             this.labelP1points.Size = new System.Drawing.Size(46, 17);
             this.labelP1points.TabIndex = 1;
@@ -130,7 +130,7 @@
             // labelP2points
             // 
             this.labelP2points.AutoSize = true;
-            this.labelP2points.Location = new System.Drawing.Point(66, 152);
+            this.labelP2points.Location = new System.Drawing.Point(156, 130);
             this.labelP2points.Name = "labelP2points";
             this.labelP2points.Size = new System.Drawing.Size(46, 17);
             this.labelP2points.TabIndex = 2;

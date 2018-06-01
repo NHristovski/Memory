@@ -18,6 +18,13 @@ namespace Memory
         public EasyPairGameForm(Player Player1,Player Player2)
         {
             InitializeComponent();
+
+           /* if (Player2.isBot())
+            {
+                labelCurrentPlayer.Visible = false;
+                labelP2points.Visible = false;
+            }*/
+
             picBoxes = new List<PictureBox>();
             
             picBoxes.Add(this.pictureBox1);
@@ -38,23 +45,19 @@ namespace Memory
             picBoxes.Add(this.pictureBox16);
 
 
-            game = new PairGame(Player1,Player2, picBoxes,
-               labelCurrentPlayer, labelP1points, labelP2points);
-
+            game = new PairGame(Player1,Player2, picBoxes);
             game.startGame();
-            game.updateLabels();
+
+            updateLabels();
         }
 
-        /*private void EasyPairGame_Load(object sender, EventArgs e)
-        {   // NEEDS CHANGE: PLAYERS
-           
-            // just for checking
-   
-            //labelCurrentPlayer.Text = game.currentPlayer.Name;
-            //labelP1points.Text = game.Player1.Score.Points + "";
-            //labelP2points.Text = game.Player2.Score.Points + "";
-        }*/
-
+        private void updateLabels()
+        {
+            labelCurrentPlayer.Text = game.currentPlayer.Name;
+            labelP1points.Text = game.Player1.Score.Points + "";
+            labelP2points.Text = game.Player2.Score.Points + "";
+        }
+        
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -62,94 +65,160 @@ namespace Memory
 
         private void validateCard(PictureBox pb)
         {
+            updateLabels();
             game.validateCard(pb);
-
-            //just for checking
-            //labelCurrentPlayer.Text = game.currentPlayer.Name;
-            //labelP1points.Text = game.Player1.Score.Points + "";
-            //labelP2points.Text = game.Player2.Score.Points + "";
-            
+            updateLabels();
         }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox1);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox1);
+            }
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox2);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox2);
+            }
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox3);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox3);
+            }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox4);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox4);
+            }
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox5);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox5);
+            }
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox6);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox6);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox7);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox7);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox8);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox8);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox9);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox9);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox10);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox10);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox11);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox11);
+            }
+           // game.updateLabels();
+           // Invalidate(true);
         }
 
         private void pictureBox12_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox12);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox12);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox13_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox13);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox13);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox14_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox14);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox14);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox15_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox15);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox15);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
         private void pictureBox16_Click(object sender, EventArgs e)
         {
-            validateCard(pictureBox16);
+            if (game.ShouldHandle)
+            {
+                validateCard(pictureBox16);
+            }
+            //game.updateLabels();
+            //Invalidate(true);
         }
 
-        
     }
 }

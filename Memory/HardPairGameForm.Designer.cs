@@ -139,7 +139,7 @@
             // labelCurrentPlayer
             // 
             this.labelCurrentPlayer.AutoSize = true;
-            this.labelCurrentPlayer.Location = new System.Drawing.Point(1205, 299);
+            this.labelCurrentPlayer.Location = new System.Drawing.Point(1266, 105);
             this.labelCurrentPlayer.Name = "labelCurrentPlayer";
             this.labelCurrentPlayer.Size = new System.Drawing.Size(46, 17);
             this.labelCurrentPlayer.TabIndex = 2;
@@ -148,7 +148,7 @@
             // labelP1points
             // 
             this.labelP1points.AutoSize = true;
-            this.labelP1points.Location = new System.Drawing.Point(1249, 182);
+            this.labelP1points.Location = new System.Drawing.Point(1196, 234);
             this.labelP1points.Name = "labelP1points";
             this.labelP1points.Size = new System.Drawing.Size(46, 17);
             this.labelP1points.TabIndex = 3;
@@ -157,7 +157,7 @@
             // labelP2points
             // 
             this.labelP2points.AutoSize = true;
-            this.labelP2points.Location = new System.Drawing.Point(1313, 299);
+            this.labelP2points.Location = new System.Drawing.Point(1324, 234);
             this.labelP2points.Name = "labelP2points";
             this.labelP2points.Size = new System.Drawing.Size(46, 17);
             this.labelP2points.TabIndex = 4;
