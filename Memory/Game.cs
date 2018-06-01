@@ -101,7 +101,7 @@ namespace Memory
 
         private void closeCard(PictureBox pb)
         {
-            pb.Image = Properties.Resources.closedCard;
+            pb.Image = Image.FromFile(pathToResources + "closed_card.jpg");// Properties.Resources.closedCard;
             pb.Enabled = true; ;
         }
 
