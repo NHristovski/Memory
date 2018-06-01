@@ -38,7 +38,6 @@ namespace Memory
             picBoxes.Add(this.pictureBox15);
             picBoxes.Add(this.pictureBox16);
 
-
             game = new PairGame(Player1,Player2, picBoxes);
             game.startGame();
 

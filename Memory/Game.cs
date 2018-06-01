@@ -12,12 +12,19 @@ namespace Memory
 {
     public abstract class Game
     {
+        protected readonly string pathToResources;
+
         protected static Random rand = new Random();
 
         public Player Player1 { get; set; }
 
         public Game(Player player)
         {
+            string fullPath = AppDomain.CurrentDomain.BaseDirectory;
+
+            pathToResources = fullPath.Replace(@"bin\Debug", @"Resources");
+
+            MessageBox.Show(pathToResources);
             Player1 = player;
           
         }
@@ -331,21 +338,10 @@ namespace Memory
         // RETURNS OPEN,CLOSE,STILL CARD IMAGES
         public Tuple<Image,Image,Image> getImages(string shape)
         {
-            switch (shape)
-            {
-                case "spade":
-                    return new Tuple<Image, Image, Image>(Properties.Resources.spade_open,
-                                                          Properties.Resources.spade_close,
-                                                          Properties.Resources.spade_still);
-                case "heart":
-                    return new Tuple<Image, Image, Image>(Properties.Resources.heart_open,
-                                                          Properties.Resources.heart_close,
-                                                          Properties.Resources.heart_still);
-                default:
-                    throw new Exception("THE IS NO SUCH SHAPE, CHECK FUNCTION GET IMAGES IN CLASS GAME!");
-
-            }
-
+            return new Tuple<Image, Image, Image>(Image.FromFile(pathToResources + shape + "_open.gif"),
+                                                  Image.FromFile(pathToResources + shape + "_close.gif"),
+                                                  Image.FromFile(pathToResources + shape + "_still.jpg"));
+            
         }
 
         // OVA TERBA DA SE BRISHE
