@@ -13,7 +13,7 @@ namespace Memory
     public abstract class Game
     {
         protected readonly string pathToResources;
-
+        public static Image closedCard;
         protected static Random rand = new Random();
 
         public Player Player1 { get; set; }
@@ -21,8 +21,9 @@ namespace Memory
         public Game(Player player)
         {
             string fullPath = AppDomain.CurrentDomain.BaseDirectory;
-
+            
             pathToResources = fullPath.Replace(@"bin\Debug", @"Resources");
+            closedCard = Image.FromFile(pathToResources + "closed_card.jpg");
 
             MessageBox.Show(pathToResources);
             Player1 = player;
@@ -56,6 +57,7 @@ namespace Memory
 
         public bool ShouldHandle { get; set; }
 
+        
         // CONSTRUCTOR
         public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes) : base(player1)
         {
@@ -101,8 +103,8 @@ namespace Memory
 
         private void closeCard(PictureBox pb)
         {
-            pb.Image = Image.FromFile(pathToResources + "closed_card.jpg");// Properties.Resources.closedCard;
-            pb.Enabled = true; ;
+            pb.Image = Game.closedCard;
+            pb.Enabled = true; 
         }
 
         private void makeCardStill(PictureBox pb)

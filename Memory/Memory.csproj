@@ -127,9 +127,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\ClosedCard.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\shapes\closedCard.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -151,6 +148,7 @@
     <None Include="bin\Debug\shapes\heart\heart_still.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\closed_card.jpg" />
     <Content Include="Resources\heart_close.gif" />
     <Content Include="Resources\heart_open.gif" />
     <Content Include="Resources\heart_still.jpg" />
