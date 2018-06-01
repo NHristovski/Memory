@@ -19,12 +19,6 @@ namespace Memory
         {
             InitializeComponent();
 
-           /* if (Player2.isBot())
-            {
-                labelCurrentPlayer.Visible = false;
-                labelP2points.Visible = false;
-            }*/
-
             picBoxes = new List<PictureBox>();
             
             picBoxes.Add(this.pictureBox1);

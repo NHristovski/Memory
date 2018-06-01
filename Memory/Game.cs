@@ -48,7 +48,7 @@ namespace Memory
 
         public bool ShouldHandle { get; set; }
 
-        // Sega za sega mora PairGame klasata da se spravuva so labelite za poeni i currentPlayer
+        
         public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes) : base(player1)
         {
             Player2 = player2;
@@ -66,7 +66,6 @@ namespace Memory
             this.validCards = new HashSet<PictureBox>(pictureBoxes);
 
             ShouldHandle = true;
-
         }
 
         private void animateOpeningCard(PictureBox pb)
@@ -239,7 +238,7 @@ namespace Memory
                 addToCanBePaired(pb);
 
                 if (!openedCards.Contains(pb))
-                {
+                { 
                     openedCards.Add(pb);
                 }
 
