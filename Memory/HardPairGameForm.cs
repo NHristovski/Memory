@@ -63,6 +63,13 @@ namespace Memory
             picBoxes.Add(this.pictureBox40);
 
             game = new PairGame(Player1, Player2, picBoxes);
+
+            foreach (var pBox in picBoxes)
+            {
+                game.closeCard(pBox);
+            }
+
+
             game.startGame();
 
             updateLabels();

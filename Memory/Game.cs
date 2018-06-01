@@ -25,7 +25,9 @@ namespace Memory
             pathToResources = fullPath.Replace(@"bin\Debug", @"Resources");
             closedCard = Image.FromFile(pathToResources + "closed_card.jpg");
 
-            MessageBox.Show(pathToResources);
+            // DEBUGGING
+            //MessageBox.Show(pathToResources);
+
             Player1 = player;
           
         }
@@ -101,7 +103,7 @@ namespace Memory
             }
         }
 
-        private void closeCard(PictureBox pb)
+        public void closeCard(PictureBox pb)
         {
             pb.Image = Game.closedCard;
             pb.Enabled = true; 
