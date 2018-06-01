@@ -316,7 +316,7 @@ namespace Memory
         {
             return cardsDictionary[pb];
         }
-
+        // OVA TERBA DA SE BRISHE
         private StringBuilder getShapesFolder(string shape)
         {
             StringBuilder stringBuilder = new StringBuilder();
