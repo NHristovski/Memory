@@ -94,6 +94,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="HardPairGameForm.resx">
+      <DependentUpon>HardPairGameForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Launcher.resx">
       <DependentUpon>Launcher.cs</DependentUpon>
     </EmbeddedResource>
@@ -128,6 +131,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\shapes\closedCard.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\shapes\spade\spade_open.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -14,19 +14,18 @@ namespace Memory
     {
         List<PictureBox> picBoxes;
         PairGame game;
+
         public NormalPairGameForm(Player Player1, Player Player2)
         {
-            InitializeComponent();
-
             InitializeComponent();
             picBoxes = new List<PictureBox>();
 
             picBoxes.Add(this.pictureBox1);
             picBoxes.Add(this.pictureBox2);
             picBoxes.Add(this.pictureBox3);
-            picBoxes.Add(this.pictureBox6);
-            picBoxes.Add(this.pictureBox5);
             picBoxes.Add(this.pictureBox4);
+            picBoxes.Add(this.pictureBox5);
+            picBoxes.Add(this.pictureBox6);
             picBoxes.Add(this.pictureBox7);
             picBoxes.Add(this.pictureBox8);
             picBoxes.Add(this.pictureBox9);
@@ -47,18 +46,15 @@ namespace Memory
             picBoxes.Add(this.pictureBox24);
             picBoxes.Add(this.pictureBox25);
             picBoxes.Add(this.pictureBox26);
-            picBoxes.Add(this.pictureBox27);
-            picBoxes.Add(this.pictureBox28);
-            picBoxes.Add(this.pictureBox29);
-            picBoxes.Add(this.pictureBox30);
+
+            
 
             game = new PairGame(Player1, Player2, picBoxes,
-               label1,label2,label3); // labelite se null momentalno
+               labelCurrentPlayer, labelP1points, labelP2points);
 
             game.startGame();
             game.updateLabels();
         }
-
         private void validateCard(PictureBox pb)
         {
             game.validateCard(pb);
@@ -198,26 +194,6 @@ namespace Memory
         private void pictureBox26_Click(object sender, EventArgs e)
         {
             validateCard(pictureBox26);
-        }
-
-        private void pictureBox27_Click(object sender, EventArgs e)
-        {
-            validateCard(pictureBox27);
-        }
-
-        private void pictureBox28_Click(object sender, EventArgs e)
-        {
-            validateCard(pictureBox28);
-        }
-
-        private void pictureBox29_Click(object sender, EventArgs e)
-        {
-            validateCard(pictureBox29);
-        }
-
-        private void pictureBox30_Click(object sender, EventArgs e)
-        {
-            validateCard(pictureBox30);
         }
     }
 }

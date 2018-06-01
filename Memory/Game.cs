@@ -82,7 +82,9 @@ namespace Memory
         }
         private void animateOpeningCard(PictureBox pb)
         {
+
             Card card = getCard(pb);
+            //MessageBox.Show(card.pathToOpenCard);
             if (!card.Guessed)
             {
                 GifImage gifImage = new GifImage(card.pathToOpenCard);
@@ -93,6 +95,7 @@ namespace Memory
                     pb.Enabled = false;
                 }
             }
+           // MessageBox.Show("Zavrsiv");
         }
         private void animateClosingCard(PictureBox pb)
         {
@@ -110,7 +113,7 @@ namespace Memory
         {
             //updateLabels();
             Card card = getCard(pb);
-            MessageBox.Show(card.ToString());
+            //MessageBox.Show(card.ToString());
 
             animateOpeningCard(pb);
             if (secondCard)
@@ -407,13 +410,13 @@ namespace Memory
                 cards.RemoveAt(index);
             }
 
-            StringBuilder sb = new StringBuilder();
+            /*StringBuilder sb = new StringBuilder();
 
             foreach (var elem in cardsDictionary)
             {
                 sb.Append(elem.Key.Name).Append("-").Append(elem.Value.Shape).Append("\n");
             } 
-            MessageBox.Show(sb.ToString());
+            MessageBox.Show(sb.ToString());*/
         }
 
 

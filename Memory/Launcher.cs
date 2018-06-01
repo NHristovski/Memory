@@ -86,7 +86,7 @@ namespace Memory
             }
             else// hard
             {
-                form = new HardPairGameForm();
+                form = new HardPairGameForm(Player1, Player2);
             }
 
             form.ShowDialog();
