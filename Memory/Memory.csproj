@@ -86,6 +86,11 @@
     <Compile Include="Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Score.cs" />
     <Compile Include="PlayerDocument.cs" />
     <EmbeddedResource Include="EasyPairGame.resx">
@@ -105,14 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -149,6 +149,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\shapes\heart\heart_still.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\heart_close.gif" />
+    <Content Include="Resources\heart_open.gif" />
+    <Content Include="Resources\heart_still.jpg" />
+    <Content Include="Resources\spade_close.gif" />
+    <Content Include="Resources\spade_open.gif" />
+    <Content Include="Resources\spade_still.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
