@@ -17,9 +17,9 @@ namespace Memory
         private bool reverse;
         private int step = 1;
 
-        public GifImage(string path)
+        public GifImage(Image image)
         {
-            gifImage = Image.FromFile(path); //initialize
+            gifImage = image; //initialize
             dimension = new FrameDimension(gifImage.FrameDimensionsList[0]); //gets the GUID
             frameCount = gifImage.GetFrameCount(dimension); //total frames in the animation
         }

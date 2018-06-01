@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,16 +10,16 @@ namespace Memory
     public class Card
     {
         public string Shape { get; set; }
-        public string pathToOpenCard { get; set; }
-        public string pathToCloseCard { get; set; }
-        public string pathToStillCard { get; set; }
+        public Image OpenCard { get; set; }
+        public Image CloseCard { get; set; }
+        public Image StillCard { get; set; }
         public bool Guessed { get; set; }
-        public Card(string shape,string open, string close, string still)
+        public Card(string shape,Image open, Image close, Image still)
         {
             Shape = shape;
-            pathToCloseCard = close;
-            pathToOpenCard = open;
-            pathToStillCard = still;
+            CloseCard = close;
+            OpenCard = open;
+            StillCard = still;
             Guessed = false;
         }
 
