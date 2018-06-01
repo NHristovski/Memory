@@ -135,5 +135,20 @@
   <ItemGroup>
     <None Include="bin\Debug\shapes\spade\spade_open.gif" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\shapes\spade\spade_close.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\shapes\spade\spade_still.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\shapes\heart\heart_close.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\shapes\heart\heart_open.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\shapes\heart\heart_still.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using System.Threading;
+using System.Drawing;
 
 namespace Memory
 {
@@ -48,7 +49,7 @@ namespace Memory
 
         public bool ShouldHandle { get; set; }
 
-        
+        // CONSTRUCTOR
         public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes) : base(player1)
         {
             Player2 = player2;
@@ -68,6 +69,8 @@ namespace Memory
             ShouldHandle = true;
         }
 
+
+        // ANIMATIONS
         private void animateOpeningCard(PictureBox pb)
         {
             if (secondCard && !currentPlayer.isBot())
@@ -79,7 +82,7 @@ namespace Memory
             //MessageBox.Show(card.pathToOpenCard);
             if (!card.Guessed)
             {
-                GifImage gifImage = new GifImage(card.pathToOpenCard);
+                GifImage gifImage = new GifImage(card.OpenCard);
                 for (int i = 0; i < gifImage.frameCount; i++)
                 {
                     pb.Enabled = true;
@@ -87,11 +90,25 @@ namespace Memory
                     pb.Enabled = false;
                 }
             }
-           // MessageBox.Show("Zavrsiv");
         }
+
+        private void closeCard(PictureBox pb)
+        {
+            pb.Image = Properties.Resources.closedCard;
+            pb.Enabled = true; ;
+        }
+
+        private void makeCardStill(PictureBox pb)
+        {
+            pb.Enabled = true;
+            pb.Image = getCard(pb).StillCard;
+            pb.Enabled = false;
+
+        }
+
         private void animateClosingCard(PictureBox pb)
         {
-            GifImage gifImage = new GifImage(getCard(pb).pathToCloseCard);
+            GifImage gifImage = new GifImage(getCard(pb).CloseCard);
             for (int i = 0; i < gifImage.frameCount; i++)
             {
                 pb.Enabled = true;
@@ -103,6 +120,8 @@ namespace Memory
             ShouldHandle = true;
         }
 
+
+        // HELPER FUNCTIONS FOR VALIDATING CARD
         private void removeFromCanBePaired(PictureBox pb)
         {
             for (int i = 0; i < canBePairedCards.Count; i++)
@@ -139,6 +158,8 @@ namespace Memory
             }
         }
         
+
+        // MAIN FUNCTION OF THE CLASS
         public bool validateCard(PictureBox pb)
         {
             Card card = getCard(pb);
@@ -251,23 +272,13 @@ namespace Memory
             
         }
 
-        private void closeCard(PictureBox pb)
-        {
-            pb.Image = Properties.Resources.closedCard;
-            pb.Enabled = true; ;
-        }
-        private void makeCardStill(PictureBox pb)
-        {
-            pb.Enabled = true;
-            pb.ImageLocation = getCard(pb).pathToStillCard;
-            pb.Enabled = false;
- 
-        }
-
+       
         public bool shouldEnd()
         {
             return this.validCards.Count == 0;
         }
+
+        // BOT MOVES
 
         public Tuple<PictureBox, PictureBox> botMove()
         {
@@ -316,8 +327,29 @@ namespace Memory
         {
             return cardsDictionary[pb];
         }
+
+        // RETURNS OPEN,CLOSE,STILL CARD IMAGES
+        public Tuple<Image,Image,Image> getImages(string shape)
+        {
+            switch (shape)
+            {
+                case "spade":
+                    return new Tuple<Image, Image, Image>(Properties.Resources.spade_open,
+                                                          Properties.Resources.spade_close,
+                                                          Properties.Resources.spade_still);
+                case "heart":
+                    return new Tuple<Image, Image, Image>(Properties.Resources.heart_open,
+                                                          Properties.Resources.heart_close,
+                                                          Properties.Resources.heart_still);
+                default:
+                    throw new Exception("THE IS NO SUCH SHAPE, CHECK FUNCTION GET IMAGES IN CLASS GAME!");
+
+            }
+
+        }
+
         // OVA TERBA DA SE BRISHE
-        private StringBuilder getShapesFolder(string shape)
+        /*private StringBuilder getShapesFolder(string shape)
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.Append(System.IO.Directory.GetCurrentDirectory())
@@ -344,7 +376,7 @@ namespace Memory
             StringBuilder stringBuilder = this.getShapesFolder(shape);
             stringBuilder.Append("_still.jpg");
             return stringBuilder.ToString();
-        }
+        }*/
 
         public override void startGame()
         {
@@ -360,10 +392,10 @@ namespace Memory
                // {
                     picked.Add(index);
                     string shape = shapes[index];
-                    string shapeOpen = this.getPathOpen(shape);
-                    string shapeClose = this.getPathClose(shape);
-                    string shapeStill = this.getPathStill(shape);
-                    Card card = new Card(shape, shapeOpen, shapeClose, shapeStill);
+
+                    Tuple<Image, Image, Image> images = this.getImages(shape);
+
+                    Card card = new Card(shape, images.Item1, images.Item2, images.Item3);
                     cards.Add(card);
                     cards.Add(card);
               //  }
