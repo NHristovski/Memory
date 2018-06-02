@@ -10,7 +10,7 @@ using System.Drawing;
 
 namespace Memory
 {
-    public abstract class Game
+    public abstract class Game 
     {
         
        
@@ -29,9 +29,10 @@ namespace Memory
 
     }
 
-    public class PairGame : Game
+    public class PairGame : Game, IObservable
     {
-        
+        private STATES State;
+
         protected string[] shapes;
 
         public Player Player2 { get; set; }
@@ -40,14 +41,14 @@ namespace Memory
         protected List<PictureBox> pictureBoxes;
         protected List<Card> cards;
         protected Dictionary<PictureBox, Card> cardsDictionary;
-        protected HashSet<PictureBox> validCards;
-        protected Tuple<string, PictureBox> previousCard;
+        public HashSet<PictureBox> validCards;
+        public Tuple<string, PictureBox> previousCard;
 
         protected List<Tuple<PictureBox, PictureBox>> canBePairedCards;
-        protected List<PictureBox> openedCards;
+        public List<PictureBox> openedCards;
 
-        private bool secondCard;
-        private int scoreMultiplier;
+        public bool secondCard;
+        public int scoreMultiplier;
 
         public bool ShouldHandle { get; set; }
 
@@ -57,9 +58,13 @@ namespace Memory
         public readonly int openCardsPrice;
         public readonly int findNextPrice;
 
+        IGameObserver Observer;
+
         // CONSTRUCTOR
-        public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes, int x2Price, int secondChancePrice, int findNextPrice, int openCardsPrice ) : base(player1)
+        public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes, int x2Price, int secondChancePrice, int findNextPrice, int openCardsPrice) : base(player1)
         {
+            State = STATES.NORMAL_STATE;
+
             Player2 = player2;
             shapes = new string[] { "spade", "heart" }; // not complete
             secondCard = false;
@@ -80,11 +85,27 @@ namespace Memory
             this.secondChancePrice = secondChancePrice;
             this.openCardsPrice = openCardsPrice;
             this.findNextPrice = findNextPrice;
+
+            this.Observer = new GameObserver();
+            ((GameObserver)Observer).Game = this;
         }
 
+        //Implementig interface IObervable
+        public STATES GetState()
+        {
+            return State;
+        }
+        public void ReturnToNormalState()
+        {
+            this.State = STATES.NORMAL_STATE;
+        }
+        private void makeStateSecondChance()
+        {
+            this.State = STATES.SECON_CHANCE_STATE;
+        }
 
         // ANIMATIONS
-        private void animateOpeningCard(PictureBox pb)
+        public void animateOpeningCard(PictureBox pb)
         {
             if (secondCard && !currentPlayer.isBot())
             {
@@ -111,7 +132,7 @@ namespace Memory
             pb.Enabled = true; 
         }
 
-        private void makeCardStill(PictureBox pb)
+        public void makeCardStill(PictureBox pb)
         {
             pb.Enabled = true;
             pb.Image = getCard(pb).StillCard;
@@ -119,7 +140,7 @@ namespace Memory
 
         }
 
-        private void animateClosingCard(PictureBox pb)
+        public void animateClosingCard(PictureBox pb)
         {
             GifImage gifImage = new GifImage(getCard(pb).CloseCard);
             for (int i = 0; i < gifImage.frameCount; i++)
@@ -135,7 +156,7 @@ namespace Memory
 
 
         // HELPER FUNCTIONS FOR VALIDATING CARD
-        private void removeFromCanBePaired(PictureBox pb)
+        public void removeFromCanBePaired(PictureBox pb)
         {
             for (int i = 0; i < canBePairedCards.Count; i++)
             {
@@ -152,7 +173,7 @@ namespace Memory
             }
         }
 
-        private void addToCanBePaired(PictureBox pb)
+        public void addToCanBePaired(PictureBox pb)
         {
             for (int i = 0; i < openedCards.Count; i++)
             {
@@ -170,122 +191,14 @@ namespace Memory
                 }
             }
         }
-        
+
 
         // MAIN FUNCTION OF THE CLASS
         public bool validateCard(PictureBox pb)
         {
-            Card card = getCard(pb);
-            animateOpeningCard(pb);
-
-            if (secondCard)
-            {
-                /*foreach (var pBox in validCards)
-                {
-                    pBox.Enabled = false;
-                }*/
-                if (card.Shape.Equals(previousCard.Item1)) // 2 same cards 
-                {
-                    // calculate points
-                    currentPlayer.Score.Points += (scoreMultiplier * 100);
-                    scoreMultiplier++;
-
-                    //updateLabels();
-
-                    makeCardStill(pb);
-                    makeCardStill(previousCard.Item2);
-
-                    validCards.Remove(pb);
-                    validCards.Remove(previousCard.Item2);
-                    
-                    openedCards.Remove(pb);
-                    openedCards.Remove(previousCard.Item2);
-
-                    removeFromCanBePaired(pb);
-
-                    if (validCards.Count == 0) // every card is guessed
-                    {
-                        endGame();
-                    }
-
-                    previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
-                    secondCard = false;
-
-                    ShouldHandle = true;
-                    //MessageBox.Show("sega moze da handla");
-
-                    return true;
-
-                    /*StringBuilder sb = new StringBuilder();
-                    sb.Append("Second card \ncanBeOpened: ");
-                    foreach (var elem in canBePairedCards)
-                    {
-                        sb.Append(elem.Item1.Name + "-" + elem.Item2.Name + " ");
-                    }
-                    sb.Append("\nOppenedCards: ");
-
-                    foreach (var c in openedCards)
-                    {
-                        sb.Append(c.Name + " ");
-                    }
-                    MessageBox.Show(sb.ToString());*/
-
-                }
-                else // 2 different cards
-                {
-                    animateClosingCard(pb);
-                    animateClosingCard(previousCard.Item2);
-
-                    ShouldHandle = true;
-                    //MessageBox.Show("sega moze da handla");
-
-                    scoreMultiplier = 1;
-
-                    addToCanBePaired(pb);
-
-                    if (!openedCards.Contains(pb))
-                    {
-                        openedCards.Add(pb);
-                    }
-
-                    previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
-                    secondCard = false;
-
-
-                    if (!currentPlayer.isBot())
-                    {
-                        changeTurn();
-                    }
-
-                    return false;
-                }
-                /*foreach (var pBox in validCards)
-                {
-                    pBox.Enabled = true;
-                }*/
-                
-            }
-            else
-            {
-                ShouldHandle = true;
-
-                addToCanBePaired(pb);
-
-                if (!openedCards.Contains(pb))
-                { 
-                    openedCards.Add(pb);
-                }
-
-                secondCard = true;
-                previousCard = new Tuple<string, PictureBox>(card.Shape, pb);
-
-                return true;
-            }
-
-            
+            return Observer.validateCard(pb);
         }
 
-       
         public bool shouldEnd()
         {
             return this.validCards.Count == 0;
@@ -304,9 +217,9 @@ namespace Memory
             ShouldHandle = false; // disable clicking on pictureboxes while bot makes moves
 
             Tuple<PictureBox, PictureBox> move = botMove();
-            validateCard(move.Item1);
+            Observer.validateCard(move.Item1);
 
-            while (validateCard(move.Item2))
+            while (Observer.validateCard(move.Item2))
             {
                 if (this.shouldEnd())
                 {
@@ -314,7 +227,7 @@ namespace Memory
                 }
 
                 move = botMove();
-                validateCard(move.Item1);              
+                Observer.validateCard(move.Item1);              
             }
 
             ShouldHandle = true; // enable clicking on pictureBoxes
@@ -431,6 +344,10 @@ namespace Memory
 
         public PictureBox FindNext(PictureBox pb)
         {
+            if (!secondCard)
+            {
+                throw new CardNotOpenedException();
+            }
             if (((PairGameHumanPlayer)currentPlayer).findNextAvaliable < 1)
             {
                 throw new HelperNotAvaliableException();
@@ -451,70 +368,7 @@ namespace Memory
             throw new Exception("CANNOT FIND THE CARD! CHECK FINDNEXT IN GAME.CS");
         }
 
-        public bool validateCardSecondChance(PictureBox pb)
-        {
-            if (((PairGameHumanPlayer)currentPlayer).secondChanceAvaliable < 1)
-            {
-                throw new HelperNotAvaliableException();
-            }
-            if (currentPlayer.Score.Points < secondChancePrice)
-            {
-                throw new NotEnoughScoreException();
-            }
-
-            Card card = getCard(pb);
-            animateOpeningCard(pb);
-
-
-            ((PairGameHumanPlayer)currentPlayer).UseSecondChance(secondChancePrice);
-
-            if (card.Shape.Equals(previousCard.Item1)) // 2 same cards 
-            {
-                // calculate points
-                currentPlayer.Score.Points += (scoreMultiplier * 100);
-                scoreMultiplier++;
-
-                makeCardStill(pb);
-                makeCardStill(previousCard.Item2);
-
-                validCards.Remove(pb);
-                validCards.Remove(previousCard.Item2);
-
-                openedCards.Remove(pb);
-                openedCards.Remove(previousCard.Item2);
-
-                removeFromCanBePaired(pb);
-
-                if (validCards.Count == 0) // every card is guessed
-                {
-                    endGame();
-                }
-
-                ShouldHandle = true;
-                secondCard = false;
-
-
-                return true;
-
-            }
-            else // 2 different cards
-            {
-                animateClosingCard(pb);
-                //animateClosingCard(previousCard.Item2);
-
-                addToCanBePaired(pb);
-
-                if (!openedCards.Contains(pb))
-                {
-                    openedCards.Add(pb);
-                }
-                ShouldHandle = true;
-
-                return false;
-            }
-
-        }
-
+       
         public void OpenCards()
         {
             if (((PairGameHumanPlayer)currentPlayer).openCardsAvaliable < 1)
@@ -529,6 +383,24 @@ namespace Memory
             ((PairGameHumanPlayer)currentPlayer).UseOpenCards(openCardsPrice);
         }
         
+        public void SecondChance()
+        {
+            if (!secondCard)
+            {
+                throw new CardNotOpenedException();
+            }
+            if (((PairGameHumanPlayer)currentPlayer).secondChanceAvaliable < 1)
+            {
+                throw new HelperNotAvaliableException();
+            }
+            if (currentPlayer.Score.Points < secondChancePrice)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            ((PairGameHumanPlayer)currentPlayer).UseSecondChance(secondChancePrice);
+            makeStateSecondChance();
+        }
 
 
 
@@ -543,7 +415,7 @@ namespace Memory
             MessageBox.Show("END GAME");
         }
 
-        
+       
     }
     
 

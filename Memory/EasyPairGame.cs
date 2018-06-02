@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -256,6 +257,79 @@ namespace Memory
                 MessageBox.Show("You have used all your instances of this helper!");
             }
             
+        }
+
+        private void pictureBoxSecondChance_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                game.SecondChance();
+                updateLabels();
+            }
+            catch(CardNotOpenedException ex)
+            {
+                MessageBox.Show("You have to open one card before using SecondChance helper!");
+            }
+            catch (NotEnoughScoreException ex)
+            {
+                MessageBox.Show("You don't have enought score to buy this helper!");
+            }
+            catch (HelperNotAvaliableException ex)
+            {
+                MessageBox.Show("You have used all your instances of this helper!");
+            }
+        }
+
+        private void pictureBoxFindNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PictureBox pictureBox = game.FindNext(game.previousCard.Item2);
+                validateCard(pictureBox);
+            }
+            catch (CardNotOpenedException ex)
+            {
+                MessageBox.Show("You have to open one card before using SecondChance helper!");
+            }
+            catch (NotEnoughScoreException ex)
+            {
+                MessageBox.Show("You don't have enought score to buy this helper!");
+            }
+            catch (HelperNotAvaliableException ex)
+            {
+                MessageBox.Show("You have used all your instances of this helper!");
+            }
+        }
+
+        private void pictureBoxOpenCards_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                game.OpenCards();
+                updateLabels();
+                game.ShouldHandle = false;
+
+                foreach(var pbs in game.validCards)
+                {
+                    game.makeCardStill(pbs);
+                }
+                Thread.Sleep(2000);
+                foreach (var pbs in game.validCards)
+                {
+                    game.closeCard(pbs);
+                }
+
+                game.ShouldHandle = true;
+
+            }
+            catch (NotEnoughScoreException ex)
+            {
+                MessageBox.Show("You don't have enought score to buy this helper!");
+            }
+            catch (HelperNotAvaliableException ex)
+            {
+                MessageBox.Show("You have used all your instances of this helper!");
+            }
         }
     }
 }
