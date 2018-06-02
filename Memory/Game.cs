@@ -22,7 +22,21 @@ namespace Memory
         {
             string fullPath = AppDomain.CurrentDomain.BaseDirectory;
             
-            pathToResources = fullPath.Replace(@"bin\Debug", @"Resources");
+
+            // unix or windows
+            if (fullPath.Contains(@"bin\Debug"))
+            {
+                pathToResources = fullPath.Replace(@"bin\Debug", @"Resources");
+            }
+            else if (fullPath.Contains(@"bin/Debug"))
+            {
+                pathToResources = fullPath.Replace(@"bin/Debug", @"Resources");
+            }
+            else
+            {
+                throw new Exception("Full path is wrong CHECK CONSTRUCTOR IN CLASS GAME!");
+            }
+           
             closedCard = Image.FromFile(pathToResources + "closed_card.jpg");
 
             // DEBUGGING
