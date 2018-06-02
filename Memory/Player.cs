@@ -66,6 +66,39 @@ namespace Memory
         }
     }
 
+    public class PairGameHumanPlayer : HumanPlayer
+    {
+        public int x2Avaliable { get; set; }
+        public int secondChanceAvaliable { get; set; }
+        public int openCardsAvaliable { get; set; }
+        public int findNextAvaliable { get; set; }
+
+        public PairGameHumanPlayer(string name) : base(name)
+        {
+            x2Avaliable = 1;
+            secondChanceAvaliable = 3;
+            openCardsAvaliable = 1;
+            findNextAvaliable = 2;
+        }
+
+        public void Usex2()
+        {
+            x2Avaliable--;
+        }
+        public void UseSecondChance()
+        {
+            secondChanceAvaliable--;
+        }
+        public void UseOpenCards()
+        {
+            openCardsAvaliable--;
+        }
+        public void UseFindNext()
+        {
+            findNextAvaliable--;
+        }
+    }
+
     public class Bot : Player
     {
         

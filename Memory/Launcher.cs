@@ -54,7 +54,7 @@ namespace Memory
                 return;
             }
 
-            Player1 = PlayerFactory.GetHumanPlayer(textBoxPlayer1Name.Text);
+            Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text);
 
             if (radioButtonBot.Checked)
             {
@@ -73,7 +73,7 @@ namespace Memory
             }
             else
             {
-                Player2 = PlayerFactory.GetHumanPlayer(textBoxPlayer2Name.Text);
+                Player2 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer2Name.Text);
             }
 
             if (radioButtonEasy.Checked)

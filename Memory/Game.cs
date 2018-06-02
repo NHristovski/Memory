@@ -20,11 +20,6 @@ namespace Memory
 
         public Game(Player player)
         {
-            
-
-            // DEBUGGING
-            //MessageBox.Show(pathToResources);
-
             Player1 = player;
           
         }
@@ -56,9 +51,14 @@ namespace Memory
 
         public bool ShouldHandle { get; set; }
 
-        
+
+        public readonly int x2Price;
+        public readonly int secondChancePrice;
+        public readonly int openCardsPrice;
+        public readonly int findNextPrice;
+
         // CONSTRUCTOR
-        public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes) : base(player1)
+        public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes, int x2Price, int secondChancePrice, int findNextPrice, int openCardsPrice ) : base(player1)
         {
             Player2 = player2;
             shapes = new string[] { "spade", "heart" }; // not complete
@@ -75,6 +75,11 @@ namespace Memory
             this.validCards = new HashSet<PictureBox>(pictureBoxes);
 
             ShouldHandle = true;
+
+            this.x2Price = x2Price;
+            this.secondChancePrice = secondChancePrice;
+            this.openCardsPrice = openCardsPrice;
+            this.findNextPrice = findNextPrice;
         }
 
 
@@ -390,6 +395,129 @@ namespace Memory
         }
 
 
+        //HELPERS FUNCTIONS
+
+        public string getx2Avaliable()
+        {
+            return ((PairGameHumanPlayer)currentPlayer).x2Avaliable + "";
+        } 
+        public string getSecondChanceAvaliable()
+        {
+            return ((PairGameHumanPlayer)currentPlayer).secondChanceAvaliable + "";
+        }
+        public string getFindNextAvaliable()
+        {
+            return ((PairGameHumanPlayer)currentPlayer).findNextAvaliable + "";
+        }
+        public string getOpenCardsAvaliable()
+        {
+            return ((PairGameHumanPlayer)currentPlayer).openCardsAvaliable + "";
+        }
+
+        public void DoubleMultiplier()
+        {
+            if (((PairGameHumanPlayer)currentPlayer).x2Avaliable < 1)
+            {
+                throw new HelperNotAvaliableException(); 
+            }
+            if (currentPlayer.Score.Points < x2Price)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            this.scoreMultiplier *= 2;
+            ((PairGameHumanPlayer)currentPlayer).Usex2();
+        }
+
+        public PictureBox FindNext(PictureBox pb)
+        {
+            if (((PairGameHumanPlayer)currentPlayer).findNextAvaliable < 1)
+            {
+                throw new HelperNotAvaliableException();
+            }
+            if (currentPlayer.Score.Points < findNextPrice)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            foreach (var pbox in validCards)
+            {
+                if (getCard(pbox).Equals(getCard(pb)) && pbox != pb)
+                {
+                    return pbox;
+                }
+            }
+            throw new Exception("CANNOT FIND THE CARD! CHECK FINDNEXT IN GAME.CS");
+        }
+
+        public bool validateCardSecondChance(PictureBox pb)
+        {
+            if (((PairGameHumanPlayer)currentPlayer).secondChanceAvaliable < 1)
+            {
+                throw new HelperNotAvaliableException();
+            }
+            if (currentPlayer.Score.Points < secondChancePrice)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            Card card = getCard(pb);
+            animateOpeningCard(pb);
+
+
+            if (card.Shape.Equals(previousCard.Item1)) // 2 same cards 
+            {
+                // calculate points
+                currentPlayer.Score.Points += (scoreMultiplier * 100);
+                scoreMultiplier++;
+
+                makeCardStill(pb);
+                makeCardStill(previousCard.Item2);
+
+                validCards.Remove(pb);
+                validCards.Remove(previousCard.Item2);
+
+                openedCards.Remove(pb);
+                openedCards.Remove(previousCard.Item2);
+
+                removeFromCanBePaired(pb);
+
+                if (validCards.Count == 0) // every card is guessed
+                {
+                    endGame();
+                }
+
+                ShouldHandle = true;
+                secondCard = false;
+
+
+                return true;
+
+            }
+            else // 2 different cards
+            {
+                animateClosingCard(pb);
+                //animateClosingCard(previousCard.Item2);
+
+                addToCanBePaired(pb);
+
+                if (!openedCards.Contains(pb))
+                {
+                    openedCards.Add(pb);
+                }
+                ShouldHandle = true;
+
+                return false;
+            }
+
+        }
+
+        
+
+
+
+
+
         public override void endGame()
         {
             // **** what should this method do:
@@ -398,6 +526,8 @@ namespace Memory
             // -DO YOU WANNA PLAY AGAIN?
             MessageBox.Show("END GAME");
         }
+
+        
     }
     
 

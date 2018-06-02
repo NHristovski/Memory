@@ -40,7 +40,7 @@ namespace Memory
 
             
 
-            game = new PairGame(Player1,Player2, picBoxes);
+            game = new PairGame(Player1,Player2, picBoxes,100,200,300,500);
 
             foreach (var pBox in picBoxes)
             {
@@ -52,6 +52,7 @@ namespace Memory
             pictureBoxOpenCards.Image = Image.FromFile(Paths.pathToOpenCardsImage);
             pictureBoxFindNext.Image = Image.FromFile(Paths.pathToFindNextImage);
 
+
             game.startGame();
 
             updateLabels();
@@ -62,6 +63,11 @@ namespace Memory
             labelCurrentPlayer.Text = game.currentPlayer.Name;
             labelP1points.Text = game.Player1.Score.Points + "";
             labelP2points.Text = game.Player2.Score.Points + "";
+
+            textBoxAvaliable2x.Text = game.getx2Avaliable();
+            textBoxAvaliableFindNext.Text = game.getFindNextAvaliable();
+            textBoxAvaliableOpenCards.Text = game.getOpenCardsAvaliable();
+            textBoxAvalibleSecondChance.Text = game.getSecondChanceAvaliable();
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -226,5 +232,9 @@ namespace Memory
             //Invalidate(true);
         }
 
+        private void pictureBox2x_Click(object sender, EventArgs e)
+        {
+            game.DoubleMultiplier();
+        }
     }
 }
