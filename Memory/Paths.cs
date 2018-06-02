@@ -20,9 +20,16 @@ namespace Memory
 
         public static readonly string pathToMemoryIcon = pathToResources + "memory_icon.ico";
 
-       
-            
+        public static readonly string pathTo2xImage = pathToResources + "2x.png";
 
-          
+        public static readonly string pathToFindNextImage = pathToResources + "find_next.jpg";
+
+        public static readonly string pathToOpenCardsImage = pathToResources + "open_cards.jpg";
+
+        public static readonly string pathToSecondChanceImage = pathToResources + "second_chance.jpg";
+
+
+
+
     }
 }
