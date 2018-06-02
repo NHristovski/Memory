@@ -409,6 +409,7 @@
             this.pictureBox2x.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2x.TabIndex = 0;
             this.pictureBox2x.TabStop = false;
+            this.pictureBox2x.Click += new System.EventHandler(this.pictureBox2x_Click);
             // 
             // labelAvliable2x
             // 
