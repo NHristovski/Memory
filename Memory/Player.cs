@@ -50,7 +50,7 @@ namespace Memory
 
     public class HumanPlayer : Player
     {
-        public bool Turn { get; set; }
+        //public bool Turn { get; set; }
 
         public HumanPlayer(string name) : base(name,null)
         {
@@ -81,21 +81,25 @@ namespace Memory
             findNextAvaliable = 2;
         }
 
-        public void Usex2()
+        public void Usex2(int price)
         {
             x2Avaliable--;
+            Score.Points -= price;
         }
-        public void UseSecondChance()
+        public void UseSecondChance(int price)
         {
             secondChanceAvaliable--;
+            Score.Points -= price;
         }
-        public void UseOpenCards()
+        public void UseOpenCards(int price)
         {
             openCardsAvaliable--;
+            Score.Points -= price;
         }
-        public void UseFindNext()
+        public void UseFindNext(int price)
         {
             findNextAvaliable--;
+            Score.Points -= price;
         }
     }
 

@@ -38,9 +38,13 @@ namespace Memory
             picBoxes.Add(this.pictureBox15);
             picBoxes.Add(this.pictureBox16);
 
-            
 
-            game = new PairGame(Player1,Player2, picBoxes,100,200,300,500);
+            int x2Price = 100;
+            int secondChancePrice = 200;
+            int findNextPrice = 300;
+            int openCardsPrice = 500;
+
+            game = new PairGame(Player1,Player2, picBoxes,x2Price,secondChancePrice,findNextPrice,openCardsPrice);
 
             foreach (var pBox in picBoxes)
             {
@@ -52,6 +56,10 @@ namespace Memory
             pictureBoxOpenCards.Image = Image.FromFile(Paths.pathToOpenCardsImage);
             pictureBoxFindNext.Image = Image.FromFile(Paths.pathToFindNextImage);
 
+            textBoxPrice2x.Text = x2Price + "";
+            textBoxPriceFindNext.Text = findNextPrice + "";
+            textBoxPriceOpenCards.Text = openCardsPrice + "";
+            textBoxPriceSecondChance.Text = secondChancePrice + "";
 
             game.startGame();
 
@@ -234,7 +242,20 @@ namespace Memory
 
         private void pictureBox2x_Click(object sender, EventArgs e)
         {
-            game.DoubleMultiplier();
+            try
+            {
+                game.DoubleMultiplier();
+                updateLabels();
+            }
+            catch (NotEnoughScoreException ex)
+            {
+                MessageBox.Show("You don't have enought score to buy this helper!");
+            }
+            catch(HelperNotAvaliableException ex)
+            {
+                MessageBox.Show("You have used all your instances of this helper!");
+            }
+            
         }
     }
 }

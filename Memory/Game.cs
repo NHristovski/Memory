@@ -425,8 +425,8 @@ namespace Memory
                 throw new NotEnoughScoreException();
             }
 
+            ((PairGameHumanPlayer)currentPlayer).Usex2(x2Price);
             this.scoreMultiplier *= 2;
-            ((PairGameHumanPlayer)currentPlayer).Usex2();
         }
 
         public PictureBox FindNext(PictureBox pb)
@@ -444,6 +444,7 @@ namespace Memory
             {
                 if (getCard(pbox).Equals(getCard(pb)) && pbox != pb)
                 {
+                    ((PairGameHumanPlayer)currentPlayer).UseFindNext(findNextPrice);
                     return pbox;
                 }
             }
@@ -464,6 +465,8 @@ namespace Memory
             Card card = getCard(pb);
             animateOpeningCard(pb);
 
+
+            ((PairGameHumanPlayer)currentPlayer).UseSecondChance(secondChancePrice);
 
             if (card.Shape.Equals(previousCard.Item1)) // 2 same cards 
             {
@@ -512,6 +515,19 @@ namespace Memory
 
         }
 
+        public void OpenCards()
+        {
+            if (((PairGameHumanPlayer)currentPlayer).openCardsAvaliable < 1)
+            {
+                throw new HelperNotAvaliableException();
+            }
+            if (currentPlayer.Score.Points < openCardsPrice)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            ((PairGameHumanPlayer)currentPlayer).UseOpenCards(openCardsPrice);
+        }
         
 
 
