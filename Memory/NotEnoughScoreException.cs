@@ -21,4 +21,11 @@ namespace Memory
 
         }
     }
+    public class CardNotOpenedException : Exception
+    {
+        public CardNotOpenedException() : base()
+        {
+
+        }
+    }
 }

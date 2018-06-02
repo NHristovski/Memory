@@ -52,30 +52,30 @@
             this.labelP1points = new System.Windows.Forms.Label();
             this.labelP2points = new System.Windows.Forms.Label();
             this.groupBoxHelpers = new System.Windows.Forms.GroupBox();
-            this.pictureBoxOpenCards = new System.Windows.Forms.PictureBox();
-            this.pictureBoxFindNext = new System.Windows.Forms.PictureBox();
-            this.pictureBoxSecondChance = new System.Windows.Forms.PictureBox();
-            this.pictureBox2x = new System.Windows.Forms.PictureBox();
-            this.labelAvliable2x = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxAvaliable2x = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxPrice2x = new System.Windows.Forms.TextBox();
-            this.textBoxPriceSecondChance = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxAvalibleSecondChance = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.textBoxPriceFindNext = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBoxAvaliableFindNext = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.textBoxPriceOpenCards = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBoxAvaliableOpenCards = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
+            this.textBoxPriceFindNext = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxAvaliableFindNext = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxPriceSecondChance = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxAvalibleSecondChance = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxPrice2x = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxAvaliable2x = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelAvliable2x = new System.Windows.Forms.Label();
+            this.pictureBoxOpenCards = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFindNext = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSecondChance = new System.Windows.Forms.PictureBox();
+            this.pictureBox2x = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -374,159 +374,32 @@
             this.groupBoxHelpers.TabStop = false;
             this.groupBoxHelpers.Text = "HELPERS";
             // 
-            // pictureBoxOpenCards
+            // label14
             // 
-            this.pictureBoxOpenCards.Location = new System.Drawing.Point(6, 256);
-            this.pictureBoxOpenCards.Name = "pictureBoxOpenCards";
-            this.pictureBoxOpenCards.Size = new System.Drawing.Size(94, 60);
-            this.pictureBoxOpenCards.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxOpenCards.TabIndex = 3;
-            this.pictureBoxOpenCards.TabStop = false;
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(109, 256);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(226, 20);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Show all cards for 2 seconds";
             // 
-            // pictureBoxFindNext
+            // label13
             // 
-            this.pictureBoxFindNext.Location = new System.Drawing.Point(6, 183);
-            this.pictureBoxFindNext.Name = "pictureBoxFindNext";
-            this.pictureBoxFindNext.Size = new System.Drawing.Size(94, 60);
-            this.pictureBoxFindNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxFindNext.TabIndex = 2;
-            this.pictureBoxFindNext.TabStop = false;
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(110, 183);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(198, 20);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Automaticly finds the pair";
             // 
-            // pictureBoxSecondChance
+            // label12
             // 
-            this.pictureBoxSecondChance.Location = new System.Drawing.Point(6, 107);
-            this.pictureBoxSecondChance.Name = "pictureBoxSecondChance";
-            this.pictureBoxSecondChance.Size = new System.Drawing.Size(94, 60);
-            this.pictureBoxSecondChance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxSecondChance.TabIndex = 1;
-            this.pictureBoxSecondChance.TabStop = false;
-            // 
-            // pictureBox2x
-            // 
-            this.pictureBox2x.Location = new System.Drawing.Point(6, 32);
-            this.pictureBox2x.Name = "pictureBox2x";
-            this.pictureBox2x.Size = new System.Drawing.Size(94, 60);
-            this.pictureBox2x.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2x.TabIndex = 0;
-            this.pictureBox2x.TabStop = false;
-            this.pictureBox2x.Click += new System.EventHandler(this.pictureBox2x_Click);
-            // 
-            // labelAvliable2x
-            // 
-            this.labelAvliable2x.AutoSize = true;
-            this.labelAvliable2x.Location = new System.Drawing.Point(108, 62);
-            this.labelAvliable2x.Name = "labelAvliable2x";
-            this.labelAvliable2x.Size = new System.Drawing.Size(76, 20);
-            this.labelAvliable2x.TabIndex = 4;
-            this.labelAvliable2x.Text = "Avaliable";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(106, 31);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(219, 20);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Doubles the score multiplier";
-            // 
-            // textBoxAvaliable2x
-            // 
-            this.textBoxAvaliable2x.Enabled = false;
-            this.textBoxAvaliable2x.Location = new System.Drawing.Point(190, 54);
-            this.textBoxAvaliable2x.Name = "textBoxAvaliable2x";
-            this.textBoxAvaliable2x.Size = new System.Drawing.Size(47, 26);
-            this.textBoxAvaliable2x.TabIndex = 6;
-            this.textBoxAvaliable2x.Text = "1";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(252, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(48, 20);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Price";
-            // 
-            // textBoxPrice2x
-            // 
-            this.textBoxPrice2x.Enabled = false;
-            this.textBoxPrice2x.Location = new System.Drawing.Point(300, 56);
-            this.textBoxPrice2x.Name = "textBoxPrice2x";
-            this.textBoxPrice2x.Size = new System.Drawing.Size(47, 26);
-            this.textBoxPrice2x.TabIndex = 9;
-            this.textBoxPrice2x.Text = "100";
-            // 
-            // textBoxPriceSecondChance
-            // 
-            this.textBoxPriceSecondChance.Enabled = false;
-            this.textBoxPriceSecondChance.Location = new System.Drawing.Point(300, 135);
-            this.textBoxPriceSecondChance.Name = "textBoxPriceSecondChance";
-            this.textBoxPriceSecondChance.Size = new System.Drawing.Size(47, 26);
-            this.textBoxPriceSecondChance.TabIndex = 13;
-            this.textBoxPriceSecondChance.Text = "200";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(252, 141);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 20);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "Price";
-            // 
-            // textBoxAvalibleSecondChance
-            // 
-            this.textBoxAvalibleSecondChance.Enabled = false;
-            this.textBoxAvalibleSecondChance.Location = new System.Drawing.Point(189, 135);
-            this.textBoxAvalibleSecondChance.Name = "textBoxAvalibleSecondChance";
-            this.textBoxAvalibleSecondChance.Size = new System.Drawing.Size(47, 26);
-            this.textBoxAvalibleSecondChance.TabIndex = 11;
-            this.textBoxAvalibleSecondChance.Text = "3";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(107, 141);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(76, 20);
-            this.label7.TabIndex = 10;
-            this.label7.Text = "Avaliable";
-            // 
-            // textBoxPriceFindNext
-            // 
-            this.textBoxPriceFindNext.Enabled = false;
-            this.textBoxPriceFindNext.Location = new System.Drawing.Point(300, 211);
-            this.textBoxPriceFindNext.Name = "textBoxPriceFindNext";
-            this.textBoxPriceFindNext.Size = new System.Drawing.Size(47, 26);
-            this.textBoxPriceFindNext.TabIndex = 17;
-            this.textBoxPriceFindNext.Text = "300";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(252, 217);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(48, 20);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Price";
-            // 
-            // textBoxAvaliableFindNext
-            // 
-            this.textBoxAvaliableFindNext.Enabled = false;
-            this.textBoxAvaliableFindNext.Location = new System.Drawing.Point(189, 211);
-            this.textBoxAvaliableFindNext.Name = "textBoxAvaliableFindNext";
-            this.textBoxAvaliableFindNext.Size = new System.Drawing.Size(47, 26);
-            this.textBoxAvaliableFindNext.TabIndex = 15;
-            this.textBoxAvaliableFindNext.Text = "2";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(107, 217);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 20);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Avaliable";
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(109, 107);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(238, 20);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Two chances to guess the pair";
             // 
             // textBoxPriceOpenCards
             // 
@@ -564,32 +437,162 @@
             this.label11.TabIndex = 18;
             this.label11.Text = "Avaliable";
             // 
-            // label12
+            // textBoxPriceFindNext
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(109, 107);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(238, 20);
-            this.label12.TabIndex = 22;
-            this.label12.Text = "Two chances to guess the pair";
+            this.textBoxPriceFindNext.Enabled = false;
+            this.textBoxPriceFindNext.Location = new System.Drawing.Point(300, 211);
+            this.textBoxPriceFindNext.Name = "textBoxPriceFindNext";
+            this.textBoxPriceFindNext.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPriceFindNext.TabIndex = 17;
+            this.textBoxPriceFindNext.Text = "300";
             // 
-            // label13
+            // label8
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(110, 183);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(198, 20);
-            this.label13.TabIndex = 23;
-            this.label13.Text = "Automaticly finds the pair";
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(252, 217);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Price";
             // 
-            // label14
+            // textBoxAvaliableFindNext
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(109, 256);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(230, 20);
-            this.label14.TabIndex = 24;
-            this.label14.Text = "Show all cards for 1.5 second";
+            this.textBoxAvaliableFindNext.Enabled = false;
+            this.textBoxAvaliableFindNext.Location = new System.Drawing.Point(189, 211);
+            this.textBoxAvaliableFindNext.Name = "textBoxAvaliableFindNext";
+            this.textBoxAvaliableFindNext.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvaliableFindNext.TabIndex = 15;
+            this.textBoxAvaliableFindNext.Text = "2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(107, 217);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Avaliable";
+            // 
+            // textBoxPriceSecondChance
+            // 
+            this.textBoxPriceSecondChance.Enabled = false;
+            this.textBoxPriceSecondChance.Location = new System.Drawing.Point(300, 135);
+            this.textBoxPriceSecondChance.Name = "textBoxPriceSecondChance";
+            this.textBoxPriceSecondChance.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPriceSecondChance.TabIndex = 13;
+            this.textBoxPriceSecondChance.Text = "200";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(252, 141);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Price";
+            // 
+            // textBoxAvalibleSecondChance
+            // 
+            this.textBoxAvalibleSecondChance.Enabled = false;
+            this.textBoxAvalibleSecondChance.Location = new System.Drawing.Point(189, 135);
+            this.textBoxAvalibleSecondChance.Name = "textBoxAvalibleSecondChance";
+            this.textBoxAvalibleSecondChance.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvalibleSecondChance.TabIndex = 11;
+            this.textBoxAvalibleSecondChance.Text = "3";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(107, 141);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Avaliable";
+            // 
+            // textBoxPrice2x
+            // 
+            this.textBoxPrice2x.Enabled = false;
+            this.textBoxPrice2x.Location = new System.Drawing.Point(300, 56);
+            this.textBoxPrice2x.Name = "textBoxPrice2x";
+            this.textBoxPrice2x.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPrice2x.TabIndex = 9;
+            this.textBoxPrice2x.Text = "100";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(252, 62);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 20);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Price";
+            // 
+            // textBoxAvaliable2x
+            // 
+            this.textBoxAvaliable2x.Enabled = false;
+            this.textBoxAvaliable2x.Location = new System.Drawing.Point(190, 54);
+            this.textBoxAvaliable2x.Name = "textBoxAvaliable2x";
+            this.textBoxAvaliable2x.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvaliable2x.TabIndex = 6;
+            this.textBoxAvaliable2x.Text = "1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(106, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(219, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Doubles the score multiplier";
+            // 
+            // labelAvliable2x
+            // 
+            this.labelAvliable2x.AutoSize = true;
+            this.labelAvliable2x.Location = new System.Drawing.Point(108, 62);
+            this.labelAvliable2x.Name = "labelAvliable2x";
+            this.labelAvliable2x.Size = new System.Drawing.Size(76, 20);
+            this.labelAvliable2x.TabIndex = 4;
+            this.labelAvliable2x.Text = "Avaliable";
+            // 
+            // pictureBoxOpenCards
+            // 
+            this.pictureBoxOpenCards.Location = new System.Drawing.Point(6, 256);
+            this.pictureBoxOpenCards.Name = "pictureBoxOpenCards";
+            this.pictureBoxOpenCards.Size = new System.Drawing.Size(94, 60);
+            this.pictureBoxOpenCards.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOpenCards.TabIndex = 3;
+            this.pictureBoxOpenCards.TabStop = false;
+            this.pictureBoxOpenCards.Click += new System.EventHandler(this.pictureBoxOpenCards_Click);
+            // 
+            // pictureBoxFindNext
+            // 
+            this.pictureBoxFindNext.Location = new System.Drawing.Point(6, 183);
+            this.pictureBoxFindNext.Name = "pictureBoxFindNext";
+            this.pictureBoxFindNext.Size = new System.Drawing.Size(94, 60);
+            this.pictureBoxFindNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFindNext.TabIndex = 2;
+            this.pictureBoxFindNext.TabStop = false;
+            this.pictureBoxFindNext.Click += new System.EventHandler(this.pictureBoxFindNext_Click);
+            // 
+            // pictureBoxSecondChance
+            // 
+            this.pictureBoxSecondChance.Location = new System.Drawing.Point(6, 107);
+            this.pictureBoxSecondChance.Name = "pictureBoxSecondChance";
+            this.pictureBoxSecondChance.Size = new System.Drawing.Size(94, 60);
+            this.pictureBoxSecondChance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSecondChance.TabIndex = 1;
+            this.pictureBoxSecondChance.TabStop = false;
+            this.pictureBoxSecondChance.Click += new System.EventHandler(this.pictureBoxSecondChance_Click);
+            // 
+            // pictureBox2x
+            // 
+            this.pictureBox2x.Location = new System.Drawing.Point(6, 32);
+            this.pictureBox2x.Name = "pictureBox2x";
+            this.pictureBox2x.Size = new System.Drawing.Size(94, 60);
+            this.pictureBox2x.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2x.TabIndex = 0;
+            this.pictureBox2x.TabStop = false;
+            this.pictureBox2x.Click += new System.EventHandler(this.pictureBox2x_Click);
             // 
             // EasyPairGameForm
             // 

@@ -15,6 +15,11 @@ namespace Memory
         List<PictureBox> picBoxes;
         PairGame game;
 
+        int x2Price = 200;
+        int secondChancePrice = 300;
+        int findNextPrice = 400;
+        int openCardsPrice = 700;
+
         public NormalPairGameForm(Player Player1, Player Player2)
         {
             InitializeComponent();
@@ -47,9 +52,9 @@ namespace Memory
             picBoxes.Add(this.pictureBox25);
             picBoxes.Add(this.pictureBox26);
 
-            
 
-            game = new PairGame(Player1, Player2, picBoxes);
+
+            game = new PairGame(Player1, Player2, picBoxes, x2Price, secondChancePrice, findNextPrice, openCardsPrice);
 
             foreach (var pBox in picBoxes)
             {
