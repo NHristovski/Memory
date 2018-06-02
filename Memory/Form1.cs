@@ -21,7 +21,7 @@ namespace Memory
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.Icon = new Icon(System.IO.Directory.GetCurrentDirectory() + @"\ico\favicon.ico");
+            this.Icon = new Icon(Paths.pathToMemoryIcon);
         }
 
         private void buttonStartGame_Click(object sender, EventArgs e)

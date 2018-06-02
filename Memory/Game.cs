@@ -12,32 +12,15 @@ namespace Memory
 {
     public abstract class Game
     {
-        protected readonly string pathToResources;
-        public static Image closedCard;
+        
+       
         protected static Random rand = new Random();
 
         public Player Player1 { get; set; }
 
         public Game(Player player)
         {
-            string fullPath = AppDomain.CurrentDomain.BaseDirectory;
             
-
-            // unix or windows
-            if (fullPath.Contains(@"bin\Debug"))
-            {
-                pathToResources = fullPath.Replace(@"bin\Debug", @"Resources");
-            }
-            else if (fullPath.Contains(@"bin/Debug"))
-            {
-                pathToResources = fullPath.Replace(@"bin/Debug", @"Resources");
-            }
-            else
-            {
-                throw new Exception("Full path is wrong CHECK CONSTRUCTOR IN CLASS GAME!");
-            }
-           
-            closedCard = Image.FromFile(pathToResources + "closed_card.jpg");
 
             // DEBUGGING
             //MessageBox.Show(pathToResources);
@@ -119,7 +102,7 @@ namespace Memory
 
         public void closeCard(PictureBox pb)
         {
-            pb.Image = Game.closedCard;
+            pb.Image = Paths.closedCard;
             pb.Enabled = true; 
         }
 
@@ -313,6 +296,8 @@ namespace Memory
         public void playBotMove()
         {
             // Bot makes moves until he misses
+            ShouldHandle = false; // disable clicking on pictureboxes while bot makes moves
+
             Tuple<PictureBox, PictureBox> move = botMove();
             validateCard(move.Item1);
 
@@ -327,6 +312,7 @@ namespace Memory
                 validateCard(move.Item1);              
             }
 
+            ShouldHandle = true; // enable clicking on pictureBoxes
             changeTurn();
         }
 
@@ -356,41 +342,13 @@ namespace Memory
         // RETURNS OPEN,CLOSE,STILL CARD IMAGES
         public Tuple<Image,Image,Image> getImages(string shape)
         {
-            return new Tuple<Image, Image, Image>(Image.FromFile(pathToResources + shape + "_open.gif"),
-                                                  Image.FromFile(pathToResources + shape + "_close.gif"),
-                                                  Image.FromFile(pathToResources + shape + "_still.jpg"));
+            return new Tuple<Image, Image, Image>(Image.FromFile(Paths.pathToResources + shape + "_open.gif"),
+                                                  Image.FromFile(Paths.pathToResources + shape + "_close.gif"),
+                                                  Image.FromFile(Paths.pathToResources + shape + "_still.jpg"));
             
         }
 
-        // OVA TERBA DA SE BRISHE
-        /*private StringBuilder getShapesFolder(string shape)
-        {
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(System.IO.Directory.GetCurrentDirectory())
-                .Append(@"\shapes\")
-                .Append(shape)
-                .Append(@"\")
-                .Append(shape);
-            return stringBuilder;
-        }
-        protected string getPathOpen(string shape)
-        {
-            StringBuilder stringBuilder = this.getShapesFolder(shape);
-            stringBuilder.Append("_open.gif");
-            return stringBuilder.ToString();
-        }
-        protected string getPathClose(string shape)
-        {
-            StringBuilder stringBuilder = this.getShapesFolder(shape);
-            stringBuilder.Append("_close.gif");
-            return stringBuilder.ToString();
-        }
-        protected string getPathStill(string shape)
-        {
-            StringBuilder stringBuilder = this.getShapesFolder(shape);
-            stringBuilder.Append("_still.jpg");
-            return stringBuilder.ToString();
-        }*/
+       
 
         public override void startGame()
         {

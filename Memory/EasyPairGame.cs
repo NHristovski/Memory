@@ -47,6 +47,11 @@ namespace Memory
                 game.closeCard(pBox);
             }
 
+            pictureBox2x.Image = Image.FromFile(Paths.pathTo2xImage);
+            pictureBoxSecondChance.Image = Image.FromFile(Paths.pathToSecondChanceImage);
+            pictureBoxOpenCards.Image = Image.FromFile(Paths.pathToOpenCardsImage);
+            pictureBoxFindNext.Image = Image.FromFile(Paths.pathToFindNextImage);
+
             game.startGame();
 
             updateLabels();
