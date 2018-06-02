@@ -115,7 +115,7 @@
             // 
             // pictureBox2
             //
-            this.pictureBox2.Image = Game.closedCard;
+            //this.pictureBox2.Image = Game.closedCard;
             this.pictureBox2.Location = new System.Drawing.Point(172, 40);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(132, 136);
@@ -127,7 +127,7 @@
             // 
             // pictureBox1
             //
-            this.pictureBox1.Image = Game.closedCard;
+            //this.pictureBox1.Image = Game.closedCard;
             this.pictureBox1.Location = new System.Drawing.Point(34, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(132, 136);
@@ -165,7 +165,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = Game.closedCard;
+            // this.pictureBox3.Image = Game.closedCard;
             this.pictureBox3.Location = new System.Drawing.Point(310, 40);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(132, 136);
@@ -177,7 +177,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = Game.closedCard;
+            //this.pictureBox4.Image = Game.closedCard;
             this.pictureBox4.Location = new System.Drawing.Point(448, 40);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(132, 136);
@@ -189,7 +189,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = Game.closedCard;
+            //this.pictureBox5.Image = Game.closedCard;
             this.pictureBox5.Location = new System.Drawing.Point(586, 40);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(132, 136);
@@ -201,7 +201,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Image = Game.closedCard;
+            //this.pictureBox6.Image = Game.closedCard;
             this.pictureBox6.Location = new System.Drawing.Point(724, 40);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(132, 136);
@@ -213,7 +213,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = Game.closedCard;
+            // this.pictureBox7.Image = Game.closedCard;
             this.pictureBox7.Location = new System.Drawing.Point(862, 40);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(132, 136);
@@ -225,7 +225,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = Game.closedCard;
+            //this.pictureBox8.Image = Game.closedCard;
             this.pictureBox8.Location = new System.Drawing.Point(1000, 42);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(132, 134);
@@ -237,7 +237,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = Game.closedCard;
+            //this.pictureBox9.Image = Game.closedCard;
             this.pictureBox9.Location = new System.Drawing.Point(34, 182);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(132, 134);
@@ -249,7 +249,7 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = Game.closedCard;
+            //this.pictureBox10.Image = Game.closedCard;
             this.pictureBox10.Location = new System.Drawing.Point(172, 182);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(132, 134);
@@ -261,7 +261,7 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Image = Game.closedCard;
+            //this.pictureBox11.Image = Game.closedCard;
             this.pictureBox11.Location = new System.Drawing.Point(310, 182);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(132, 134);
@@ -273,7 +273,7 @@
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Image = Game.closedCard;
+            //this.pictureBox12.Image = Game.closedCard;
             this.pictureBox12.Location = new System.Drawing.Point(448, 182);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(132, 134);
@@ -285,7 +285,7 @@
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Image = Game.closedCard;
+            // this.pictureBox13.Image = Game.closedCard;
             this.pictureBox13.Location = new System.Drawing.Point(586, 182);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(129, 134);
@@ -297,7 +297,7 @@
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Image = Game.closedCard;
+            // this.pictureBox14.Image = Game.closedCard;
             this.pictureBox14.Location = new System.Drawing.Point(724, 182);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(132, 134);
@@ -309,7 +309,7 @@
             // 
             // pictureBox15
             // 
-            this.pictureBox15.Image = Game.closedCard;
+            //  this.pictureBox15.Image = Game.closedCard;
             this.pictureBox15.Location = new System.Drawing.Point(862, 182);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(129, 134);
@@ -321,7 +321,7 @@
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Image = Game.closedCard;
+            //  this.pictureBox16.Image = Game.closedCard;
             this.pictureBox16.Location = new System.Drawing.Point(1000, 182);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(132, 134);
@@ -333,7 +333,7 @@
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Image = Game.closedCard;
+            // this.pictureBox17.Image = Game.closedCard;
             this.pictureBox17.Location = new System.Drawing.Point(34, 321);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(132, 134);
@@ -345,7 +345,7 @@
             // 
             // pictureBox18
             // 
-            this.pictureBox18.Image = Game.closedCard;
+            // this.pictureBox18.Image = Game.closedCard;
             this.pictureBox18.Location = new System.Drawing.Point(172, 321);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(132, 134);
@@ -357,7 +357,7 @@
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Image = Game.closedCard;
+            //this.pictureBox19.Image = Game.closedCard;
             this.pictureBox19.Location = new System.Drawing.Point(310, 321);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(132, 134);
@@ -369,7 +369,7 @@
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Image = Game.closedCard;
+            //this.pictureBox20.Image = Game.closedCard;
             this.pictureBox20.Location = new System.Drawing.Point(448, 321);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(129, 134);
@@ -381,7 +381,7 @@
             // 
             // pictureBox21
             // 
-            this.pictureBox21.Image = Game.closedCard;
+            //this.pictureBox21.Image = Game.closedCard;
             this.pictureBox21.Location = new System.Drawing.Point(586, 321);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(132, 134);
@@ -393,7 +393,7 @@
             // 
             // pictureBox22
             // 
-            this.pictureBox22.Image = Game.closedCard;
+            //this.pictureBox22.Image = Game.closedCard;
             this.pictureBox22.Location = new System.Drawing.Point(724, 321);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(132, 134);
@@ -405,7 +405,7 @@
             // 
             // pictureBox23
             // 
-            this.pictureBox23.Image = Game.closedCard;
+            //this.pictureBox23.Image = Game.closedCard;
             this.pictureBox23.Location = new System.Drawing.Point(862, 321);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(132, 134);
@@ -417,7 +417,7 @@
             // 
             // pictureBox24
             // 
-            this.pictureBox24.Image = Game.closedCard;
+            //this.pictureBox24.Image = Game.closedCard;
             this.pictureBox24.Location = new System.Drawing.Point(1000, 321);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(132, 134);
@@ -429,7 +429,7 @@
             // 
             // pictureBox25
             // 
-            this.pictureBox25.Image = Game.closedCard;
+            //this.pictureBox25.Image = Game.closedCard;
             this.pictureBox25.Location = new System.Drawing.Point(34, 461);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.Size = new System.Drawing.Size(132, 134);
@@ -441,7 +441,7 @@
             // 
             // pictureBox26
             // 
-            this.pictureBox26.Image = Game.closedCard;
+            //this.pictureBox26.Image = Game.closedCard;
             this.pictureBox26.Location = new System.Drawing.Point(172, 461);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(132, 134);
@@ -453,7 +453,7 @@
             // 
             // pictureBox27
             // 
-            this.pictureBox27.Image = Game.closedCard;
+            //this.pictureBox27.Image = Game.closedCard;
             this.pictureBox27.Location = new System.Drawing.Point(310, 461);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.Size = new System.Drawing.Size(132, 134);
@@ -465,7 +465,7 @@
             // 
             // pictureBox28
             // 
-            this.pictureBox28.Image = Game.closedCard;
+            //this.pictureBox28.Image = Game.closedCard;
             this.pictureBox28.Location = new System.Drawing.Point(448, 461);
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.Size = new System.Drawing.Size(132, 134);
@@ -477,7 +477,7 @@
             // 
             // pictureBox29
             // 
-            this.pictureBox29.Image = Game.closedCard;
+            //this.pictureBox29.Image = Game.closedCard;
             this.pictureBox29.Location = new System.Drawing.Point(586, 461);
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.Size = new System.Drawing.Size(132, 134);
@@ -489,7 +489,7 @@
             // 
             // pictureBox30
             // 
-            this.pictureBox30.Image = Game.closedCard;
+            //this.pictureBox30.Image = Game.closedCard;
             this.pictureBox30.Location = new System.Drawing.Point(724, 461);
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.Size = new System.Drawing.Size(129, 134);
@@ -501,7 +501,7 @@
             // 
             // pictureBox31
             // 
-            this.pictureBox31.Image = Game.closedCard;
+            // this.pictureBox31.Image = Game.closedCard;
             this.pictureBox31.Location = new System.Drawing.Point(862, 461);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(132, 134);
@@ -513,7 +513,7 @@
             // 
             // pictureBox32
             // 
-            this.pictureBox32.Image = Game.closedCard;
+            // this.pictureBox32.Image = Game.closedCard;
             this.pictureBox32.Location = new System.Drawing.Point(1000, 461);
             this.pictureBox32.Name = "pictureBox32";
             this.pictureBox32.Size = new System.Drawing.Size(132, 134);
@@ -525,7 +525,7 @@
             // 
             // pictureBox33
             // 
-            this.pictureBox33.Image = Game.closedCard;
+            //this.pictureBox33.Image = Game.closedCard;
             this.pictureBox33.Location = new System.Drawing.Point(34, 601);
             this.pictureBox33.Name = "pictureBox33";
             this.pictureBox33.Size = new System.Drawing.Size(132, 134);
@@ -537,7 +537,7 @@
             // 
             // pictureBox34
             // 
-            this.pictureBox34.Image = Game.closedCard;
+            //this.pictureBox34.Image = Game.closedCard;
             this.pictureBox34.Location = new System.Drawing.Point(172, 601);
             this.pictureBox34.Name = "pictureBox34";
             this.pictureBox34.Size = new System.Drawing.Size(132, 134);
@@ -549,7 +549,7 @@
             // 
             // pictureBox35
             // 
-            this.pictureBox35.Image = Game.closedCard;
+            // this.pictureBox35.Image = Game.closedCard;
             this.pictureBox35.Location = new System.Drawing.Point(310, 601);
             this.pictureBox35.Name = "pictureBox35";
             this.pictureBox35.Size = new System.Drawing.Size(132, 134);
@@ -561,7 +561,7 @@
             // 
             // pictureBox36
             // 
-            this.pictureBox36.Image = Game.closedCard;
+            //this.pictureBox36.Image = Game.closedCard;
             this.pictureBox36.Location = new System.Drawing.Point(448, 601);
             this.pictureBox36.Name = "pictureBox36";
             this.pictureBox36.Size = new System.Drawing.Size(132, 134);
@@ -573,7 +573,7 @@
             // 
             // pictureBox37
             // 
-            this.pictureBox37.Image = Game.closedCard;
+            //this.pictureBox37.Image = Game.closedCard;
             this.pictureBox37.Location = new System.Drawing.Point(586, 601);
             this.pictureBox37.Name = "pictureBox37";
             this.pictureBox37.Size = new System.Drawing.Size(132, 134);
@@ -585,7 +585,7 @@
             // 
             // pictureBox38
             // 
-            this.pictureBox38.Image = Game.closedCard;
+            //this.pictureBox38.Image = Game.closedCard;
             this.pictureBox38.Location = new System.Drawing.Point(724, 601);
             this.pictureBox38.Name = "pictureBox38";
             this.pictureBox38.Size = new System.Drawing.Size(129, 134);
@@ -597,7 +597,7 @@
             // 
             // pictureBox39
             // 
-            this.pictureBox39.Image = Game.closedCard;
+            //this.pictureBox39.Image = Game.closedCard;
             this.pictureBox39.Location = new System.Drawing.Point(862, 601);
             this.pictureBox39.Name = "pictureBox39";
             this.pictureBox39.Size = new System.Drawing.Size(129, 134);
@@ -609,7 +609,7 @@
             // 
             // pictureBox40
             // 
-            this.pictureBox40.Image = Game.closedCard;
+            //this.pictureBox40.Image = Game.closedCard;
             this.pictureBox40.Location = new System.Drawing.Point(1000, 601);
             this.pictureBox40.Name = "pictureBox40";
             this.pictureBox40.Size = new System.Drawing.Size(132, 134);
