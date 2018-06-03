@@ -47,6 +47,18 @@ namespace Memory
         public abstract bool isBot();
         public abstract Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand);
 
+        
+    }
+    public abstract class PairGamePlayer : Player
+    {
+        public int x2Avaliable { get; set; }
+        public int secondChanceAvaliable { get; set; }
+        public int openCardsAvaliable { get; set; }
+        public int findNextAvaliable { get; set; }
+
+        public PairGamePlayer(string name, IChosingMoveStrategy strategy) : base(name, strategy)
+        {
+        }
         public virtual void setEasyGameAvaliable()
         {
 
@@ -58,8 +70,7 @@ namespace Memory
         {
         }
     }
-
-    public class HumanPlayer : Player
+    public class HumanPlayer : PairGamePlayer
     {
         //public bool Turn { get; set; }
 
@@ -79,10 +90,6 @@ namespace Memory
 
     public class PairGameHumanPlayer : HumanPlayer
     {
-        public int x2Avaliable { get; set; }
-        public int secondChanceAvaliable { get; set; }
-        public int openCardsAvaliable { get; set; }
-        public int findNextAvaliable { get; set; }
 
         public PairGameHumanPlayer(string name) : base(name)
         {
@@ -133,13 +140,9 @@ namespace Memory
         }
     }
 
-    public class Bot : Player
+    public class Bot : PairGamePlayer
     {
-        public int x2Avaliable { get; set; }
-        public int secondChanceAvaliable { get; set; }
-        public int openCardsAvaliable { get; set; }
-        public int findNextAvaliable { get; set; }
-
+        
         public override void setEasyGameAvaliable()
         {
             x2Avaliable = 2;

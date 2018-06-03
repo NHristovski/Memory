@@ -55,6 +55,7 @@ namespace Memory
             }
 
             Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text);
+            
 
             if (radioButtonBot.Checked)
             {
@@ -78,37 +79,30 @@ namespace Memory
 
             if (radioButtonEasy.Checked)
             {
-                ((PairGameHumanPlayer)Player1).setEasyGameAvaliable();
-                if (!Player2.isBot())
-                {
-                    ((PairGameHumanPlayer)Player2).setEasyGameAvaliable();
-                }
-
+                ((PairGamePlayer)Player1).setEasyGameAvaliable();
+                ((PairGamePlayer)Player2).setEasyGameAvaliable();
+                
                 form = new EasyPairGameForm(Player1, Player2);
             }
             else if (radioButtonMedium.Checked)
             {
-                ((PairGameHumanPlayer)Player1).setNormalGameAvaliable();
-                if (!Player2.isBot())
-                {
-                    ((PairGameHumanPlayer)Player2).setNormalGameAvaliable();
-                }
+                ((PairGamePlayer)Player1).setNormalGameAvaliable();
+                ((PairGamePlayer)Player2).setNormalGameAvaliable();
 
                 form = new NormalPairGameForm(Player1,Player2);
             }
             else// hard
             {
-                ((PairGameHumanPlayer)Player1).setHardGameAvaliable();
-                if (!Player2.isBot())
-                {
-                    ((PairGameHumanPlayer)Player2).setHardGameAvaliable();
-                }
+                ((PairGamePlayer)Player1).setHardGameAvaliable();
+                ((PairGamePlayer)Player2).setHardGameAvaliable();
 
                 form = new HardPairGameForm(Player1, Player2);
             }
 
+
             form.ShowDialog();
-            
+            this.Hide();
+
         }
 
         private void textBoxPlayer1Name_Validating(object sender, CancelEventArgs e)

@@ -368,10 +368,10 @@ namespace Memory
                 currentPlayer = Game.Player2;
             }
 
-            if (currentPlayer.isBot())
-            {
-                playBotMove();
-            }
+            //if (currentPlayer.isBot())
+            //{
+            //    playBotMove();
+            //}
 
         }
 
@@ -379,19 +379,19 @@ namespace Memory
 
         public string getx2Avaliable()
         {
-            return ((PairGameHumanPlayer)currentPlayer).x2Avaliable + "";
+            return ((PairGamePlayer)currentPlayer).x2Avaliable + "";
         }
         public string getSecondChanceAvaliable()
         {
-            return ((PairGameHumanPlayer)currentPlayer).secondChanceAvaliable + "";
+            return ((PairGamePlayer)currentPlayer).secondChanceAvaliable + "";
         }
         public string getFindNextAvaliable()
         {
-            return ((PairGameHumanPlayer)currentPlayer).findNextAvaliable + "";
+            return ((PairGamePlayer)currentPlayer).findNextAvaliable + "";
         }
         public string getOpenCardsAvaliable()
         {
-            return ((PairGameHumanPlayer)currentPlayer).openCardsAvaliable + "";
+            return ((PairGamePlayer)currentPlayer).openCardsAvaliable + "";
         }
 
         public void DoubleMultiplier()
