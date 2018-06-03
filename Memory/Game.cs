@@ -66,7 +66,7 @@ namespace Memory
             State = STATES.NORMAL_STATE;
 
             Player2 = player2;
-            shapes = new string[] { "spade", "heart" }; // not complete
+            shapes = new string[] { "spade", "heart", "I" }; // not complete
             secondCard = false;
             currentPlayer = Player1;
             scoreMultiplier = 1;
