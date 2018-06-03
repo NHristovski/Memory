@@ -82,13 +82,34 @@ namespace Memory
             textBoxAvaliableFindNext.Text = game.getFindNextAvaliable();
             textBoxAvaliableOpenCards.Text = game.getOpenCardsAvaliable();
             textBoxAvalibleSecondChance.Text = game.getSecondChanceAvaliable();
+
+            this.Refresh();
         }
 
         private void validateCard(PictureBox pb)
         {
-            updateLabels();
             game.validateCard(pb);
+            if (game.BotTurn())
+            {
+                playBotMoves();
+            }
             updateLabels();
+        }
+
+        private void playBotMoves()
+        {
+
+            updateLabels();
+            this.Refresh();
+            if (game.playBotMove())
+            {
+                updateLabels();
+                this.Refresh();
+
+                playBotMoves(); // play the next move
+            }
+            updateLabels();
+            this.Refresh();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

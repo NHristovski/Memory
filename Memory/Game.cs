@@ -162,7 +162,16 @@ namespace Memory
         }
 
        // INTERACTION METHODS
+        
+        public bool BotTurn()
+        {
+            return Observer.currentPlayer.isBot();
+        }
 
+        public bool playBotMove()
+        {
+            return Observer.playBotMove();
+        }
         public void closeCard(PictureBox pb)
         {
             Observer.closeCard(pb);
