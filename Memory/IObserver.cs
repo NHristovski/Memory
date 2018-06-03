@@ -236,10 +236,11 @@ namespace Memory
                     secondCard = false;
 
 
-                    if (!currentPlayer.isBot())
-                    {
-                        changeTurn();
-                    }
+                    //if (!currentPlayer.isBot())
+                    //{
+                    //    
+                    //}
+                    changeTurn();
 
                     return false;
                 }
@@ -332,7 +333,7 @@ namespace Memory
             return currentPlayer.ChoseMove(canBePairedCards, openedCards, validCards, cardsDictionary, rand);
         }
 
-        public void playBotMove()
+        public bool playBotMove()
         {
             // Bot makes moves until he misses
             ShouldHandle = false; // disable clicking on pictureboxes while bot makes moves
@@ -340,20 +341,20 @@ namespace Memory
             Tuple<PictureBox, PictureBox> move = botMove();
             validateCard(move.Item1);
 
-            while (validateCard(move.Item2))
+            if (validateCard(move.Item2))
             {
                 if (this.shouldEnd())
                 {
                     Game.endGame();
-                    break;
+                    return false;
                 }
 
-                move = botMove();
-                validateCard(move.Item1);
+                return true;
             }
 
+            
             ShouldHandle = true; // enable clicking on pictureBoxes
-            changeTurn();
+            return false;
         }
 
         public void changeTurn()

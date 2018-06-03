@@ -46,6 +46,17 @@ namespace Memory
 
         public abstract bool isBot();
         public abstract Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand);
+
+        public virtual void setEasyGameAvaliable()
+        {
+
+        }
+        public virtual void setNormalGameAvaliable()
+        {
+        }
+        public virtual void setHardGameAvaliable()
+        {
+        }
     }
 
     public class HumanPlayer : Player
@@ -78,21 +89,21 @@ namespace Memory
 
         }
 
-        public void setEasyGameAvaliable()
+        public override void setEasyGameAvaliable()
         {
             x2Avaliable = 2;
             secondChanceAvaliable = 1;
             findNextAvaliable = 1;
             openCardsAvaliable = 1;
         }
-        public void setNormalGameAvaliable()
+        public override void setNormalGameAvaliable()
         {
             x2Avaliable = 1;
             secondChanceAvaliable = 2;
             findNextAvaliable = 2;
             openCardsAvaliable = 1;
         }
-        public void setHardGameAvaliable()
+        public override void setHardGameAvaliable()
         {
             x2Avaliable = 2;
             secondChanceAvaliable = 3;
@@ -124,7 +135,33 @@ namespace Memory
 
     public class Bot : Player
     {
-        
+        public int x2Avaliable { get; set; }
+        public int secondChanceAvaliable { get; set; }
+        public int openCardsAvaliable { get; set; }
+        public int findNextAvaliable { get; set; }
+
+        public override void setEasyGameAvaliable()
+        {
+            x2Avaliable = 2;
+            secondChanceAvaliable = 1;
+            findNextAvaliable = 1;
+            openCardsAvaliable = 1;
+        }
+        public override void setNormalGameAvaliable()
+        {
+            x2Avaliable = 1;
+            secondChanceAvaliable = 2;
+            findNextAvaliable = 2;
+            openCardsAvaliable = 1;
+        }
+        public override void setHardGameAvaliable()
+        {
+            x2Avaliable = 2;
+            secondChanceAvaliable = 3;
+            findNextAvaliable = 2;
+            openCardsAvaliable = 1;
+        }
+
         public Bot(IChosingMoveStrategy strategy) : base("NOT-A-BOT",strategy)
         {
         }
