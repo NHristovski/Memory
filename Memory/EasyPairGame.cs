@@ -15,7 +15,6 @@ namespace Memory
     { 
         List<PictureBox> picBoxes;
         PairGame game;
-        private bool canContinue;
 
         public EasyPairGameForm(Player Player1,Player Player2)
         {
@@ -64,12 +63,10 @@ namespace Memory
             textBoxPriceSecondChance.Text = secondChancePrice + "";
 
             updateLabels();
-            canContinue = true;
         }
 
         private void updateLabels()
         {
-            canContinue = false;
 
             labelCurrentPlayer.Text = game.GetCurrentPlayerName();
             labelP1points.Text = game.Player1.Score.Points + "";
@@ -80,7 +77,8 @@ namespace Memory
             textBoxAvaliableOpenCards.Text = game.getOpenCardsAvaliable();
             textBoxAvalibleSecondChance.Text = game.getSecondChanceAvaliable();
 
-            canContinue = true;
+            this.Refresh();
+
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -100,19 +98,20 @@ namespace Memory
 
         private void playBotMoves()
         {
+
+            updateLabels();
+            this.Refresh();
             if (game.playBotMove())
             {
                 updateLabels();
-                while(!canContinue)
-                {
-
-                }//busy wainting
-                //MessageBox.Show(canContinue.ToString());
+                this.Refresh();
 
                 playBotMoves(); // play the next move
             }
             updateLabels();
+            this.Refresh();
         }
+
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             if (game.ShouldHandle)
