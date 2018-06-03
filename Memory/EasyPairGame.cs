@@ -62,15 +62,19 @@ namespace Memory
             textBoxPriceOpenCards.Text = openCardsPrice + "";
             textBoxPriceSecondChance.Text = secondChancePrice + "";
 
+            labelP1points.Text = game.Player1.Name + " points:";
+            labelP2points.Text = game.Player2.Name + " points:";
+
             updateLabels();
         }
 
         private void updateLabels()
         {
 
-            labelCurrentPlayer.Text = game.GetCurrentPlayerName();
-            labelP1points.Text = game.Player1.Score.Points + "";
-            labelP2points.Text = game.Player2.Score.Points + "";
+            textBoxCurrentPlayer.Text = game.GetCurrentPlayerName();
+            textBoxP1Points.Text = game.Player1.Score.Points + "";
+            textBoxP2Points.Text = game.Player2.Score.Points + "";
+            textBoxScoreMultiplier.Text = game.getScoreMultiplier();
 
             textBoxAvaliable2x.Text = game.getx2Avaliable();
             textBoxAvaliableFindNext.Text = game.getFindNextAvaliable();
@@ -94,6 +98,11 @@ namespace Memory
                 playBotMoves();
             }
             updateLabels();
+
+            if (game.ShouldEnd())
+            {
+                game.endGame();
+            }
         }
 
         private void playBotMoves()
@@ -101,12 +110,15 @@ namespace Memory
 
             updateLabels();
             this.Refresh();
-            if (game.playBotMove())
+            if (game.BotMoveSuccsessfull())
             {
                 updateLabels();
                 this.Refresh();
 
-                playBotMoves(); // play the next move
+                if (!game.ShouldEnd())
+                {
+                    playBotMoves(); // play the next move
+                }
             }
             updateLabels();
             this.Refresh();

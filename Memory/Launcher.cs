@@ -99,13 +99,16 @@ namespace Memory
                 form = new HardPairGameForm(Player1, Player2);
             }
 
-
-            this.Dispose();
-            form.ShowDialog();
-
+            //this.Dispose();
+            //form.ShowDialog();
+            runNewForm(form);
 
         }
-
+        private void runNewForm(Form f)
+        {
+            this.Dispose();
+            form.ShowDialog();
+        }
         private void textBoxPlayer1Name_Validating(object sender, CancelEventArgs e)
         {
             if (textBoxPlayer1Name.Text.Equals(String.Empty))

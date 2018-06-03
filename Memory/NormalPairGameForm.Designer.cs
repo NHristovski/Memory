@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxScoreMultiplier = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxP2Points = new System.Windows.Forms.TextBox();
+            this.textBoxP1Points = new System.Windows.Forms.TextBox();
+            this.textBoxCurrentPlayer = new System.Windows.Forms.TextBox();
             this.labelP1points = new System.Windows.Forms.Label();
             this.labelCurrentPlayer = new System.Windows.Forms.Label();
             this.labelP2points = new System.Windows.Forms.Label();
@@ -119,46 +124,100 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.textBoxScoreMultiplier);
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.textBoxP2Points);
+            this.groupBox2.Controls.Add(this.textBoxP1Points);
+            this.groupBox2.Controls.Add(this.textBoxCurrentPlayer);
             this.groupBox2.Controls.Add(this.labelP1points);
             this.groupBox2.Controls.Add(this.labelCurrentPlayer);
             this.groupBox2.Controls.Add(this.labelP2points);
-            this.groupBox2.Location = new System.Drawing.Point(945, 30);
+            this.groupBox2.Location = new System.Drawing.Point(869, 30);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(228, 308);
+            this.groupBox2.Size = new System.Drawing.Size(376, 413);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Informacii za players";
             // 
+            // textBoxScoreMultiplier
+            // 
+            this.textBoxScoreMultiplier.Enabled = false;
+            this.textBoxScoreMultiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxScoreMultiplier.Location = new System.Drawing.Point(153, 170);
+            this.textBoxScoreMultiplier.Name = "textBoxScoreMultiplier";
+            this.textBoxScoreMultiplier.Size = new System.Drawing.Size(100, 36);
+            this.textBoxScoreMultiplier.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(115, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(187, 20);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "SCORE MULTIPLIER";
+            // 
+            // textBoxP2Points
+            // 
+            this.textBoxP2Points.Enabled = false;
+            this.textBoxP2Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxP2Points.Location = new System.Drawing.Point(25, 343);
+            this.textBoxP2Points.Name = "textBoxP2Points";
+            this.textBoxP2Points.Size = new System.Drawing.Size(100, 30);
+            this.textBoxP2Points.TabIndex = 5;
+            // 
+            // textBoxP1Points
+            // 
+            this.textBoxP1Points.Enabled = false;
+            this.textBoxP1Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxP1Points.Location = new System.Drawing.Point(28, 258);
+            this.textBoxP1Points.Name = "textBoxP1Points";
+            this.textBoxP1Points.Size = new System.Drawing.Size(100, 30);
+            this.textBoxP1Points.TabIndex = 4;
+            // 
+            // textBoxCurrentPlayer
+            // 
+            this.textBoxCurrentPlayer.Enabled = false;
+            this.textBoxCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxCurrentPlayer.Location = new System.Drawing.Point(54, 71);
+            this.textBoxCurrentPlayer.Name = "textBoxCurrentPlayer";
+            this.textBoxCurrentPlayer.Size = new System.Drawing.Size(287, 30);
+            this.textBoxCurrentPlayer.TabIndex = 3;
+            // 
             // labelP1points
             // 
             this.labelP1points.AutoSize = true;
-            this.labelP1points.Location = new System.Drawing.Point(28, 130);
+            this.labelP1points.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.labelP1points.Location = new System.Drawing.Point(6, 225);
             this.labelP1points.Name = "labelP1points";
-            this.labelP1points.Size = new System.Drawing.Size(46, 17);
+            this.labelP1points.Size = new System.Drawing.Size(131, 20);
             this.labelP1points.TabIndex = 1;
-            this.labelP1points.Text = "label2";
+            this.labelP1points.Text = "Player1 Points";
             // 
             // labelCurrentPlayer
             // 
             this.labelCurrentPlayer.AutoSize = true;
-            this.labelCurrentPlayer.Location = new System.Drawing.Point(66, 61);
+            this.labelCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.labelCurrentPlayer.Location = new System.Drawing.Point(139, 37);
             this.labelCurrentPlayer.Name = "labelCurrentPlayer";
-            this.labelCurrentPlayer.Size = new System.Drawing.Size(46, 17);
+            this.labelCurrentPlayer.Size = new System.Drawing.Size(137, 20);
             this.labelCurrentPlayer.TabIndex = 0;
-            this.labelCurrentPlayer.Text = "label1";
+            this.labelCurrentPlayer.Text = "Current Player:";
             // 
             // labelP2points
             // 
             this.labelP2points.AutoSize = true;
-            this.labelP2points.Location = new System.Drawing.Point(156, 130);
+            this.labelP2points.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.labelP2points.Location = new System.Drawing.Point(6, 310);
             this.labelP2points.Name = "labelP2points";
-            this.labelP2points.Size = new System.Drawing.Size(46, 17);
+            this.labelP2points.Size = new System.Drawing.Size(131, 20);
             this.labelP2points.TabIndex = 2;
-            this.labelP2points.Text = "label3";
+            this.labelP2points.Text = "Player2 Points";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(20, 18);
+            this.pictureBox1.Location = new System.Drawing.Point(20, 67);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(132, 136);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -168,7 +227,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Location = new System.Drawing.Point(158, 18);
+            this.pictureBox2.Location = new System.Drawing.Point(158, 67);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(132, 136);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -178,7 +237,7 @@
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Location = new System.Drawing.Point(296, 18);
+            this.pictureBox3.Location = new System.Drawing.Point(296, 67);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(132, 136);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -188,7 +247,7 @@
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Location = new System.Drawing.Point(434, 18);
+            this.pictureBox4.Location = new System.Drawing.Point(434, 67);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(132, 136);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -198,7 +257,7 @@
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Location = new System.Drawing.Point(572, 18);
+            this.pictureBox5.Location = new System.Drawing.Point(572, 67);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(132, 136);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +267,7 @@
             // 
             // pictureBox6
             // 
-            this.pictureBox6.Location = new System.Drawing.Point(710, 18);
+            this.pictureBox6.Location = new System.Drawing.Point(710, 67);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(132, 136);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -218,7 +277,7 @@
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Location = new System.Drawing.Point(158, 160);
+            this.pictureBox7.Location = new System.Drawing.Point(158, 209);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(132, 136);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -228,7 +287,7 @@
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Location = new System.Drawing.Point(296, 160);
+            this.pictureBox8.Location = new System.Drawing.Point(296, 209);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(132, 136);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -238,7 +297,7 @@
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Location = new System.Drawing.Point(434, 160);
+            this.pictureBox9.Location = new System.Drawing.Point(434, 209);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(132, 136);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -248,7 +307,7 @@
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Location = new System.Drawing.Point(572, 160);
+            this.pictureBox10.Location = new System.Drawing.Point(572, 209);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(132, 136);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -258,7 +317,7 @@
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Location = new System.Drawing.Point(20, 300);
+            this.pictureBox11.Location = new System.Drawing.Point(20, 351);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(132, 136);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -268,7 +327,7 @@
             // 
             // pictureBox12
             // 
-            this.pictureBox12.Location = new System.Drawing.Point(158, 300);
+            this.pictureBox12.Location = new System.Drawing.Point(158, 351);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(132, 136);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -278,7 +337,7 @@
             // 
             // pictureBox13
             // 
-            this.pictureBox13.Location = new System.Drawing.Point(296, 300);
+            this.pictureBox13.Location = new System.Drawing.Point(296, 351);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(132, 136);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -288,7 +347,7 @@
             // 
             // pictureBox14
             // 
-            this.pictureBox14.Location = new System.Drawing.Point(434, 300);
+            this.pictureBox14.Location = new System.Drawing.Point(434, 351);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(132, 136);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -298,7 +357,7 @@
             // 
             // pictureBox15
             // 
-            this.pictureBox15.Location = new System.Drawing.Point(572, 302);
+            this.pictureBox15.Location = new System.Drawing.Point(572, 353);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(132, 136);
             this.pictureBox15.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -308,7 +367,7 @@
             // 
             // pictureBox16
             // 
-            this.pictureBox16.Location = new System.Drawing.Point(710, 300);
+            this.pictureBox16.Location = new System.Drawing.Point(710, 351);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(132, 136);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -318,7 +377,7 @@
             // 
             // pictureBox17
             // 
-            this.pictureBox17.Location = new System.Drawing.Point(158, 442);
+            this.pictureBox17.Location = new System.Drawing.Point(158, 493);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(132, 136);
             this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -328,7 +387,7 @@
             // 
             // pictureBox18
             // 
-            this.pictureBox18.Location = new System.Drawing.Point(296, 442);
+            this.pictureBox18.Location = new System.Drawing.Point(296, 493);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(132, 136);
             this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -338,7 +397,7 @@
             // 
             // pictureBox19
             // 
-            this.pictureBox19.Location = new System.Drawing.Point(434, 442);
+            this.pictureBox19.Location = new System.Drawing.Point(434, 493);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(132, 136);
             this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -348,7 +407,7 @@
             // 
             // pictureBox20
             // 
-            this.pictureBox20.Location = new System.Drawing.Point(572, 442);
+            this.pictureBox20.Location = new System.Drawing.Point(572, 493);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(132, 136);
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -358,7 +417,7 @@
             // 
             // pictureBox21
             // 
-            this.pictureBox21.Location = new System.Drawing.Point(20, 582);
+            this.pictureBox21.Location = new System.Drawing.Point(20, 635);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(132, 136);
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -368,7 +427,7 @@
             // 
             // pictureBox22
             // 
-            this.pictureBox22.Location = new System.Drawing.Point(158, 582);
+            this.pictureBox22.Location = new System.Drawing.Point(158, 635);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(132, 136);
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -378,7 +437,7 @@
             // 
             // pictureBox23
             // 
-            this.pictureBox23.Location = new System.Drawing.Point(296, 582);
+            this.pictureBox23.Location = new System.Drawing.Point(296, 635);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(132, 136);
             this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -388,7 +447,7 @@
             // 
             // pictureBox24
             // 
-            this.pictureBox24.Location = new System.Drawing.Point(434, 582);
+            this.pictureBox24.Location = new System.Drawing.Point(434, 635);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(132, 136);
             this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -398,7 +457,7 @@
             // 
             // pictureBox25
             // 
-            this.pictureBox25.Location = new System.Drawing.Point(572, 582);
+            this.pictureBox25.Location = new System.Drawing.Point(572, 635);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.Size = new System.Drawing.Size(132, 136);
             this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -408,7 +467,7 @@
             // 
             // pictureBox26
             // 
-            this.pictureBox26.Location = new System.Drawing.Point(710, 582);
+            this.pictureBox26.Location = new System.Drawing.Point(710, 635);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(132, 136);
             this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -444,7 +503,7 @@
             this.groupBoxHelpers.Controls.Add(this.pictureBoxSecondChance);
             this.groupBoxHelpers.Controls.Add(this.pictureBox2x);
             this.groupBoxHelpers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxHelpers.Location = new System.Drawing.Point(863, 396);
+            this.groupBoxHelpers.Location = new System.Drawing.Point(863, 449);
             this.groupBoxHelpers.Name = "groupBoxHelpers";
             this.groupBoxHelpers.Size = new System.Drawing.Size(382, 322);
             this.groupBoxHelpers.TabIndex = 85;
@@ -485,7 +544,6 @@
             this.textBoxPriceOpenCards.Name = "textBoxPriceOpenCards";
             this.textBoxPriceOpenCards.Size = new System.Drawing.Size(47, 26);
             this.textBoxPriceOpenCards.TabIndex = 21;
-            this.textBoxPriceOpenCards.Text = "500";
             // 
             // label10
             // 
@@ -503,7 +561,6 @@
             this.textBoxAvaliableOpenCards.Name = "textBoxAvaliableOpenCards";
             this.textBoxAvaliableOpenCards.Size = new System.Drawing.Size(47, 26);
             this.textBoxAvaliableOpenCards.TabIndex = 19;
-            this.textBoxAvaliableOpenCards.Text = "1";
             // 
             // label11
             // 
@@ -521,7 +578,6 @@
             this.textBoxPriceFindNext.Name = "textBoxPriceFindNext";
             this.textBoxPriceFindNext.Size = new System.Drawing.Size(47, 26);
             this.textBoxPriceFindNext.TabIndex = 17;
-            this.textBoxPriceFindNext.Text = "300";
             // 
             // label8
             // 
@@ -539,7 +595,6 @@
             this.textBoxAvaliableFindNext.Name = "textBoxAvaliableFindNext";
             this.textBoxAvaliableFindNext.Size = new System.Drawing.Size(47, 26);
             this.textBoxAvaliableFindNext.TabIndex = 15;
-            this.textBoxAvaliableFindNext.Text = "2";
             // 
             // label9
             // 
@@ -557,7 +612,6 @@
             this.textBoxPriceSecondChance.Name = "textBoxPriceSecondChance";
             this.textBoxPriceSecondChance.Size = new System.Drawing.Size(47, 26);
             this.textBoxPriceSecondChance.TabIndex = 13;
-            this.textBoxPriceSecondChance.Text = "200";
             // 
             // label6
             // 
@@ -575,7 +629,6 @@
             this.textBoxAvalibleSecondChance.Name = "textBoxAvalibleSecondChance";
             this.textBoxAvalibleSecondChance.Size = new System.Drawing.Size(47, 26);
             this.textBoxAvalibleSecondChance.TabIndex = 11;
-            this.textBoxAvalibleSecondChance.Text = "3";
             // 
             // label7
             // 
@@ -593,7 +646,6 @@
             this.textBoxPrice2x.Name = "textBoxPrice2x";
             this.textBoxPrice2x.Size = new System.Drawing.Size(47, 26);
             this.textBoxPrice2x.TabIndex = 9;
-            this.textBoxPrice2x.Text = "100";
             // 
             // label5
             // 
@@ -611,7 +663,6 @@
             this.textBoxAvaliable2x.Name = "textBoxAvaliable2x";
             this.textBoxAvaliable2x.Size = new System.Drawing.Size(47, 26);
             this.textBoxAvaliable2x.TabIndex = 6;
-            this.textBoxAvaliable2x.Text = "1";
             // 
             // label4
             // 
@@ -675,7 +726,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1275, 775);
+            this.ClientSize = new System.Drawing.Size(1260, 786);
             this.Controls.Add(this.groupBoxHelpers);
             this.Controls.Add(this.pictureBox26);
             this.Controls.Add(this.pictureBox25);
@@ -800,5 +851,10 @@
         private System.Windows.Forms.PictureBox pictureBoxFindNext;
         private System.Windows.Forms.PictureBox pictureBoxSecondChance;
         private System.Windows.Forms.PictureBox pictureBox2x;
+        private System.Windows.Forms.TextBox textBoxScoreMultiplier;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxP2Points;
+        private System.Windows.Forms.TextBox textBoxP1Points;
+        private System.Windows.Forms.TextBox textBoxCurrentPlayer;
     }
 }
