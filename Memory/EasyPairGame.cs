@@ -40,10 +40,10 @@ namespace Memory
             picBoxes.Add(this.pictureBox16);
 
 
-            int x2Price = 100;
-            int secondChancePrice = 200;
-            int findNextPrice = 300;
-            int openCardsPrice = 500;
+            int x2Price = 250;
+            int secondChancePrice = 350;
+            int findNextPrice = 500;
+            int openCardsPrice = 700;
 
             game = new PairGame(Player1,Player2, picBoxes,x2Price,secondChancePrice,findNextPrice,openCardsPrice);
 
@@ -137,8 +137,7 @@ namespace Memory
             {
                 validateCard(pictureBox6);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
@@ -147,8 +146,7 @@ namespace Memory
             {
                 validateCard(pictureBox7);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
@@ -157,8 +155,7 @@ namespace Memory
             {
                 validateCard(pictureBox8);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
@@ -167,8 +164,7 @@ namespace Memory
             {
                 validateCard(pictureBox9);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox10_Click(object sender, EventArgs e)
@@ -177,8 +173,7 @@ namespace Memory
             {
                 validateCard(pictureBox10);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox11_Click(object sender, EventArgs e)
@@ -187,8 +182,7 @@ namespace Memory
             {
                 validateCard(pictureBox11);
             }
-           // game.updateLabels();
-           // Invalidate(true);
+
         }
 
         private void pictureBox12_Click(object sender, EventArgs e)
@@ -197,8 +191,7 @@ namespace Memory
             {
                 validateCard(pictureBox12);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox13_Click(object sender, EventArgs e)
@@ -207,8 +200,7 @@ namespace Memory
             {
                 validateCard(pictureBox13);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox14_Click(object sender, EventArgs e)
@@ -217,8 +209,7 @@ namespace Memory
             {
                 validateCard(pictureBox14);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox15_Click(object sender, EventArgs e)
@@ -227,8 +218,7 @@ namespace Memory
             {
                 validateCard(pictureBox15);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox16_Click(object sender, EventArgs e)
@@ -237,8 +227,7 @@ namespace Memory
             {
                 validateCard(pictureBox16);
             }
-            //game.updateLabels();
-            //Invalidate(true);
+
         }
 
         private void pictureBox2x_Click(object sender, EventArgs e)

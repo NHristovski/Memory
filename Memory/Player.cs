@@ -75,10 +75,29 @@ namespace Memory
 
         public PairGameHumanPlayer(string name) : base(name)
         {
-            x2Avaliable = 1;
-            secondChanceAvaliable = 3;
+
+        }
+
+        public void setEasyGameAvaliable()
+        {
+            x2Avaliable = 2;
+            secondChanceAvaliable = 1;
+            findNextAvaliable = 1;
             openCardsAvaliable = 1;
+        }
+        public void setNormalGameAvaliable()
+        {
+            x2Avaliable = 1;
+            secondChanceAvaliable = 2;
             findNextAvaliable = 2;
+            openCardsAvaliable = 1;
+        }
+        public void setHardGameAvaliable()
+        {
+            x2Avaliable = 2;
+            secondChanceAvaliable = 3;
+            findNextAvaliable = 2;
+            openCardsAvaliable = 1;
         }
 
         public void Usex2(int price)
