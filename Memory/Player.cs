@@ -165,7 +165,7 @@ namespace Memory
             openCardsAvaliable = 1;
         }
 
-        public Bot(IChosingMoveStrategy strategy) : base("NOT-A-BOT",strategy)
+        public Bot(string name,IChosingMoveStrategy strategy) : base(name,strategy)
         {
         }
         
@@ -181,37 +181,5 @@ namespace Memory
         }
     }
 
-    /*public class EasyBot : Bot
-    {
-        public EasyBot() : base()
-        {
 
-        }
-        public override void chooseMove()
-        {
-            throw new NotImplementedException();
-        }
-    }
-    public class NormalBot : Bot
-    {
-        public NormalBot() : base()
-        {
-
-        }
-        public override void chooseMove()
-        {
-            throw new NotImplementedException();
-        }
-    }
-    public class HardBot : Bot
-    {
-        public HardBot() : base()
-        {
-
-        }
-        public override void chooseMove()
-        {
-            throw new NotImplementedException();
-        }
-    }*/
 }

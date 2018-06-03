@@ -49,6 +49,7 @@ namespace Memory
         public Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand)
         {
             List<PictureBox> validPBs = new List<PictureBox>(validPicutreBoxes);
+
             int firstIndex = rand.Next() % validPBs.Count;
 
             Card firstCard = cardsDictionary[validPBs[firstIndex]];
@@ -104,7 +105,7 @@ namespace Memory
 
     public class HardBotStrategy : IChosingMoveStrategy
     {
-        // check if there is some unprairedOpenPairs, if there are none proceed as normalBot would
+        // check if there is some unpairedOpenPairs, if there are none proceed as normalBot would
         public Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand)
         {
             if (unpairedOpenPairs.Any())

@@ -162,16 +162,26 @@ namespace Memory
         }
 
        // INTERACTION METHODS
-        
+        public bool ShouldEnd()
+        {
+            return Observer.shouldEnd();
+        }
+
+        public string getScoreMultiplier()
+        {
+            return Observer.scoreMultiplier + "";
+        }
+
         public bool BotTurn()
         {
             return Observer.currentPlayer.isBot();
         }
 
-        public bool playBotMove()
+        public bool BotMoveSuccsessfull()
         {
             return Observer.playBotMove();
         }
+
         public void closeCard(PictureBox pb)
         {
             Observer.closeCard(pb);
@@ -181,49 +191,57 @@ namespace Memory
         {
             return Observer.currentPlayer.Name;
         }
+
         public string getx2Avaliable()
         {
             return Observer.getx2Avaliable();
         }
+
         public string getFindNextAvaliable()
         {
             return Observer.getFindNextAvaliable();
         }
+
         public string getOpenCardsAvaliable()
         {
             return Observer.getOpenCardsAvaliable();
         }
+
         public string getSecondChanceAvaliable()
         {
             return Observer.getSecondChanceAvaliable();
         }
+
         public void DoubleMultiplier()
         {
             Observer.DoubleMultiplier();
         }
+
         public void SecondChance()
         {
             Observer.SecondChance();
         }
+
         public PictureBox FindNext(PictureBox pb)
         {
             return Observer.FindNext(pb);
         }
+
         public void OpenCards()
         {
             Observer.OpenCards();
         }
+
         public void makeCardsStill()
         {
             Observer.makeCardsStill();
         }
+
         public void closeValidCards()
         {
             Observer.closeValidCards();
         }
         
-
-
     }
     
 

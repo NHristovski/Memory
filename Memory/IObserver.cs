@@ -187,10 +187,10 @@ namespace Memory
 
                     removeFromCanBePaired(pb);
 
-                    if (validCards.Count == 0) // every card is guessed
-                    {
-                        Game.endGame();
-                    }
+                    //if (validCards.Count == 0) // every card is guessed
+                    //{
+                    //    Game.endGame();
+                    //}
 
                     previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
                     secondCard = false;
@@ -234,7 +234,6 @@ namespace Memory
 
                     previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
                     secondCard = false;
-
 
                     //if (!currentPlayer.isBot())
                     //{
@@ -296,10 +295,10 @@ namespace Memory
 
                 removeFromCanBePaired(pb);
 
-                if (this.shouldEnd()) // every card is guessed
-                {
-                    Game.endGame();
-                }
+                //if (this.shouldEnd()) // every card is guessed
+                //{
+                //    Game.endGame();
+                //}
 
                 ShouldHandle = true;
                 secondCard = false;
