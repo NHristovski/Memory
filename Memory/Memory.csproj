@@ -157,6 +157,9 @@
     <Content Include="Resources\heart_close.gif" />
     <Content Include="Resources\heart_open.gif" />
     <Content Include="Resources\heart_still.jpg" />
+    <Content Include="Resources\I_close.gif" />
+    <Content Include="Resources\I_open.gif" />
+    <Content Include="Resources\I_still.jpg" />
     <Content Include="Resources\memory_icon.ico" />
     <Content Include="Resources\open_cards.jpg" />
     <Content Include="Resources\second_chance.jpg" />
