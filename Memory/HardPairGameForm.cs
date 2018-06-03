@@ -65,10 +65,10 @@ namespace Memory
             picBoxes.Add(this.pictureBox39);
             picBoxes.Add(this.pictureBox40);
 
-            int x2Price = 300;
-            int secondChancePrice = 400;
-            int findNextPrice = 500;
-            int openCardsPrice = 900;
+            int x2Price = 400;
+            int secondChancePrice = 500;
+            int findNextPrice = 900;
+            int openCardsPrice = 2000;
 
             game = new PairGame(Player1, Player2, picBoxes, x2Price, secondChancePrice, findNextPrice, openCardsPrice);
 
