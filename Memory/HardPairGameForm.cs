@@ -87,14 +87,13 @@ namespace Memory
             textBoxPriceOpenCards.Text = openCardsPrice + "";
             textBoxPriceSecondChance.Text = secondChancePrice + "";
 
-            game.startGame();
-
+            
             updateLabels();
         }
 
         private void updateLabels()
         {
-            labelCurrentPlayer.Text = game.currentPlayer.Name;
+            labelCurrentPlayer.Text = game.GetCurrentPlayerName();
             labelP1points.Text = game.Player1.Score.Points + "";
             labelP2points.Text = game.Player2.Score.Points + "";
 
@@ -473,7 +472,7 @@ namespace Memory
         {
             try
             {
-                PictureBox pictureBox = game.FindNext(game.previousCard.Item2);
+                PictureBox pictureBox = game.FindNext(game.PreviousCard);
                 validateCard(pictureBox);
             }
             catch (CardNotOpenedException ex)
@@ -498,15 +497,11 @@ namespace Memory
                 updateLabels();
                 game.ShouldHandle = false;
 
-                foreach (var pbs in game.validCards)
-                {
-                    game.makeCardStill(pbs);
-                }
+                game.makeCardsStill();
+
                 Thread.Sleep(2000);
-                foreach (var pbs in game.validCards)
-                {
-                    game.closeCard(pbs);
-                }
+
+                game.closeValidCards();
 
                 game.ShouldHandle = true;
 
