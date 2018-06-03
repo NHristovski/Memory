@@ -25,53 +25,177 @@ namespace Memory
 
     public class GameObserver : IGameObserver
     {
-        public PairGame Game { get; set; }
+        private PairGame Game;
+        public Player currentPlayer { get; set; }
+        public static Random rand;
 
-        public GameObserver()
+        public bool secondCard;
+        public int scoreMultiplier;
+        public bool ShouldHandle { get; set; }
+
+
+
+        public HashSet<PictureBox> validCards;
+        public Tuple<string, PictureBox> previousCard;
+        private Dictionary<PictureBox, Card> cardsDictionary;
+        protected List<Tuple<PictureBox, PictureBox>> canBePairedCards;
+        public List<PictureBox> openedCards;
+
+
+        public GameObserver(PairGame game,List<PictureBox> pictureBoxes,Dictionary<PictureBox,Card> dict,Random rand)
         {
-            Game = null;
+            Game = game;
+            currentPlayer = Game.Player1;
+
+            secondCard = false;
+            scoreMultiplier = 1;
+
+            ShouldHandle = true;
+
+            canBePairedCards = new List<Tuple<PictureBox, PictureBox>>();
+            openedCards = new List<PictureBox>();
+            cardsDictionary = dict;
+            validCards = new HashSet<PictureBox>(pictureBoxes);
+
+            GameObserver.rand = rand;
         }
 
+        // HELPER FUNCTIONS FOR VALIDATING CARD
+        public void removeFromCanBePaired(PictureBox pb)
+        {
+            for (int i = 0; i < canBePairedCards.Count; i++)
+            {
+                if (canBePairedCards[i].Item1 == pb && canBePairedCards[i].Item2 == previousCard.Item2)
+                {
+                    canBePairedCards.RemoveAt(i);
+                    break;
+                }
+                else if (canBePairedCards[i].Item1 == previousCard.Item2 && canBePairedCards[i].Item2 == pb)
+                {
+                    canBePairedCards.RemoveAt(i);
+                    break;
+                }
+            }
+        }
+
+        public void addToCanBePaired(PictureBox pb)
+        {
+            for (int i = 0; i < openedCards.Count; i++)
+            {
+                if (getCard(openedCards[i]).Equals(getCard(pb)) && openedCards[i] != pb)
+                {
+                    Tuple<PictureBox, PictureBox> tuple = new Tuple<PictureBox, PictureBox>(openedCards[i], pb);
+                    if (!(canBePairedCards.Contains(tuple)
+                        ||
+                        canBePairedCards.Contains(new Tuple<PictureBox, PictureBox>(pb, openedCards[i]))))
+                    {
+                        canBePairedCards.Add(tuple);
+                        break;
+                    }
+
+                }
+            }
+        }
+        // ANIMATIONS
+        public void animateOpeningCard(PictureBox pb)
+        {
+            if (secondCard && !currentPlayer.isBot())
+            {
+                ShouldHandle = false;
+            }
+
+            Card card = getCard(pb);
+            //MessageBox.Show(card.pathToOpenCard);
+            if (!card.Guessed)
+            {
+                GifImage gifImage = new GifImage(card.OpenCard);
+                for (int i = 0; i < gifImage.frameCount; i++)
+                {
+                    pb.Enabled = true;
+                    pb.Image = gifImage.GetNextFrame();
+                    pb.Enabled = false;
+                }
+            }
+        }
+
+        public void closeCard(PictureBox pb)
+        {
+            pb.Image = Paths.closedCard;
+            pb.Enabled = true;
+        }
+
+        public void makeCardStill(PictureBox pb)
+        {
+            pb.Enabled = true;
+            pb.Image = getCard(pb).StillCard;
+            pb.Enabled = false;
+
+        }
+
+        public void animateClosingCard(PictureBox pb)
+        {
+            GifImage gifImage = new GifImage(getCard(pb).CloseCard);
+            for (int i = 0; i < gifImage.frameCount; i++)
+            {
+                pb.Enabled = true;
+                pb.Image = gifImage.GetNextFrame();
+                pb.Enabled = false;
+            }
+            closeCard(pb);
+
+            ShouldHandle = true;
+        }
+
+        public bool shouldEnd()
+        {
+            return validCards.Count == 0;
+        }
+
+        public Card getCard(PictureBox pb)
+        {
+            return cardsDictionary[pb];
+        }
+        // Validating
         public bool normalValidate(PictureBox pb)
         {
 
-            Card card = Game.getCard(pb);
-            Game.animateOpeningCard(pb);
+            Card card = getCard(pb);
+            animateOpeningCard(pb);
 
-            if (Game.secondCard)
+            if (secondCard)
             {
                 /*foreach (var pBox in validCards)
                 {
                     pBox.Enabled = false;
                 }*/
-                if (card.Shape.Equals(Game.previousCard.Item1)) // 2 same cards 
+                if (card.Shape.Equals(previousCard.Item1)) // 2 same cards 
                 {
                     // calculate points
-                    Game.currentPlayer.Score.Points += (Game.scoreMultiplier * 100);
-                    Game.scoreMultiplier++;
+                    currentPlayer.Score.Points += (scoreMultiplier * 100);
+                    scoreMultiplier++;
 
                     //updateLabels();
 
-                    Game.makeCardStill(pb);
-                    Game.makeCardStill(Game.previousCard.Item2);
+                    makeCardStill(pb);
+                    makeCardStill(previousCard.Item2);
 
-                    Game.validCards.Remove(pb);
-                    Game.validCards.Remove(Game.previousCard.Item2);
+                    validCards.Remove(pb);
+                    validCards.Remove(previousCard.Item2);
 
-                    Game.openedCards.Remove(pb);
-                    Game.openedCards.Remove(Game.previousCard.Item2);
+                    openedCards.Remove(pb);
+                    openedCards.Remove(previousCard.Item2);
 
-                    Game.removeFromCanBePaired(pb);
+                    removeFromCanBePaired(pb);
 
-                    if (Game.validCards.Count == 0) // every card is guessed
+                    if (validCards.Count == 0) // every card is guessed
                     {
                         Game.endGame();
                     }
 
-                    Game.previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
-                    Game.secondCard = false;
+                    previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
+                    secondCard = false;
 
-                    Game.ShouldHandle = true;
+                    ShouldHandle = true;
                     //MessageBox.Show("sega moze da handla");
 
                     return true;
@@ -93,28 +217,28 @@ namespace Memory
                 }
                 else // 2 different cards
                 {
-                    Game.animateClosingCard(pb);
-                    Game.animateClosingCard(Game.previousCard.Item2);
+                    animateClosingCard(pb);
+                    animateClosingCard(previousCard.Item2);
 
-                    Game.ShouldHandle = true;
+                    ShouldHandle = true;
                     //MessageBox.Show("sega moze da handla");
 
-                    Game.scoreMultiplier = 1;
+                    scoreMultiplier = 1;
 
-                    Game.addToCanBePaired(pb);
+                    addToCanBePaired(pb);
 
-                    if (!Game.openedCards.Contains(pb))
+                    if (!openedCards.Contains(pb))
                     {
-                        Game.openedCards.Add(pb);
+                        openedCards.Add(pb);
                     }
 
-                    Game.previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
-                    Game.secondCard = false;
+                    previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
+                    secondCard = false;
 
 
-                    if (!Game.currentPlayer.isBot())
+                    if (!currentPlayer.isBot())
                     {
-                        Game.changeTurn();
+                        changeTurn();
                     }
 
                     return false;
@@ -127,17 +251,17 @@ namespace Memory
             }
             else
             {
-                Game.ShouldHandle = true;
+                ShouldHandle = true;
 
-                Game.addToCanBePaired(pb);
+                addToCanBePaired(pb);
 
-                if (!Game.openedCards.Contains(pb))
+                if (!openedCards.Contains(pb))
                 {
-                    Game.openedCards.Add(pb);
+                    openedCards.Add(pb);
                 }
 
-                Game.secondCard = true;
-                Game.previousCard = new Tuple<string, PictureBox>(card.Shape, pb);
+                secondCard = true;
+                previousCard = new Tuple<string, PictureBox>(card.Shape, pb);
 
                 return true;
             }
@@ -148,36 +272,36 @@ namespace Memory
         public bool validateSecondChance(PictureBox pb)
         {
             
-            Card card = Game.getCard(pb);
-            Game.animateOpeningCard(pb);
+            Card card = getCard(pb);
+            animateOpeningCard(pb);
 
 
             //((PairGameHumanPlayer)Game.currentPlayer).UseSecondChance(Game.secondChancePrice);
 
-            if (card.Shape.Equals(Game.previousCard.Item1)) // 2 same cards 
+            if (card.Shape.Equals(previousCard.Item1)) // 2 same cards 
             {
                 // calculate points
-                Game.currentPlayer.Score.Points += (Game.scoreMultiplier * 100);
-                Game.scoreMultiplier++;
+                currentPlayer.Score.Points += (scoreMultiplier * 100);
+                scoreMultiplier++;
 
-                Game.makeCardStill(pb);
-                Game.makeCardStill(Game.previousCard.Item2);
+                makeCardStill(pb);
+                makeCardStill(previousCard.Item2);
 
-                Game.validCards.Remove(pb);
-                Game.validCards.Remove(Game.previousCard.Item2);
+                validCards.Remove(pb);
+                validCards.Remove(previousCard.Item2);
 
-                Game.openedCards.Remove(pb);
-                Game.openedCards.Remove(Game.previousCard.Item2);
+                openedCards.Remove(pb);
+                openedCards.Remove(previousCard.Item2);
 
-                Game.removeFromCanBePaired(pb);
+                removeFromCanBePaired(pb);
 
-                if (Game.validCards.Count == 0) // every card is guessed
+                if (this.shouldEnd()) // every card is guessed
                 {
                     Game.endGame();
                 }
 
-                Game.ShouldHandle = true;
-                Game.secondCard = false;
+                ShouldHandle = true;
+                secondCard = false;
 
 
                 return true;
@@ -185,20 +309,176 @@ namespace Memory
             }
             else // 2 different cards
             {
-                Game.animateClosingCard(pb);
+                animateClosingCard(pb);
                 //animateClosingCard(previousCard.Item2);
 
-                Game.addToCanBePaired(pb);
+                addToCanBePaired(pb);
 
-                if (!Game.openedCards.Contains(pb))
+                if (!openedCards.Contains(pb))
                 {
-                    Game.openedCards.Add(pb);
+                    openedCards.Add(pb);
                 }
-                Game.ShouldHandle = true;
+                ShouldHandle = true;
 
                 return false;
             }
 
+        }
+
+        // BOT MOVES
+
+        public Tuple<PictureBox, PictureBox> botMove()
+        {
+            return currentPlayer.ChoseMove(canBePairedCards, openedCards, validCards, cardsDictionary, rand);
+        }
+
+        public void playBotMove()
+        {
+            // Bot makes moves until he misses
+            ShouldHandle = false; // disable clicking on pictureboxes while bot makes moves
+
+            Tuple<PictureBox, PictureBox> move = botMove();
+            validateCard(move.Item1);
+
+            while (validateCard(move.Item2))
+            {
+                if (this.shouldEnd())
+                {
+                    Game.endGame();
+                }
+
+                move = botMove();
+                validateCard(move.Item1);
+            }
+
+            ShouldHandle = true; // enable clicking on pictureBoxes
+            changeTurn();
+        }
+
+        public void changeTurn()
+        {
+            if (currentPlayer == Game.Player2)
+            {
+                currentPlayer = Game.Player1;
+            }
+            else
+            {
+                currentPlayer = Game.Player2;
+            }
+
+            if (currentPlayer.isBot())
+            {
+                playBotMove();
+            }
+
+        }
+
+        //HELPERS FUNCTIONS
+
+        public string getx2Avaliable()
+        {
+            return ((PairGameHumanPlayer)currentPlayer).x2Avaliable + "";
+        }
+        public string getSecondChanceAvaliable()
+        {
+            return ((PairGameHumanPlayer)currentPlayer).secondChanceAvaliable + "";
+        }
+        public string getFindNextAvaliable()
+        {
+            return ((PairGameHumanPlayer)currentPlayer).findNextAvaliable + "";
+        }
+        public string getOpenCardsAvaliable()
+        {
+            return ((PairGameHumanPlayer)currentPlayer).openCardsAvaliable + "";
+        }
+
+        public void DoubleMultiplier()
+        {
+            if (((PairGameHumanPlayer)currentPlayer).x2Avaliable < 1)
+            {
+                throw new HelperNotAvaliableException();
+            }
+            if (currentPlayer.Score.Points < Game.x2Price)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            ((PairGameHumanPlayer)currentPlayer).Usex2(Game.x2Price);
+            this.scoreMultiplier *= 2;
+        }
+
+        public PictureBox FindNext(PictureBox pb)
+        {
+            if (!secondCard)
+            {
+                throw new CardNotOpenedException();
+            }
+            if (((PairGameHumanPlayer)currentPlayer).findNextAvaliable < 1)
+            {
+                throw new HelperNotAvaliableException();
+            }
+            if (currentPlayer.Score.Points < Game.findNextPrice)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            foreach (var pbox in validCards)
+            {
+                if (getCard(pbox).Equals(getCard(pb)) && pbox != pb)
+                {
+                    ((PairGameHumanPlayer)currentPlayer).UseFindNext(Game.findNextPrice);
+                    return pbox;
+                }
+            }
+            throw new Exception("CANNOT FIND THE CARD! CHECK FINDNEXT IN IOBSERVER.CS");
+        }
+
+
+        public void OpenCards()
+        {
+            if (((PairGameHumanPlayer)currentPlayer).openCardsAvaliable < 1)
+            {
+                throw new HelperNotAvaliableException();
+            }
+            if (currentPlayer.Score.Points < Game.openCardsPrice)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            ((PairGameHumanPlayer)currentPlayer).UseOpenCards(Game.openCardsPrice);
+        }
+
+        public void SecondChance()
+        {
+            if (!secondCard)
+            {
+                throw new CardNotOpenedException();
+            }
+            if (((PairGameHumanPlayer)currentPlayer).secondChanceAvaliable < 1)
+            {
+                throw new HelperNotAvaliableException();
+            }
+            if (currentPlayer.Score.Points < Game.secondChancePrice)
+            {
+                throw new NotEnoughScoreException();
+            }
+
+            ((PairGameHumanPlayer)currentPlayer).UseSecondChance(Game.secondChancePrice);
+            Game.GoInStateSecondChance();
+        }
+        public void makeCardsStill()
+        {
+            foreach (var pbs in validCards)
+            {
+                this.makeCardStill(pbs);
+            }
+        }
+        public void closeValidCards()
+        {
+            foreach (var pbs in validCards)
+            {
+                closeCard(pbs);
+            }
         }
 
         public bool validateCard(PictureBox pb)
