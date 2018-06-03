@@ -172,6 +172,9 @@
     <Content Include="Resources\V_close.gif" />
     <Content Include="Resources\V_open.gif" />
     <Content Include="Resources\V_still.jpg" />
+    <Content Include="Resources\X_close.gif" />
+    <Content Include="Resources\X_open.gif" />
+    <Content Include="Resources\X_still.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

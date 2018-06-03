@@ -345,6 +345,7 @@ namespace Memory
                 if (this.shouldEnd())
                 {
                     Game.endGame();
+                    break;
                 }
 
                 move = botMove();
