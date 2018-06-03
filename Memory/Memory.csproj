@@ -157,6 +157,9 @@
     <Content Include="Resources\heart_close.gif" />
     <Content Include="Resources\heart_open.gif" />
     <Content Include="Resources\heart_still.jpg" />
+    <Content Include="Resources\IRed_close.gif" />
+    <Content Include="Resources\IRed_open.gif" />
+    <Content Include="Resources\IRed_still.jpg" />
     <Content Include="Resources\I_close.gif" />
     <Content Include="Resources\I_open.gif" />
     <Content Include="Resources\I_still.jpg" />
@@ -166,6 +169,9 @@
     <Content Include="Resources\spade_close.gif" />
     <Content Include="Resources\spade_open.gif" />
     <Content Include="Resources\spade_still.jpg" />
+    <Content Include="Resources\V_close.gif" />
+    <Content Include="Resources\V_open.gif" />
+    <Content Include="Resources\V_still.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

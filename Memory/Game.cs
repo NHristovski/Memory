@@ -65,7 +65,7 @@ namespace Memory
         {
             State = STATES.NORMAL_STATE;
             Player2 = player2;
-            shapes = new string[] { "spade", "heart", "I" }; // not complete
+            shapes = new string[] { "spade", "heart", "I", "IRed", "V" }; // not complete
 
             this.x2Price = x2Price;
             this.secondChancePrice = secondChancePrice;
