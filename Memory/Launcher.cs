@@ -99,8 +99,10 @@ namespace Memory
                 form = new HardPairGameForm(Player1, Player2);
             }
 
+
             this.Dispose();
             form.ShowDialog();
+
 
         }
 
