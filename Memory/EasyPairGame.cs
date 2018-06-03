@@ -250,11 +250,11 @@ namespace Memory
             }
             catch (NotEnoughScoreException ex)
             {
-                MessageBox.Show("You don't have enought score to buy this helper!");
+                MessageBox.Show(ex.Message);
             }
             catch(HelperNotAvaliableException ex)
             {
-                MessageBox.Show("You have used all your instances of this helper!");
+                MessageBox.Show(ex.Message);
             }
             
         }
@@ -268,15 +268,15 @@ namespace Memory
             }
             catch(CardNotOpenedException ex)
             {
-                MessageBox.Show("You have to open one card before using SecondChance helper!");
+                MessageBox.Show(ex.Message);
             }
             catch (NotEnoughScoreException ex)
             {
-                MessageBox.Show("You don't have enought score to buy this helper!");
+                MessageBox.Show(ex.Message);
             }
             catch (HelperNotAvaliableException ex)
             {
-                MessageBox.Show("You have used all your instances of this helper!");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -289,15 +289,15 @@ namespace Memory
             }
             catch (CardNotOpenedException ex)
             {
-                MessageBox.Show("You have to open one card before using SecondChance helper!");
+                MessageBox.Show(ex.Message);
             }
             catch (NotEnoughScoreException ex)
             {
-                MessageBox.Show("You don't have enought score to buy this helper!");
+                MessageBox.Show(ex.Message);
             }
             catch (HelperNotAvaliableException ex)
             {
-                MessageBox.Show("You have used all your instances of this helper!");
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -324,11 +324,11 @@ namespace Memory
             }
             catch (NotEnoughScoreException ex)
             {
-                MessageBox.Show("You don't have enought score to buy this helper!");
+                MessageBox.Show(ex.Message);
             }
             catch (HelperNotAvaliableException ex)
             {
-                MessageBox.Show("You have used all your instances of this helper!");
+                MessageBox.Show(ex.Message);
             }
         }
     }

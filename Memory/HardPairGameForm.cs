@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -16,10 +17,7 @@ namespace Memory
         List<PictureBox> picBoxes;
         PairGame game;
 
-        int x2Price = 300;
-        int secondChancePrice = 400;
-        int findNextPrice = 500;
-        int openCardsPrice = 900;
+       
 
         public HardPairGameForm(Player Player1, Player Player2)
         {
@@ -67,6 +65,11 @@ namespace Memory
             picBoxes.Add(this.pictureBox39);
             picBoxes.Add(this.pictureBox40);
 
+            int x2Price = 300;
+            int secondChancePrice = 400;
+            int findNextPrice = 500;
+            int openCardsPrice = 900;
+
             game = new PairGame(Player1, Player2, picBoxes, x2Price, secondChancePrice, findNextPrice, openCardsPrice);
 
             foreach (var pBox in picBoxes)
@@ -74,6 +77,15 @@ namespace Memory
                 game.closeCard(pBox);
             }
 
+            pictureBox2x.Image = Image.FromFile(Paths.pathTo2xImage);
+            pictureBoxSecondChance.Image = Image.FromFile(Paths.pathToSecondChanceImage);
+            pictureBoxOpenCards.Image = Image.FromFile(Paths.pathToOpenCardsImage);
+            pictureBoxFindNext.Image = Image.FromFile(Paths.pathToFindNextImage);
+
+            textBoxPrice2x.Text = x2Price + "";
+            textBoxPriceFindNext.Text = findNextPrice + "";
+            textBoxPriceOpenCards.Text = openCardsPrice + "";
+            textBoxPriceSecondChance.Text = secondChancePrice + "";
 
             game.startGame();
 
@@ -85,6 +97,11 @@ namespace Memory
             labelCurrentPlayer.Text = game.currentPlayer.Name;
             labelP1points.Text = game.Player1.Score.Points + "";
             labelP2points.Text = game.Player2.Score.Points + "";
+
+            textBoxAvaliable2x.Text = game.getx2Avaliable();
+            textBoxAvaliableFindNext.Text = game.getFindNextAvaliable();
+            textBoxAvaliableOpenCards.Text = game.getOpenCardsAvaliable();
+            textBoxAvalibleSecondChance.Text = game.getSecondChanceAvaliable();
         }
 
         private void validateCard(PictureBox pb)
@@ -411,6 +428,96 @@ namespace Memory
             if (game.ShouldHandle)
             {
                 validateCard(pictureBox40);
+            }
+        }
+
+        private void pictureBox2x_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                game.DoubleMultiplier();
+                updateLabels();
+            }
+            catch (NotEnoughScoreException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (HelperNotAvaliableException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pictureBoxSecondChance_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                game.SecondChance();
+                updateLabels();
+            }
+            catch (CardNotOpenedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (NotEnoughScoreException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (HelperNotAvaliableException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pictureBoxFindNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PictureBox pictureBox = game.FindNext(game.previousCard.Item2);
+                validateCard(pictureBox);
+            }
+            catch (CardNotOpenedException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (NotEnoughScoreException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (HelperNotAvaliableException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pictureBoxOpenCards_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                game.OpenCards();
+                updateLabels();
+                game.ShouldHandle = false;
+
+                foreach (var pbs in game.validCards)
+                {
+                    game.makeCardStill(pbs);
+                }
+                Thread.Sleep(2000);
+                foreach (var pbs in game.validCards)
+                {
+                    game.closeCard(pbs);
+                }
+
+                game.ShouldHandle = true;
+
+            }
+            catch (NotEnoughScoreException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch (HelperNotAvaliableException ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

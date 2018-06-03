@@ -71,6 +71,31 @@
             this.pictureBox38 = new System.Windows.Forms.PictureBox();
             this.pictureBox39 = new System.Windows.Forms.PictureBox();
             this.pictureBox40 = new System.Windows.Forms.PictureBox();
+            this.groupBoxHelpers = new System.Windows.Forms.GroupBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.textBoxPriceOpenCards = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.textBoxAvaliableOpenCards = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.textBoxPriceFindNext = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxAvaliableFindNext = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBoxPriceSecondChance = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBoxAvalibleSecondChance = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxPrice2x = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxAvaliable2x = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.labelAvliable2x = new System.Windows.Forms.Label();
+            this.pictureBoxOpenCards = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFindNext = new System.Windows.Forms.PictureBox();
+            this.pictureBoxSecondChance = new System.Windows.Forms.PictureBox();
+            this.pictureBox2x = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -111,11 +136,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).BeginInit();
+            this.groupBoxHelpers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenCards)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFindNext)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondChance)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2x)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox2
-            //
-            //this.pictureBox2.Image = Game.closedCard;
+            // 
             this.pictureBox2.Location = new System.Drawing.Point(172, 40);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(132, 136);
@@ -126,8 +155,7 @@
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
-            //
-            //this.pictureBox1.Image = Game.closedCard;
+            // 
             this.pictureBox1.Location = new System.Drawing.Point(34, 40);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(132, 136);
@@ -165,7 +193,6 @@
             // 
             // pictureBox3
             // 
-            // this.pictureBox3.Image = Game.closedCard;
             this.pictureBox3.Location = new System.Drawing.Point(310, 40);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(132, 136);
@@ -177,7 +204,6 @@
             // 
             // pictureBox4
             // 
-            //this.pictureBox4.Image = Game.closedCard;
             this.pictureBox4.Location = new System.Drawing.Point(448, 40);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(132, 136);
@@ -189,7 +215,6 @@
             // 
             // pictureBox5
             // 
-            //this.pictureBox5.Image = Game.closedCard;
             this.pictureBox5.Location = new System.Drawing.Point(586, 40);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(132, 136);
@@ -201,7 +226,6 @@
             // 
             // pictureBox6
             // 
-            //this.pictureBox6.Image = Game.closedCard;
             this.pictureBox6.Location = new System.Drawing.Point(724, 40);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(132, 136);
@@ -213,7 +237,6 @@
             // 
             // pictureBox7
             // 
-            // this.pictureBox7.Image = Game.closedCard;
             this.pictureBox7.Location = new System.Drawing.Point(862, 40);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(132, 136);
@@ -225,7 +248,6 @@
             // 
             // pictureBox8
             // 
-            //this.pictureBox8.Image = Game.closedCard;
             this.pictureBox8.Location = new System.Drawing.Point(1000, 42);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(132, 134);
@@ -237,7 +259,6 @@
             // 
             // pictureBox9
             // 
-            //this.pictureBox9.Image = Game.closedCard;
             this.pictureBox9.Location = new System.Drawing.Point(34, 182);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(132, 134);
@@ -249,7 +270,6 @@
             // 
             // pictureBox10
             // 
-            //this.pictureBox10.Image = Game.closedCard;
             this.pictureBox10.Location = new System.Drawing.Point(172, 182);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(132, 134);
@@ -261,7 +281,6 @@
             // 
             // pictureBox11
             // 
-            //this.pictureBox11.Image = Game.closedCard;
             this.pictureBox11.Location = new System.Drawing.Point(310, 182);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(132, 134);
@@ -273,7 +292,6 @@
             // 
             // pictureBox12
             // 
-            //this.pictureBox12.Image = Game.closedCard;
             this.pictureBox12.Location = new System.Drawing.Point(448, 182);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(132, 134);
@@ -285,7 +303,6 @@
             // 
             // pictureBox13
             // 
-            // this.pictureBox13.Image = Game.closedCard;
             this.pictureBox13.Location = new System.Drawing.Point(586, 182);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(129, 134);
@@ -297,7 +314,6 @@
             // 
             // pictureBox14
             // 
-            // this.pictureBox14.Image = Game.closedCard;
             this.pictureBox14.Location = new System.Drawing.Point(724, 182);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(132, 134);
@@ -309,7 +325,6 @@
             // 
             // pictureBox15
             // 
-            //  this.pictureBox15.Image = Game.closedCard;
             this.pictureBox15.Location = new System.Drawing.Point(862, 182);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(129, 134);
@@ -321,7 +336,6 @@
             // 
             // pictureBox16
             // 
-            //  this.pictureBox16.Image = Game.closedCard;
             this.pictureBox16.Location = new System.Drawing.Point(1000, 182);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(132, 134);
@@ -333,7 +347,6 @@
             // 
             // pictureBox17
             // 
-            // this.pictureBox17.Image = Game.closedCard;
             this.pictureBox17.Location = new System.Drawing.Point(34, 321);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(132, 134);
@@ -345,7 +358,6 @@
             // 
             // pictureBox18
             // 
-            // this.pictureBox18.Image = Game.closedCard;
             this.pictureBox18.Location = new System.Drawing.Point(172, 321);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(132, 134);
@@ -357,7 +369,6 @@
             // 
             // pictureBox19
             // 
-            //this.pictureBox19.Image = Game.closedCard;
             this.pictureBox19.Location = new System.Drawing.Point(310, 321);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(132, 134);
@@ -369,7 +380,6 @@
             // 
             // pictureBox20
             // 
-            //this.pictureBox20.Image = Game.closedCard;
             this.pictureBox20.Location = new System.Drawing.Point(448, 321);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(129, 134);
@@ -381,7 +391,6 @@
             // 
             // pictureBox21
             // 
-            //this.pictureBox21.Image = Game.closedCard;
             this.pictureBox21.Location = new System.Drawing.Point(586, 321);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(132, 134);
@@ -393,7 +402,6 @@
             // 
             // pictureBox22
             // 
-            //this.pictureBox22.Image = Game.closedCard;
             this.pictureBox22.Location = new System.Drawing.Point(724, 321);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(132, 134);
@@ -405,7 +413,6 @@
             // 
             // pictureBox23
             // 
-            //this.pictureBox23.Image = Game.closedCard;
             this.pictureBox23.Location = new System.Drawing.Point(862, 321);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(132, 134);
@@ -417,7 +424,6 @@
             // 
             // pictureBox24
             // 
-            //this.pictureBox24.Image = Game.closedCard;
             this.pictureBox24.Location = new System.Drawing.Point(1000, 321);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(132, 134);
@@ -429,7 +435,6 @@
             // 
             // pictureBox25
             // 
-            //this.pictureBox25.Image = Game.closedCard;
             this.pictureBox25.Location = new System.Drawing.Point(34, 461);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.Size = new System.Drawing.Size(132, 134);
@@ -441,7 +446,6 @@
             // 
             // pictureBox26
             // 
-            //this.pictureBox26.Image = Game.closedCard;
             this.pictureBox26.Location = new System.Drawing.Point(172, 461);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(132, 134);
@@ -453,7 +457,6 @@
             // 
             // pictureBox27
             // 
-            //this.pictureBox27.Image = Game.closedCard;
             this.pictureBox27.Location = new System.Drawing.Point(310, 461);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.Size = new System.Drawing.Size(132, 134);
@@ -465,7 +468,6 @@
             // 
             // pictureBox28
             // 
-            //this.pictureBox28.Image = Game.closedCard;
             this.pictureBox28.Location = new System.Drawing.Point(448, 461);
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.Size = new System.Drawing.Size(132, 134);
@@ -477,7 +479,6 @@
             // 
             // pictureBox29
             // 
-            //this.pictureBox29.Image = Game.closedCard;
             this.pictureBox29.Location = new System.Drawing.Point(586, 461);
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.Size = new System.Drawing.Size(132, 134);
@@ -489,7 +490,6 @@
             // 
             // pictureBox30
             // 
-            //this.pictureBox30.Image = Game.closedCard;
             this.pictureBox30.Location = new System.Drawing.Point(724, 461);
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.Size = new System.Drawing.Size(129, 134);
@@ -501,7 +501,6 @@
             // 
             // pictureBox31
             // 
-            // this.pictureBox31.Image = Game.closedCard;
             this.pictureBox31.Location = new System.Drawing.Point(862, 461);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(132, 134);
@@ -513,7 +512,6 @@
             // 
             // pictureBox32
             // 
-            // this.pictureBox32.Image = Game.closedCard;
             this.pictureBox32.Location = new System.Drawing.Point(1000, 461);
             this.pictureBox32.Name = "pictureBox32";
             this.pictureBox32.Size = new System.Drawing.Size(132, 134);
@@ -525,7 +523,6 @@
             // 
             // pictureBox33
             // 
-            //this.pictureBox33.Image = Game.closedCard;
             this.pictureBox33.Location = new System.Drawing.Point(34, 601);
             this.pictureBox33.Name = "pictureBox33";
             this.pictureBox33.Size = new System.Drawing.Size(132, 134);
@@ -537,7 +534,6 @@
             // 
             // pictureBox34
             // 
-            //this.pictureBox34.Image = Game.closedCard;
             this.pictureBox34.Location = new System.Drawing.Point(172, 601);
             this.pictureBox34.Name = "pictureBox34";
             this.pictureBox34.Size = new System.Drawing.Size(132, 134);
@@ -549,7 +545,6 @@
             // 
             // pictureBox35
             // 
-            // this.pictureBox35.Image = Game.closedCard;
             this.pictureBox35.Location = new System.Drawing.Point(310, 601);
             this.pictureBox35.Name = "pictureBox35";
             this.pictureBox35.Size = new System.Drawing.Size(132, 134);
@@ -561,7 +556,6 @@
             // 
             // pictureBox36
             // 
-            //this.pictureBox36.Image = Game.closedCard;
             this.pictureBox36.Location = new System.Drawing.Point(448, 601);
             this.pictureBox36.Name = "pictureBox36";
             this.pictureBox36.Size = new System.Drawing.Size(132, 134);
@@ -573,7 +567,6 @@
             // 
             // pictureBox37
             // 
-            //this.pictureBox37.Image = Game.closedCard;
             this.pictureBox37.Location = new System.Drawing.Point(586, 601);
             this.pictureBox37.Name = "pictureBox37";
             this.pictureBox37.Size = new System.Drawing.Size(132, 134);
@@ -585,7 +578,6 @@
             // 
             // pictureBox38
             // 
-            //this.pictureBox38.Image = Game.closedCard;
             this.pictureBox38.Location = new System.Drawing.Point(724, 601);
             this.pictureBox38.Name = "pictureBox38";
             this.pictureBox38.Size = new System.Drawing.Size(129, 134);
@@ -597,7 +589,6 @@
             // 
             // pictureBox39
             // 
-            //this.pictureBox39.Image = Game.closedCard;
             this.pictureBox39.Location = new System.Drawing.Point(862, 601);
             this.pictureBox39.Name = "pictureBox39";
             this.pictureBox39.Size = new System.Drawing.Size(129, 134);
@@ -609,7 +600,6 @@
             // 
             // pictureBox40
             // 
-            //this.pictureBox40.Image = Game.closedCard;
             this.pictureBox40.Location = new System.Drawing.Point(1000, 601);
             this.pictureBox40.Name = "pictureBox40";
             this.pictureBox40.Size = new System.Drawing.Size(132, 134);
@@ -619,11 +609,267 @@
             this.pictureBox40.WaitOnLoad = true;
             this.pictureBox40.Click += new System.EventHandler(this.pictureBox40_Click);
             // 
+            // groupBoxHelpers
+            // 
+            this.groupBoxHelpers.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.groupBoxHelpers.Controls.Add(this.label14);
+            this.groupBoxHelpers.Controls.Add(this.label13);
+            this.groupBoxHelpers.Controls.Add(this.label12);
+            this.groupBoxHelpers.Controls.Add(this.textBoxPriceOpenCards);
+            this.groupBoxHelpers.Controls.Add(this.label10);
+            this.groupBoxHelpers.Controls.Add(this.textBoxAvaliableOpenCards);
+            this.groupBoxHelpers.Controls.Add(this.label11);
+            this.groupBoxHelpers.Controls.Add(this.textBoxPriceFindNext);
+            this.groupBoxHelpers.Controls.Add(this.label8);
+            this.groupBoxHelpers.Controls.Add(this.textBoxAvaliableFindNext);
+            this.groupBoxHelpers.Controls.Add(this.label9);
+            this.groupBoxHelpers.Controls.Add(this.textBoxPriceSecondChance);
+            this.groupBoxHelpers.Controls.Add(this.label6);
+            this.groupBoxHelpers.Controls.Add(this.textBoxAvalibleSecondChance);
+            this.groupBoxHelpers.Controls.Add(this.label7);
+            this.groupBoxHelpers.Controls.Add(this.textBoxPrice2x);
+            this.groupBoxHelpers.Controls.Add(this.label5);
+            this.groupBoxHelpers.Controls.Add(this.textBoxAvaliable2x);
+            this.groupBoxHelpers.Controls.Add(this.label4);
+            this.groupBoxHelpers.Controls.Add(this.labelAvliable2x);
+            this.groupBoxHelpers.Controls.Add(this.pictureBoxOpenCards);
+            this.groupBoxHelpers.Controls.Add(this.pictureBoxFindNext);
+            this.groupBoxHelpers.Controls.Add(this.pictureBoxSecondChance);
+            this.groupBoxHelpers.Controls.Add(this.pictureBox2x);
+            this.groupBoxHelpers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBoxHelpers.Location = new System.Drawing.Point(1159, 413);
+            this.groupBoxHelpers.Name = "groupBoxHelpers";
+            this.groupBoxHelpers.Size = new System.Drawing.Size(382, 322);
+            this.groupBoxHelpers.TabIndex = 45;
+            this.groupBoxHelpers.TabStop = false;
+            this.groupBoxHelpers.Text = "HELPERS";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(109, 256);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(226, 20);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "Show all cards for 2 seconds";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(110, 183);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(198, 20);
+            this.label13.TabIndex = 23;
+            this.label13.Text = "Automaticly finds the pair";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(109, 107);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(238, 20);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "Two chances to guess the pair";
+            // 
+            // textBoxPriceOpenCards
+            // 
+            this.textBoxPriceOpenCards.Enabled = false;
+            this.textBoxPriceOpenCards.Location = new System.Drawing.Point(300, 284);
+            this.textBoxPriceOpenCards.Name = "textBoxPriceOpenCards";
+            this.textBoxPriceOpenCards.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPriceOpenCards.TabIndex = 21;
+            this.textBoxPriceOpenCards.Text = "500";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(252, 290);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(48, 20);
+            this.label10.TabIndex = 20;
+            this.label10.Text = "Price";
+            // 
+            // textBoxAvaliableOpenCards
+            // 
+            this.textBoxAvaliableOpenCards.Enabled = false;
+            this.textBoxAvaliableOpenCards.Location = new System.Drawing.Point(190, 284);
+            this.textBoxAvaliableOpenCards.Name = "textBoxAvaliableOpenCards";
+            this.textBoxAvaliableOpenCards.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvaliableOpenCards.TabIndex = 19;
+            this.textBoxAvaliableOpenCards.Text = "1";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(107, 290);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(76, 20);
+            this.label11.TabIndex = 18;
+            this.label11.Text = "Avaliable";
+            // 
+            // textBoxPriceFindNext
+            // 
+            this.textBoxPriceFindNext.Enabled = false;
+            this.textBoxPriceFindNext.Location = new System.Drawing.Point(300, 211);
+            this.textBoxPriceFindNext.Name = "textBoxPriceFindNext";
+            this.textBoxPriceFindNext.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPriceFindNext.TabIndex = 17;
+            this.textBoxPriceFindNext.Text = "300";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(252, 217);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(48, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Price";
+            // 
+            // textBoxAvaliableFindNext
+            // 
+            this.textBoxAvaliableFindNext.Enabled = false;
+            this.textBoxAvaliableFindNext.Location = new System.Drawing.Point(189, 211);
+            this.textBoxAvaliableFindNext.Name = "textBoxAvaliableFindNext";
+            this.textBoxAvaliableFindNext.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvaliableFindNext.TabIndex = 15;
+            this.textBoxAvaliableFindNext.Text = "2";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(107, 217);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 20);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Avaliable";
+            // 
+            // textBoxPriceSecondChance
+            // 
+            this.textBoxPriceSecondChance.Enabled = false;
+            this.textBoxPriceSecondChance.Location = new System.Drawing.Point(300, 135);
+            this.textBoxPriceSecondChance.Name = "textBoxPriceSecondChance";
+            this.textBoxPriceSecondChance.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPriceSecondChance.TabIndex = 13;
+            this.textBoxPriceSecondChance.Text = "200";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(252, 141);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Price";
+            // 
+            // textBoxAvalibleSecondChance
+            // 
+            this.textBoxAvalibleSecondChance.Enabled = false;
+            this.textBoxAvalibleSecondChance.Location = new System.Drawing.Point(189, 135);
+            this.textBoxAvalibleSecondChance.Name = "textBoxAvalibleSecondChance";
+            this.textBoxAvalibleSecondChance.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvalibleSecondChance.TabIndex = 11;
+            this.textBoxAvalibleSecondChance.Text = "3";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(107, 141);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(76, 20);
+            this.label7.TabIndex = 10;
+            this.label7.Text = "Avaliable";
+            // 
+            // textBoxPrice2x
+            // 
+            this.textBoxPrice2x.Enabled = false;
+            this.textBoxPrice2x.Location = new System.Drawing.Point(300, 56);
+            this.textBoxPrice2x.Name = "textBoxPrice2x";
+            this.textBoxPrice2x.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPrice2x.TabIndex = 9;
+            this.textBoxPrice2x.Text = "100";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(252, 62);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(48, 20);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Price";
+            // 
+            // textBoxAvaliable2x
+            // 
+            this.textBoxAvaliable2x.Enabled = false;
+            this.textBoxAvaliable2x.Location = new System.Drawing.Point(190, 54);
+            this.textBoxAvaliable2x.Name = "textBoxAvaliable2x";
+            this.textBoxAvaliable2x.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvaliable2x.TabIndex = 6;
+            this.textBoxAvaliable2x.Text = "1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(106, 31);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(219, 20);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Doubles the score multiplier";
+            // 
+            // labelAvliable2x
+            // 
+            this.labelAvliable2x.AutoSize = true;
+            this.labelAvliable2x.Location = new System.Drawing.Point(108, 62);
+            this.labelAvliable2x.Name = "labelAvliable2x";
+            this.labelAvliable2x.Size = new System.Drawing.Size(76, 20);
+            this.labelAvliable2x.TabIndex = 4;
+            this.labelAvliable2x.Text = "Avaliable";
+            // 
+            // pictureBoxOpenCards
+            // 
+            this.pictureBoxOpenCards.Location = new System.Drawing.Point(6, 256);
+            this.pictureBoxOpenCards.Name = "pictureBoxOpenCards";
+            this.pictureBoxOpenCards.Size = new System.Drawing.Size(94, 60);
+            this.pictureBoxOpenCards.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxOpenCards.TabIndex = 3;
+            this.pictureBoxOpenCards.TabStop = false;
+            this.pictureBoxOpenCards.Click += new System.EventHandler(this.pictureBoxOpenCards_Click);
+            // 
+            // pictureBoxFindNext
+            // 
+            this.pictureBoxFindNext.Location = new System.Drawing.Point(6, 183);
+            this.pictureBoxFindNext.Name = "pictureBoxFindNext";
+            this.pictureBoxFindNext.Size = new System.Drawing.Size(94, 60);
+            this.pictureBoxFindNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxFindNext.TabIndex = 2;
+            this.pictureBoxFindNext.TabStop = false;
+            this.pictureBoxFindNext.Click += new System.EventHandler(this.pictureBoxFindNext_Click);
+            // 
+            // pictureBoxSecondChance
+            // 
+            this.pictureBoxSecondChance.Location = new System.Drawing.Point(6, 107);
+            this.pictureBoxSecondChance.Name = "pictureBoxSecondChance";
+            this.pictureBoxSecondChance.Size = new System.Drawing.Size(94, 60);
+            this.pictureBoxSecondChance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxSecondChance.TabIndex = 1;
+            this.pictureBoxSecondChance.TabStop = false;
+            this.pictureBoxSecondChance.Click += new System.EventHandler(this.pictureBoxSecondChance_Click);
+            // 
+            // pictureBox2x
+            // 
+            this.pictureBox2x.Location = new System.Drawing.Point(6, 32);
+            this.pictureBox2x.Name = "pictureBox2x";
+            this.pictureBox2x.Size = new System.Drawing.Size(94, 60);
+            this.pictureBox2x.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2x.TabIndex = 0;
+            this.pictureBox2x.TabStop = false;
+            this.pictureBox2x.Click += new System.EventHandler(this.pictureBox2x_Click);
+            // 
             // HardPairGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1413, 765);
+            this.ClientSize = new System.Drawing.Size(1563, 765);
+            this.Controls.Add(this.groupBoxHelpers);
             this.Controls.Add(this.pictureBox22);
             this.Controls.Add(this.pictureBox23);
             this.Controls.Add(this.pictureBox24);
@@ -709,6 +955,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).EndInit();
+            this.groupBoxHelpers.ResumeLayout(false);
+            this.groupBoxHelpers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenCards)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFindNext)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecondChance)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2x)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -759,5 +1011,30 @@
         private System.Windows.Forms.PictureBox pictureBox38;
         private System.Windows.Forms.PictureBox pictureBox39;
         private System.Windows.Forms.PictureBox pictureBox40;
+        private System.Windows.Forms.GroupBox groupBoxHelpers;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textBoxPriceOpenCards;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox textBoxAvaliableOpenCards;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBoxPriceFindNext;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxAvaliableFindNext;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxPriceSecondChance;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxAvalibleSecondChance;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxPrice2x;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBoxAvaliable2x;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelAvliable2x;
+        private System.Windows.Forms.PictureBox pictureBoxOpenCards;
+        private System.Windows.Forms.PictureBox pictureBoxFindNext;
+        private System.Windows.Forms.PictureBox pictureBoxSecondChance;
+        private System.Windows.Forms.PictureBox pictureBox2x;
     }
 }
