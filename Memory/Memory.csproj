@@ -166,6 +166,7 @@
     <Content Include="Resources\I_still.jpg" />
     <Content Include="Resources\memory_icon.ico" />
     <Content Include="Resources\open_cards.jpg" />
+    <Content Include="Resources\ready_to_open.gif" />
     <Content Include="Resources\second_chance.jpg" />
     <Content Include="Resources\spade_close.gif" />
     <Content Include="Resources\spade_open.gif" />
