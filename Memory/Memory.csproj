@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Events.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="NotEnoughScoreException.cs" />
     <Compile Include="PlayerFactory.cs" />
