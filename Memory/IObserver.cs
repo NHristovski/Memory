@@ -143,7 +143,7 @@ namespace Memory
             }
             closeCard(pb);
 
-            ShouldHandle = true;
+            //ShouldHandle = true;
         }
 
         public bool shouldEnd()
@@ -195,7 +195,7 @@ namespace Memory
                     previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
                     secondCard = false;
 
-                    ShouldHandle = true;
+                    //ShouldHandle = true;
                     //MessageBox.Show("sega moze da handla");
 
                     return true;
@@ -220,7 +220,7 @@ namespace Memory
                     animateClosingCard(pb);
                     animateClosingCard(previousCard.Item2);
 
-                    ShouldHandle = true;
+                    //ShouldHandle = true;
                     //MessageBox.Show("sega moze da handla");
 
                     scoreMultiplier = 1;
@@ -251,7 +251,7 @@ namespace Memory
             }
             else
             {
-                ShouldHandle = true;
+                //ShouldHandle = true;
 
                 addToCanBePaired(pb);
 
@@ -300,7 +300,7 @@ namespace Memory
                 //    Game.endGame();
                 //}
 
-                ShouldHandle = true;
+                //ShouldHandle = true;
                 secondCard = false;
 
 
@@ -318,7 +318,7 @@ namespace Memory
                 {
                     openedCards.Add(pb);
                 }
-                ShouldHandle = true;
+                //ShouldHandle = true;
 
                 return false;
             }
@@ -335,7 +335,7 @@ namespace Memory
         public bool playBotMove()
         {
             // Bot makes moves until he misses
-            ShouldHandle = false; // disable clicking on pictureboxes while bot makes moves
+            //ShouldHandle = false; // disable clicking on pictureboxes while bot makes moves
 
             Tuple<PictureBox, PictureBox> move = botMove();
             validateCard(move.Item1);
@@ -352,7 +352,7 @@ namespace Memory
             }
 
             
-            ShouldHandle = true; // enable clicking on pictureBoxes
+            //ShouldHandle = true; // enable clicking on pictureBoxes
             return false;
         }
 
@@ -478,7 +478,10 @@ namespace Memory
         {
             foreach (var pbs in validCards)
             {
-                closeCard(pbs);
+                if (!(pbs == previousCard.Item2))
+                {
+                    closeCard(pbs);
+                }
             }
         }
 
