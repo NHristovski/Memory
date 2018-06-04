@@ -145,6 +145,8 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.WaitOnLoad = true;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // pictureBox2
             // 
@@ -156,6 +158,8 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.WaitOnLoad = true;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
             // 
             // pictureBox3
             // 
@@ -167,6 +171,8 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.WaitOnLoad = true;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.MouseEnter += new System.EventHandler(this.pictureBox3_MouseEnter);
+            this.pictureBox3.MouseLeave += new System.EventHandler(this.pictureBox3_MouseLeave);
             // 
             // pictureBox4
             // 
@@ -178,6 +184,8 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.WaitOnLoad = true;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
             // 
             // pictureBox5
             // 
@@ -189,6 +197,8 @@
             this.pictureBox5.TabStop = false;
             this.pictureBox5.WaitOnLoad = true;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
             // 
             // pictureBox6
             // 
@@ -200,6 +210,8 @@
             this.pictureBox6.TabStop = false;
             this.pictureBox6.WaitOnLoad = true;
             this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.pictureBox6.MouseEnter += new System.EventHandler(this.pictureBox6_MouseEnter);
+            this.pictureBox6.MouseLeave += new System.EventHandler(this.pictureBox6_MouseLeave);
             // 
             // pictureBox7
             // 
@@ -211,6 +223,8 @@
             this.pictureBox7.TabStop = false;
             this.pictureBox7.WaitOnLoad = true;
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            this.pictureBox7.MouseEnter += new System.EventHandler(this.pictureBox7_MouseEnter);
+            this.pictureBox7.MouseLeave += new System.EventHandler(this.pictureBox7_MouseLeave);
             // 
             // pictureBox8
             // 
@@ -222,6 +236,8 @@
             this.pictureBox8.TabStop = false;
             this.pictureBox8.WaitOnLoad = true;
             this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            this.pictureBox8.MouseEnter += new System.EventHandler(this.pictureBox8_MouseEnter);
+            this.pictureBox8.MouseLeave += new System.EventHandler(this.pictureBox8_MouseLeave);
             // 
             // pictureBox9
             // 
@@ -233,6 +249,8 @@
             this.pictureBox9.TabStop = false;
             this.pictureBox9.WaitOnLoad = true;
             this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            this.pictureBox9.MouseEnter += new System.EventHandler(this.pictureBox9_MouseEnter);
+            this.pictureBox9.MouseLeave += new System.EventHandler(this.pictureBox9_MouseLeave);
             // 
             // pictureBox10
             // 
@@ -244,6 +262,8 @@
             this.pictureBox10.TabStop = false;
             this.pictureBox10.WaitOnLoad = true;
             this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+            this.pictureBox10.MouseEnter += new System.EventHandler(this.pictureBox10_MouseEnter);
+            this.pictureBox10.MouseLeave += new System.EventHandler(this.pictureBox10_MouseLeave);
             // 
             // pictureBox11
             // 
@@ -255,6 +275,8 @@
             this.pictureBox11.TabStop = false;
             this.pictureBox11.WaitOnLoad = true;
             this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            this.pictureBox11.MouseEnter += new System.EventHandler(this.pictureBox11_MouseEnter);
+            this.pictureBox11.MouseLeave += new System.EventHandler(this.pictureBox11_MouseLeave);
             // 
             // pictureBox12
             // 
@@ -266,6 +288,8 @@
             this.pictureBox12.TabStop = false;
             this.pictureBox12.WaitOnLoad = true;
             this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
+            this.pictureBox12.MouseEnter += new System.EventHandler(this.pictureBox12_MouseEnter);
+            this.pictureBox12.MouseLeave += new System.EventHandler(this.pictureBox12_MouseLeave);
             // 
             // pictureBox13
             // 
@@ -277,6 +301,8 @@
             this.pictureBox13.TabStop = false;
             this.pictureBox13.WaitOnLoad = true;
             this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
+            this.pictureBox13.MouseEnter += new System.EventHandler(this.pictureBox13_MouseEnter);
+            this.pictureBox13.MouseLeave += new System.EventHandler(this.pictureBox13_MouseLeave);
             // 
             // pictureBox14
             // 
@@ -288,6 +314,8 @@
             this.pictureBox14.TabStop = false;
             this.pictureBox14.WaitOnLoad = true;
             this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
+            this.pictureBox14.MouseEnter += new System.EventHandler(this.pictureBox14_MouseEnter);
+            this.pictureBox14.MouseLeave += new System.EventHandler(this.pictureBox14_MouseLeave);
             // 
             // pictureBox15
             // 
@@ -299,6 +327,8 @@
             this.pictureBox15.TabStop = false;
             this.pictureBox15.WaitOnLoad = true;
             this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
+            this.pictureBox15.MouseEnter += new System.EventHandler(this.pictureBox15_MouseEnter);
+            this.pictureBox15.MouseLeave += new System.EventHandler(this.pictureBox15_MouseLeave);
             // 
             // pictureBox16
             // 
@@ -310,6 +340,8 @@
             this.pictureBox16.TabStop = false;
             this.pictureBox16.WaitOnLoad = true;
             this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
+            this.pictureBox16.MouseEnter += new System.EventHandler(this.pictureBox16_MouseEnter);
+            this.pictureBox16.MouseLeave += new System.EventHandler(this.pictureBox16_MouseLeave);
             // 
             // button1
             // 

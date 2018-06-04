@@ -58,7 +58,12 @@ namespace Memory
         }
         public PictureBox PreviousCard
         {
-            get { return Observer.previousCard.Item2; }
+            get
+            {
+                var prev = Observer.previousCard;
+                if (prev == null) return null;
+                return prev.Item2;
+            }
         }
         // CONSTRUCTOR
         public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes, int x2Price, int secondChancePrice, int findNextPrice, int openCardsPrice) : base(player1)
@@ -240,6 +245,10 @@ namespace Memory
         public void closeValidCards()
         {
             Observer.closeValidCards();
+        }
+        public bool isValid(PictureBox pb)
+        {
+            return Observer.validCards.Contains(pb);
         }
         
     }

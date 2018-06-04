@@ -18,6 +18,8 @@ namespace Memory
 
         public static Image closedCard = Image.FromFile(pathToResources + "closed_card.jpg");
 
+        public static Image readyToOpenImage = Image.FromFile(pathToResources + "ready_to_open.gif");
+
         public static readonly string pathToMemoryIcon = pathToResources + "memory_icon.ico";
 
         public static readonly string pathTo2xImage = pathToResources + "2x.png";

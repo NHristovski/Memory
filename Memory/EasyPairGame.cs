@@ -21,6 +21,8 @@ namespace Memory
         {
             InitializeComponent();
 
+            DoubleBuffered = true;
+
             picBoxes = new List<PictureBox>();
             
             picBoxes.Add(this.pictureBox1);
@@ -338,6 +340,262 @@ namespace Memory
             catch (HelperNotAvaliableException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void pictureBox4_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox4) && pictureBox4 != game.PreviousCard)
+            {
+                pictureBox4.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox4_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox4) && pictureBox4 != game.PreviousCard)
+            {
+                pictureBox4.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox1) && pictureBox1 != game.PreviousCard)
+            {
+                pictureBox1.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox1) && pictureBox1 != game.PreviousCard)
+            {
+                pictureBox1.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox2) && pictureBox2 != game.PreviousCard)
+            {
+                pictureBox2.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox2) && pictureBox2 != game.PreviousCard)
+            {
+                pictureBox2.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox3) && pictureBox3 != game.PreviousCard)
+            {
+                pictureBox3.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox3) && pictureBox3 != game.PreviousCard)
+            {
+                pictureBox3.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox5_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox5) && pictureBox5 != game.PreviousCard)
+            {
+                pictureBox5.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox5_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox5) && pictureBox5 != game.PreviousCard)
+            {
+                pictureBox5.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox6_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox6) && pictureBox6 != game.PreviousCard)
+            {
+                pictureBox6.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox6_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox6) && pictureBox6 != game.PreviousCard)
+            {
+                pictureBox6.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox7_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox7) && pictureBox7 != game.PreviousCard)
+            {
+                pictureBox7.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox7_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox7) && pictureBox7 != game.PreviousCard)
+            {
+                pictureBox7.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox8_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox8) && pictureBox8 != game.PreviousCard)
+            {
+                pictureBox8.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox8_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox8) && pictureBox8 != game.PreviousCard)
+            {
+                pictureBox8.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox9_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox9) && pictureBox9 != game.PreviousCard)
+            {
+                pictureBox9.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox9_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox9) && pictureBox9 != game.PreviousCard)
+            {
+                pictureBox9.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox10_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox10) && pictureBox10 != game.PreviousCard)
+            {
+                pictureBox10.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox10_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox10) && pictureBox10 != game.PreviousCard)
+            {
+                pictureBox10.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox11_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox11) && pictureBox11 != game.PreviousCard)
+            {
+                pictureBox11.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox11_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox11) && pictureBox11 != game.PreviousCard)
+            {
+                pictureBox11.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox12_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox12) && pictureBox12 != game.PreviousCard)
+            {
+                pictureBox12.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox12_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox12) && pictureBox12 != game.PreviousCard)
+            {
+                pictureBox12.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox13_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox13) && pictureBox13 != game.PreviousCard)
+            {
+                pictureBox13.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox13_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox13) && pictureBox13 != game.PreviousCard)
+            {
+                pictureBox13.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox14_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox14) && pictureBox14 != game.PreviousCard)
+            {
+                pictureBox14.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox14_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox14) && pictureBox14 != game.PreviousCard)
+            {
+                pictureBox14.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox15_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox15) && pictureBox15 != game.PreviousCard)
+            {
+                pictureBox15.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox15_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox15) && pictureBox15 != game.PreviousCard)
+            {
+                pictureBox15.Image = Paths.closedCard;
+            }
+        }
+
+        private void pictureBox16_MouseEnter(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox16) && pictureBox16 != game.PreviousCard)
+            {
+                pictureBox16.Image = Paths.readyToOpenImage;
+            }
+        }
+
+        private void pictureBox16_MouseLeave(object sender, EventArgs e)
+        {
+            if (game.isValid(pictureBox16) && pictureBox16 != game.PreviousCard)
+            {
+                pictureBox16.Image = Paths.closedCard;
             }
         }
     }
