@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -14,72 +17,135 @@ namespace Memory
     public partial class HardPairGameForm : PairGameForm
     {
 
-        List<PictureBox> picBoxes;
-        PairGame game;
+        List<string> picBoxes;
+        List<PictureBox> realPicBoxes;
+        public PairGame game;
         List<cEventSuppressor> suppressors;
+        private string FileName;
 
         public HardPairGameForm(Player Player1, Player Player2)
         {
             InitializeComponent();
-            picBoxes = new List<PictureBox>();
 
-            picBoxes.Add(this.pictureBox1);
-            picBoxes.Add(this.pictureBox2);
-            picBoxes.Add(this.pictureBox3);
-            picBoxes.Add(this.pictureBox4);
-            picBoxes.Add(this.pictureBox5);
-            picBoxes.Add(this.pictureBox6);
-            picBoxes.Add(this.pictureBox7);
-            picBoxes.Add(this.pictureBox8);
-            picBoxes.Add(this.pictureBox9);
-            picBoxes.Add(this.pictureBox10);
-            picBoxes.Add(this.pictureBox11);
-            picBoxes.Add(this.pictureBox12);
-            picBoxes.Add(this.pictureBox13);
-            picBoxes.Add(this.pictureBox14);
-            picBoxes.Add(this.pictureBox15);
-            picBoxes.Add(this.pictureBox16);
-            picBoxes.Add(this.pictureBox17);
-            picBoxes.Add(this.pictureBox18);
-            picBoxes.Add(this.pictureBox19);
-            picBoxes.Add(this.pictureBox20);
-            picBoxes.Add(this.pictureBox21);
-            picBoxes.Add(this.pictureBox22);
-            picBoxes.Add(this.pictureBox23);
-            picBoxes.Add(this.pictureBox24);
-            picBoxes.Add(this.pictureBox25);
-            picBoxes.Add(this.pictureBox26);
-            picBoxes.Add(this.pictureBox27);
-            picBoxes.Add(this.pictureBox28);
-            picBoxes.Add(this.pictureBox29);
-            picBoxes.Add(this.pictureBox30);
-            picBoxes.Add(this.pictureBox31);
-            picBoxes.Add(this.pictureBox32);
-            picBoxes.Add(this.pictureBox33);
-            picBoxes.Add(this.pictureBox34);
-            picBoxes.Add(this.pictureBox35);
-            picBoxes.Add(this.pictureBox36);
-            picBoxes.Add(this.pictureBox37);
-            picBoxes.Add(this.pictureBox38);
-            picBoxes.Add(this.pictureBox39);
-            picBoxes.Add(this.pictureBox40);
+            picBoxes = new List<string>
+            {
+                this.pictureBox1.Name,
+                this.pictureBox2.Name,
+                this.pictureBox3.Name,
+                this.pictureBox4.Name,
+                this.pictureBox5.Name,
+                this.pictureBox6.Name,
+                this.pictureBox7.Name,
+                this.pictureBox8.Name,
+                this.pictureBox9.Name,
+                this.pictureBox10.Name,
+                this.pictureBox11.Name,
+                this.pictureBox12.Name,
+                this.pictureBox13.Name,
+                this.pictureBox14.Name,
+                this.pictureBox15.Name,
+                this.pictureBox16.Name,
+                this.pictureBox17.Name,
+                this.pictureBox18.Name,
+                this.pictureBox19.Name,
+                this.pictureBox20.Name,
+                this.pictureBox21.Name,
+                this.pictureBox22.Name,
+                this.pictureBox23.Name,
+                this.pictureBox24.Name,
+                this.pictureBox25.Name,
+                this.pictureBox26.Name,
+                this.pictureBox27.Name,
+                this.pictureBox28.Name,
+                this.pictureBox29.Name,
+                this.pictureBox30.Name,
+                this.pictureBox31.Name,
+                this.pictureBox32.Name,
+                this.pictureBox33.Name,
+                this.pictureBox34.Name,
+                this.pictureBox35.Name,
+                this.pictureBox36.Name,
+                this.pictureBox37.Name,
+                this.pictureBox38.Name,
+                this.pictureBox39.Name,
+                this.pictureBox40.Name
+            };
+
+            realPicBoxes = new List<PictureBox>
+            {
+                this.pictureBox1,
+                this.pictureBox2,
+                this.pictureBox3,
+                this.pictureBox4,
+                this.pictureBox5,
+                this.pictureBox6,
+                this.pictureBox7,
+                this.pictureBox8,
+                this.pictureBox9,
+                this.pictureBox10,
+                this.pictureBox11,
+                this.pictureBox12,
+                this.pictureBox13,
+                this.pictureBox14,
+                this.pictureBox15,
+                this.pictureBox16,
+                this.pictureBox17,
+                this.pictureBox18,
+                this.pictureBox19,
+                this.pictureBox20,
+                this.pictureBox21,
+                this.pictureBox22,
+                this.pictureBox23,
+                this.pictureBox24,
+                this.pictureBox25,
+                this.pictureBox26,
+                this.pictureBox27,
+                this.pictureBox28,
+                this.pictureBox29,
+                this.pictureBox30,
+                this.pictureBox31,
+                this.pictureBox32,
+                this.pictureBox33,
+                this.pictureBox34,
+                this.pictureBox35,
+                this.pictureBox36,
+                this.pictureBox37,
+                this.pictureBox38,
+                this.pictureBox39,
+                this.pictureBox40,
+            };
 
             int x2Price = 400;
             int secondChancePrice = 500;
             int findNextPrice = 900;
             int openCardsPrice = 2000;
 
-            game = new PairGame(Player1, Player2, picBoxes, x2Price, secondChancePrice, findNextPrice, openCardsPrice);
+            game = new PairGame(Player1, Player2, realPicBoxes, picBoxes, x2Price, secondChancePrice, findNextPrice, openCardsPrice);
 
-            foreach (var pBox in picBoxes)
+            foreach (var pBox in realPicBoxes)
             {
                 game.closeCard(pBox);
             }
+
+            init();
+            
+        }
+
+        private void init()
+        {
+            FileName = string.Empty;
+
+            DoubleBuffered = true;
 
             pictureBox2x.Image = Image.FromFile(Paths.pathTo2xImage);
             pictureBoxSecondChance.Image = Image.FromFile(Paths.pathToSecondChanceImage);
             pictureBoxOpenCards.Image = Image.FromFile(Paths.pathToOpenCardsImage);
             pictureBoxFindNext.Image = Image.FromFile(Paths.pathToFindNextImage);
+
+            int x2Price = 400;
+            int secondChancePrice = 500;
+            int findNextPrice = 900;
+            int openCardsPrice = 2000;
 
             textBoxPrice2x.Text = x2Price + "";
             textBoxPriceFindNext.Text = findNextPrice + "";
@@ -134,6 +200,38 @@ namespace Memory
             suppressors.Add(this.pictureBox40.Suppress());
 
             resumeAllPictureBoxes();
+
+            if (game.Player2.isBot())
+            {
+                setBotLevelEasyToolStripMenuItem.Enabled = true;
+                setBotLevelNormalToolStripMenuItem.Enabled = true;
+                setBotLevelHardToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                setBotLevelEasyToolStripMenuItem.Enabled = false;
+                setBotLevelNormalToolStripMenuItem.Enabled = false;
+                setBotLevelHardToolStripMenuItem.Enabled = false;
+            }
+
+            updateLabels();
+            this.Refresh();
+
+
+        }
+
+        public override void resolvePicBoxes()
+        {
+            game.closeValidCards();
+            foreach (var pb in realPicBoxes)
+            {
+                if (!game.isValid(pb))
+                {
+                    game.makeCardStill(pb);
+                }
+            }
+            this.updateLabels();
+            this.Refresh();
         }
 
         private void resumeAllPictureBoxes()
@@ -456,7 +554,7 @@ namespace Memory
         {
             try
             {
-                PictureBox pictureBox = game.FindNext(game.PreviousCard);
+                PictureBox pictureBox = game.FindNext(game.getPreviousCard());
                 validateCard(pictureBox);
             }
             catch (CardNotOpenedException ex)
@@ -495,6 +593,216 @@ namespace Memory
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Launcher l = new Launcher();
+            l.ShowDialog();
+        }
+
+        private void easyGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Player p1 = game.Player1.ResetScore();
+            ((PairGamePlayer)p1).setEasyGameAvaliable();
+
+            Player p2 = game.Player2.ResetScore();
+            ((PairGamePlayer)p2).setEasyGameAvaliable();
+
+            this.Dispose();
+            Launcher.staticRunNewPairGame(new EasyPairGameForm(p1, p2));
+        }
+
+        private void normalGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Player p1 = game.Player1.ResetScore();
+            ((PairGamePlayer)p1).setNormalGameAvaliable();
+
+            Player p2 = game.Player2.ResetScore();
+            ((PairGamePlayer)p2).setNormalGameAvaliable();
+
+            this.Dispose();
+            Launcher.staticRunNewPairGame(new NormalPairGameForm(p1, p2));
+        }
+
+        private void hardGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Player p1 = game.Player1.ResetScore();
+            ((PairGamePlayer)p1).setHardGameAvaliable();
+
+            Player p2 = game.Player2.ResetScore();
+            ((PairGamePlayer)p2).setHardGameAvaliable();
+
+            this.Dispose();
+            Launcher.staticRunNewPairGame(new HardPairGameForm(p1, p2));
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileStream fileStream = null;
+            try
+            {
+
+                var openFileDialog = new OpenFileDialog
+                {
+                    Title = "Open Pair Game",
+                    //Filter = "Easy Pair Game (.easy)|*.easy|Normal Pair Game (.normal)|*.normal|Hard Pair Game (.hard)|*.hard"
+                    Filter = "Easy Pair Game (.easy)|*.easy|Normal Pair Game (.normal)|*.normal|Hard Pair Game (.hard)|*.hard"
+                };
+
+                var result = openFileDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    FileName = openFileDialog.FileName;
+                }
+                if (FileName != string.Empty && FileName != null)
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    fileStream = new FileStream(FileName, FileMode.Open);
+
+                    PairGame g = (PairGame)(formatter.Deserialize(fileStream));
+
+                    DialogResult res = MessageBox.Show("Would you like to save this game?", "SaveGame", MessageBoxButtons.YesNo);
+                    if (res == DialogResult.Yes)
+                    {
+                        saveToolStripMenuItem_Click(null, null);
+                    }
+
+                    if (FileName.EndsWith(".easy"))
+                    {
+                        this.Dispose();
+                        EasyPairGameForm easy = new EasyPairGameForm(g.Player1, g.Player2);
+                        easy.game.setInfo(g.getInfo());
+                        Launcher.staticRunNewPairGame(easy);
+
+                    }
+                    else if (FileName.EndsWith(".normal"))
+                    {
+                        this.Dispose();
+                        var normal = new NormalPairGameForm(g.Player1, g.Player2);
+                        normal.game.setInfo(g.getInfo());
+                        Launcher.staticRunNewPairGame(normal);
+                    }
+                    else if (FileName.EndsWith(".hard"))
+                    {
+                        this.Dispose();
+                        var hard = new HardPairGameForm(g.Player1, g.Player2);
+                        hard.game.setInfo(g.getInfo());
+                        Launcher.staticRunNewPairGame(hard);
+                    }
+                    else
+                    {
+                        throw new InvalidDataException("This file can not be opened!");
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was a problem opening this file!\nOriginal message: " + ex.Message);
+            }
+            finally
+            {
+                if (fileStream != null)
+                {
+                    fileStream.Close();
+                }
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileStream fileStream = null;
+            try
+            {
+                if (FileName == string.Empty)
+                {
+                    var saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Title = "Save your Pair Game";
+                    saveFileDialog.Filter = "Hard Pair Game (.hard)|*.hard";
+
+                    var result = saveFileDialog.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        FileName = saveFileDialog.FileName;
+                    }
+                }
+                if (FileName != string.Empty && FileName != null)
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    fileStream = new FileStream(FileName, FileMode.Create);
+
+                    formatter.Serialize(fileStream, this.game);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Something went wrong! The file is not saved please try again.\nOriginal message: " + exception.Message);
+            }
+            finally
+            {
+                if (fileStream != null)
+                {
+                    fileStream.Close();
+                }
+            }
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileName = string.Empty;
+            saveToolStripMenuItem_Click(sender, e);
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void setBotLevelEasyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int score = game.Player2.Score.Points;
+            game.Player2 = PlayerFactory.GetEasyBot();
+            game.Player2.Score.Points = score;
+
+            labelP1points.Text = game.Player1.Name + " points:";
+            labelP2points.Text = game.Player2.Name + " points:";
+            this.Refresh();
+        }
+
+        private void setBotLevelNormalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int score = game.Player2.Score.Points;
+            game.Player2 = PlayerFactory.GetNormalBot();
+            game.Player2.Score.Points = score;
+
+            labelP1points.Text = game.Player1.Name + " points:";
+            labelP2points.Text = game.Player2.Name + " points:";
+            this.Refresh();
+        }
+
+        private void setBotLevelHardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int score = game.Player2.Score.Points;
+            game.Player2 = PlayerFactory.GetHardBot();
+            game.Player2.Score.Points = score;
+
+            labelP1points.Text = game.Player1.Name + " points:";
+            labelP2points.Text = game.Player2.Name + " points:";
+            this.Refresh();
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            helpToolStripMenuItem_Click(sender, e);
+        }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tuka treba da gi pisuva pravilata na igrata");
         }
     }
 }

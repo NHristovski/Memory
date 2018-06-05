@@ -9,11 +9,11 @@ namespace Memory
 {
     public interface IChosingMoveStrategy
     {
-        Tuple<PictureBox, PictureBox> ChoseMove(
-            List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs,
-            List<PictureBox> openedCards,
-            HashSet<PictureBox> validPicutreBoxes,
-            Dictionary<PictureBox, Card> cardsDictionary,
+            Tuple<string, string> ChoseMove(
+            List<Tuple<string, string>> unpairedOpenPairs,
+            List<string> openedCards,
+            HashSet<string> validPicutreBoxes,
+            Dictionary<string, Card> cardsDictionary,
             Random rand);
 
         // Input <- List of cards that can imidietly paired,
@@ -28,9 +28,14 @@ namespace Memory
     public class EasyBotStrategy : IChosingMoveStrategy
     {
         // chose 2 random cards
-        public Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand)
+        public Tuple<string, string> ChoseMove(
+            List<Tuple<string, string>> unpairedOpenPairs,
+            List<string> openedCards,
+            HashSet<string> validPicutreBoxes,
+            Dictionary<string, Card> cardsDictionary,
+            Random rand)
         {
-            List<PictureBox> validPBs = new List<PictureBox>(validPicutreBoxes);
+            List<string> validPBs = new List<string>(validPicutreBoxes);
             int firstIndex = rand.Next() % validPBs.Count;
             int secondIndex = rand.Next() % validPBs.Count;
 
@@ -39,7 +44,7 @@ namespace Memory
                 secondIndex = rand.Next() % validPBs.Count;
             }
 
-            return new Tuple<PictureBox, PictureBox>(validPBs[firstIndex], validPBs[secondIndex]);
+            return new Tuple<string, string>(validPBs[firstIndex], validPBs[secondIndex]);
         }
     }
 
@@ -48,9 +53,14 @@ namespace Memory
     {
         // Open 1 random card, if the other cards with same shape is alreadyOpened chose it
         // else chose other random card
-        public Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand)
+        public Tuple<string, string> ChoseMove(
+            List<Tuple<string, string>> unpairedOpenPairs,
+            List<string> openedCards,
+            HashSet<string> validPicutreBoxes,
+            Dictionary<string, Card> cardsDictionary,
+            Random rand)
         {
-            List<PictureBox> validPBs = new List<PictureBox>(validPicutreBoxes);
+            List<string> validPBs = new List<string>(validPicutreBoxes);
 
             int firstIndex = rand.Next() % validPBs.Count;
 
@@ -65,7 +75,7 @@ namespace Memory
                 //sb.Append(cardsDictionary[openedCards[i]].Shape + "\n");
                 if (cardsDictionary[openedCards[i]].Equals(firstCard))
                 {
-                    if (validPBs[firstIndex] != openedCards[i]) // not the same picture box
+                    if (!(validPBs[firstIndex].Equals(openedCards[i]))) // not the same picture box
                     {
                         secondIndex = i;
                         //MessageBox.Show("Treba da ja otvoram pb " + openedCards[i].Name);
@@ -94,12 +104,12 @@ namespace Memory
                     secondIndex = rand.Next() % validPBs.Count;
                 }
 
-                return new Tuple<PictureBox, PictureBox>(validPBs[firstIndex], validPBs[secondIndex]);
+                return new Tuple<string, string>(validPBs[firstIndex], validPBs[secondIndex]);
 
             }
             else
             {
-                return new Tuple<PictureBox, PictureBox>(validPBs[firstIndex], openedCards[secondIndex]);
+                return new Tuple<string, string>(validPBs[firstIndex], openedCards[secondIndex]);
             }
          
         }
@@ -109,7 +119,12 @@ namespace Memory
     public class HardBotStrategy : IChosingMoveStrategy
     {
         // check if there is some unpairedOpenPairs, if there are none proceed as normalBot would
-        public Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand)
+        public Tuple<string, string> ChoseMove(
+            List<Tuple<string, string>> unpairedOpenPairs,
+            List<string> openedCards,
+            HashSet<string> validPicutreBoxes,
+            Dictionary<string, Card> cardsDictionary,
+            Random rand)
         {
             if (unpairedOpenPairs.Any())
             {

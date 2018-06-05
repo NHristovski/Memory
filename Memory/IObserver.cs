@@ -33,17 +33,28 @@ namespace Memory
 
         public bool secondCard;
         public int scoreMultiplier;
-        public bool ShouldHandle { get; set; }
+        //public bool ShouldHandle { get; set; }
 
 
 
-        public HashSet<PictureBox> validCards;
-        public Tuple<string, PictureBox> previousCard;
-        private Dictionary<PictureBox, Card> cardsDictionary;
-        protected List<Tuple<PictureBox, PictureBox>> canBePairedCards;
-        public List<PictureBox> openedCards;
+        public HashSet<string> validCards;
+        // Tuple<string, pictureBox >
+        public Tuple<string, string> previousCard;
 
-        public GameObserver(PairGame game,List<PictureBox> pictureBoxes,Dictionary<PictureBox,Card> dict,Random rand)
+        // Bi trebalo Dict<Pb,Card>
+        public Dictionary<string, Card> cardsDictionary;
+        // List<Tuple<PB,PB>>
+        public List<Tuple<string, string>> canBePairedCards;
+
+        // List<PB>
+        public List<string> openedCards;
+
+        [NonSerialized]
+        public Dictionary<string, PictureBox> stringToPb;
+        //[NonSerialized]
+        //public List<PictureBox> realPbs;
+
+        public GameObserver(PairGame game, List<PictureBox> realPB, List<string> pictureBoxes, Dictionary<string, Card> dict, Random rand)
         {
             Game = game;
             currentPlayer = Game.Player1;
@@ -51,27 +62,61 @@ namespace Memory
             secondCard = false;
             scoreMultiplier = 1;
 
-            ShouldHandle = true;
+            //ShouldHandle = true;
 
-            canBePairedCards = new List<Tuple<PictureBox, PictureBox>>();
-            openedCards = new List<PictureBox>();
+            canBePairedCards = new List<Tuple<string, string>>();
+            openedCards = new List<string>();
             cardsDictionary = dict;
-            validCards = new HashSet<PictureBox>(pictureBoxes);
+            validCards = new HashSet<string>(pictureBoxes);
 
             GameObserver.rand = rand;
+
+            makePBDict(pictureBoxes, realPB);
         }
 
+        public PictureBox getPreviousCard()
+        {
+            if (previousCard == null)
+            {
+                return null;
+            }
+            else
+            {
+                if (previousCard.Item2 == null)
+                {
+                    return null;
+                }
+                return stringToPb[previousCard.Item2];
+            }
+        }
+        private void makePBDict(List<string> pbs, List<PictureBox> realPbs)
+        {
+            stringToPb = new Dictionary<string, PictureBox>();
+            for (int i = 0; i < pbs.Count; i++)
+            {
+                string name = pbs[i];
+                for (int j = 0; j < realPbs.Count; j++)
+                {
+                    if (realPbs[i].Name.Equals(name))
+                    {
+                        stringToPb[name] = realPbs[i];
+                        break;
+                    }
+                }
+
+            }
+        }
         // HELPER FUNCTIONS FOR VALIDATING CARD
-        public void removeFromCanBePaired(PictureBox pb)
+        public void removeFromCanBePaired(string pb)
         {
             for (int i = 0; i < canBePairedCards.Count; i++)
             {
-                if (canBePairedCards[i].Item1 == pb && canBePairedCards[i].Item2 == previousCard.Item2)
+                if (canBePairedCards[i].Item1.Equals(pb) && canBePairedCards[i].Item2.Equals(previousCard.Item2))
                 {
                     canBePairedCards.RemoveAt(i);
                     break;
                 }
-                else if (canBePairedCards[i].Item1 == previousCard.Item2 && canBePairedCards[i].Item2 == pb)
+                else if (canBePairedCards[i].Item1.Equals(previousCard.Item2) && canBePairedCards[i].Item2.Equals(pb))
                 {
                     canBePairedCards.RemoveAt(i);
                     break;
@@ -79,16 +124,16 @@ namespace Memory
             }
         }
 
-        public void addToCanBePaired(PictureBox pb)
+        public void addToCanBePaired(string pb)
         {
             for (int i = 0; i < openedCards.Count; i++)
             {
-                if (getCard(openedCards[i]).Equals(getCard(pb)) && openedCards[i] != pb)
+                if (getCard(openedCards[i]).Equals(getCard(pb)) && !(openedCards[i].Equals(pb)))
                 {
-                    Tuple<PictureBox, PictureBox> tuple = new Tuple<PictureBox, PictureBox>(openedCards[i], pb);
+                    var tuple = new Tuple<string, string>(openedCards[i], pb);
                     if (!(canBePairedCards.Contains(tuple)
                         ||
-                        canBePairedCards.Contains(new Tuple<PictureBox, PictureBox>(pb, openedCards[i]))))
+                        canBePairedCards.Contains(new Tuple<string, string>(pb, openedCards[i]))))
                     {
                         canBePairedCards.Add(tuple);
                         break;
@@ -102,10 +147,10 @@ namespace Memory
         {
             if (secondCard && !currentPlayer.isBot())
             {
-                ShouldHandle = false;
+                //ShouldHandle = false;
             }
 
-            Card card = getCard(pb);
+            Card card = getCard(pb.Name);
             //MessageBox.Show(card.pathToOpenCard);
             if (!card.Guessed)
             {
@@ -128,14 +173,14 @@ namespace Memory
         public void makeCardStill(PictureBox pb)
         {
             pb.Enabled = true;
-            pb.Image = getCard(pb).StillCard;
+            pb.Image = getCard(pb.Name).StillCard;
             pb.Enabled = false;
 
         }
 
         public void animateClosingCard(PictureBox pb)
         {
-            GifImage gifImage = new GifImage(getCard(pb).CloseCard);
+            GifImage gifImage = new GifImage(getCard(pb.Name).CloseCard);
             for (int i = 0; i < gifImage.frameCount; i++)
             {
                 pb.Enabled = true;
@@ -152,7 +197,7 @@ namespace Memory
             return validCards.Count == 0;
         }
 
-        public Card getCard(PictureBox pb)
+        public Card getCard(string pb)
         {
             return cardsDictionary[pb];
         }
@@ -160,7 +205,7 @@ namespace Memory
         public bool normalValidate(PictureBox pb)
         {
 
-            Card card = getCard(pb);
+            Card card = getCard(pb.Name);
             animateOpeningCard(pb);
 
             if (secondCard)
@@ -178,22 +223,22 @@ namespace Memory
                     //updateLabels();
 
                     makeCardStill(pb);
-                    makeCardStill(previousCard.Item2);
+                    makeCardStill(stringToPb[previousCard.Item2]);
 
-                    validCards.Remove(pb);
+                    validCards.Remove(pb.Name);
                     validCards.Remove(previousCard.Item2);
 
-                    openedCards.Remove(pb);
+                    openedCards.Remove(pb.Name);
                     openedCards.Remove(previousCard.Item2);
 
-                    removeFromCanBePaired(pb);
+                    removeFromCanBePaired(pb.Name);
 
                     //if (validCards.Count == 0) // every card is guessed
                     //{
                     //    Game.endGame();
                     //}
 
-                    previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
+                    previousCard = new Tuple<string, string>(string.Empty, null); // set previous to null
                     secondCard = false;
 
                     //ShouldHandle = true;
@@ -219,21 +264,21 @@ namespace Memory
                 else // 2 different cards
                 {
                     animateClosingCard(pb);
-                    animateClosingCard(previousCard.Item2);
+                    animateClosingCard(stringToPb[previousCard.Item2]);
 
                     //ShouldHandle = true;
                     //MessageBox.Show("sega moze da handla");
 
                     scoreMultiplier = 1;
 
-                    addToCanBePaired(pb);
+                    addToCanBePaired(pb.Name);
 
-                    if (!openedCards.Contains(pb))
+                    if (!openedCards.Contains(pb.Name))
                     {
-                        openedCards.Add(pb);
+                        openedCards.Add(pb.Name);
                     }
 
-                    previousCard = new Tuple<string, PictureBox>(string.Empty, null); // set previous to null
+                    previousCard = new Tuple<string, string>(string.Empty, null); // set previous to null
                     secondCard = false;
 
                     //if (!currentPlayer.isBot())
@@ -254,15 +299,15 @@ namespace Memory
             {
                 //ShouldHandle = true;
 
-                addToCanBePaired(pb);
+                addToCanBePaired(pb.Name);
 
-                if (!openedCards.Contains(pb))
+                if (!openedCards.Contains(pb.Name))
                 {
-                    openedCards.Add(pb);
+                    openedCards.Add(pb.Name);
                 }
 
                 secondCard = true;
-                previousCard = new Tuple<string, PictureBox>(card.Shape, pb);
+                previousCard = new Tuple<string, string>(card.Shape, pb.Name);
 
                 return true;
             }
@@ -272,8 +317,8 @@ namespace Memory
         }
         public bool validateSecondChance(PictureBox pb)
         {
-            
-            Card card = getCard(pb);
+
+            Card card = getCard(pb.Name);
             animateOpeningCard(pb);
 
 
@@ -286,15 +331,15 @@ namespace Memory
                 scoreMultiplier++;
 
                 makeCardStill(pb);
-                makeCardStill(previousCard.Item2);
+                makeCardStill(stringToPb[previousCard.Item2]);
 
-                validCards.Remove(pb);
+                validCards.Remove(pb.Name);
                 validCards.Remove(previousCard.Item2);
 
-                openedCards.Remove(pb);
+                openedCards.Remove(pb.Name);
                 openedCards.Remove(previousCard.Item2);
 
-                removeFromCanBePaired(pb);
+                removeFromCanBePaired(pb.Name);
 
                 //if (this.shouldEnd()) // every card is guessed
                 //{
@@ -313,11 +358,11 @@ namespace Memory
                 animateClosingCard(pb);
                 //animateClosingCard(previousCard.Item2);
 
-                addToCanBePaired(pb);
+                addToCanBePaired(pb.Name);
 
-                if (!openedCards.Contains(pb))
+                if (!openedCards.Contains(pb.Name))
                 {
-                    openedCards.Add(pb);
+                    openedCards.Add(pb.Name);
                 }
                 //ShouldHandle = true;
 
@@ -328,7 +373,7 @@ namespace Memory
 
         // BOT MOVES
 
-        public Tuple<PictureBox, PictureBox> botMove()
+        public Tuple<string, string> botMove()
         {
             return currentPlayer.ChoseMove(canBePairedCards, openedCards, validCards, cardsDictionary, rand);
         }
@@ -338,10 +383,10 @@ namespace Memory
             // Bot makes moves until he misses
             //ShouldHandle = false; // disable clicking on pictureboxes while bot makes moves
 
-            Tuple<PictureBox, PictureBox> move = botMove();
-            validateCard(move.Item1);
+            Tuple<string, string> move = botMove();
+            validateCard(stringToPb[move.Item1]);
 
-            if (validateCard(move.Item2))
+            if (validateCard(stringToPb[move.Item2]))
             {
                 if (this.shouldEnd())
                 {
@@ -352,7 +397,7 @@ namespace Memory
                 return true;
             }
 
-            
+
             //ShouldHandle = true; // enable clicking on pictureBoxes
             return false;
         }
@@ -409,6 +454,7 @@ namespace Memory
             this.scoreMultiplier *= 2;
         }
 
+
         public PictureBox FindNext(PictureBox pb)
         {
             if (!secondCard)
@@ -426,10 +472,10 @@ namespace Memory
 
             foreach (var pbox in validCards)
             {
-                if (getCard(pbox).Equals(getCard(pb)) && pbox != pb)
+                if (getCard(pbox).Equals(getCard(pb.Name)) && !(pbox.Equals(pb.Name)))
                 {
                     ((PairGameHumanPlayer)currentPlayer).UseFindNext(Game.findNextPrice);
-                    return pbox;
+                    return stringToPb[pbox];
                 }
             }
             throw new Exception("CANNOT FIND THE CARD! CHECK FINDNEXT IN IOBSERVER.CS");
@@ -472,16 +518,16 @@ namespace Memory
         {
             foreach (var pbs in validCards)
             {
-                this.makeCardStill(pbs);
+                this.makeCardStill(stringToPb[pbs]);
             }
         }
         public void closeValidCards()
         {
             foreach (var pbs in validCards)
             {
-                if (!(pbs == previousCard.Item2))
+                if (previousCard != null && previousCard.Item2 != null && !(pbs.Equals(previousCard.Item2))) 
                 {
-                    closeCard(pbs);
+                    closeCard(stringToPb[pbs]);
                 }
             }
         }
@@ -509,5 +555,40 @@ namespace Memory
                 }
             }
         }
+
+        public Tuple<bool, int, Player, HashSet<string>,
+            Tuple<string, string>, Dictionary<string, Card>,
+            Tuple<List<Tuple<string, string>>, List<string>>> getInfo()
+            {
+
+            return new Tuple<bool, int, Player, HashSet<string>,
+            Tuple<string, string>, Dictionary<string, Card>,
+            Tuple<List<Tuple<string, string>>, List<string>>>
+            (secondCard,
+            scoreMultiplier, currentPlayer, validCards,
+            previousCard, cardsDictionary,
+            new Tuple<List<Tuple<string, string>>, List<string>>(canBePairedCards,
+            openedCards));
+
+            }
+
+        public void setInfo(Tuple<bool, int, Player, HashSet<string>,
+            Tuple<string, string>, Dictionary<string, Card>,
+            Tuple<List<Tuple<string, string>>, List<string>>> tuple)
+        {
+            secondCard = tuple.Item1;
+            scoreMultiplier = tuple.Item2;
+            currentPlayer = tuple.Item3;
+            validCards = tuple.Item4;
+            previousCard = tuple.Item5;
+            cardsDictionary = tuple.Item6;
+            canBePairedCards = tuple.Item7.Item1;
+            openedCards = tuple.Item7.Item2;
+
+
+        }
+
+
+
     }
 }

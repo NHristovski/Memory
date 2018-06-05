@@ -115,6 +115,7 @@ namespace Memory
         //}
         public static void staticRunNewPairGame(PairGameForm f)
         {
+            f.resolvePicBoxes();
             f.ShowDialog();
         }
 

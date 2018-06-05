@@ -11,5 +11,9 @@ namespace Memory
     {
         // Potrebno ni e za serijalizacija
         // od ovaa klasa ke nasleduvaat easyGameForm,normal,i hard
+        public virtual void resolvePicBoxes()
+        {
+
+        }
     }
 }
