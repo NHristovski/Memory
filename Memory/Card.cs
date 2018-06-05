@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Memory
 {
+    [Serializable]
     public class Card
     {
         public string Shape { get; set; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Memory
 {
+    [Serializable]
     public class PlayerFactory
     {
         public static Bot GetEasyBot() => new Bot("EasyBot",new EasyBotStrategy());

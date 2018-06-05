@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Memory
 {
+    [Serializable]
     public static class Paths
     {
         private static string fullPath = AppDomain.CurrentDomain.BaseDirectory;

@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace Memory
 {
+    [Serializable]
     public abstract class Player
     {
         public string Name{ get;set;}
@@ -33,6 +34,14 @@ namespace Memory
             // should be updated, and Time insade score should be inicialized to GameEnded - GameStarted.
         }
 
+        public Player ResetScore()
+        {
+            // !!!!!! Is this all it needs to reset???
+
+            this.Score.Points = 0;
+            return this;
+            ////////////////////
+        }
         public override string ToString()
         {
             return string.Format("{0,-20},{1}", Name, Score.ToString());
@@ -49,6 +58,8 @@ namespace Memory
 
         
     }
+
+    [Serializable]
     public abstract class PairGamePlayer : Player
     {
         public int x2Avaliable { get; set; }
@@ -70,6 +81,8 @@ namespace Memory
         {
         }
     }
+
+    [Serializable]
     public class HumanPlayer : PairGamePlayer
     {
         //public bool Turn { get; set; }
@@ -88,6 +101,7 @@ namespace Memory
         }
     }
 
+    [Serializable]
     public class PairGameHumanPlayer : HumanPlayer
     {
 
@@ -140,6 +154,7 @@ namespace Memory
         }
     }
 
+    [Serializable]
     public class Bot : PairGamePlayer
     {
         
