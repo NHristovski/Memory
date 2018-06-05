@@ -10,10 +10,10 @@ using System.Drawing;
 
 namespace Memory
 {
+    [Serializable]
     public abstract class Game 
     {
         
-       
         protected static Random rand = new Random();
 
         public Player Player1 { get; set; }
@@ -29,6 +29,7 @@ namespace Memory
 
     }
 
+    [Serializable]
     public class PairGame : Game, IObservable
     {
         private STATES State;
@@ -56,6 +57,7 @@ namespace Memory
             get { return Observer.ShouldHandle; }
             set { Observer.ShouldHandle = value; }
         }
+
         public PictureBox PreviousCard
         {
             get
@@ -252,8 +254,8 @@ namespace Memory
         }
         
     }
-    
 
+    [Serializable]
     public class SequenceGame : Game
     {
         public SequenceGame(Player player) : base(player)

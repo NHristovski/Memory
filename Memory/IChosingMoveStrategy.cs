@@ -24,6 +24,7 @@ namespace Memory
         // Output -> With pboxes should the bot open next   
     }
 
+    [Serializable]
     public class EasyBotStrategy : IChosingMoveStrategy
     {
         // chose 2 random cards
@@ -42,6 +43,7 @@ namespace Memory
         }
     }
 
+    [Serializable]
     public class NormalBotStrategy : IChosingMoveStrategy
     {
         // Open 1 random card, if the other cards with same shape is alreadyOpened chose it
@@ -103,6 +105,7 @@ namespace Memory
         }
     }
 
+    [Serializable]
     public class HardBotStrategy : IChosingMoveStrategy
     {
         // check if there is some unpairedOpenPairs, if there are none proceed as normalBot would

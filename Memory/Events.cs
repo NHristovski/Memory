@@ -15,6 +15,7 @@ namespace Memory
     // source: https://stackoverflow.com/questions/40528189/c-sharp-disable-event-for-some-time
     //
     //
+    [Serializable]
     public static class Events
     {
         public static void Pause(this Control control, string eventName, int forTime)
@@ -99,6 +100,7 @@ namespace Memory
         }
 
     }
+    [Serializable]
     public class cEventSuppressor
     {
         Control _source;

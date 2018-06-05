@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,31 +19,106 @@ namespace Memory
         List<PictureBox> picBoxes;
         PairGame game;
         List<cEventSuppressor> suppressors;
+        private string FileName;
 
+        public EasyPairGameForm(PairGame game)
+        {
+            this.game = game;
+
+            foreach (var pBox in picBoxes)
+            {
+                game.closeCard(pBox);
+            }
+
+            FileName = string.Empty;
+
+            DoubleBuffered = true;
+
+            pictureBox2x.Image = Image.FromFile(Paths.pathTo2xImage);
+            pictureBoxSecondChance.Image = Image.FromFile(Paths.pathToSecondChanceImage);
+            pictureBoxOpenCards.Image = Image.FromFile(Paths.pathToOpenCardsImage);
+            pictureBoxFindNext.Image = Image.FromFile(Paths.pathToFindNextImage);
+
+            int x2Price = 250;
+            int secondChancePrice = 350;
+            int findNextPrice = 500;
+            int openCardsPrice = 700;
+
+            textBoxPrice2x.Text = x2Price + "";
+            textBoxPriceFindNext.Text = findNextPrice + "";
+            textBoxPriceOpenCards.Text = openCardsPrice + "";
+            textBoxPriceSecondChance.Text = secondChancePrice + "";
+
+            labelP1points.Text = game.Player1.Name + " points:";
+            labelP2points.Text = game.Player2.Name + " points:";
+
+            updateLabels();
+
+            suppressors = new List<cEventSuppressor>
+            {
+                this.pictureBox1.Suppress(),
+                this.pictureBox2.Suppress(),
+                this.pictureBox3.Suppress(),
+                this.pictureBox4.Suppress(),
+                this.pictureBox5.Suppress(),
+                this.pictureBox6.Suppress(),
+                this.pictureBox7.Suppress(),
+                this.pictureBox8.Suppress(),
+                this.pictureBox9.Suppress(),
+                this.pictureBox10.Suppress(),
+                this.pictureBox11.Suppress(),
+                this.pictureBox12.Suppress(),
+                this.pictureBox13.Suppress(),
+                this.pictureBox14.Suppress(),
+                this.pictureBox15.Suppress(),
+                this.pictureBox16.Suppress()
+            };
+
+            resumeAllPictureBoxes();
+
+            updateLabels();
+            this.Refresh();
+
+            if (game.Player2.isBot())
+            {
+                setBotLevelEasyToolStripMenuItem.Enabled = true;
+                setBotLevelNormalToolStripMenuItem.Enabled = true;
+                setBotLevelHardToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                setBotLevelEasyToolStripMenuItem.Enabled = false;
+                setBotLevelNormalToolStripMenuItem.Enabled = false;
+                setBotLevelHardToolStripMenuItem.Enabled = false;
+            }
+        }
         public EasyPairGameForm(Player Player1,Player Player2)
         {
             InitializeComponent();
 
+            FileName = string.Empty;
+
             DoubleBuffered = true;
 
-            picBoxes = new List<PictureBox>();
-            
-            picBoxes.Add(this.pictureBox1);
-            picBoxes.Add(this.pictureBox2);
-            picBoxes.Add(this.pictureBox3);
-            picBoxes.Add(this.pictureBox4);
-            picBoxes.Add(this.pictureBox5);
-            picBoxes.Add(this.pictureBox6);
-            picBoxes.Add(this.pictureBox7);
-            picBoxes.Add(this.pictureBox8);
-            picBoxes.Add(this.pictureBox9);
-            picBoxes.Add(this.pictureBox10);
-            picBoxes.Add(this.pictureBox11);
-            picBoxes.Add(this.pictureBox12);
-            picBoxes.Add(this.pictureBox13);
-            picBoxes.Add(this.pictureBox14);
-            picBoxes.Add(this.pictureBox15);
-            picBoxes.Add(this.pictureBox16);
+            picBoxes = new List<PictureBox>
+            {
+                this.pictureBox1,
+                this.pictureBox2,
+                this.pictureBox3,
+                this.pictureBox4,
+                this.pictureBox5,
+                this.pictureBox6,
+                this.pictureBox7,
+                this.pictureBox8,
+                this.pictureBox9,
+                this.pictureBox10,
+                this.pictureBox11,
+                this.pictureBox12,
+                this.pictureBox13,
+                this.pictureBox14,
+                this.pictureBox15,
+                this.pictureBox16
+            };
 
 
             int x2Price = 250;
@@ -70,27 +148,40 @@ namespace Memory
 
             updateLabels();
 
-            suppressors = new List<cEventSuppressor>();
-
-            suppressors.Add(this.pictureBox1.Suppress());
-            suppressors.Add(this.pictureBox2.Suppress());
-            suppressors.Add(this.pictureBox3.Suppress());
-            suppressors.Add(this.pictureBox4.Suppress());
-            suppressors.Add(this.pictureBox5.Suppress());
-            suppressors.Add(this.pictureBox6.Suppress());
-            suppressors.Add(this.pictureBox7.Suppress());
-            suppressors.Add(this.pictureBox8.Suppress());
-            suppressors.Add(this.pictureBox9.Suppress());
-            suppressors.Add(this.pictureBox10.Suppress());
-            suppressors.Add(this.pictureBox11.Suppress());
-            suppressors.Add(this.pictureBox12.Suppress());
-            suppressors.Add(this.pictureBox13.Suppress());
-            suppressors.Add(this.pictureBox14.Suppress());
-            suppressors.Add(this.pictureBox15.Suppress());
-            suppressors.Add(this.pictureBox16.Suppress());
+            suppressors = new List<cEventSuppressor>
+            {
+                this.pictureBox1.Suppress(),
+                this.pictureBox2.Suppress(),
+                this.pictureBox3.Suppress(),
+                this.pictureBox4.Suppress(),
+                this.pictureBox5.Suppress(),
+                this.pictureBox6.Suppress(),
+                this.pictureBox7.Suppress(),
+                this.pictureBox8.Suppress(),
+                this.pictureBox9.Suppress(),
+                this.pictureBox10.Suppress(),
+                this.pictureBox11.Suppress(),
+                this.pictureBox12.Suppress(),
+                this.pictureBox13.Suppress(),
+                this.pictureBox14.Suppress(),
+                this.pictureBox15.Suppress(),
+                this.pictureBox16.Suppress()
+            };
 
             resumeAllPictureBoxes();
 
+            if (game.Player2.isBot())
+            {
+                setBotLevelEasyToolStripMenuItem.Enabled = true;
+                setBotLevelNormalToolStripMenuItem.Enabled = true;
+                setBotLevelHardToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                setBotLevelEasyToolStripMenuItem.Enabled = false;
+                setBotLevelNormalToolStripMenuItem.Enabled = false;
+                setBotLevelHardToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void resumeAllPictureBoxes()
@@ -108,6 +199,29 @@ namespace Memory
             }
         }
 
+        private PictureBox getPB(int idx)
+        {
+            switch(idx)
+            {
+                case 1: return pictureBox1;
+                case 2: return pictureBox2;
+                case 3: return pictureBox3;
+                case 4: return pictureBox4;
+                case 5: return pictureBox5;
+                case 6: return pictureBox6;
+                case 7: return pictureBox7;
+                case 8: return pictureBox8;
+                case 9: return pictureBox9;
+                case 10: return pictureBox10;
+                case 11: return pictureBox11;
+                case 12: return pictureBox12;
+                case 13: return pictureBox13;
+                case 14: return pictureBox14;
+                case 15: return pictureBox15;
+                case 16: return pictureBox16;
+                default: return null;
+            }
+        }
         private void updateLabels()
         {
 
@@ -596,6 +710,151 @@ namespace Memory
             if (game.isValid(pictureBox16) && pictureBox16 != game.PreviousCard)
             {
                 pictureBox16.Image = Paths.closedCard;
+            }
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Launcher l = new Launcher();
+            l.ShowDialog();
+        }
+
+        private void gameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+            Launcher l = new Launcher();
+            l.ShowDialog();
+        }
+
+        private void easyGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Player p1 = game.Player1.ResetScore();
+            ((PairGamePlayer)p1).setEasyGameAvaliable();
+
+            Player p2 = game.Player2.ResetScore();
+            ((PairGamePlayer)p2).setEasyGameAvaliable();
+
+            this.Dispose();
+            Launcher.staticRunNewPairGame(new EasyPairGameForm(p1, p2));
+
+        }
+
+        private void normalGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Player p1 = game.Player1.ResetScore();
+            ((PairGamePlayer)p1).setNormalGameAvaliable();
+
+            Player p2 = game.Player2.ResetScore();
+            ((PairGamePlayer)p2).setNormalGameAvaliable();
+
+            this.Dispose();
+            Launcher.staticRunNewPairGame(new NormalPairGameForm(p1, p2));
+        }
+
+        private void hardGameToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Player p1 = game.Player1.ResetScore();
+            ((PairGamePlayer)p1).setHardGameAvaliable();
+
+            Player p2 = game.Player2.ResetScore();
+            ((PairGamePlayer)p2).setHardGameAvaliable();
+
+            this.Dispose();
+            Launcher.staticRunNewPairGame(new HardPairGameForm(p1, p2));
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void setBotLevelEasyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            game.Player2 = PlayerFactory.GetEasyBot();
+        }
+
+        private void setBotLevelNormalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            game.Player2 = PlayerFactory.GetNormalBot();
+        }
+
+        private void setBotLevelHardToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            game.Player2 = PlayerFactory.GetHardBot();
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileStream fileStream = null;
+            try
+            {
+                if (FileName == string.Empty)
+                {
+                    var saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.Title = "Save your Pair Game";
+                    saveFileDialog.Filter = "Easy Pair Game (.easy)|*.easy";
+
+                    var result = saveFileDialog.ShowDialog();
+
+                    if (result == DialogResult.OK)
+                    {
+                        FileName = saveFileDialog.FileName;
+                    }
+                }
+                if (FileName != string.Empty && FileName != null)
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    fileStream = new FileStream(FileName, FileMode.Create);
+
+                    formatter.Serialize(fileStream, this.game);
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Something went wrong! The file is not saved please try again.\nOriginal message: " + exception.Message);
+            }
+            finally
+            {
+                if (fileStream != null)
+                {
+                    fileStream.Close();
+                }
+            }
+        
+        }
+
+        private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileName = string.Empty;
+            saveToolStripMenuItem_Click(sender, e);
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileStream fileStream = null;
+
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Open Pair Game";
+            openFileDialog.Filter = "Easy Pair Game (.easy)|*.easy|Normal Pair Game (.normal)|*.normal|Hard Pair Game (.hard)|*.hard";
+
+            var result = openFileDialog.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                FileName = openFileDialog.FileName;
+            }
+            if (FileName != string.Empty && FileName != null)
+            {
+                IFormatter formatter = new BinaryFormatter();
+                fileStream = new FileStream(FileName, FileMode.Open);
+
+                PairGame g = (PairGame)(formatter.Deserialize(fileStream));
+
+                if (FileName.EndsWith(".easy"))
+                {
+                    Launcher.staticRunNewPairGame(new EasyPairGameForm(g));
+                }
             }
         }
     }

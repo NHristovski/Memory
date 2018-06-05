@@ -8,6 +8,7 @@ using System.Drawing.Imaging;
 
 namespace Memory
 {
+    [Serializable]
     public class GifImage
     {
         private Image gifImage;

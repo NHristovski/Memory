@@ -7,6 +7,7 @@ using System.Windows.Forms;
 
 namespace Memory
 {
+    [Serializable]
     public enum STATES
     {
         NORMAL_STATE,
@@ -23,6 +24,7 @@ namespace Memory
         void ReturnToNormalState();
     }
 
+    [Serializable]
     public class GameObserver : IGameObserver
     {
         private PairGame Game;
@@ -40,7 +42,6 @@ namespace Memory
         private Dictionary<PictureBox, Card> cardsDictionary;
         protected List<Tuple<PictureBox, PictureBox>> canBePairedCards;
         public List<PictureBox> openedCards;
-
 
         public GameObserver(PairGame game,List<PictureBox> pictureBoxes,Dictionary<PictureBox,Card> dict,Random rand)
         {

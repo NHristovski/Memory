@@ -13,17 +13,16 @@ namespace Memory
     public partial class Launcher : Form
     {
 
-        // !!!!!!!!!!!!!!! SHOULD THEY BE HERE OR IN THE START BUTTON METHOD?
-        private Player Player1;
-        private Player Player2;
 
         PairGameForm form;
+
         public Launcher()
         {
+
             InitializeComponent();
             form = null;
-            Player1 = null;
-            Player2 = null;
+            //Player1 = null;
+            //Player2 = null;
             changeVisibility();
         }
 
@@ -46,6 +45,12 @@ namespace Memory
 
         private void buttonStart_Click(object sender, EventArgs e)
         {
+
+
+            Player Player1;
+            Player Player2;
+
+
             if (textBoxPlayer1Name.Text.Equals(String.Empty)
                 ||
                 (radioButtonHuman.Checked && textBoxPlayer2Name.Text.Equals(String.Empty)))
@@ -101,14 +106,24 @@ namespace Memory
 
             //this.Dispose();
             //form.ShowDialog();
-            runNewForm(form);
+            runNewPairGame(form);
 
         }
-        private void runNewForm(Form f)
+        //public static void ShowM(PairGameForm f)
+        //{
+        //    MessageBox.Show("TEST");
+        //}
+        public static void staticRunNewPairGame(PairGameForm f)
+        {
+            f.ShowDialog();
+        }
+
+        private void runNewPairGame(PairGameForm f)
         {
             this.Dispose();
-            form.ShowDialog();
+            f.ShowDialog();
         }
+        
         private void textBoxPlayer1Name_Validating(object sender, CancelEventArgs e)
         {
             if (textBoxPlayer1Name.Text.Equals(String.Empty))

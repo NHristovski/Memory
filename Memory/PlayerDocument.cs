@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Memory
 {
+    [Serializable]
     class PlayerDocument
     {
         private List<Player> Players;

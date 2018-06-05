@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 
 namespace Memory
 {
+    [Serializable]
     public class Score
     {
         public int Points { get; set; }
