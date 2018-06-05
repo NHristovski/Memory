@@ -53,8 +53,8 @@ namespace Memory
             Score.Time = duration;
         }
 
-        public abstract bool isBot();
-        public abstract Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand);
+        public abstract bool isBot();                       
+        public abstract Tuple<string, string> ChoseMove(List<Tuple<string, string>> unpairedOpenPairs, List<string> openedCards, HashSet<string> validPicutreBoxes, Dictionary<string, Card> cardsDictionary, Random rand);
 
         
     }
@@ -95,7 +95,7 @@ namespace Memory
         {
             return false;
         }
-        public override Tuple<PictureBox, PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs, List<PictureBox> openedCards, HashSet<PictureBox> validPicutreBoxes, Dictionary<PictureBox, Card> cardsDictionary, Random rand)
+        public override Tuple<string, string> ChoseMove(List<Tuple<string, string>> unpairedOpenPairs, List<string> openedCards, HashSet<string> validPicutreBoxes, Dictionary<string, Card> cardsDictionary, Random rand)
         {
             return null;
         }
@@ -189,7 +189,7 @@ namespace Memory
             return true;
         }
 
-        public override Tuple<PictureBox,PictureBox> ChoseMove(List<Tuple<PictureBox, PictureBox>> unpairedOpenPairs,List<PictureBox> openedCards,HashSet<PictureBox> validPicutreBoxes,Dictionary<PictureBox, Card> cardsDictionary,Random rand)
+        public override Tuple<string, string> ChoseMove(List<Tuple<string, string>> unpairedOpenPairs, List<string> openedCards, HashSet<string> validPicutreBoxes, Dictionary<string, Card> cardsDictionary, Random rand)
         {
             return chosingMoveStrategy
                 .ChoseMove(unpairedOpenPairs, openedCards, validPicutreBoxes, cardsDictionary, rand);

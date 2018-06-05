@@ -37,38 +37,36 @@ namespace Memory
         protected string[] shapes;
 
         public Player Player2 { get; set; }
-        
 
-        protected List<PictureBox> pictureBoxes;
-        protected List<Card> cards;
-        protected Dictionary<PictureBox, Card> cardsDictionary;
+
+        // List<PictureBox>
+        public List<string> pictureBoxes;
+        public List<Card> cards;
+        // Dictionary<PictureBox, Card>
+        public Dictionary<string, Card> cardsDictionary;
         
         public readonly int x2Price;
         public readonly int secondChancePrice;
         public readonly int openCardsPrice;
         public readonly int findNextPrice;
 
-        
+        [NonSerialized]
+        public List<PictureBox> realPicBoxes;
 
         GameObserver Observer;
 
-        public bool ShouldHandle
-        {
-            get { return Observer.ShouldHandle; }
-            set { Observer.ShouldHandle = value; }
-        }
+        //public bool ShouldHandle
+        //{
+        //    get { return Observer.ShouldHandle; }
+        //    set { Observer.ShouldHandle = value; }
+        //}
 
-        public PictureBox PreviousCard
+        public PictureBox getPreviousCard()
         {
-            get
-            {
-                var prev = Observer.previousCard;
-                if (prev == null) return null;
-                return prev.Item2;
-            }
+            return Observer.getPreviousCard();
         }
         // CONSTRUCTOR
-        public PairGame(Player player1,Player player2, List<PictureBox> pictureBoxes, int x2Price, int secondChancePrice, int findNextPrice, int openCardsPrice) : base(player1)
+        public PairGame(Player player1,Player player2,List<PictureBox> realPBS, List<string> pictureBoxes, int x2Price, int secondChancePrice, int findNextPrice, int openCardsPrice) : base(player1)
         {
             State = STATES.NORMAL_STATE;
             Player2 = player2;
@@ -80,10 +78,12 @@ namespace Memory
             this.findNextPrice = findNextPrice;
 
             this.pictureBoxes = pictureBoxes;
-            cardsDictionary = new Dictionary<PictureBox, Card>();
+            cardsDictionary = new Dictionary<string, Card>();
             cards = new List<Card>();
 
-            this.Observer = new GameObserver(this,pictureBoxes,cardsDictionary,rand);
+            realPicBoxes = realPBS;
+
+            this.Observer = new GameObserver(this,realPicBoxes,pictureBoxes,cardsDictionary,rand);
 
             startGame();
         }
@@ -168,7 +168,39 @@ namespace Memory
             MessageBox.Show("END GAME");
         }
 
-       // INTERACTION METHODS
+        public override string ToString()
+        {
+            string s = Player1.Name + " " + Player2.Name;
+            foreach (var ss in pictureBoxes)
+            {
+                s += " " + ss;
+            }
+            s += "\n";
+            foreach (var a in cardsDictionary)
+            {
+                s += a.Key + "-" + a.Value + "\n";
+            }
+            return s;
+        }
+        // INTERACTION METHODS
+
+        public Tuple<bool, int, Player, HashSet<string>,
+            Tuple<string, string>, Dictionary<string, Card>,
+            Tuple<List<Tuple<string, string>>, List<string>>> getInfo()
+        {
+
+            return Observer.getInfo();
+
+        }
+
+        public void setInfo(Tuple<bool, int, Player, HashSet<string>,
+            Tuple<string, string>, Dictionary<string, Card>,
+            Tuple<List<Tuple<string, string>>, List<string>>> tuple)
+        {
+            Observer.setInfo(tuple);
+        }
+
+
         public bool ShouldEnd()
         {
             return Observer.shouldEnd();
@@ -239,6 +271,11 @@ namespace Memory
             Observer.OpenCards();
         }
 
+        public void makeCardStill(PictureBox pb)
+        {
+            Observer.makeCardStill(pb);
+        }
+
         public void makeCardsStill()
         {
             Observer.makeCardsStill();
@@ -250,7 +287,7 @@ namespace Memory
         }
         public bool isValid(PictureBox pb)
         {
-            return Observer.validCards.Contains(pb);
+            return Observer.validCards.Contains(pb.Name);
         }
         
     }
