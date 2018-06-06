@@ -64,7 +64,7 @@ namespace Memory
                 pb.MouseDown += new MouseEventHandler(pictureBox_MouseDown);
                 pb.MouseMove += new MouseEventHandler(pictureBox_MouseMove);
                 pb.MouseUp += new MouseEventHandler(pictureBox_MouseUp);
-                // pb.MouseDoubleClick += new MouseEventHandler(pictureBox_MouseDoubleClick);
+                pb.MouseDoubleClick += new MouseEventHandler(pictureBox_MouseDoubleClick);
                 PictureBoxes.Add(pb);
             }
         }
@@ -108,6 +108,18 @@ namespace Memory
 
             HoldingPoint = Point.Empty;
             ActivePictureBox = null;
+        }
+
+        private void pictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            resetPictureBox((PictureBox)sender);
+        }
+
+        public void resetPictureBox(PictureBox pictureBox)
+        {
+            Point initialLocation = getPictureBoxInitialLocation(pictureBox);
+            if (initialLocation != null)
+                pictureBox.Location = initialLocation;
         }
 
         public void dockPictureBoxToStation(PictureBox dockingPictureBox, DockingStation dockingStation)
