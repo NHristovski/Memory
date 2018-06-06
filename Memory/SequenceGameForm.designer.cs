@@ -30,6 +30,7 @@
         {
             this.buttonGenerateStations = new System.Windows.Forms.Button();
             this.buttonStartSequence = new System.Windows.Forms.Button();
+            this.lblRoundTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonGenerateStations
@@ -52,11 +53,21 @@
             this.buttonStartSequence.UseVisualStyleBackColor = true;
             this.buttonStartSequence.Click += new System.EventHandler(this.buttonStartSequence_Click);
             // 
+            // lblRoundTime
+            // 
+            this.lblRoundTime.AutoSize = true;
+            this.lblRoundTime.Location = new System.Drawing.Point(398, 10);
+            this.lblRoundTime.Name = "lblRoundTime";
+            this.lblRoundTime.Size = new System.Drawing.Size(34, 13);
+            this.lblRoundTime.TabIndex = 2;
+            this.lblRoundTime.Text = "00:00";
+            // 
             // SequenceGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 564);
+            this.Controls.Add(this.lblRoundTime);
             this.Controls.Add(this.buttonStartSequence);
             this.Controls.Add(this.buttonGenerateStations);
             this.Name = "SequenceGameForm";
@@ -64,6 +75,7 @@
             this.Text = "SequenceGameForm";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SequenceGameForm_Paint);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -71,5 +83,6 @@
 
         private System.Windows.Forms.Button buttonGenerateStations;
         private System.Windows.Forms.Button buttonStartSequence;
+        private System.Windows.Forms.Label lblRoundTime;
     }
 }

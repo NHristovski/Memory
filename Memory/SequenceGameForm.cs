@@ -35,5 +35,10 @@ namespace Memory
         {
             GameController.StartSequencer();
         }
+
+        public void setRoundTimeLabel(string content)
+        {
+            lblRoundTime.Text = content;
+        }
     }
 }

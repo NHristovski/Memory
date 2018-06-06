@@ -15,11 +15,13 @@ namespace Memory
         public SequencerManager sequencerManager { get; set; }
         public Dictionary<PictureBox, DockingStation> DockingRelations { get; set; } // Chec while refactoring
         public int NumberOfDockingStations { get; set; }
-        public Form Parent { get; set; }
+        public SequenceGameForm Parent { get; set; }
+        public Timer RoundTimer { get; set; }
+        public int RemainingRoundTimeInMilliseconds { get; set; } = 10000;
 
         protected string[] shapes;
 
-        public SequenceGameController(int numberOfDockingStations, Player player, Form parent) : base(player)
+        public SequenceGameController(int numberOfDockingStations, Player player, SequenceGameForm parent) : base(player)
         {
             NumberOfDockingStations = numberOfDockingStations;
             dockingStationManager = new DockingStationManager(this, parent.Width, parent.Height);
@@ -28,6 +30,7 @@ namespace Memory
             shapes = new string[] { "spade", "heart", "I", "IRed", "V", "X" };
             sequencerManager = new SequencerManager(2000, 120, 150, parent, this);
             Parent = parent;
+            RoundTimer = new Timer();
         }
 
         public void InitializeGame()
@@ -37,6 +40,22 @@ namespace Memory
             pictureBoxManager.DisplayPictureBoxes();
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
             sequencerManager.CreateSequencerPictureBox(pictureBoxManager.getPictureBoxVerticalLocation(), dockingStationManager.getDockingStationVerticalLocation());
+            RoundTimer.Tick += new EventHandler(roundTimer_Tick);
+            RoundTimer.Interval = 1000; // 1 second
+        }
+
+        private void roundTimer_Tick(object sender, EventArgs e)
+        {
+            RemainingRoundTimeInMilliseconds -= 1000;
+            int minutes = RemainingRoundTimeInMilliseconds / 60000;
+            int seconds = (RemainingRoundTimeInMilliseconds - minutes * 60000) / 1000;
+            Parent.setRoundTimeLabel(String.Format("{0:00}:{1:00}", minutes, seconds));
+
+            if (RemainingRoundTimeInMilliseconds <= 0)
+            {
+                RoundTimer.Stop();
+                endGame();
+            }
         }
 
         public void HandlePictureBoxRelease(PictureBox dockingPictureBox)
@@ -61,7 +80,9 @@ namespace Memory
                 {
                     List<Card> cards = dockingStationManager.getDockedCards();
                     if (sequencerManager.sequenceIsValid(cards))
+                    {
                         endGame();
+                    }
                 }
             }
         }
@@ -108,6 +129,7 @@ namespace Memory
         public void HandleSequencerTermination()
         {
             pictureBoxManager.allowPictureBoxInteraction();
+            RoundTimer.Start();
         }
 
         protected override void startGame()
