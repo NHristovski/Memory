@@ -12,6 +12,7 @@ namespace Memory
     {
         public DockingStationManager dockingStationManager { get; set; }
         public PictureBoxManager pictureBoxManager { get; set; }
+        public SequencerManager sequencerManager { get; set; }
         public Dictionary<PictureBox, DockingStation> DockingRelations { get; set; } // Chec while refactoring
         public int NumberOfDockingStations { get; set; }
         public Form Parent { get; set; }
@@ -25,6 +26,7 @@ namespace Memory
             pictureBoxManager = new PictureBoxManager(this, parent);
             DockingRelations = new Dictionary<PictureBox, DockingStation>();
             shapes = new string[] { "spade", "heart", "I", "IRed", "V", "X" };
+            sequencerManager = new SequencerManager(1000, 120, 150, parent);
             Parent = parent;
         }
 
@@ -33,6 +35,8 @@ namespace Memory
             dockingStationManager.GenerateStations(NumberOfDockingStations);
             pictureBoxManager.GeneratePictureBoxes(shapes);
             pictureBoxManager.DisplayPictureBoxes();
+            sequencerManager.setCardSequence(GenerateRandomCardSequence());
+            sequencerManager.CreateSequencerPictureBox(pictureBoxManager.getPictureBoxVerticalLocation(), dockingStationManager.getDockingStationVerticalLocation());
         }
 
         public void HandlePictureBoxRelease(PictureBox dockingPictureBox)
@@ -58,6 +62,30 @@ namespace Memory
         public void DrawDockingStations(Graphics g)
         {
             dockingStationManager.DrawDockingStations(g);
+        }
+
+        public void StartSequencer()
+        {
+            sequencerManager.startCardSequence();
+        }
+
+        public List<Card> GenerateRandomCardSequence()
+        {
+            List<string> tempShapes = new List<string>(shapes);
+            List<Card> randomCards = new List<Card>();
+
+            for (int i = 0; i < dockingStationManager.Stations.Count; i++)
+            {
+                int index = rand.Next(tempShapes.Count); // Try catch for shape
+                string shape = tempShapes[index];
+
+                Tuple<Image, Image, Image> images = getImages(shape);
+
+                randomCards.Add(new Card(tempShapes[index], images.Item1, images.Item2, images.Item3));
+                tempShapes.RemoveAt(index);
+            }
+
+            return randomCards;
         }
 
         // Niksi

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.buttonGenerateStations = new System.Windows.Forms.Button();
+            this.buttonStartSequence = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // buttonGenerateStations
@@ -41,11 +42,22 @@
             this.buttonGenerateStations.UseVisualStyleBackColor = true;
             this.buttonGenerateStations.Click += new System.EventHandler(this.buttonGenerateStations_Click);
             // 
+            // buttonStartSequence
+            // 
+            this.buttonStartSequence.Location = new System.Drawing.Point(764, 0);
+            this.buttonStartSequence.Name = "buttonStartSequence";
+            this.buttonStartSequence.Size = new System.Drawing.Size(75, 23);
+            this.buttonStartSequence.TabIndex = 1;
+            this.buttonStartSequence.Text = "Start";
+            this.buttonStartSequence.UseVisualStyleBackColor = true;
+            this.buttonStartSequence.Click += new System.EventHandler(this.buttonStartSequence_Click);
+            // 
             // SequenceGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(840, 564);
+            this.Controls.Add(this.buttonStartSequence);
             this.Controls.Add(this.buttonGenerateStations);
             this.Name = "SequenceGameForm";
             this.Text = "SequenceGameForm";
@@ -57,5 +69,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonGenerateStations;
+        private System.Windows.Forms.Button buttonStartSequence;
     }
 }

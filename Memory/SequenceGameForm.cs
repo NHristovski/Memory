@@ -30,5 +30,10 @@ namespace Memory
         {
             GameController.DrawDockingStations(e.Graphics);
         }
+
+        private void buttonStartSequence_Click(object sender, EventArgs e)
+        {
+            GameController.StartSequencer();
+        }
     }
 }

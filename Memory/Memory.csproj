@@ -107,6 +107,7 @@
     <Compile Include="SequenceGameForm.designer.cs">
       <DependentUpon>SequenceGameForm.cs</DependentUpon>
     </Compile>
+	<Compile Include="SequencerManager.cs" />
     <Compile Include="Scores.cs">
       <SubType>Form</SubType>
     </Compile>

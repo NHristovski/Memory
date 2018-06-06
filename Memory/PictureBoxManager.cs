@@ -127,6 +127,11 @@ namespace Memory
             dockingPictureBox.Location = dockingStation.Station.Location;
         }
 
+        public int getPictureBoxVerticalLocation() // Returns lower Y value of picturebox
+        {
+            return PictureBoxes.FirstOrDefault().Location.Y + pictureBoxHeight;
+        }
+
         public Card getPictureBoxCard(PictureBox pb)
         {
             return PictureBoxCardRelations[pb];
@@ -139,6 +144,18 @@ namespace Memory
                 return Point.Empty;
 
             return initialLocation;
+        }
+
+        public void resetPictureBoxes()
+        {
+            //foreach (PictureBox pb in PictureBoxes)
+            //{
+            //    Point initialLocation = getPictureBoxInitialLocation(pb);
+            //    if (initialLocation != Point.Empty)
+            //        pb.Location = initialLocation;
+            //}
+
+            PictureBoxes.ForEach(pb => this.resetPictureBox(pb));
         }
     }
 }

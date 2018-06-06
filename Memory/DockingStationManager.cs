@@ -47,7 +47,7 @@ namespace Memory
             Stations.ForEach(s => s.DrawDockingStation(g));
         }
 
-        public DockingStation FindPossibleDockerStation(PictureBox dockingPictureBox) // Possible refactoring
+        public DockingStation FindPossibleDockerStation(PictureBox dockingPictureBox)
         {
             Rectangle rectangle = new Rectangle(dockingPictureBox.Location, dockingPictureBox.Size);
 
@@ -74,6 +74,11 @@ namespace Memory
             }
 
             return null;
+        }
+
+        public int getDockingStationVerticalLocation() // Returns upper Y value of DockingStation
+        {
+            return Stations.FirstOrDefault().Station.Location.Y;
         }
     }
 }
