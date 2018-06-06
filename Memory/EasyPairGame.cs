@@ -21,14 +21,19 @@ namespace Memory
         List<PictureBox> realPicBoxes;
         public PairGame game;
         List<cEventSuppressor> suppressors;
-        private string FileName;
+        public string openFileName;
+        public string saveFileName;
         System.Windows.Forms.Timer timer;
 
         public EasyPairGameForm(Player Player1,Player Player2)
         {
             InitializeComponent();
 
-            FileName = string.Empty;
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+
+            openFileName = string.Empty;
+            saveFileName = string.Empty;
 
             DoubleBuffered = true;
 
@@ -119,8 +124,6 @@ namespace Memory
             };
             timer.Tick += new EventHandler(tick);
             timer.Start();
-
-            FileName = string.Empty;
 
             DoubleBuffered = true;
 
@@ -249,12 +252,12 @@ namespace Memory
 
                 if (result == DialogResult.Yes)
                 {
-                    this.Dispose();
-                    Launcher l = new Launcher();
-                    l.ShowDialog();
+                    easyGameToolStripMenuItem_Click(null, null);
                 }
-
-                this.Dispose();
+                else
+                {
+                    this.Dispose();
+                }
 
             }
 
@@ -792,7 +795,7 @@ namespace Memory
             FileStream fileStream = null;
             try
             {
-                if (FileName == string.Empty)
+                if (saveFileName == string.Empty)
                 {
                     var saveFileDialog = new SaveFileDialog();
                     saveFileDialog.Title = "Save your Pair Game";
@@ -802,13 +805,13 @@ namespace Memory
 
                     if (result == DialogResult.OK)
                     {
-                        FileName = saveFileDialog.FileName;
+                        saveFileName = saveFileDialog.FileName;
                     }
                 }
-                if (FileName != string.Empty && FileName != null)
+                if (saveFileName != string.Empty && saveFileName != null)
                 {
                     IFormatter formatter = new BinaryFormatter();
-                    fileStream = new FileStream(FileName, FileMode.Create);
+                    fileStream = new FileStream(saveFileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
 
                     formatter.Serialize(fileStream, this.game);
                 }
@@ -829,7 +832,7 @@ namespace Memory
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FileName = string.Empty;
+            saveFileName = string.Empty;
             saveToolStripMenuItem_Click(sender, e);
         }
 
@@ -839,11 +842,9 @@ namespace Memory
             FileStream fileStream = null;
             try
             {
-
                 var openFileDialog = new OpenFileDialog
                 {
                     Title = "Open Pair Game",
-                    //Filter = "Easy Pair Game (.easy)|*.easy|Normal Pair Game (.normal)|*.normal|Hard Pair Game (.hard)|*.hard"
                     Filter = "Easy Pair Game (.easy)|*.easy|Normal Pair Game (.normal)|*.normal|Hard Pair Game (.hard)|*.hard"
                 };
 
@@ -851,49 +852,53 @@ namespace Memory
 
                 if (result == DialogResult.OK)
                 {
-                    FileName = openFileDialog.FileName;
-                }
-                if (FileName != string.Empty && FileName != null)
-                {
-                    IFormatter formatter = new BinaryFormatter();
-                    fileStream = new FileStream(FileName, FileMode.Open);
+                    openFileName = openFileDialog.FileName;
 
-                    PairGame g = (PairGame)(formatter.Deserialize(fileStream));
+                    if (openFileName != string.Empty && openFileName != null)
+                    {
+                        IFormatter formatter = new BinaryFormatter();
+                        fileStream = new FileStream(openFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
 
-                    DialogResult res = MessageBox.Show("Would you like to save this game?", "SaveGame", MessageBoxButtons.YesNo);
-                    if (res == DialogResult.Yes)
-                    {
-                        saveToolStripMenuItem_Click(null, null);
-                    }
+                        PairGame g = (PairGame)(formatter.Deserialize(fileStream));
 
-                    if (FileName.EndsWith(".easy"))
-                    {
-                        this.Dispose();
-                        EasyPairGameForm easy = new EasyPairGameForm(g.Player1, g.Player2);
-                        easy.game.setInfo(g.getInfo());
-                        easy.game.Time = g.Time;
-                        Launcher.staticRunNewPairGame(easy);
+                        DialogResult res = MessageBox.Show("Would you like to save this game?", "SaveGame", MessageBoxButtons.YesNo);
+                        if (res == DialogResult.Yes)
+                        {
+                            saveToolStripMenuItem_Click(null, null);
+                        }
 
-                    }
-                    else if (FileName.EndsWith(".normal"))
-                    {
-                        this.Dispose();
-                        var normal = new NormalPairGameForm(g.Player1, g.Player2);
-                        normal.game.setInfo(g.getInfo());
-                        normal.game.Time = g.Time;
-                        Launcher.staticRunNewPairGame(normal);
-                    }
-                    else if (FileName.EndsWith(".hard"))
-                    {
-                        this.Dispose();
-                        var hard = new HardPairGameForm(g.Player1, g.Player2);
-                        hard.game.setInfo(g.getInfo());
-                        hard.game.Time = g.Time;
-                        Launcher.staticRunNewPairGame(hard);
-                    }
-                    else
-                    {
-                        throw new InvalidDataException("This file can not be opened!");
+                        if (openFileName.EndsWith(".easy"))
+                        {
+                            this.Dispose();
+                            EasyPairGameForm easy = new EasyPairGameForm(g.Player1, g.Player2);
+                            easy.game.setInfo(g.getInfo());
+                            easy.game.Time = g.Time;
+                            easy.saveFileName = openFileName;
+                            Launcher.staticRunNewPairGame(easy);
+
+                        }
+                        else if (openFileName.EndsWith(".normal"))
+                        {
+                            this.Dispose();
+                            var normal = new NormalPairGameForm(g.Player1, g.Player2);
+                            normal.game.setInfo(g.getInfo());
+                            normal.game.Time = g.Time;
+                            normal.saveFileName = openFileName;
+                            Launcher.staticRunNewPairGame(normal);
+                        }
+                        else if (openFileName.EndsWith(".hard"))
+                        {
+                            this.Dispose();
+                            var hard = new HardPairGameForm(g.Player1, g.Player2);
+                            hard.game.setInfo(g.getInfo());
+                            hard.game.Time = g.Time;
+                            hard.saveFileName = openFileName;
+                            Launcher.staticRunNewPairGame(hard);
+                        }
+                        else
+                        {
+                            throw new InvalidDataException("This file can not be opened!");
+                        }
                     }
 
                 }

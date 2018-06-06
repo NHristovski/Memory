@@ -97,6 +97,12 @@
     </Compile>
     <Compile Include="Score.cs" />
     <Compile Include="PlayerDocument.cs" />
+    <Compile Include="Scores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Scores.Designer.cs">
+      <DependentUpon>Scores.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EasyPairGame.resx">
       <DependentUpon>EasyPairGame.cs</DependentUpon>
     </EmbeddedResource>
@@ -116,6 +122,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scores.resx">
+      <DependentUpon>Scores.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -166,6 +175,7 @@
     <Content Include="Resources\I_still.jpg" />
     <Content Include="Resources\memory_icon.ico" />
     <Content Include="Resources\open_cards.jpg" />
+    <Content Include="Resources\pair_game_score.txt" />
     <Content Include="Resources\ready_to_open.gif" />
     <Content Include="Resources\second_chance.jpg" />
     <Content Include="Resources\spade_close.gif" />

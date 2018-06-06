@@ -21,8 +21,10 @@ namespace Memory
 
             InitializeComponent();
             form = null;
-            //Player1 = null;
-            //Player2 = null;
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+
             changeVisibility();
         }
 
@@ -104,15 +106,10 @@ namespace Memory
                 form = new HardPairGameForm(Player1, Player2);
             }
 
-            //this.Dispose();
-            //form.ShowDialog();
             runNewPairGame(form);
 
         }
-        //public static void ShowM(PairGameForm f)
-        //{
-        //    MessageBox.Show("TEST");
-        //}
+
         public static void staticRunNewPairGame(PairGameForm f)
         {
             f.resolvePicBoxes();

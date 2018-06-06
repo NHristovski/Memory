@@ -38,5 +38,11 @@ namespace Memory
         {
             Application.Exit();
         }
+
+        private void buttonShowScores_Click(object sender, EventArgs e)
+        {
+            Scores s = new Scores();
+            s.ShowDialog();
+        }
     }
 }

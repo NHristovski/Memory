@@ -56,6 +56,7 @@
             this.buttonShowScores.TabIndex = 1;
             this.buttonShowScores.Text = "HIGH SCORE";
             this.buttonShowScores.UseVisualStyleBackColor = true;
+            this.buttonShowScores.Click += new System.EventHandler(this.buttonShowScores_Click);
             // 
             // buttonEnd
             // 

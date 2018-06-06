@@ -1,0 +1,10 @@
+ime-nikola,score-1700,datata-na-koja-sum-igral,duration-01:52
+vase,1000,datata,duration
+vase,1000,datata,duration
+vase,1000,datata,duration
+vase,1000,datata,duration
+ime-nikola,score-1700,datata-na-koja-sum-igral,duration-01:52
+vase,1000,datata,duration
+vase,1000,datata,duration
+vase,1000,datata,duration
+vase,1000,datata,duration
