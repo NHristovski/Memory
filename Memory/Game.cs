@@ -18,14 +18,25 @@ namespace Memory
 
         public Player Player1 { get; set; }
 
+        public int Time { get; set; }
+
         public Game(Player player)
         {
             Player1 = player;
+            Time = 0;
           
         }
 
+        public string getTimeRepresentation()
+        {
+            return (Time > 3600) ?
+                string.Format("{0:00}:{1:00}:{2:00}", Time / 3600, (Time % 3600) / 60, (Time % 3600) % 60)
+                :
+                string.Format("{0:00}:{1:00}", Time / 60, Time % 60);
+        }
+
         protected abstract void startGame();
-        public abstract void endGame();
+        public abstract DialogResult endGame();
 
     }
 
@@ -159,13 +170,35 @@ namespace Memory
         }
 
 
-        public override void endGame()
+        public override DialogResult endGame()
         {
             // **** what should this method do:
-            // -WHO WON
-            // -WRITE POINTS in file
-            // -DO YOU WANNA PLAY AGAIN?
-            MessageBox.Show("END GAME");
+            // -WHO WON  ---------------------------OK
+            // -WRITE POINTS in file ---------
+            // -DO YOU WANNA PLAY AGAIN? -----------OK
+
+            string winner = string.Empty;
+            if (Player1.Score.Points > Player2.Score.Points)
+            {
+                winner = Player1.Name + " with score: " + Player1.Score.Points;
+            }
+            else if (Player1.Score.Points < Player2.Score.Points)
+            {
+                winner = Player2.Name + " with score: " + Player2.Score.Points;
+            }
+            else
+            {
+                winner = " DRAW! ";
+            }
+
+            StringBuilder sb = new StringBuilder();
+            sb.Append("Winner: ").Append(winner)
+                .Append("\n").Append("Play time: ")
+                .Append(this.getTimeRepresentation()).Append("\n\n")
+                .Append("Would you like to play again?");
+
+            DialogResult result = MessageBox.Show(sb.ToString(),"GAME OVER",MessageBoxButtons.YesNo);
+            return result;
         }
 
         public override string ToString()
@@ -303,7 +336,7 @@ namespace Memory
         {
             throw new Exception("Start Game is not implemented");
         }
-        public override void endGame()
+        public override DialogResult endGame()
         {
             throw new Exception("End Game is not implemented");
         }

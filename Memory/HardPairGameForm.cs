@@ -22,6 +22,7 @@ namespace Memory
         public PairGame game;
         List<cEventSuppressor> suppressors;
         private string FileName;
+        System.Windows.Forms.Timer timer;
 
         public HardPairGameForm(Player Player1, Player Player2)
         {
@@ -131,8 +132,24 @@ namespace Memory
             
         }
 
+        private void tick(object sender,EventArgs e)
+        {
+            game.Time += 1;
+            textBoxTime.Text = game.getTimeRepresentation();
+        }
         private void init()
         {
+
+            textBoxTime.Text = game.getTimeRepresentation();
+
+            timer = new System.Windows.Forms.Timer
+            {
+                Enabled = true,
+                Interval = 1000,
+            };
+            timer.Tick += new EventHandler(tick);
+            timer.Start();
+
             FileName = string.Empty;
 
             DoubleBuffered = true;
@@ -284,7 +301,19 @@ namespace Memory
             {
                 updateLabels();
                 this.Refresh();
-                game.endGame();
+
+                timer.Stop();
+
+                var result = game.endGame();
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Dispose();
+                    Launcher l = new Launcher();
+                    l.ShowDialog();
+                }
+
+                this.Dispose();
             }
 
             resumeAllPictureBoxes();
@@ -675,6 +704,7 @@ namespace Memory
                         this.Dispose();
                         EasyPairGameForm easy = new EasyPairGameForm(g.Player1, g.Player2);
                         easy.game.setInfo(g.getInfo());
+                        easy.game.Time = g.Time;
                         Launcher.staticRunNewPairGame(easy);
 
                     }
@@ -683,6 +713,7 @@ namespace Memory
                         this.Dispose();
                         var normal = new NormalPairGameForm(g.Player1, g.Player2);
                         normal.game.setInfo(g.getInfo());
+                        normal.game.Time = g.Time;
                         Launcher.staticRunNewPairGame(normal);
                     }
                     else if (FileName.EndsWith(".hard"))
@@ -690,6 +721,7 @@ namespace Memory
                         this.Dispose();
                         var hard = new HardPairGameForm(g.Player1, g.Player2);
                         hard.game.setInfo(g.getInfo());
+                        hard.game.Time = g.Time;
                         Launcher.staticRunNewPairGame(hard);
                     }
                     else
@@ -797,12 +829,8 @@ namespace Memory
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            helpToolStripMenuItem_Click(sender, e);
-        }
-
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
             MessageBox.Show("Tuka treba da gi pisuva pravilata na igrata");
         }
+
     }
 }
