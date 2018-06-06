@@ -56,6 +56,13 @@ namespace Memory
                 stationToDockTo.Docked = true;
                 stationToDockTo.DockedCard = pictureBoxManager.getPictureBoxCard(dockingPictureBox);
                 DockingRelations.Add(dockingPictureBox, stationToDockTo);
+
+                if (dockingStationManager.dockingStationsFull())
+                {
+                    List<Card> cards = dockingStationManager.getDockedCards();
+                    if (sequencerManager.sequenceIsValid(cards))
+                        endGame();
+                }
             }
         }
 
@@ -102,9 +109,27 @@ namespace Memory
             throw new NotImplementedException();
         }
 
+        public void resetGame()
+        {
+            pictureBoxManager.resetPictureBoxes();
+            dockingStationManager.resetDockingStations();
+            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            sequencerManager.setCardSequence(GenerateRandomCardSequence());
+        }
+
         public override void endGame()
         {
-            throw new NotImplementedException();
+            if (NumberOfDockingStations < 5)
+                NumberOfDockingStations++;
+            DialogResult result = MessageBox.Show("WIN !!!\nDo you want to continue ?", "Game status", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+                resetGame();
+            //sequencerManager.CurrentSequence.Clear();
+            //pictureBoxManager.resetPictureBoxes();
+
+            // Decide what to do if he cancels (Exit ?  )
+
+            Parent.Invalidate();
         }
     }
 }

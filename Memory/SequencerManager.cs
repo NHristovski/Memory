@@ -126,5 +126,19 @@ namespace Memory
             }
             closeCard();
         }
+
+        public bool sequenceIsValid(List<Card> cards)
+        {
+            if (CurrentSequence.Count != cards.Count)
+                return false;
+
+            for (int i = 0; i < CurrentSequence.Count; i++)
+            {
+                if (!CurrentSequence[i].Equals(cards[i]))
+                    return false;
+            }
+
+            return true;
+        }
     }
 }

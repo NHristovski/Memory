@@ -80,5 +80,33 @@ namespace Memory
         {
             return Stations.FirstOrDefault().Station.Location.Y;
         }
+
+        public bool dockingStationsFull()
+        {
+            return getDockedCards().Count == Stations.Count;
+        }
+
+        public List<Card> getDockedCards()
+        {
+            List<Card> dockedCards = new List<Card>();
+
+            foreach (DockingStation s in Stations)
+            {
+                if (s.Docked)
+                {
+                    dockedCards.Add(s.DockedCard);
+                }
+                else
+                    return dockedCards;
+            }
+            return dockedCards;
+
+        }
+
+        public void resetDockingStations()
+        {
+            Stations.ForEach(s => s.Docked = false);
+            Stations.Clear();
+        }
     }
 }

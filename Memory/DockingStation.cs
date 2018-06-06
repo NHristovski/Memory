@@ -18,6 +18,7 @@ namespace Memory
         public string Content { get; set; }
         public Boolean Docked { get; set; }
         public Card DockedCard { get; set; }
+        //public Card DockedCard { get; set; }
 
         public DockingStation(Rectangle rectangle, Color rectangleColor, string content, Color? contentColor = null)
         {

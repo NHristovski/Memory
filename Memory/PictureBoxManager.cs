@@ -97,6 +97,8 @@ namespace Memory
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
+            // MessageBox.Show("Mouse up triggered");
+
             if (ActivePictureBox != null)
             {
                 // 1. Let Controller work with ActivePictureBox
