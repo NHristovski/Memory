@@ -9,11 +9,12 @@ namespace Memory
 {
     public class SequencerManager
     {
+        private static readonly int width = 120;
+        private static readonly int height = 150;
+
         private int topY;
         private int bottomY;
-        public int Width { get; set; }
-        public int Height { get; set; }
-        public int Timer { get; set; }
+        public int SequencerTime { get; set; }
         public Timer sequencingTimer { get; set; }
 
         public PictureBox SequencingPictureBox { get; set; }
@@ -23,17 +24,14 @@ namespace Memory
         public Form Parent { get; set; }
         public SequenceGameController Controller { get; set; }
 
-        public SequencerManager(int timer, int width, int height, Form parent, SequenceGameController controller)
+        public SequencerManager(Form parent, SequenceGameController controller)
         {
             CurrentSequence = new List<Card>();
             NotShownSequence = new List<Card>();
-            Timer = timer;
-            Width = width;
-            Height = height;
+            sequencingTimer = new Timer();
             Parent = parent;
             Controller = controller;
-            sequencingTimer = new Timer();
-            sequencingTimer.Interval = timer;
+            
             sequencingTimer.Tick += new EventHandler(sequencingTimer_Tick);
         }
 
@@ -42,13 +40,13 @@ namespace Memory
             topY = availableTopCoordinate;
             bottomY = availableBottomCoordinate;
 
-            int locationX = Parent.Width / 2 - Width / 2;
-            int locationY = topY + ((bottomY - topY) / 2 - Height / 2);
+            int locationX = Parent.Width / 2 - width / 2;
+            int locationY = topY + ((bottomY - topY) / 2 - height / 2);
 
             PictureBox pb = new PictureBox()
             {
-                Height = this.Height,
-                Width = this.Width,
+                Height = height,
+                Width = width,
                 BorderStyle = BorderStyle.FixedSingle,
                 Location = new System.Drawing.Point(locationX, locationY),
                 Image = Paths.closedCard,
@@ -67,6 +65,8 @@ namespace Memory
 
         public void startCardSequence()
         {
+            sequencingTimer.Interval = SequencerTime;
+
             // Shouldnt happen.
             if (CurrentSequence == null || CurrentSequence.Count == 0)
                 throw new Exception("Current sequence not set !!");

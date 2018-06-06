@@ -101,6 +101,7 @@
     <Compile Include="Score.cs" />
     <Compile Include="PlayerDocument.cs" />
     <Compile Include="SequenceGameController.cs" />
+    <Compile Include="SequenceGameControllerFactory.cs" />
     <Compile Include="SequenceGameForm.cs">
       <SubType>Form</SubType>
     </Compile>

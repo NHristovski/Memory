@@ -27,20 +27,19 @@ namespace Memory
         protected PictureBoxManager pictureBoxManager { get; set; }
         protected SequencerManager sequencerManager { get; set; }
         protected Dictionary<PictureBox, DockingStation> DockingRelations { get; set; } // Check while refactoring
-        protected SequenceGameForm Parent { get; set; }
+        protected SequenceGameForm ParentForm { get; set; }
         protected Timer RoundTimer { get; set; }
 
         protected string[] shapes;
 
-        public SequenceGameController(int numberOfDockingStations, Player player, SequenceGameForm parent) : base(player)
+        public SequenceGameController(Player player, SequenceGameForm parent) : base(player)
         {
-            NumberOfDockingStations = numberOfDockingStations;
             dockingStationManager = new DockingStationManager(this, parent.Width, parent.Height);
             pictureBoxManager = new PictureBoxManager(this, parent);
             DockingRelations = new Dictionary<PictureBox, DockingStation>();
             shapes = new string[] { "spade", "heart", "I", "IRed", "V", "X" };
-            sequencerManager = new SequencerManager(2000, 120, 150, parent, this);
-            Parent = parent;
+            sequencerManager = new SequencerManager(parent, this);
+            ParentForm = parent;
             RoundTimer = new Timer();
         }
 
@@ -141,11 +140,14 @@ namespace Memory
         {
             dockingStationManager.GenerateStations(NumberOfDockingStations);
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
-            sequencerManager.Timer = CurrentSequencerTime;
+            sequencerManager.SequencerTime = CurrentSequencerTime;
         }
 
         protected void EndOfRound()
-        {
+        { 
+            // Give player points
+            // Increase multiplier
+
             if(CurrentRound % 2 == 0) // Second level
             {
                 NumberOfDockingStations++;
@@ -181,7 +183,7 @@ namespace Memory
 
             // Decide what to do if he cancels (Exit ?  )
 
-            Parent.Invalidate();
+            ParentForm.Invalidate();
         }
     }
 }
