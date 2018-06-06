@@ -22,6 +22,7 @@ namespace Memory
         public PairGame game;
         List<cEventSuppressor> suppressors;
         private string FileName;
+        System.Windows.Forms.Timer timer;
 
         public EasyPairGameForm(Player Player1,Player Player2)
         {
@@ -101,8 +102,24 @@ namespace Memory
             this.Refresh();
         }
 
+        private void tick(object sender, EventArgs e)
+        {
+            game.Time += 1;
+            textBoxTime.Text = game.getTimeRepresentation();
+        }
         private void init()
         {
+
+            textBoxTime.Text = game.getTimeRepresentation();
+
+            timer = new System.Windows.Forms.Timer
+            {
+                Enabled = true,
+                Interval = 1000,
+            };
+            timer.Tick += new EventHandler(tick);
+            timer.Start();
+
             FileName = string.Empty;
 
             DoubleBuffered = true;
@@ -183,29 +200,6 @@ namespace Memory
             }
         }
 
-        /*private PictureBox getPB(int pb)
-        {
-            switch(pb)
-            {
-                case 1: return pictureBox1;
-                case 2: return pictureBox2;
-                case 3: return pictureBox3;
-                case 4: return pictureBox4;
-                case 5: return pictureBox5;
-                case 6: return pictureBox6;
-                case 7: return pictureBox7;
-                case 8: return pictureBox8;
-                case 9: return pictureBox9;
-                case 10: return pictureBox10;
-                case 11: return pictureBox11;
-                case 12: return pictureBox12;
-                case 13: return pictureBox13;
-                case 14: return pictureBox14;
-                case 15: return pictureBox15;
-                case 16: return pictureBox16;
-                default: return null;
-            }
-        }*/
 
         private void updateLabels()
         {
@@ -239,7 +233,6 @@ namespace Memory
             if (game.BotTurn())
             {
                 playBotMoves();
-
             }
 
             updateLabels();
@@ -249,7 +242,20 @@ namespace Memory
             {
                 updateLabels();
                 this.Refresh();
-                game.endGame();
+
+                timer.Stop();
+
+                var result = game.endGame();
+
+                if (result == DialogResult.Yes)
+                {
+                    this.Dispose();
+                    Launcher l = new Launcher();
+                    l.ShowDialog();
+                }
+
+                this.Dispose();
+
             }
 
             resumeAllPictureBoxes();
@@ -865,6 +871,7 @@ namespace Memory
                         this.Dispose();
                         EasyPairGameForm easy = new EasyPairGameForm(g.Player1, g.Player2);
                         easy.game.setInfo(g.getInfo());
+                        easy.game.Time = g.Time;
                         Launcher.staticRunNewPairGame(easy);
 
                     }
@@ -873,6 +880,7 @@ namespace Memory
                         this.Dispose();
                         var normal = new NormalPairGameForm(g.Player1, g.Player2);
                         normal.game.setInfo(g.getInfo());
+                        normal.game.Time = g.Time;
                         Launcher.staticRunNewPairGame(normal);
                     }
                     else if (FileName.EndsWith(".hard"))
@@ -880,6 +888,7 @@ namespace Memory
                         this.Dispose();
                         var hard = new HardPairGameForm(g.Player1, g.Player2);
                         hard.game.setInfo(g.getInfo());
+                        hard.game.Time = g.Time;
                         Launcher.staticRunNewPairGame(hard);
                     }
                     else
@@ -902,14 +911,10 @@ namespace Memory
             }
         }
 
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Tuka treba da gi pisuva pravilata na igrata");
         }
 
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            helpToolStripMenuItem_Click(null, null);
-        }
     }
 }

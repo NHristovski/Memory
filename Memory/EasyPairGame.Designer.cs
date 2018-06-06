@@ -72,7 +72,9 @@
             this.pictureBoxSecondChance = new System.Windows.Forms.PictureBox();
             this.pictureBox2x = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBoxTime = new System.Windows.Forms.TextBox();
             this.textBoxScoreMultiplier = new System.Windows.Forms.TextBox();
+            this.labelTime = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxP2Points = new System.Windows.Forms.TextBox();
             this.textBoxP1Points = new System.Windows.Forms.TextBox();
@@ -338,7 +340,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(285, 267);
+            this.button1.Location = new System.Drawing.Point(307, 279);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 42);
             this.button1.TabIndex = 16;
@@ -596,7 +598,9 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.GhostWhite;
+            this.groupBox2.Controls.Add(this.textBoxTime);
             this.groupBox2.Controls.Add(this.textBoxScoreMultiplier);
+            this.groupBox2.Controls.Add(this.labelTime);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.button1);
             this.groupBox2.Controls.Add(this.textBoxP2Points);
@@ -613,6 +617,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "GAME INFO";
             // 
+            // textBoxTime
+            // 
+            this.textBoxTime.Enabled = false;
+            this.textBoxTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTime.Location = new System.Drawing.Point(220, 246);
+            this.textBoxTime.Name = "textBoxTime";
+            this.textBoxTime.Size = new System.Drawing.Size(100, 30);
+            this.textBoxTime.TabIndex = 62;
+            this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // textBoxScoreMultiplier
             // 
             this.textBoxScoreMultiplier.Enabled = false;
@@ -621,6 +635,17 @@
             this.textBoxScoreMultiplier.Name = "textBoxScoreMultiplier";
             this.textBoxScoreMultiplier.Size = new System.Drawing.Size(100, 36);
             this.textBoxScoreMultiplier.TabIndex = 7;
+            this.textBoxScoreMultiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.labelTime.Location = new System.Drawing.Point(236, 218);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(64, 25);
+            this.labelTime.TabIndex = 61;
+            this.labelTime.Text = "TIME";
             // 
             // label1
             // 
@@ -658,6 +683,7 @@
             this.textBoxCurrentPlayer.Name = "textBoxCurrentPlayer";
             this.textBoxCurrentPlayer.Size = new System.Drawing.Size(287, 30);
             this.textBoxCurrentPlayer.TabIndex = 3;
+            this.textBoxCurrentPlayer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // labelP1points
             // 
@@ -852,17 +878,16 @@
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(53, 24);
             this.helpToolStripMenuItem.Text = "&Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(213, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(131, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(134, 26);
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -999,5 +1024,7 @@
         private System.Windows.Forms.ToolStripMenuItem setBotLevelEasyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setBotLevelNormalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setBotLevelHardToolStripMenuItem;
+        private System.Windows.Forms.TextBox textBoxTime;
+        private System.Windows.Forms.Label labelTime;
     }
 }

@@ -145,10 +145,6 @@ namespace Memory
         // ANIMATIONS
         public void animateOpeningCard(PictureBox pb)
         {
-            if (secondCard && !currentPlayer.isBot())
-            {
-                //ShouldHandle = false;
-            }
 
             Card card = getCard(pb.Name);
             //MessageBox.Show(card.pathToOpenCard);
@@ -160,6 +156,7 @@ namespace Memory
                     pb.Enabled = true;
                     pb.Image = gifImage.GetNextFrame();
                     pb.Enabled = false;
+                    //Application.DoEvents();
                 }
             }
         }
@@ -186,10 +183,10 @@ namespace Memory
                 pb.Enabled = true;
                 pb.Image = gifImage.GetNextFrame();
                 pb.Enabled = false;
+                //Application.DoEvents();
             }
             closeCard(pb);
 
-            //ShouldHandle = true;
         }
 
         public bool shouldEnd()
@@ -341,12 +338,6 @@ namespace Memory
 
                 removeFromCanBePaired(pb.Name);
 
-                //if (this.shouldEnd()) // every card is guessed
-                //{
-                //    Game.endGame();
-                //}
-
-                //ShouldHandle = true;
                 secondCard = false;
 
 
@@ -390,7 +381,6 @@ namespace Memory
             {
                 if (this.shouldEnd())
                 {
-                    Game.endGame();
                     return false;
                 }
 
