@@ -60,6 +60,7 @@
             this.Controls.Add(this.buttonStartSequence);
             this.Controls.Add(this.buttonGenerateStations);
             this.Name = "SequenceGameForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SequenceGameForm";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SequenceGameForm_Paint);
             this.ResumeLayout(false);

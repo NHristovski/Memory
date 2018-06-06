@@ -26,7 +26,7 @@ namespace Memory
             pictureBoxManager = new PictureBoxManager(this, parent);
             DockingRelations = new Dictionary<PictureBox, DockingStation>();
             shapes = new string[] { "spade", "heart", "I", "IRed", "V", "X" };
-            sequencerManager = new SequencerManager(1000, 120, 150, parent);
+            sequencerManager = new SequencerManager(2000, 120, 150, parent, this);
             Parent = parent;
         }
 
@@ -66,14 +66,18 @@ namespace Memory
             }
         }
 
+        // Niksi
+        public Tuple<Image, Image, Image> getImages(string shape)
+        {
+            System.Resources.ResourceManager rm = Properties.Resources.ResourceManager;
+            return new Tuple<Image, Image, Image>(Image.FromFile(Paths.pathToResources + shape + "_open.gif"),
+                                                  Image.FromFile(Paths.pathToResources + shape + "_close.gif"),
+                                                  Image.FromFile(Paths.pathToResources + shape + "_still.jpg"));
+        }
+
         public void DrawDockingStations(Graphics g)
         {
             dockingStationManager.DrawDockingStations(g);
-        }
-
-        public void StartSequencer()
-        {
-            sequencerManager.startCardSequence();
         }
 
         public List<Card> GenerateRandomCardSequence()
@@ -95,13 +99,15 @@ namespace Memory
             return randomCards;
         }
 
-        // Niksi
-        public Tuple<Image, Image, Image> getImages(string shape)
+        public void StartSequencer()
         {
-            System.Resources.ResourceManager rm = Properties.Resources.ResourceManager;
-            return new Tuple<Image, Image, Image>(Image.FromFile(Paths.pathToResources + shape + "_open.gif"),
-                                                  Image.FromFile(Paths.pathToResources + shape + "_close.gif"),
-                                                  Image.FromFile(Paths.pathToResources + shape + "_still.jpg"));
+            sequencerManager.startCardSequence();
+            pictureBoxManager.forbidPictureBoxInteraction();
+        }
+
+        public void HandleSequencerTermination()
+        {
+            pictureBoxManager.allowPictureBoxInteraction();
         }
 
         protected override void startGame()

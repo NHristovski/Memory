@@ -97,7 +97,10 @@ namespace Memory
 
         private void pictureBox_MouseUp(object sender, MouseEventArgs e)
         {
-            // MessageBox.Show("Mouse up triggered");
+            //List<Card> lista = Controller.dockingStationManager.getDockedCards();
+            //StringBuilder sb = new StringBuilder();
+            //lista.ForEach(c => sb.Append(c.Shape + "\n"));
+            //MessageBox.Show(sb.ToString());
 
             if (ActivePictureBox != null)
             {
@@ -158,6 +161,16 @@ namespace Memory
             //}
 
             PictureBoxes.ForEach(pb => this.resetPictureBox(pb));
+        }
+
+        public void allowPictureBoxInteraction()
+        {
+            PictureBoxes.ForEach(pb => pb.Enabled = true);
+        }
+
+        public void forbidPictureBoxInteraction()
+        {
+            PictureBoxes.ForEach(pb => pb.Enabled = false);
         }
     }
 }

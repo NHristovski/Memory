@@ -21,8 +21,9 @@ namespace Memory
         public List<Card> NotShownSequence { get; set; }
         public Card CurrentCard { get; set; }
         public Form Parent { get; set; }
+        public SequenceGameController Controller { get; set; }
 
-        public SequencerManager(int timer, int width, int height, Form parent)
+        public SequencerManager(int timer, int width, int height, Form parent, SequenceGameController controller)
         {
             CurrentSequence = new List<Card>();
             NotShownSequence = new List<Card>();
@@ -30,6 +31,7 @@ namespace Memory
             Width = width;
             Height = height;
             Parent = parent;
+            Controller = controller;
             sequencingTimer = new Timer();
             sequencingTimer.Interval = timer;
             sequencingTimer.Tick += new EventHandler(sequencingTimer_Tick);
@@ -70,7 +72,10 @@ namespace Memory
                 throw new Exception("Current sequence not set !!");
 
             if (NotShownSequence.Count == 0)
+            {
+                Controller.HandleSequencerTermination();
                 return;
+            }
 
             CurrentCard = NotShownSequence[0];
             NotShownSequence.RemoveAt(0);
