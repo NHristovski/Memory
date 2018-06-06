@@ -31,8 +31,7 @@ namespace Memory
 
         public static readonly string pathToSecondChanceImage = pathToResources + "second_chance.jpg";
 
-
-
+        public static readonly string pathToPairGameScores = pathToResources + "pair_game_score.txt";
 
     }
 }
