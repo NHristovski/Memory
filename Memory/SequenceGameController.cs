@@ -10,14 +10,25 @@ namespace Memory
 {
     public class SequenceGameController : Game
     {
-        public DockingStationManager dockingStationManager { get; set; }
-        public PictureBoxManager pictureBoxManager { get; set; }
-        public SequencerManager sequencerManager { get; set; }
-        public Dictionary<PictureBox, DockingStation> DockingRelations { get; set; } // Chec while refactoring
+        // Variables for Game Modes: Easy, Normal, Hard
+        private static readonly int numberOfLevels = 2;
+
+        protected int CurrentRound { get; set; }
         public int NumberOfDockingStations { get; set; }
-        public SequenceGameForm Parent { get; set; }
-        public Timer RoundTimer { get; set; }
-        public int RemainingRoundTimeInMilliseconds { get; set; } = 10000;
+        public int MaxNumberOfDockingStations { get; set; }
+        public int FirstLevelTimeReducerInSeconds { get; set; } // First level is first round of pair of rounds ->
+        public int SecondLevelTimeReducerInSeconds { get; set; } // -> (with same number of docking stations)
+        protected int RemainingRoundTimeInSeconds { get; set; }
+        public int SequencerTimeInMilliseconds { get; set; } // Shouldnt be changed (Repeats every second level)
+        protected int CurrentSequencerTime { get; set; } // How many milliseconds will the Sequencer be opened
+        //
+
+        protected DockingStationManager dockingStationManager { get; set; }
+        protected PictureBoxManager pictureBoxManager { get; set; }
+        protected SequencerManager sequencerManager { get; set; }
+        protected Dictionary<PictureBox, DockingStation> DockingRelations { get; set; } // Check while refactoring
+        protected SequenceGameForm Parent { get; set; }
+        protected Timer RoundTimer { get; set; }
 
         protected string[] shapes;
 
@@ -33,12 +44,11 @@ namespace Memory
             RoundTimer = new Timer();
         }
 
-        public void InitializeGame()
+        public void InitializeGame() // Call only once
         {
-            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            InitializeRound();
             pictureBoxManager.GeneratePictureBoxes(shapes);
             pictureBoxManager.DisplayPictureBoxes();
-            sequencerManager.setCardSequence(GenerateRandomCardSequence());
             sequencerManager.CreateSequencerPictureBox(pictureBoxManager.getPictureBoxVerticalLocation(), dockingStationManager.getDockingStationVerticalLocation());
             RoundTimer.Tick += new EventHandler(roundTimer_Tick);
             RoundTimer.Interval = 1000; // 1 second
@@ -46,16 +56,7 @@ namespace Memory
 
         private void roundTimer_Tick(object sender, EventArgs e)
         {
-            RemainingRoundTimeInMilliseconds -= 1000;
-            int minutes = RemainingRoundTimeInMilliseconds / 60000;
-            int seconds = (RemainingRoundTimeInMilliseconds - minutes * 60000) / 1000;
-            Parent.setRoundTimeLabel(String.Format("{0:00}:{1:00}", minutes, seconds));
-
-            if (RemainingRoundTimeInMilliseconds <= 0)
-            {
-                RoundTimer.Stop();
-                endGame();
-            }
+            throw new NotImplementedException();
         }
 
         public void HandlePictureBoxRelease(PictureBox dockingPictureBox)
@@ -129,12 +130,35 @@ namespace Memory
         public void HandleSequencerTermination()
         {
             pictureBoxManager.allowPictureBoxInteraction();
-            RoundTimer.Start();
         }
 
         protected override void startGame()
         {
             throw new NotImplementedException();
+        }
+
+        protected void InitializeRound()
+        {
+            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            sequencerManager.setCardSequence(GenerateRandomCardSequence());
+            sequencerManager.Timer = CurrentSequencerTime;
+        }
+
+        protected void EndOfRound()
+        {
+            if(CurrentRound % 2 == 0) // Second level
+            {
+                NumberOfDockingStations++;
+                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / 2 - SecondLevelTimeReducerInSeconds;
+                CurrentSequencerTime = SequencerTimeInMilliseconds - 500;
+            }
+            else // First level
+            {
+                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / 2 - FirstLevelTimeReducerInSeconds;
+                CurrentSequencerTime = SequencerTimeInMilliseconds;
+            }
+
+            CurrentRound++;
         }
 
         public void resetGame()
