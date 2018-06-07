@@ -13,43 +13,91 @@ namespace Memory
 {
     public partial class Scores : Form
     {
+        private PlayerDocument playerDocument;
+
         public Scores()
         {
             InitializeComponent();
             DoubleBuffered = true;
-            button1_Click(null, null);
+
+            playerDocument = new PlayerDocument();
+
+            this.getData();
+            UpdateGrid();
         }
-        public string[] getData()
+        public void getData()
         {
             string[] scores = File.ReadAllLines(Paths.pathToPairGameScores);
-            return scores;
+            foreach (var str in scores)
+            {
+                string[] parts = str.Split(new char[] { ',' });
+                Player p = PlayerFactory.GetPairGameHumanPlayer(parts[0]);
+                p.Score.Points = int.Parse(parts[1]);
+                string time = parts[3];
+                string[] partsTime = time.Split(new char[] { ':' });
+
+                int mult = 1;
+                int t = 0;
+                for (int i = partsTime.Length -1; i >= 0; i--)
+                {
+                    t += mult * int.Parse(partsTime[i]);
+                    mult *= 60;
+                }
+                p.Score.Time = t;
+
+                p.gameStarted = DateTime.Now; // CHANGE
+                playerDocument.addPlayer(p);
+            }
+            playerDocument.sortByPoints();
+            
         }
 
-        private DataTable makeDataTable(string[] lines)
+        private void UpdateGrid()
         {
             DataTable table = new DataTable();
 
-            DataColumn IdColumn = new DataColumn("Id", typeof(string));
-            table.Columns.Add(IdColumn);
+            table.Columns.Add("Id", typeof(string));
             table.Columns.Add("Name", typeof(string));
             table.Columns.Add("Score", typeof(string));
             table.Columns.Add("Duration", typeof(string));
             table.Columns.Add("Date", typeof(string));
 
             int counter = 1;
-            foreach (var line in lines)
+            foreach (var player in PlayerDocument.Players)
             {
-                string[] parts = line.Split(new char[] { ',' });
+                string[] parts = player.ToString().Split(new char[] { ' ' });
                 table.Rows.Add(counter,parts[0], parts[1], parts[2], parts[3]);
                 counter++;
             }
 
-            return table;
+            dataGridView1.DataSource = table;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = makeDataTable(getData());
+           
+        }
+
+        private void comboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+
+            
+            if (comboBox1.SelectedItem.ToString().Equals("Score"))
+            {
+                MessageBox.Show("Score");
+                playerDocument.sortByPoints();
+            }
+            else if (comboBox1.SelectedItem.ToString().Equals("Duration"))
+            {
+                MessageBox.Show("Duration");
+                playerDocument.sortByTime();
+            }
+            else // date
+            {
+                MessageBox.Show("Date");
+                playerDocument.sortByDate();
+            }
+            UpdateGrid();
         }
     }
 }

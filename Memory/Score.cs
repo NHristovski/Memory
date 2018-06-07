@@ -12,17 +12,25 @@ namespace Memory
     public class Score
     {
         public int Points { get; set; }
-        public TimeSpan Time { get; set; }
+        public int Time { get; set; }
         bool Win { get; set; }
         public Score()
         {
             Points = 0;
-            Time = TimeSpan.Zero;
+            Time = 0;
+        }
+
+        public string getTimeRepresentation()
+        {
+            return (Time > 3600) ?
+                string.Format("{0:00}:{1:00}:{2:00}", Time / 3600, (Time % 3600) / 60, (Time % 3600) % 60)
+                :
+                string.Format("{0:00}:{1:00}", Time / 60, Time % 60);
         }
 
         public override string ToString()
         {
-           return String.Format("{0,-5}{1,20}{2,10}",Points, Time.ToString(@"hh\:mm\:ss"),Win ? "WIN" : "LOSE");
+           return String.Format("{0} {1}",Points, getTimeRepresentation());
         }
     }
 }

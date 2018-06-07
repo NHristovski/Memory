@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using System.Threading;
 using System.Drawing;
+using System.IO;
 
 namespace Memory
 {
@@ -190,6 +191,19 @@ namespace Memory
             {
                 winner = " DRAW! ";
             }
+
+            PlayerDocument.Players.Add(Player1);
+            using (StreamWriter sw = File.AppendText(Paths.pathToPairGameScores))
+            {
+                sw.WriteLine(Player1.ToString());
+                if (!Player2.isBot())
+                {
+                    PlayerDocument.Players.Add(Player2);
+                    sw.WriteLine(Player2.ToString());
+                }
+
+            }
+            
 
             StringBuilder sb = new StringBuilder();
             sb.Append("Winner: ").Append(winner)
