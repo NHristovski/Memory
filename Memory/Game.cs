@@ -173,10 +173,6 @@ namespace Memory
 
         public override DialogResult endGame()
         {
-            // **** what should this method do:
-            // -WHO WON  ---------------------------OK
-            // -WRITE POINTS in file ---------
-            // -DO YOU WANNA PLAY AGAIN? -----------OK
 
             string winner = string.Empty;
             if (Player1.Score.Points > Player2.Score.Points)
@@ -195,15 +191,15 @@ namespace Memory
             PlayerDocument.Players.Add(Player1);
             using (StreamWriter sw = File.AppendText(Paths.pathToPairGameScores))
             {
-                sw.WriteLine(Player1.ToString());
+                var phrase = string.Join(",", Player1.ToString().Split(new char[] { ' ' }));
+                sw.WriteLine(phrase);
                 if (!Player2.isBot())
-                {
+                { 
+                    phrase = string.Join(",", Player2.ToString().Split(new char[] { ' ' }));
                     PlayerDocument.Players.Add(Player2);
-                    sw.WriteLine(Player2.ToString());
+                    sw.WriteLine(phrase);
                 }
-
             }
-            
 
             StringBuilder sb = new StringBuilder();
             sb.Append("Winner: ").Append(winner)

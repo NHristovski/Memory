@@ -61,7 +61,7 @@ namespace Memory
                 return;
             }
 
-            Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text);
+            
             
 
             if (radioButtonBot.Checked)
@@ -81,11 +81,13 @@ namespace Memory
             }
             else
             {
-                Player2 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer2Name.Text);
+                Player2 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer2Name.Text,"placeHolder");
             }
 
             if (radioButtonEasy.Checked)
             {
+                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text,"Easy Game");
+                ((PairGamePlayer)Player2).type = "Easy Game";
                 ((PairGamePlayer)Player1).setEasyGameAvaliable();
                 ((PairGamePlayer)Player2).setEasyGameAvaliable();
                 
@@ -93,6 +95,8 @@ namespace Memory
             }
             else if (radioButtonMedium.Checked)
             {
+                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text, "Normal Game");
+                ((PairGamePlayer)Player2).type = "Normal Game";
                 ((PairGamePlayer)Player1).setNormalGameAvaliable();
                 ((PairGamePlayer)Player2).setNormalGameAvaliable();
 
@@ -100,6 +104,8 @@ namespace Memory
             }
             else// hard
             {
+                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text, "Hard Game");
+                ((PairGamePlayer)Player2).type = "Hard Game";
                 ((PairGamePlayer)Player1).setHardGameAvaliable();
                 ((PairGamePlayer)Player2).setHardGameAvaliable();
 

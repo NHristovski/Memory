@@ -248,6 +248,10 @@ namespace Memory
 
                 timer.Stop();
 
+
+                game.Player1.Score.Time = game.getTimeRepresentation();
+                game.Player2.Score.Time = game.getTimeRepresentation();
+
                 var result = game.endGame();
 
                 if (result == DialogResult.Yes)
@@ -725,7 +729,6 @@ namespace Memory
 
             this.Dispose();
             Launcher.staticRunNewPairGame(new EasyPairGameForm(p1, p2));
-
         }
 
         private void normalGameToolStripMenuItem_Click(object sender, EventArgs e)

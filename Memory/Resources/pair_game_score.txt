@@ -1,9 +1,4 @@
-ime-nikola,1700,datata-na-koja-sum-igral,01:53
-vase,1000,datata,00:00
-vase,1000,datata,00:52
-vase,1000,datata,02:02:03
-ime-nikola,1700,datata,01:52
-vase,1000,datata,01:52
-vase,1000,datata,01:52
-vase,1000,datata,01:53
-vase,1000,datata,01:54
+A,100,00:22,6/7/2018,23:46:17
+B,1950,00:22,6/7/2018,23:46:17
+Nik,0,00:29,6/7/2018,23:48:39
+Kin,1500,00:29,6/7/2018,23:48:39

@@ -31,21 +31,11 @@ namespace Memory
             foreach (var str in scores)
             {
                 string[] parts = str.Split(new char[] { ',' });
-                Player p = PlayerFactory.GetPairGameHumanPlayer(parts[0]);
+                Player p = PlayerFactory.GetPairGameHumanPlayer(parts[0],parts);
                 p.Score.Points = int.Parse(parts[1]);
-                string time = parts[3];
-                string[] partsTime = time.Split(new char[] { ':' });
+                p.Score.Time = parts[2];
+                p.gameStarted = Convert.ToDateTime(parts[3]);
 
-                int mult = 1;
-                int t = 0;
-                for (int i = partsTime.Length -1; i >= 0; i--)
-                {
-                    t += mult * int.Parse(partsTime[i]);
-                    mult *= 60;
-                }
-                p.Score.Time = t;
-
-                p.gameStarted = DateTime.Now; // CHANGE
                 playerDocument.addPlayer(p);
             }
             playerDocument.sortByPoints();

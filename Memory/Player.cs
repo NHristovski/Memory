@@ -31,11 +31,12 @@ namespace Memory
         public Player ResetScore()
         {
             this.Score.Points = 0;
+            gameStarted = DateTime.Now;
             return this;
         }
         public override string ToString()
         {
-            return string.Format("{0} {1} {2}", Name, Score.ToString(),gameStarted.ToString("hh:mm:ss"));
+            return string.Format("{0} {1} {2}", Name, Score.ToString(),gameStarted.ToString());
         }
 
         public abstract bool isBot();                       
@@ -51,9 +52,10 @@ namespace Memory
         public int secondChanceAvaliable { get; set; }
         public int openCardsAvaliable { get; set; }
         public int findNextAvaliable { get; set; }
-
-        public PairGamePlayer(string name, IChosingMoveStrategy strategy) : base(name, strategy)
+        public string type;
+        public PairGamePlayer(string name, IChosingMoveStrategy strategy,string type) : base(name, strategy)
         {
+            this.type = type;
         }
         public virtual void setEasyGameAvaliable()
         {
@@ -72,7 +74,7 @@ namespace Memory
     {
         //public bool Turn { get; set; }
 
-        public HumanPlayer(string name) : base(name,null)
+        public HumanPlayer(string name,string type) : base(name,null,type)
         {
         }
 
@@ -90,7 +92,7 @@ namespace Memory
     public class PairGameHumanPlayer : HumanPlayer
     {
 
-        public PairGameHumanPlayer(string name) : base(name)
+        public PairGameHumanPlayer(string name, string type) : base(name, type)
         {
 
         }
@@ -165,7 +167,7 @@ namespace Memory
             openCardsAvaliable = 1;
         }
 
-        public Bot(string name,IChosingMoveStrategy strategy) : base(name,strategy)
+        public Bot(string name,IChosingMoveStrategy strategy) : base(name,strategy,"bot")
         {
         }
         

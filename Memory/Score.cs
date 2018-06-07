@@ -12,20 +12,18 @@ namespace Memory
     public class Score
     {
         public int Points { get; set; }
-        public int Time { get; set; }
+        public string Time { get; set; }
         bool Win { get; set; }
         public Score()
         {
             Points = 0;
-            Time = 0;
+            Time = "";
         }
 
         public string getTimeRepresentation()
         {
-            return (Time > 3600) ?
-                string.Format("{0:00}:{1:00}:{2:00}", Time / 3600, (Time % 3600) / 60, (Time % 3600) % 60)
-                :
-                string.Format("{0:00}:{1:00}", Time / 60, Time % 60);
+            //System.Windows.Forms.MessageBox.Show(this.Time + " ");
+            return Time;
         }
 
         public override string ToString()
