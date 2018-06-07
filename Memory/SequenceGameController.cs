@@ -14,11 +14,14 @@ namespace Memory
         private static readonly int numberOfLevels = 2;
 
         protected int CurrentRound { get; set; }
-        public int NumberOfDockingStations { get; set; }
-        public int MaxNumberOfDockingStations { get; set; }
+        protected int NumberOfDockingStations { get; set; }
+        public int StartNumberOfDockingStations { get; set; }
+        public int EndNumberOfDockingStations { get; set; }
         public int FirstLevelTimeReducerInSeconds { get; set; } // First level is first round of pair of rounds ->
         public int SecondLevelTimeReducerInSeconds { get; set; } // -> (with same number of docking stations)
         protected int RemainingRoundTimeInSeconds { get; set; }
+        public int FirstLevelDivisor { get; set; }
+        public int SecondLevelDivisor { get; set; }
         public int SequencerTimeInMilliseconds { get; set; } // Shouldnt be changed (Repeats every second level)
         protected int CurrentSequencerTime { get; set; } // How many milliseconds will the Sequencer be opened
         //
@@ -41,21 +44,33 @@ namespace Memory
             sequencerManager = new SequencerManager(parent, this);
             ParentForm = parent;
             RoundTimer = new Timer();
+            CurrentRound = 1;
         }
 
         public void InitializeGame() // Call only once
         {
+            NumberOfDockingStations = StartNumberOfDockingStations;
+            RoundTimer.Interval = 1000;
             InitializeRound();
             pictureBoxManager.GeneratePictureBoxes(shapes);
             pictureBoxManager.DisplayPictureBoxes();
             sequencerManager.CreateSequencerPictureBox(pictureBoxManager.getPictureBoxVerticalLocation(), dockingStationManager.getDockingStationVerticalLocation());
             RoundTimer.Tick += new EventHandler(roundTimer_Tick);
-            RoundTimer.Interval = 1000; // 1 second
         }
 
         private void roundTimer_Tick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            int minutes = RemainingRoundTimeInSeconds / 60;
+            int seconds = RemainingRoundTimeInSeconds - minutes * 60;
+
+            ParentForm.setRoundTimeLabel(String.Format("{0:00}:{1:00}", minutes, seconds));
+
+            if(RemainingRoundTimeInSeconds == 0)
+            {
+                enddGame();
+            }
+
+            RemainingRoundTimeInSeconds--;
         }
 
         public void HandlePictureBoxRelease(PictureBox dockingPictureBox)
@@ -81,7 +96,7 @@ namespace Memory
                     List<Card> cards = dockingStationManager.getDockedCards();
                     if (sequencerManager.sequenceIsValid(cards))
                     {
-                        endGame();
+                        EndOfRound();
                     }
                 }
             }
@@ -122,13 +137,17 @@ namespace Memory
 
         public void StartSequencer()
         {
-            sequencerManager.startCardSequence();
+            if (CurrentRound != 1)
+                InitializeRound();
+
             pictureBoxManager.forbidPictureBoxInteraction();
+            sequencerManager.startCardSequence();
         }
 
         public void HandleSequencerTermination()
         {
             pictureBoxManager.allowPictureBoxInteraction();
+            RoundTimer.Start();
         }
 
         protected override void startGame()
@@ -138,32 +157,52 @@ namespace Memory
 
         protected void InitializeRound()
         {
-            dockingStationManager.GenerateStations(NumberOfDockingStations);
-            sequencerManager.setCardSequence(GenerateRandomCardSequence());
-            sequencerManager.SequencerTime = CurrentSequencerTime;
-        }
-
-        protected void EndOfRound()
-        { 
-            // Give player points
-            // Increase multiplier
-
-            if(CurrentRound % 2 == 0) // Second level
+            if (CurrentRound % 2 == 0) // Second level
             {
-                NumberOfDockingStations++;
-                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / 2 - SecondLevelTimeReducerInSeconds;
+                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / SecondLevelDivisor - SecondLevelTimeReducerInSeconds;
                 CurrentSequencerTime = SequencerTimeInMilliseconds - 500;
             }
             else // First level
             {
-                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / 2 - FirstLevelTimeReducerInSeconds;
+                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / FirstLevelDivisor - FirstLevelTimeReducerInSeconds;
                 CurrentSequencerTime = SequencerTimeInMilliseconds;
             }
 
-            CurrentRound++;
+            sequencerManager.sequencingTimer.Interval = CurrentSequencerTime;
+            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            ParentForm.Invalidate();
+            sequencerManager.setCardSequence(GenerateRandomCardSequence());
+            sequencerManager.SequencerTime = CurrentSequencerTime;
+            //RoundTimer.Interval = RemainingRoundTimeInSeconds * 1000;
+            MessageBox.Show("Round: " + CurrentRound.ToString()
+                          + "\nDockers: " + NumberOfDockingStations
+                          + "\nRound time: " + RemainingRoundTimeInSeconds + "s"
+                          + "\nSequencer time: " + CurrentSequencerTime + "ms");
         }
 
-        public void resetGame()
+        protected void EndOfRound()
+        {
+            // Give player points
+            // Increase multiplier
+            // RoundTimer.Stop();
+            RoundTimer.Stop();
+            MessageBox.Show("End of round");
+
+            if (CurrentRound % 2 == 0) // If second level finished
+            {
+                NumberOfDockingStations++;
+            }
+
+            if (CurrentRound == (EndNumberOfDockingStations - StartNumberOfDockingStations + 1 ) * 2)
+            {
+                enddGame();
+            }
+
+            CurrentRound++;
+            pictureBoxManager.resetPictureBoxes();
+        }
+
+        public void resetGame() // Redo.
         {
             pictureBoxManager.resetPictureBoxes();
             dockingStationManager.resetDockingStations();
@@ -171,7 +210,7 @@ namespace Memory
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
         }
 
-        public override void endGame()
+        public void enddGame() // After change - fix
         {
             if (NumberOfDockingStations < 5)
                 NumberOfDockingStations++;
@@ -184,6 +223,11 @@ namespace Memory
             // Decide what to do if he cancels (Exit ?  )
 
             ParentForm.Invalidate();
+        }
+
+        public override DialogResult endGame()
+        {
+            throw new NotImplementedException();
         }
     }
 }

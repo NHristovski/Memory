@@ -26,30 +26,36 @@ namespace Memory
         {
             if (gameMode == GameModes.Easy)
             {
-                gameController.NumberOfDockingStations = 2;
-                gameController.MaxNumberOfDockingStations = 4;
+                gameController.StartNumberOfDockingStations = 2;
+                gameController.EndNumberOfDockingStations = 4;
                 gameController.FirstLevelTimeReducerInSeconds = 0;
                 gameController.SecondLevelTimeReducerInSeconds = 0;
+                gameController.FirstLevelDivisor = 1;
+                gameController.SecondLevelDivisor = 2;
                 gameController.SequencerTimeInMilliseconds = 1500;
 
                 return gameController;
             }
             else if (gameMode == GameModes.Normal)
             {
-                gameController.NumberOfDockingStations = 3;
-                gameController.MaxNumberOfDockingStations = 5;
+                gameController.StartNumberOfDockingStations = 3;
+                gameController.EndNumberOfDockingStations = 5;
                 gameController.FirstLevelTimeReducerInSeconds = 0;
                 gameController.SecondLevelTimeReducerInSeconds = 5;
+                gameController.FirstLevelDivisor = 2;
+                gameController.SecondLevelDivisor = 2;
                 gameController.SequencerTimeInMilliseconds = 1000;
 
                 return gameController;
             }
             else if (gameMode == GameModes.Hard)
             {
-                gameController.NumberOfDockingStations = 4;
-                gameController.MaxNumberOfDockingStations = 7;
+                gameController.StartNumberOfDockingStations = 4;
+                gameController.EndNumberOfDockingStations = 7;
                 gameController.FirstLevelTimeReducerInSeconds = 5;
                 gameController.SecondLevelTimeReducerInSeconds = 10;
+                gameController.FirstLevelDivisor = 2;
+                gameController.SecondLevelDivisor = 2;
                 gameController.SequencerTimeInMilliseconds = 500;
 
                 return gameController;

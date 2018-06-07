@@ -17,7 +17,8 @@ namespace Memory
         public SequenceGameForm()
         {
             InitializeComponent();
-            GameController = new SequenceGameController(3, null, this);
+            SequenceGameControllerFactory factory = new SequenceGameControllerFactory(null, this);
+            GameController = factory.createSequenceGameController(GameModes.Easy);
         }
 
         private void buttonGenerateStations_Click(object sender, EventArgs e)
