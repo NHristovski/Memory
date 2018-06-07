@@ -34,8 +34,8 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBoxEasy = new System.Windows.Forms.CheckBox();
             this.checkBoxHard = new System.Windows.Forms.CheckBox();
+            this.checkBoxEasy = new System.Windows.Forms.CheckBox();
             this.checkBoxNormal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -43,7 +43,7 @@
             // 
             // buttonPairGame
             // 
-            this.buttonPairGame.Location = new System.Drawing.Point(13, 5);
+            this.buttonPairGame.Location = new System.Drawing.Point(4, 2);
             this.buttonPairGame.Margin = new System.Windows.Forms.Padding(4);
             this.buttonPairGame.Name = "buttonPairGame";
             this.buttonPairGame.Size = new System.Drawing.Size(114, 37);
@@ -59,7 +59,7 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 37);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 38);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
@@ -69,7 +69,7 @@
             // 
             // buttonSequenceGame
             // 
-            this.buttonSequenceGame.Location = new System.Drawing.Point(125, 5);
+            this.buttonSequenceGame.Location = new System.Drawing.Point(126, 2);
             this.buttonSequenceGame.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSequenceGame.Name = "buttonSequenceGame";
             this.buttonSequenceGame.Size = new System.Drawing.Size(171, 37);
@@ -84,7 +84,7 @@
             "Score",
             "Duration",
             "Date"});
-            this.comboBox1.Location = new System.Drawing.Point(721, 368);
+            this.comboBox1.Location = new System.Drawing.Point(774, 368);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 28);
             this.comboBox1.TabIndex = 4;
@@ -94,7 +94,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(653, 371);
+            this.label1.Location = new System.Drawing.Point(706, 368);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 20);
             this.label1.TabIndex = 5;
@@ -105,25 +105,12 @@
             this.groupBox1.Controls.Add(this.checkBoxHard);
             this.groupBox1.Controls.Add(this.checkBoxEasy);
             this.groupBox1.Controls.Add(this.checkBoxNormal);
-            this.groupBox1.Location = new System.Drawing.Point(13, 368);
+            this.groupBox1.Location = new System.Drawing.Point(12, 368);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(453, 100);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
-            // 
-            // checkBoxEasy
-            // 
-            this.checkBoxEasy.AutoSize = true;
-            this.checkBoxEasy.Checked = true;
-            this.checkBoxEasy.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxEasy.Location = new System.Drawing.Point(1, 40);
-            this.checkBoxEasy.Name = "checkBoxEasy";
-            this.checkBoxEasy.Size = new System.Drawing.Size(113, 24);
-            this.checkBoxEasy.TabIndex = 0;
-            this.checkBoxEasy.Text = "EasyGame";
-            this.checkBoxEasy.UseVisualStyleBackColor = true;
-            this.checkBoxEasy.CheckedChanged += new System.EventHandler(this.checkBoxEasy_CheckedChanged);
             // 
             // checkBoxHard
             // 
@@ -137,6 +124,19 @@
             this.checkBoxHard.Text = "HardGame";
             this.checkBoxHard.UseVisualStyleBackColor = true;
             this.checkBoxHard.CheckedChanged += new System.EventHandler(this.checkBoxHard_CheckedChanged);
+            // 
+            // checkBoxEasy
+            // 
+            this.checkBoxEasy.AutoSize = true;
+            this.checkBoxEasy.Checked = true;
+            this.checkBoxEasy.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxEasy.Location = new System.Drawing.Point(1, 40);
+            this.checkBoxEasy.Name = "checkBoxEasy";
+            this.checkBoxEasy.Size = new System.Drawing.Size(113, 24);
+            this.checkBoxEasy.TabIndex = 0;
+            this.checkBoxEasy.Text = "EasyGame";
+            this.checkBoxEasy.UseVisualStyleBackColor = true;
+            this.checkBoxEasy.CheckedChanged += new System.EventHandler(this.checkBoxEasy_CheckedChanged);
             // 
             // checkBoxNormal
             // 
@@ -155,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 473);
+            this.ClientSize = new System.Drawing.Size(1025, 473);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
