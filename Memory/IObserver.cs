@@ -515,7 +515,14 @@ namespace Memory
         {
             foreach (var pbs in validCards)
             {
-                if (previousCard != null && previousCard.Item2 != null && !(pbs.Equals(previousCard.Item2))) 
+                if (previousCard != null)
+                {
+                    if (!(pbs.Equals(previousCard.Item2)))
+                    {
+                        closeCard(stringToPb[pbs]);
+                    }
+                }
+                else
                 {
                     closeCard(stringToPb[pbs]);
                 }

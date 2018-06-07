@@ -11,7 +11,7 @@ namespace Memory
     [Serializable]
     class PlayerDocument
     {
-        private List<Player> Players;
+        public static List<Player> Players = new List<Player>();
 
         public PlayerDocument()
         {
@@ -26,15 +26,20 @@ namespace Memory
             }
         }
 
-        public void sortByPoints() // If same score -> sort by faster time finished
+        public List<Player> sortByPoints(List<Player> players) // If same score -> sort by faster time finished
         {
-            Players.OrderByDescending(player => player.Score.Points)
-                .ThenBy(player => player.Score.Time);
+           return players.OrderByDescending(player => player.Score.Points)
+                .ThenBy(player => player.Score.Time).ToList();
         }
-        public void sortByTime() // Fastest games to slowest ( Bi trebalo da raboti treba da se istestira ) 
+        public List<Player> sortByTime(List<Player> players) // Fastest games to slowest ( Bi trebalo da raboti treba da se istestira ) 
         {
-            Players.OrderBy(player => player.Score.Time)
-                .ThenByDescending(player => player.Score.Points); 
+            return players.OrderBy(player => player.Score.Time)
+                .ThenByDescending(player => player.Score.Points).ToList(); 
+        }
+        public List<Player> sortByDate(List<Player> players)
+        {
+            return players.OrderByDescending(player => player.gameStarted)
+                .ThenByDescending(player => player.Score.Points).ToList();
         }
 
         public override string ToString()

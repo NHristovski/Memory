@@ -14,7 +14,7 @@ namespace Memory
     {
         public string Name{ get;set;}
         public DateTime gameStarted { get; set; }
-        public DateTime gameEnded { get; set; }
+        //public DateTime gameEnded { get; set; }
         public Score Score { get; set; }
 
         protected IChosingMoveStrategy chosingMoveStrategy;
@@ -25,32 +25,18 @@ namespace Memory
             this.chosingMoveStrategy = chosingMoveStrategy;
 
             Score = new Score();
-            gameStarted = DateTime.Now; // gameStarted and gameEnded are non null variables,
-            gameEnded = DateTime.Now;   // so I put DateTime.Now instead of null
-
-            // After creating Player with this constructor it has only Name and 
-            // empty Score ( 0 points). When new game is clicked gameStarted should be updated. 
-            // When game ends gameEnded should be updated, points (inside score ) 
-            // should be updated, and Time insade score should be inicialized to GameEnded - GameStarted.
+            gameStarted = DateTime.Now;
         }
 
         public Player ResetScore()
         {
-            // !!!!!! Is this all it needs to reset???
-
             this.Score.Points = 0;
+            gameStarted = DateTime.Now;
             return this;
-            ////////////////////
         }
         public override string ToString()
         {
-            return string.Format("{0,-20},{1}", Name, Score.ToString());
-        }
-
-        public void calculateDurationOfGame() // set the Time parametar of score
-        {
-            TimeSpan duration = gameEnded - gameStarted;
-            Score.Time = duration;
+            return string.Format("{0} {1} {2}", Name, Score.ToString(),gameStarted.ToString());
         }
 
         public abstract bool isBot();                       
@@ -66,9 +52,10 @@ namespace Memory
         public int secondChanceAvaliable { get; set; }
         public int openCardsAvaliable { get; set; }
         public int findNextAvaliable { get; set; }
-
-        public PairGamePlayer(string name, IChosingMoveStrategy strategy) : base(name, strategy)
+        public string type;
+        public PairGamePlayer(string name, IChosingMoveStrategy strategy,string type) : base(name, strategy)
         {
+            this.type = type;
         }
         public virtual void setEasyGameAvaliable()
         {
@@ -80,6 +67,10 @@ namespace Memory
         public virtual void setHardGameAvaliable()
         {
         }
+        public override string ToString()
+        {
+            return base.ToString() + " " + type;
+        }
     }
 
     [Serializable]
@@ -87,7 +78,7 @@ namespace Memory
     {
         //public bool Turn { get; set; }
 
-        public HumanPlayer(string name) : base(name,null)
+        public HumanPlayer(string name,string type) : base(name,null,type)
         {
         }
 
@@ -105,7 +96,7 @@ namespace Memory
     public class PairGameHumanPlayer : HumanPlayer
     {
 
-        public PairGameHumanPlayer(string name) : base(name)
+        public PairGameHumanPlayer(string name, string type) : base(name, type)
         {
 
         }
@@ -180,7 +171,7 @@ namespace Memory
             openCardsAvaliable = 1;
         }
 
-        public Bot(string name,IChosingMoveStrategy strategy) : base(name,strategy)
+        public Bot(string name,IChosingMoveStrategy strategy) : base(name,strategy,"bot")
         {
         }
         

@@ -32,19 +32,19 @@
             this.textBoxPlayer1Name = new System.Windows.Forms.TextBox();
             this.labelPlayer1Name = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButtonEasy = new System.Windows.Forms.RadioButton();
-            this.radioButtonMedium = new System.Windows.Forms.RadioButton();
             this.radioButtonHard = new System.Windows.Forms.RadioButton();
+            this.radioButtonMedium = new System.Windows.Forms.RadioButton();
+            this.radioButtonEasy = new System.Windows.Forms.RadioButton();
             this.textBoxPlayer2Name = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButtonHuman = new System.Windows.Forms.RadioButton();
-            this.radioButtonBot = new System.Windows.Forms.RadioButton();
-            this.groupBoxBotLevel = new System.Windows.Forms.GroupBox();
-            this.radioButtonBotEasy = new System.Windows.Forms.RadioButton();
-            this.radioButtonBotMedium = new System.Windows.Forms.RadioButton();
-            this.radioButtonBotHard = new System.Windows.Forms.RadioButton();
-            this.buttonStart = new System.Windows.Forms.Button();
             this.labelPlayer2Name = new System.Windows.Forms.Label();
+            this.groupBoxBotLevel = new System.Windows.Forms.GroupBox();
+            this.radioButtonBotHard = new System.Windows.Forms.RadioButton();
+            this.radioButtonBotMedium = new System.Windows.Forms.RadioButton();
+            this.radioButtonBotEasy = new System.Windows.Forms.RadioButton();
+            this.radioButtonBot = new System.Windows.Forms.RadioButton();
+            this.radioButtonHuman = new System.Windows.Forms.RadioButton();
+            this.buttonStart = new System.Windows.Forms.Button();
             this.errorProviderP1Name = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderP2Name = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
@@ -87,17 +87,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DIFFICULTY OF THE GAME";
             // 
-            // radioButtonEasy
+            // radioButtonHard
             // 
-            this.radioButtonEasy.AutoSize = true;
-            this.radioButtonEasy.Checked = true;
-            this.radioButtonEasy.Location = new System.Drawing.Point(16, 43);
-            this.radioButtonEasy.Name = "radioButtonEasy";
-            this.radioButtonEasy.Size = new System.Drawing.Size(65, 21);
-            this.radioButtonEasy.TabIndex = 0;
-            this.radioButtonEasy.TabStop = true;
-            this.radioButtonEasy.Text = "EASY";
-            this.radioButtonEasy.UseVisualStyleBackColor = true;
+            this.radioButtonHard.AutoSize = true;
+            this.radioButtonHard.Location = new System.Drawing.Point(16, 134);
+            this.radioButtonHard.Name = "radioButtonHard";
+            this.radioButtonHard.Size = new System.Drawing.Size(68, 21);
+            this.radioButtonHard.TabIndex = 2;
+            this.radioButtonHard.Text = "HARD";
+            this.radioButtonHard.UseVisualStyleBackColor = true;
             // 
             // radioButtonMedium
             // 
@@ -109,15 +107,17 @@
             this.radioButtonMedium.Text = "MEDIUM";
             this.radioButtonMedium.UseVisualStyleBackColor = true;
             // 
-            // radioButtonHard
+            // radioButtonEasy
             // 
-            this.radioButtonHard.AutoSize = true;
-            this.radioButtonHard.Location = new System.Drawing.Point(16, 134);
-            this.radioButtonHard.Name = "radioButtonHard";
-            this.radioButtonHard.Size = new System.Drawing.Size(68, 21);
-            this.radioButtonHard.TabIndex = 2;
-            this.radioButtonHard.Text = "HARD";
-            this.radioButtonHard.UseVisualStyleBackColor = true;
+            this.radioButtonEasy.AutoSize = true;
+            this.radioButtonEasy.Checked = true;
+            this.radioButtonEasy.Location = new System.Drawing.Point(16, 43);
+            this.radioButtonEasy.Name = "radioButtonEasy";
+            this.radioButtonEasy.Size = new System.Drawing.Size(65, 21);
+            this.radioButtonEasy.TabIndex = 0;
+            this.radioButtonEasy.TabStop = true;
+            this.radioButtonEasy.Text = "EASY";
+            this.radioButtonEasy.UseVisualStyleBackColor = true;
             // 
             // textBoxPlayer2Name
             // 
@@ -144,29 +144,15 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Player 2";
             // 
-            // radioButtonHuman
+            // labelPlayer2Name
             // 
-            this.radioButtonHuman.AutoSize = true;
-            this.radioButtonHuman.Checked = true;
-            this.radioButtonHuman.Location = new System.Drawing.Point(23, 35);
-            this.radioButtonHuman.Name = "radioButtonHuman";
-            this.radioButtonHuman.Size = new System.Drawing.Size(74, 21);
-            this.radioButtonHuman.TabIndex = 6;
-            this.radioButtonHuman.TabStop = true;
-            this.radioButtonHuman.Text = "Human";
-            this.radioButtonHuman.UseVisualStyleBackColor = true;
-            this.radioButtonHuman.CheckedChanged += new System.EventHandler(this.radioButtonHuman_CheckedChanged);
-            // 
-            // radioButtonBot
-            // 
-            this.radioButtonBot.AutoSize = true;
-            this.radioButtonBot.Location = new System.Drawing.Point(23, 170);
-            this.radioButtonBot.Name = "radioButtonBot";
-            this.radioButtonBot.Size = new System.Drawing.Size(50, 21);
-            this.radioButtonBot.TabIndex = 7;
-            this.radioButtonBot.Text = "Bot";
-            this.radioButtonBot.UseVisualStyleBackColor = true;
-            this.radioButtonBot.CheckedChanged += new System.EventHandler(this.radioButtonBot_CheckedChanged);
+            this.labelPlayer2Name.AutoSize = true;
+            this.labelPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPlayer2Name.Location = new System.Drawing.Point(19, 77);
+            this.labelPlayer2Name.Name = "labelPlayer2Name";
+            this.labelPlayer2Name.Size = new System.Drawing.Size(114, 20);
+            this.labelPlayer2Name.TabIndex = 8;
+            this.labelPlayer2Name.Text = "Player2 Name";
             // 
             // groupBoxBotLevel
             // 
@@ -180,6 +166,26 @@
             this.groupBoxBotLevel.TabStop = false;
             this.groupBoxBotLevel.Text = "Bot Level";
             // 
+            // radioButtonBotHard
+            // 
+            this.radioButtonBotHard.AutoSize = true;
+            this.radioButtonBotHard.Location = new System.Drawing.Point(9, 106);
+            this.radioButtonBotHard.Name = "radioButtonBotHard";
+            this.radioButtonBotHard.Size = new System.Drawing.Size(68, 21);
+            this.radioButtonBotHard.TabIndex = 3;
+            this.radioButtonBotHard.Text = "HARD";
+            this.radioButtonBotHard.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonBotMedium
+            // 
+            this.radioButtonBotMedium.AutoSize = true;
+            this.radioButtonBotMedium.Location = new System.Drawing.Point(9, 67);
+            this.radioButtonBotMedium.Name = "radioButtonBotMedium";
+            this.radioButtonBotMedium.Size = new System.Drawing.Size(83, 21);
+            this.radioButtonBotMedium.TabIndex = 3;
+            this.radioButtonBotMedium.Text = "MEDIUM";
+            this.radioButtonBotMedium.UseVisualStyleBackColor = true;
+            // 
             // radioButtonBotEasy
             // 
             this.radioButtonBotEasy.AutoSize = true;
@@ -192,25 +198,29 @@
             this.radioButtonBotEasy.Text = "EASY";
             this.radioButtonBotEasy.UseVisualStyleBackColor = true;
             // 
-            // radioButtonBotMedium
+            // radioButtonBot
             // 
-            this.radioButtonBotMedium.AutoSize = true;
-            this.radioButtonBotMedium.Location = new System.Drawing.Point(9, 67);
-            this.radioButtonBotMedium.Name = "radioButtonBotMedium";
-            this.radioButtonBotMedium.Size = new System.Drawing.Size(83, 21);
-            this.radioButtonBotMedium.TabIndex = 3;
-            this.radioButtonBotMedium.Text = "MEDIUM";
-            this.radioButtonBotMedium.UseVisualStyleBackColor = true;
+            this.radioButtonBot.AutoSize = true;
+            this.radioButtonBot.Location = new System.Drawing.Point(23, 170);
+            this.radioButtonBot.Name = "radioButtonBot";
+            this.radioButtonBot.Size = new System.Drawing.Size(50, 21);
+            this.radioButtonBot.TabIndex = 7;
+            this.radioButtonBot.Text = "Bot";
+            this.radioButtonBot.UseVisualStyleBackColor = true;
+            this.radioButtonBot.CheckedChanged += new System.EventHandler(this.radioButtonBot_CheckedChanged);
             // 
-            // radioButtonBotHard
+            // radioButtonHuman
             // 
-            this.radioButtonBotHard.AutoSize = true;
-            this.radioButtonBotHard.Location = new System.Drawing.Point(9, 106);
-            this.radioButtonBotHard.Name = "radioButtonBotHard";
-            this.radioButtonBotHard.Size = new System.Drawing.Size(68, 21);
-            this.radioButtonBotHard.TabIndex = 3;
-            this.radioButtonBotHard.Text = "HARD";
-            this.radioButtonBotHard.UseVisualStyleBackColor = true;
+            this.radioButtonHuman.AutoSize = true;
+            this.radioButtonHuman.Checked = true;
+            this.radioButtonHuman.Location = new System.Drawing.Point(23, 35);
+            this.radioButtonHuman.Name = "radioButtonHuman";
+            this.radioButtonHuman.Size = new System.Drawing.Size(74, 21);
+            this.radioButtonHuman.TabIndex = 6;
+            this.radioButtonHuman.TabStop = true;
+            this.radioButtonHuman.Text = "Human";
+            this.radioButtonHuman.UseVisualStyleBackColor = true;
+            this.radioButtonHuman.CheckedChanged += new System.EventHandler(this.radioButtonHuman_CheckedChanged);
             // 
             // buttonStart
             // 
@@ -223,16 +233,6 @@
             this.buttonStart.Text = "S T A R T";
             this.buttonStart.UseVisualStyleBackColor = false;
             this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
-            // 
-            // labelPlayer2Name
-            // 
-            this.labelPlayer2Name.AutoSize = true;
-            this.labelPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPlayer2Name.Location = new System.Drawing.Point(19, 77);
-            this.labelPlayer2Name.Name = "labelPlayer2Name";
-            this.labelPlayer2Name.Size = new System.Drawing.Size(114, 20);
-            this.labelPlayer2Name.TabIndex = 8;
-            this.labelPlayer2Name.Text = "Player2 Name";
             // 
             // errorProviderP1Name
             // 

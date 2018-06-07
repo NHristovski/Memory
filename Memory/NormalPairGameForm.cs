@@ -267,6 +267,10 @@ namespace Memory
 
                 timer.Stop();
 
+                game.Player1.Score.Time = game.getTimeRepresentation();
+                game.Player2.Score.Time = game.getTimeRepresentation();
+
+
                 var result = game.endGame();
 
                 if (result == DialogResult.Yes)
@@ -528,9 +532,11 @@ namespace Memory
         {
             Player p1 = game.Player1.ResetScore();
             ((PairGamePlayer)p1).setEasyGameAvaliable();
+            ((PairGamePlayer)p1).type = "EasyGame";
 
             Player p2 = game.Player2.ResetScore();
             ((PairGamePlayer)p2).setEasyGameAvaliable();
+            ((PairGamePlayer)p2).type = "EasyGame";
 
             this.Dispose();
             Launcher.staticRunNewPairGame(new EasyPairGameForm(p1, p2));
@@ -552,9 +558,11 @@ namespace Memory
         {
             Player p1 = game.Player1.ResetScore();
             ((PairGamePlayer)p1).setHardGameAvaliable();
+            ((PairGamePlayer)p1).type = "HardGame";
 
             Player p2 = game.Player2.ResetScore();
             ((PairGamePlayer)p2).setHardGameAvaliable();
+            ((PairGamePlayer)p2).type = "HardGame";
 
             this.Dispose();
             Launcher.staticRunNewPairGame(new HardPairGameForm(p1, p2));

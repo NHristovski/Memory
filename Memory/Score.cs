@@ -12,17 +12,23 @@ namespace Memory
     public class Score
     {
         public int Points { get; set; }
-        public TimeSpan Time { get; set; }
+        public string Time { get; set; }
         bool Win { get; set; }
         public Score()
         {
             Points = 0;
-            Time = TimeSpan.Zero;
+            Time = "";
+        }
+
+        public string getTimeRepresentation()
+        {
+            //System.Windows.Forms.MessageBox.Show(this.Time + " ");
+            return Time;
         }
 
         public override string ToString()
         {
-           return String.Format("{0,-5}{1,20}{2,10}",Points, Time.ToString(@"hh\:mm\:ss"),Win ? "WIN" : "LOSE");
+           return String.Format("{0} {1}",Points, getTimeRepresentation());
         }
     }
 }
