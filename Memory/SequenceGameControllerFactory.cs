@@ -26,6 +26,7 @@ namespace Memory
         {
             if (gameMode == GameModes.Easy)
             {
+                gameController.gameMode = GameModes.Easy;
                 gameController.StartNumberOfDockingStations = 2;
                 gameController.EndNumberOfDockingStations = 4;
                 gameController.FirstLevelTimeReducerInSeconds = 0;
@@ -38,6 +39,7 @@ namespace Memory
             }
             else if (gameMode == GameModes.Normal)
             {
+                gameController.gameMode = GameModes.Normal;
                 gameController.StartNumberOfDockingStations = 3;
                 gameController.EndNumberOfDockingStations = 5;
                 gameController.FirstLevelTimeReducerInSeconds = 0;
@@ -50,8 +52,9 @@ namespace Memory
             }
             else if (gameMode == GameModes.Hard)
             {
+                gameController.gameMode = GameModes.Hard;
                 gameController.StartNumberOfDockingStations = 4;
-                gameController.EndNumberOfDockingStations = 7;
+                gameController.EndNumberOfDockingStations = 6; // 7;
                 gameController.FirstLevelTimeReducerInSeconds = 5;
                 gameController.SecondLevelTimeReducerInSeconds = 10;
                 gameController.FirstLevelDivisor = 2;

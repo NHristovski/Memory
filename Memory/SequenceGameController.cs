@@ -11,6 +11,7 @@ namespace Memory
     public class SequenceGameController : Game
     {
         // Variables for Game Modes: Easy, Normal, Hard
+        public GameModes gameMode { get; set; }
         private static readonly int numberOfLevels = 2;
 
         protected int CurrentRound { get; set; }
@@ -60,6 +61,7 @@ namespace Memory
 
         private void roundTimer_Tick(object sender, EventArgs e)
         {
+            RemainingRoundTimeInSeconds--;
             int minutes = RemainingRoundTimeInSeconds / 60;
             int seconds = RemainingRoundTimeInSeconds - minutes * 60;
 
@@ -67,10 +69,9 @@ namespace Memory
 
             if(RemainingRoundTimeInSeconds == 0)
             {
+                RoundTimer.Stop();
                 enddGame();
             }
-
-            RemainingRoundTimeInSeconds--;
         }
 
         public void HandlePictureBoxRelease(PictureBox dockingPictureBox)
@@ -168,13 +169,13 @@ namespace Memory
                 CurrentSequencerTime = SequencerTimeInMilliseconds;
             }
 
-            sequencerManager.sequencingTimer.Interval = CurrentSequencerTime;
+            //sequencerManager.sequencingTimer.Interval = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
             dockingStationManager.GenerateStations(NumberOfDockingStations);
             ParentForm.Invalidate();
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
-            sequencerManager.SequencerTime = CurrentSequencerTime;
+            sequencerManager.SequencerTime = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
             //RoundTimer.Interval = RemainingRoundTimeInSeconds * 1000;
-            MessageBox.Show("Round: " + CurrentRound.ToString()
+            MessageBox.Show("Round: " + CurrentRound.ToString() + " - " + gameMode.ToString()
                           + "\nDockers: " + NumberOfDockingStations
                           + "\nRound time: " + RemainingRoundTimeInSeconds + "s"
                           + "\nSequencer time: " + CurrentSequencerTime + "ms");
@@ -202,7 +203,7 @@ namespace Memory
             pictureBoxManager.resetPictureBoxes();
         }
 
-        public void resetGame() // Redo.
+        public void resetGame() // Will be changed !!
         {
             pictureBoxManager.resetPictureBoxes();
             dockingStationManager.resetDockingStations();
@@ -210,7 +211,10 @@ namespace Memory
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
         }
 
-        public void enddGame() // After change - fix
+        // One method for finishedGame
+        // One method for end of game due to elapsed round time
+
+        public void enddGame() // Will be changed !!
         {
             if (NumberOfDockingStations < 5)
                 NumberOfDockingStations++;
