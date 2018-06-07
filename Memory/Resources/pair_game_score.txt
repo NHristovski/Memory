@@ -10,3 +10,15 @@ Nikola1,150,00:46,6/8/2018,00:54:06,EasyGame
 Nikola2,600,00:46,6/8/2018,00:54:06,EasyGame
 NikolaTest,300,00:24,6/8/2018,01:00:33,MediumGame
 NikolaTest,350,00:38,6/8/2018,00:59:58,EasyGame
+TestingHardBot,1000,01:33,6/8/2018,01:34:36,HardGame
+TestingHardBot,150,00:33,6/8/2018,01:37:21,MediumGame
+Andrej,150,00:29,6/8/2018,01:40:02,EasyGame
+Darko,750,00:29,6/8/2018,01:40:02,EasyGame
+Andrej,400,00:25,6/8/2018,01:41:17,EasyGame
+Darko,700,00:25,6/8/2018,01:41:17,EasyGame
+Damjan,750,00:31,6/8/2018,01:42:44,MediumGame
+Tulov,600,00:31,6/8/2018,01:42:44,MediumGame
+Damjan,400,00:38,6/8/2018,01:44:01,MediumGame
+Tulov,2100,00:38,6/8/2018,01:44:01,MediumGame
+Damjan,1200,00:40,6/8/2018,01:45:33,MediumGame
+Tulov,450,00:40,6/8/2018,01:45:33,MediumGame

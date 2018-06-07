@@ -129,7 +129,17 @@ namespace Memory
             if (unpairedOpenPairs.Any())
             {
                 //MessageBox.Show("Ke vratam od canBeOpened " + unpairedOpenPairs.First().Item1.Name + "-" + unpairedOpenPairs.First().Item2.Name);
-                return unpairedOpenPairs.First();
+                var pair = unpairedOpenPairs.First();
+                if (validPicutreBoxes.Contains(pair.Item1) && validPicutreBoxes.Contains(pair.Item2))
+                {
+                    return unpairedOpenPairs.First();
+                }
+                else
+                {
+                    unpairedOpenPairs.Remove(pair);
+                    var hardBotStrategy = new HardBotStrategy();
+                    return hardBotStrategy.ChoseMove(unpairedOpenPairs, openedCards, validPicutreBoxes, cardsDictionary, rand);
+                }
             }
 
             //MessageBox.Show("Prodolzhuvam kako normal");
