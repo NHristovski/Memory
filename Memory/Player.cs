@@ -67,6 +67,10 @@ namespace Memory
         public virtual void setHardGameAvaliable()
         {
         }
+        public override string ToString()
+        {
+            return base.ToString() + " " + type;
+        }
     }
 
     [Serializable]

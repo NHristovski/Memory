@@ -26,19 +26,19 @@ namespace Memory
             }
         }
 
-        public void sortByPoints() // If same score -> sort by faster time finished
+        public List<Player> sortByPoints(List<Player> players) // If same score -> sort by faster time finished
         {
-           Players = Players.OrderByDescending(player => player.Score.Points)
+           return players.OrderByDescending(player => player.Score.Points)
                 .ThenBy(player => player.Score.Time).ToList();
         }
-        public void sortByTime() // Fastest games to slowest ( Bi trebalo da raboti treba da se istestira ) 
+        public List<Player> sortByTime(List<Player> players) // Fastest games to slowest ( Bi trebalo da raboti treba da se istestira ) 
         {
-            Players = Players.OrderBy(player => player.Score.Time)
+            return players.OrderBy(player => player.Score.Time)
                 .ThenByDescending(player => player.Score.Points).ToList(); 
         }
-        public void sortByDate()
+        public List<Player> sortByDate(List<Player> players)
         {
-            Players = Players.OrderBy(player => player.gameStarted)
+            return players.OrderByDescending(player => player.gameStarted)
                 .ThenByDescending(player => player.Score.Points).ToList();
         }
 

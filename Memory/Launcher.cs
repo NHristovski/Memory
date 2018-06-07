@@ -86,8 +86,8 @@ namespace Memory
 
             if (radioButtonEasy.Checked)
             {
-                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text,"Easy Game");
-                ((PairGamePlayer)Player2).type = "Easy Game";
+                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text,"EasyGame");
+                ((PairGamePlayer)Player2).type = "EasyGame";
                 ((PairGamePlayer)Player1).setEasyGameAvaliable();
                 ((PairGamePlayer)Player2).setEasyGameAvaliable();
                 
@@ -95,8 +95,8 @@ namespace Memory
             }
             else if (radioButtonMedium.Checked)
             {
-                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text, "Normal Game");
-                ((PairGamePlayer)Player2).type = "Normal Game";
+                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text, "MediumGame");
+                ((PairGamePlayer)Player2).type = "MediumGame";
                 ((PairGamePlayer)Player1).setNormalGameAvaliable();
                 ((PairGamePlayer)Player2).setNormalGameAvaliable();
 
@@ -104,8 +104,8 @@ namespace Memory
             }
             else// hard
             {
-                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text, "Hard Game");
-                ((PairGamePlayer)Player2).type = "Hard Game";
+                Player1 = PlayerFactory.GetPairGameHumanPlayer(textBoxPlayer1Name.Text, "HardGame");
+                ((PairGamePlayer)Player2).type = "HardGame";
                 ((PairGamePlayer)Player1).setHardGameAvaliable();
                 ((PairGamePlayer)Player2).setHardGameAvaliable();
 
