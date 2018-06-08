@@ -47,18 +47,19 @@ namespace Memory
         {
             DataTable table = new DataTable();
 
-            table.Columns.Add("Id", typeof(string));
+            table.Columns.Add("Rank", typeof(string));
             table.Columns.Add("Name", typeof(string));
             table.Columns.Add("Score", typeof(string));
             table.Columns.Add("Duration", typeof(string));
-            table.Columns.Add("Date", typeof(string));
             table.Columns.Add("Type", typeof(string));
+            table.Columns.Add("Date", typeof(string));
+
 
             int counter = 1;
             foreach (var player in players)
             {
                 string[] parts = player.ToString().Split(new char[] { ' ' });
-                table.Rows.Add(counter,parts[0], parts[1], parts[2], parts[3], parts[5]);
+                table.Rows.Add(counter,parts[0], parts[1], parts[2], parts[5], parts[3]);
                 counter++;
             }
 

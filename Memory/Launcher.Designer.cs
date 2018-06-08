@@ -63,6 +63,7 @@
             this.textBoxPlayer1Name.Name = "textBoxPlayer1Name";
             this.textBoxPlayer1Name.Size = new System.Drawing.Size(266, 34);
             this.textBoxPlayer1Name.TabIndex = 0;
+            this.textBoxPlayer1Name.TextChanged += new System.EventHandler(this.textBoxPlayer1Name_TextChanged);
             this.textBoxPlayer1Name.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPlayer1Name_Validating);
             // 
             // labelPlayer1Name
@@ -128,6 +129,7 @@
             this.textBoxPlayer2Name.Name = "textBoxPlayer2Name";
             this.textBoxPlayer2Name.Size = new System.Drawing.Size(268, 34);
             this.textBoxPlayer2Name.TabIndex = 5;
+            this.textBoxPlayer2Name.TextChanged += new System.EventHandler(this.textBoxPlayer2Name_TextChanged);
             this.textBoxPlayer2Name.Validating += new System.ComponentModel.CancelEventHandler(this.textBoxPlayer2Name_Validating);
             // 
             // groupBox2
