@@ -15,6 +15,6 @@ namespace Memory
 
         public static Bot GetHardBot() => new Bot("HardBot", new HardBotStrategy());
 
-        public static PairGameHumanPlayer GetPairGameHumanPlayer(String name) => new PairGameHumanPlayer(name);
+        public static PairGameHumanPlayer GetPairGameHumanPlayer(string name,string type) => new PairGameHumanPlayer(name,type);
     }
 }

@@ -248,6 +248,9 @@ namespace Memory
 
                 timer.Stop();
 
+                game.Player1.Score.Time = game.getTimeRepresentation();
+                game.Player2.Score.Time = game.getTimeRepresentation();
+
                 var result = game.endGame();
 
                 if (result == DialogResult.Yes)
@@ -434,8 +437,11 @@ namespace Memory
                 suppressAllPictureBoxes();
 
                 game.OpenCards();
+
                 game.makeCardsStill();
+
                 Thread.Sleep(2000);
+
                 game.closeValidCards();
 
                 resumeAllPictureBoxes();
@@ -725,16 +731,17 @@ namespace Memory
 
             this.Dispose();
             Launcher.staticRunNewPairGame(new EasyPairGameForm(p1, p2));
-
         }
 
         private void normalGameToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Player p1 = game.Player1.ResetScore();
             ((PairGamePlayer)p1).setNormalGameAvaliable();
+            ((PairGamePlayer)p1).type = "MediumGame";
 
             Player p2 = game.Player2.ResetScore();
             ((PairGamePlayer)p2).setNormalGameAvaliable();
+            ((PairGamePlayer)p2).type = "MediumGame";
 
             this.Dispose();
             Launcher.staticRunNewPairGame(new NormalPairGameForm(p1, p2));
@@ -744,9 +751,11 @@ namespace Memory
         {
             Player p1 = game.Player1.ResetScore();
             ((PairGamePlayer)p1).setHardGameAvaliable();
+            ((PairGamePlayer)p1).type = "HardGame";
 
             Player p2 = game.Player2.ResetScore();
             ((PairGamePlayer)p2).setHardGameAvaliable();
+            ((PairGamePlayer)p2).type = "HardGame";
 
             this.Dispose();
             Launcher.staticRunNewPairGame(new HardPairGameForm(p1, p2));

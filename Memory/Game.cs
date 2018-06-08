@@ -7,6 +7,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Windows.Forms;
 using System.Threading;
 using System.Drawing;
+using System.IO;
 
 namespace Memory
 {
@@ -172,10 +173,6 @@ namespace Memory
 
         public override DialogResult endGame()
         {
-            // **** what should this method do:
-            // -WHO WON  ---------------------------OK
-            // -WRITE POINTS in file ---------
-            // -DO YOU WANNA PLAY AGAIN? -----------OK
 
             string winner = string.Empty;
             if (Player1.Score.Points > Player2.Score.Points)
@@ -189,6 +186,19 @@ namespace Memory
             else
             {
                 winner = " DRAW! ";
+            }
+
+            PlayerDocument.Players.Add(Player1);
+            using (StreamWriter sw = File.AppendText(Paths.pathToPairGameScores))
+            {
+                var phrase = string.Join(",", Player1.ToString().Split(new char[] { ' ' }));
+                sw.WriteLine(phrase);
+                if (!Player2.isBot())
+                { 
+                    phrase = string.Join(",", Player2.ToString().Split(new char[] { ' ' }));
+                    PlayerDocument.Players.Add(Player2);
+                    sw.WriteLine(phrase);
+                }
             }
 
             StringBuilder sb = new StringBuilder();
