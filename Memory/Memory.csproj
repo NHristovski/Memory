@@ -45,9 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DockingStation.cs" />
+    <Compile Include="DockingStationManager.cs" />
     <Compile Include="Events.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="NotEnoughScoreException.cs" />
+    <Compile Include="PictureBoxManager.cs" />
     <Compile Include="PlayerFactory.cs" />
     <Compile Include="Card.cs" />
     <Compile Include="EasyPairGame.cs">
@@ -97,6 +100,15 @@
     </Compile>
     <Compile Include="Score.cs" />
     <Compile Include="PlayerDocument.cs" />
+    <Compile Include="SequenceGameController.cs" />
+    <Compile Include="SequenceGameControllerFactory.cs" />
+    <Compile Include="SequenceGameForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SequenceGameForm.designer.cs">
+      <DependentUpon>SequenceGameForm.cs</DependentUpon>
+    </Compile>
+	<Compile Include="SequencerManager.cs" />
     <Compile Include="Scores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +135,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+	<EmbeddedResource Include="SequenceGameForm.resx">
+      <DependentUpon>SequenceGameForm.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="Scores.resx">
       <DependentUpon>Scores.cs</DependentUpon>
     </EmbeddedResource>
