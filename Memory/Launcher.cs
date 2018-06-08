@@ -52,15 +52,24 @@ namespace Memory
             Player Player1;
             Player Player2;
 
+            bool ShouldReturn = false;
 
-            if (textBoxPlayer1Name.Text.Equals(String.Empty)
-                ||
-                (radioButtonHuman.Checked && textBoxPlayer2Name.Text.Equals(String.Empty)))
+            if (textBoxPlayer1Name.Text.Equals(String.Empty))
+            {
+                errorProviderP1Name.SetError(textBoxPlayer1Name, "Please enter name!");
+                ShouldReturn = true;
+            }
+            if (radioButtonHuman.Checked && textBoxPlayer2Name.Text.Equals(String.Empty))
+            {
+                
+                errorProviderP2Name.SetError(textBoxPlayer2Name, "Please enter name!");
+                ShouldReturn = true;
+            }
+            if (ShouldReturn)
             {
                 MessageBox.Show("Please enter the name of the players!");
                 return;
             }
-
             
             
 
@@ -151,5 +160,16 @@ namespace Memory
                 errorProviderP2Name.SetError(textBoxPlayer2Name, null);
             }
         }
+
+        private void textBoxPlayer1Name_TextChanged(object sender, EventArgs e)
+        {
+            errorProviderP1Name.SetError(textBoxPlayer1Name, null);
+        }
+
+        private void textBoxPlayer2Name_TextChanged(object sender, EventArgs e)
+        {
+            errorProviderP2Name.SetError(textBoxPlayer2Name, null);
+        }
+
     }
 }

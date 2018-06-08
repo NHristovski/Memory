@@ -89,6 +89,7 @@ namespace Memory
                 return stringToPb[previousCard.Item2];
             }
         }
+
         private void makePBDict(List<string> pbs, List<PictureBox> realPbs)
         {
             stringToPb = new Dictionary<string, PictureBox>();

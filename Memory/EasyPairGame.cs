@@ -103,6 +103,11 @@ namespace Memory
                     game.makeCardStill(pb);
                 }
             }
+            if (game.getPreviousCard() != null)
+            {
+                game.makeCardStill(game.getPreviousCard());
+            }
+
             this.updateLabels();
             this.Refresh();
         }
