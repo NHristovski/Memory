@@ -44,5 +44,7 @@ namespace Memory
             Scores s = new Scores();
             s.ShowDialog();
         }
+
+
     }
 }

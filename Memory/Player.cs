@@ -104,21 +104,21 @@ namespace Memory
         public override void setEasyGameAvaliable()
         {
             x2Avaliable = 2;
-            secondChanceAvaliable = 1;
+            secondChanceAvaliable = 2;
             findNextAvaliable = 1;
             openCardsAvaliable = 1;
         }
         public override void setNormalGameAvaliable()
         {
-            x2Avaliable = 1;
-            secondChanceAvaliable = 2;
+            x2Avaliable = 2;
+            secondChanceAvaliable = 3;
             findNextAvaliable = 2;
             openCardsAvaliable = 1;
         }
         public override void setHardGameAvaliable()
         {
-            x2Avaliable = 2;
-            secondChanceAvaliable = 3;
+            x2Avaliable = 3;
+            secondChanceAvaliable = 4;
             findNextAvaliable = 2;
             openCardsAvaliable = 1;
         }
@@ -148,28 +148,6 @@ namespace Memory
     [Serializable]
     public class Bot : PairGamePlayer
     {
-        
-        public override void setEasyGameAvaliable()
-        {
-            x2Avaliable = 2;
-            secondChanceAvaliable = 1;
-            findNextAvaliable = 1;
-            openCardsAvaliable = 1;
-        }
-        public override void setNormalGameAvaliable()
-        {
-            x2Avaliable = 1;
-            secondChanceAvaliable = 2;
-            findNextAvaliable = 2;
-            openCardsAvaliable = 1;
-        }
-        public override void setHardGameAvaliable()
-        {
-            x2Avaliable = 2;
-            secondChanceAvaliable = 3;
-            findNextAvaliable = 2;
-            openCardsAvaliable = 1;
-        }
 
         public Bot(string name,IChosingMoveStrategy strategy) : base(name,strategy,"bot")
         {
@@ -184,6 +162,28 @@ namespace Memory
         {
             return chosingMoveStrategy
                 .ChoseMove(unpairedOpenPairs, openedCards, validPicutreBoxes, cardsDictionary, rand);
+        }
+
+        public override void setEasyGameAvaliable()
+        {
+            x2Avaliable = 0;
+            secondChanceAvaliable = 0;
+            findNextAvaliable = 0;
+            openCardsAvaliable = 0;
+        }
+        public override void setNormalGameAvaliable()
+        {
+            x2Avaliable = 0;
+            secondChanceAvaliable = 0;
+            findNextAvaliable = 0;
+            openCardsAvaliable = 0;
+        }
+        public override void setHardGameAvaliable()
+        {
+            x2Avaliable = 0;
+            secondChanceAvaliable = 0;
+            findNextAvaliable = 0;
+            openCardsAvaliable = 0;
         }
     }
 

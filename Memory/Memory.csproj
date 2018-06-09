@@ -108,7 +108,7 @@
     <Compile Include="SequenceGameForm.designer.cs">
       <DependentUpon>SequenceGameForm.cs</DependentUpon>
     </Compile>
-	<Compile Include="SequencerManager.cs" />
+    <Compile Include="SequencerManager.cs" />
     <Compile Include="Scores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,9 +135,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-	<EmbeddedResource Include="SequenceGameForm.resx">
+    <EmbeddedResource Include="SequenceGameForm.resx">
       <DependentUpon>SequenceGameForm.cs</DependentUpon>
-	</EmbeddedResource>
+    </EmbeddedResource>
     <EmbeddedResource Include="Scores.resx">
       <DependentUpon>Scores.cs</DependentUpon>
     </EmbeddedResource>

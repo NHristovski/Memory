@@ -77,10 +77,10 @@ namespace Memory
                 this.pictureBox16
             };
 
-            int x2Price = 250;
-            int secondChancePrice = 350;
-            int findNextPrice = 500;
-            int openCardsPrice = 700;
+            int x2Price = 150;
+            int secondChancePrice = 250;
+            int findNextPrice = 300;
+            int openCardsPrice = 600;
 
             game = new PairGame(Player1,Player2,realPicBoxes, picBoxes,x2Price,secondChancePrice,findNextPrice,openCardsPrice);
 
@@ -89,6 +89,7 @@ namespace Memory
                 game.closeCard(pBox);
             }
 
+            this.Icon = new Icon(Paths.pathToMemoryIcon);
             init();
 
         }
@@ -137,18 +138,18 @@ namespace Memory
             pictureBoxOpenCards.Image = Image.FromFile(Paths.pathToOpenCardsImage);
             pictureBoxFindNext.Image = Image.FromFile(Paths.pathToFindNextImage);
 
-            int x2Price = 250;
-            int secondChancePrice = 350;
-            int findNextPrice = 500;
-            int openCardsPrice = 700;
+            int x2Price = 150;
+            int secondChancePrice = 250;
+            int findNextPrice = 300;
+            int openCardsPrice = 600;
 
             textBoxPrice2x.Text = x2Price + "";
             textBoxPriceFindNext.Text = findNextPrice + "";
             textBoxPriceOpenCards.Text = openCardsPrice + "";
             textBoxPriceSecondChance.Text = secondChancePrice + "";
 
-            labelP1points.Text = game.Player1.Name + " points:";
-            labelP2points.Text = game.Player2.Name + " points:";
+            labelP1points.Text = game.Player1.Name + "'s points:";
+            labelP2points.Text = game.Player2.Name + "'s points:";
 
             updateLabels();
 
