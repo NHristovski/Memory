@@ -33,12 +33,12 @@
             this.buttonSequenceGame = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxFilter = new System.Windows.Forms.GroupBox();
             this.checkBoxHard = new System.Windows.Forms.CheckBox();
             this.checkBoxEasy = new System.Windows.Forms.CheckBox();
             this.checkBoxNormal = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxFilter.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonPairGame
@@ -50,7 +50,7 @@
             this.buttonPairGame.TabIndex = 2;
             this.buttonPairGame.Text = "Pair Game";
             this.buttonPairGame.UseVisualStyleBackColor = true;
-            this.buttonPairGame.Click += new System.EventHandler(this.button1_Click);
+            this.buttonPairGame.Click += new System.EventHandler(this.buttonPairGame_Click);
             // 
             // dataGridView1
             // 
@@ -76,6 +76,7 @@
             this.buttonSequenceGame.TabIndex = 3;
             this.buttonSequenceGame.Text = "Sequence Game";
             this.buttonSequenceGame.UseVisualStyleBackColor = true;
+            this.buttonSequenceGame.Click += new System.EventHandler(this.buttonSequenceGame_Click);
             // 
             // comboBox1
             // 
@@ -100,17 +101,17 @@
             this.label1.TabIndex = 5;
             this.label1.Text = "Sort by";
             // 
-            // groupBox1
+            // groupBoxFilter
             // 
-            this.groupBox1.Controls.Add(this.checkBoxHard);
-            this.groupBox1.Controls.Add(this.checkBoxEasy);
-            this.groupBox1.Controls.Add(this.checkBoxNormal);
-            this.groupBox1.Location = new System.Drawing.Point(12, 368);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(453, 100);
-            this.groupBox1.TabIndex = 7;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filter";
+            this.groupBoxFilter.Controls.Add(this.checkBoxHard);
+            this.groupBoxFilter.Controls.Add(this.checkBoxEasy);
+            this.groupBoxFilter.Controls.Add(this.checkBoxNormal);
+            this.groupBoxFilter.Location = new System.Drawing.Point(12, 368);
+            this.groupBoxFilter.Name = "groupBoxFilter";
+            this.groupBoxFilter.Size = new System.Drawing.Size(453, 100);
+            this.groupBoxFilter.TabIndex = 7;
+            this.groupBoxFilter.TabStop = false;
+            this.groupBoxFilter.Text = "Filter";
             // 
             // checkBoxHard
             // 
@@ -156,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 473);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxFilter);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.buttonSequenceGame);
@@ -166,8 +167,8 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Scores";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxFilter.ResumeLayout(false);
+            this.groupBoxFilter.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,7 +180,7 @@
         private System.Windows.Forms.Button buttonSequenceGame;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxFilter;
         private System.Windows.Forms.CheckBox checkBoxHard;
         private System.Windows.Forms.CheckBox checkBoxEasy;
         private System.Windows.Forms.CheckBox checkBoxNormal;

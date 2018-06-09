@@ -127,6 +127,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -178,6 +179,8 @@
             // 
             // pictureBox2
             // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Location = new System.Drawing.Point(149, 35);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(132, 136);
@@ -186,9 +189,13 @@
             this.pictureBox2.TabStop = false;
             this.pictureBox2.WaitOnLoad = true;
             this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.pictureBox2.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.pictureBox2.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Location = new System.Drawing.Point(11, 35);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(132, 136);
@@ -196,9 +203,13 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            this.pictureBox1.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.pictureBox1.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
             // 
             // pictureBox3
             // 
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Location = new System.Drawing.Point(287, 35);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(132, 136);
@@ -207,9 +218,13 @@
             this.pictureBox3.TabStop = false;
             this.pictureBox3.WaitOnLoad = true;
             this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.MouseEnter += new System.EventHandler(this.pictureBox3_MouseEnter);
+            this.pictureBox3.MouseLeave += new System.EventHandler(this.pictureBox3_MouseLeave);
             // 
             // pictureBox4
             // 
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox4.Location = new System.Drawing.Point(425, 35);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(132, 136);
@@ -218,9 +233,13 @@
             this.pictureBox4.TabStop = false;
             this.pictureBox4.WaitOnLoad = true;
             this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
             // 
             // pictureBox5
             // 
+            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox5.Location = new System.Drawing.Point(563, 35);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(132, 136);
@@ -229,9 +248,13 @@
             this.pictureBox5.TabStop = false;
             this.pictureBox5.WaitOnLoad = true;
             this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            this.pictureBox5.MouseEnter += new System.EventHandler(this.pictureBox5_MouseEnter);
+            this.pictureBox5.MouseLeave += new System.EventHandler(this.pictureBox5_MouseLeave);
             // 
             // pictureBox6
             // 
+            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox6.Location = new System.Drawing.Point(701, 35);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(132, 136);
@@ -240,9 +263,13 @@
             this.pictureBox6.TabStop = false;
             this.pictureBox6.WaitOnLoad = true;
             this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            this.pictureBox6.MouseEnter += new System.EventHandler(this.pictureBox6_MouseEnter);
+            this.pictureBox6.MouseLeave += new System.EventHandler(this.pictureBox6_MouseLeave);
             // 
             // pictureBox7
             // 
+            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox7.Location = new System.Drawing.Point(839, 35);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(132, 136);
@@ -251,9 +278,13 @@
             this.pictureBox7.TabStop = false;
             this.pictureBox7.WaitOnLoad = true;
             this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            this.pictureBox7.MouseEnter += new System.EventHandler(this.pictureBox7_MouseEnter);
+            this.pictureBox7.MouseLeave += new System.EventHandler(this.pictureBox7_MouseLeave);
             // 
             // pictureBox8
             // 
+            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox8.Location = new System.Drawing.Point(977, 37);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(132, 134);
@@ -262,9 +293,13 @@
             this.pictureBox8.TabStop = false;
             this.pictureBox8.WaitOnLoad = true;
             this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            this.pictureBox8.MouseEnter += new System.EventHandler(this.pictureBox8_MouseEnter);
+            this.pictureBox8.MouseLeave += new System.EventHandler(this.pictureBox8_MouseLeave);
             // 
             // pictureBox9
             // 
+            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox9.Location = new System.Drawing.Point(11, 177);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(132, 134);
@@ -273,9 +308,13 @@
             this.pictureBox9.TabStop = false;
             this.pictureBox9.WaitOnLoad = true;
             this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            this.pictureBox9.MouseEnter += new System.EventHandler(this.pictureBox9_MouseEnter);
+            this.pictureBox9.MouseLeave += new System.EventHandler(this.pictureBox9_MouseLeave);
             // 
             // pictureBox10
             // 
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox10.Location = new System.Drawing.Point(149, 177);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(132, 134);
@@ -284,9 +323,13 @@
             this.pictureBox10.TabStop = false;
             this.pictureBox10.WaitOnLoad = true;
             this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+            this.pictureBox10.MouseEnter += new System.EventHandler(this.pictureBox10_MouseEnter);
+            this.pictureBox10.MouseLeave += new System.EventHandler(this.pictureBox10_MouseLeave);
             // 
             // pictureBox11
             // 
+            this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox11.Location = new System.Drawing.Point(287, 177);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(132, 134);
@@ -295,9 +338,13 @@
             this.pictureBox11.TabStop = false;
             this.pictureBox11.WaitOnLoad = true;
             this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            this.pictureBox11.MouseEnter += new System.EventHandler(this.pictureBox11_MouseEnter);
+            this.pictureBox11.MouseLeave += new System.EventHandler(this.pictureBox11_MouseLeave);
             // 
             // pictureBox12
             // 
+            this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox12.Location = new System.Drawing.Point(425, 177);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(132, 134);
@@ -306,9 +353,13 @@
             this.pictureBox12.TabStop = false;
             this.pictureBox12.WaitOnLoad = true;
             this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
+            this.pictureBox12.MouseEnter += new System.EventHandler(this.pictureBox12_MouseEnter);
+            this.pictureBox12.MouseLeave += new System.EventHandler(this.pictureBox12_MouseLeave);
             // 
             // pictureBox13
             // 
+            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox13.Location = new System.Drawing.Point(563, 177);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(129, 134);
@@ -317,9 +368,13 @@
             this.pictureBox13.TabStop = false;
             this.pictureBox13.WaitOnLoad = true;
             this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
+            this.pictureBox13.MouseEnter += new System.EventHandler(this.pictureBox13_MouseEnter);
+            this.pictureBox13.MouseLeave += new System.EventHandler(this.pictureBox13_MouseLeave);
             // 
             // pictureBox14
             // 
+            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox14.Location = new System.Drawing.Point(701, 177);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(132, 134);
@@ -328,9 +383,13 @@
             this.pictureBox14.TabStop = false;
             this.pictureBox14.WaitOnLoad = true;
             this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
+            this.pictureBox14.MouseEnter += new System.EventHandler(this.pictureBox14_MouseEnter);
+            this.pictureBox14.MouseLeave += new System.EventHandler(this.pictureBox14_MouseLeave);
             // 
             // pictureBox15
             // 
+            this.pictureBox15.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox15.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox15.Location = new System.Drawing.Point(839, 177);
             this.pictureBox15.Name = "pictureBox15";
             this.pictureBox15.Size = new System.Drawing.Size(129, 134);
@@ -339,9 +398,13 @@
             this.pictureBox15.TabStop = false;
             this.pictureBox15.WaitOnLoad = true;
             this.pictureBox15.Click += new System.EventHandler(this.pictureBox15_Click);
+            this.pictureBox15.MouseEnter += new System.EventHandler(this.pictureBox15_MouseEnter);
+            this.pictureBox15.MouseLeave += new System.EventHandler(this.pictureBox15_MouseLeave);
             // 
             // pictureBox16
             // 
+            this.pictureBox16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox16.Location = new System.Drawing.Point(977, 177);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(132, 134);
@@ -350,9 +413,13 @@
             this.pictureBox16.TabStop = false;
             this.pictureBox16.WaitOnLoad = true;
             this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click);
+            this.pictureBox16.MouseEnter += new System.EventHandler(this.pictureBox16_MouseEnter);
+            this.pictureBox16.MouseLeave += new System.EventHandler(this.pictureBox16_MouseLeave);
             // 
             // pictureBox17
             // 
+            this.pictureBox17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox17.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox17.Location = new System.Drawing.Point(11, 316);
             this.pictureBox17.Name = "pictureBox17";
             this.pictureBox17.Size = new System.Drawing.Size(132, 134);
@@ -361,9 +428,13 @@
             this.pictureBox17.TabStop = false;
             this.pictureBox17.WaitOnLoad = true;
             this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
+            this.pictureBox17.MouseEnter += new System.EventHandler(this.pictureBox17_MouseEnter);
+            this.pictureBox17.MouseLeave += new System.EventHandler(this.pictureBox17_MouseLeave);
             // 
             // pictureBox18
             // 
+            this.pictureBox18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox18.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox18.Location = new System.Drawing.Point(149, 316);
             this.pictureBox18.Name = "pictureBox18";
             this.pictureBox18.Size = new System.Drawing.Size(132, 134);
@@ -372,9 +443,13 @@
             this.pictureBox18.TabStop = false;
             this.pictureBox18.WaitOnLoad = true;
             this.pictureBox18.Click += new System.EventHandler(this.pictureBox18_Click);
+            this.pictureBox18.MouseEnter += new System.EventHandler(this.pictureBox18_MouseEnter);
+            this.pictureBox18.MouseLeave += new System.EventHandler(this.pictureBox18_MouseLeave);
             // 
             // pictureBox19
             // 
+            this.pictureBox19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox19.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox19.Location = new System.Drawing.Point(287, 316);
             this.pictureBox19.Name = "pictureBox19";
             this.pictureBox19.Size = new System.Drawing.Size(132, 134);
@@ -383,9 +458,13 @@
             this.pictureBox19.TabStop = false;
             this.pictureBox19.WaitOnLoad = true;
             this.pictureBox19.Click += new System.EventHandler(this.pictureBox19_Click);
+            this.pictureBox19.MouseEnter += new System.EventHandler(this.pictureBox19_MouseEnter);
+            this.pictureBox19.MouseLeave += new System.EventHandler(this.pictureBox19_MouseLeave);
             // 
             // pictureBox20
             // 
+            this.pictureBox20.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox20.Location = new System.Drawing.Point(425, 316);
             this.pictureBox20.Name = "pictureBox20";
             this.pictureBox20.Size = new System.Drawing.Size(129, 134);
@@ -394,9 +473,13 @@
             this.pictureBox20.TabStop = false;
             this.pictureBox20.WaitOnLoad = true;
             this.pictureBox20.Click += new System.EventHandler(this.pictureBox20_Click);
+            this.pictureBox20.MouseEnter += new System.EventHandler(this.pictureBox20_MouseEnter);
+            this.pictureBox20.MouseLeave += new System.EventHandler(this.pictureBox20_MouseLeave);
             // 
             // pictureBox21
             // 
+            this.pictureBox21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox21.Location = new System.Drawing.Point(563, 316);
             this.pictureBox21.Name = "pictureBox21";
             this.pictureBox21.Size = new System.Drawing.Size(132, 134);
@@ -405,9 +488,13 @@
             this.pictureBox21.TabStop = false;
             this.pictureBox21.WaitOnLoad = true;
             this.pictureBox21.Click += new System.EventHandler(this.pictureBox21_Click);
+            this.pictureBox21.MouseEnter += new System.EventHandler(this.pictureBox21_MouseEnter);
+            this.pictureBox21.MouseLeave += new System.EventHandler(this.pictureBox21_MouseLeave);
             // 
             // pictureBox22
             // 
+            this.pictureBox22.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox22.Location = new System.Drawing.Point(701, 316);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(132, 134);
@@ -416,9 +503,13 @@
             this.pictureBox22.TabStop = false;
             this.pictureBox22.WaitOnLoad = true;
             this.pictureBox22.Click += new System.EventHandler(this.pictureBox22_Click);
+            this.pictureBox22.MouseEnter += new System.EventHandler(this.pictureBox22_MouseEnter);
+            this.pictureBox22.MouseLeave += new System.EventHandler(this.pictureBox22_MouseLeave);
             // 
             // pictureBox23
             // 
+            this.pictureBox23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox23.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox23.Location = new System.Drawing.Point(839, 316);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(132, 134);
@@ -427,9 +518,13 @@
             this.pictureBox23.TabStop = false;
             this.pictureBox23.WaitOnLoad = true;
             this.pictureBox23.Click += new System.EventHandler(this.pictureBox23_Click);
+            this.pictureBox23.MouseEnter += new System.EventHandler(this.pictureBox23_MouseEnter);
+            this.pictureBox23.MouseLeave += new System.EventHandler(this.pictureBox23_MouseLeave);
             // 
             // pictureBox24
             // 
+            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox24.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox24.Location = new System.Drawing.Point(977, 316);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(132, 134);
@@ -438,9 +533,13 @@
             this.pictureBox24.TabStop = false;
             this.pictureBox24.WaitOnLoad = true;
             this.pictureBox24.Click += new System.EventHandler(this.pictureBox24_Click);
+            this.pictureBox24.MouseEnter += new System.EventHandler(this.pictureBox24_MouseEnter);
+            this.pictureBox24.MouseLeave += new System.EventHandler(this.pictureBox24_MouseLeave);
             // 
             // pictureBox25
             // 
+            this.pictureBox25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox25.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox25.Location = new System.Drawing.Point(11, 456);
             this.pictureBox25.Name = "pictureBox25";
             this.pictureBox25.Size = new System.Drawing.Size(132, 134);
@@ -449,9 +548,13 @@
             this.pictureBox25.TabStop = false;
             this.pictureBox25.WaitOnLoad = true;
             this.pictureBox25.Click += new System.EventHandler(this.pictureBox25_Click);
+            this.pictureBox25.MouseEnter += new System.EventHandler(this.pictureBox25_MouseEnter);
+            this.pictureBox25.MouseLeave += new System.EventHandler(this.pictureBox25_MouseLeave);
             // 
             // pictureBox26
             // 
+            this.pictureBox26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox26.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox26.Location = new System.Drawing.Point(149, 456);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(132, 134);
@@ -460,9 +563,13 @@
             this.pictureBox26.TabStop = false;
             this.pictureBox26.WaitOnLoad = true;
             this.pictureBox26.Click += new System.EventHandler(this.pictureBox26_Click);
+            this.pictureBox26.MouseEnter += new System.EventHandler(this.pictureBox26_MouseEnter);
+            this.pictureBox26.MouseLeave += new System.EventHandler(this.pictureBox26_MouseLeave);
             // 
             // pictureBox27
             // 
+            this.pictureBox27.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox27.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox27.Location = new System.Drawing.Point(287, 456);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.Size = new System.Drawing.Size(132, 134);
@@ -471,9 +578,13 @@
             this.pictureBox27.TabStop = false;
             this.pictureBox27.WaitOnLoad = true;
             this.pictureBox27.Click += new System.EventHandler(this.pictureBox27_Click);
+            this.pictureBox27.MouseEnter += new System.EventHandler(this.pictureBox27_MouseEnter);
+            this.pictureBox27.MouseLeave += new System.EventHandler(this.pictureBox27_MouseLeave);
             // 
             // pictureBox28
             // 
+            this.pictureBox28.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox28.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox28.Location = new System.Drawing.Point(425, 456);
             this.pictureBox28.Name = "pictureBox28";
             this.pictureBox28.Size = new System.Drawing.Size(132, 134);
@@ -482,9 +593,13 @@
             this.pictureBox28.TabStop = false;
             this.pictureBox28.WaitOnLoad = true;
             this.pictureBox28.Click += new System.EventHandler(this.pictureBox28_Click);
+            this.pictureBox28.MouseEnter += new System.EventHandler(this.pictureBox28_MouseEnter);
+            this.pictureBox28.MouseLeave += new System.EventHandler(this.pictureBox28_MouseLeave);
             // 
             // pictureBox29
             // 
+            this.pictureBox29.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox29.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox29.Location = new System.Drawing.Point(563, 456);
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.Size = new System.Drawing.Size(132, 134);
@@ -493,9 +608,13 @@
             this.pictureBox29.TabStop = false;
             this.pictureBox29.WaitOnLoad = true;
             this.pictureBox29.Click += new System.EventHandler(this.pictureBox29_Click);
+            this.pictureBox29.MouseEnter += new System.EventHandler(this.pictureBox29_MouseEnter);
+            this.pictureBox29.MouseLeave += new System.EventHandler(this.pictureBox29_MouseLeave);
             // 
             // pictureBox30
             // 
+            this.pictureBox30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox30.Location = new System.Drawing.Point(701, 456);
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.Size = new System.Drawing.Size(129, 134);
@@ -504,9 +623,13 @@
             this.pictureBox30.TabStop = false;
             this.pictureBox30.WaitOnLoad = true;
             this.pictureBox30.Click += new System.EventHandler(this.pictureBox30_Click);
+            this.pictureBox30.MouseEnter += new System.EventHandler(this.pictureBox30_MouseEnter);
+            this.pictureBox30.MouseLeave += new System.EventHandler(this.pictureBox30_MouseLeave);
             // 
             // pictureBox31
             // 
+            this.pictureBox31.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox31.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox31.Location = new System.Drawing.Point(839, 456);
             this.pictureBox31.Name = "pictureBox31";
             this.pictureBox31.Size = new System.Drawing.Size(132, 134);
@@ -515,9 +638,13 @@
             this.pictureBox31.TabStop = false;
             this.pictureBox31.WaitOnLoad = true;
             this.pictureBox31.Click += new System.EventHandler(this.pictureBox31_Click);
+            this.pictureBox31.MouseEnter += new System.EventHandler(this.pictureBox31_MouseEnter);
+            this.pictureBox31.MouseLeave += new System.EventHandler(this.pictureBox31_MouseLeave);
             // 
             // pictureBox32
             // 
+            this.pictureBox32.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox32.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox32.Location = new System.Drawing.Point(977, 456);
             this.pictureBox32.Name = "pictureBox32";
             this.pictureBox32.Size = new System.Drawing.Size(132, 134);
@@ -526,9 +653,13 @@
             this.pictureBox32.TabStop = false;
             this.pictureBox32.WaitOnLoad = true;
             this.pictureBox32.Click += new System.EventHandler(this.pictureBox32_Click);
+            this.pictureBox32.MouseEnter += new System.EventHandler(this.pictureBox32_MouseEnter);
+            this.pictureBox32.MouseLeave += new System.EventHandler(this.pictureBox32_MouseLeave);
             // 
             // pictureBox33
             // 
+            this.pictureBox33.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox33.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox33.Location = new System.Drawing.Point(11, 596);
             this.pictureBox33.Name = "pictureBox33";
             this.pictureBox33.Size = new System.Drawing.Size(132, 134);
@@ -537,9 +668,13 @@
             this.pictureBox33.TabStop = false;
             this.pictureBox33.WaitOnLoad = true;
             this.pictureBox33.Click += new System.EventHandler(this.pictureBox33_Click);
+            this.pictureBox33.MouseEnter += new System.EventHandler(this.pictureBox33_MouseEnter);
+            this.pictureBox33.MouseLeave += new System.EventHandler(this.pictureBox33_MouseLeave);
             // 
             // pictureBox34
             // 
+            this.pictureBox34.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox34.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox34.Location = new System.Drawing.Point(149, 596);
             this.pictureBox34.Name = "pictureBox34";
             this.pictureBox34.Size = new System.Drawing.Size(132, 134);
@@ -548,9 +683,13 @@
             this.pictureBox34.TabStop = false;
             this.pictureBox34.WaitOnLoad = true;
             this.pictureBox34.Click += new System.EventHandler(this.pictureBox34_Click);
+            this.pictureBox34.MouseEnter += new System.EventHandler(this.pictureBox34_MouseEnter);
+            this.pictureBox34.MouseLeave += new System.EventHandler(this.pictureBox34_MouseLeave);
             // 
             // pictureBox35
             // 
+            this.pictureBox35.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox35.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox35.Location = new System.Drawing.Point(287, 596);
             this.pictureBox35.Name = "pictureBox35";
             this.pictureBox35.Size = new System.Drawing.Size(132, 134);
@@ -559,9 +698,13 @@
             this.pictureBox35.TabStop = false;
             this.pictureBox35.WaitOnLoad = true;
             this.pictureBox35.Click += new System.EventHandler(this.pictureBox35_Click);
+            this.pictureBox35.MouseEnter += new System.EventHandler(this.pictureBox35_MouseEnter);
+            this.pictureBox35.MouseLeave += new System.EventHandler(this.pictureBox35_MouseLeave);
             // 
             // pictureBox36
             // 
+            this.pictureBox36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox36.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox36.Location = new System.Drawing.Point(425, 596);
             this.pictureBox36.Name = "pictureBox36";
             this.pictureBox36.Size = new System.Drawing.Size(132, 134);
@@ -570,9 +713,13 @@
             this.pictureBox36.TabStop = false;
             this.pictureBox36.WaitOnLoad = true;
             this.pictureBox36.Click += new System.EventHandler(this.pictureBox36_Click);
+            this.pictureBox36.MouseEnter += new System.EventHandler(this.pictureBox36_MouseEnter);
+            this.pictureBox36.MouseLeave += new System.EventHandler(this.pictureBox36_MouseLeave);
             // 
             // pictureBox37
             // 
+            this.pictureBox37.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox37.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox37.Location = new System.Drawing.Point(563, 596);
             this.pictureBox37.Name = "pictureBox37";
             this.pictureBox37.Size = new System.Drawing.Size(132, 134);
@@ -581,9 +728,13 @@
             this.pictureBox37.TabStop = false;
             this.pictureBox37.WaitOnLoad = true;
             this.pictureBox37.Click += new System.EventHandler(this.pictureBox37_Click);
+            this.pictureBox37.MouseEnter += new System.EventHandler(this.pictureBox37_MouseEnter);
+            this.pictureBox37.MouseLeave += new System.EventHandler(this.pictureBox37_MouseLeave);
             // 
             // pictureBox38
             // 
+            this.pictureBox38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox38.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox38.Location = new System.Drawing.Point(701, 596);
             this.pictureBox38.Name = "pictureBox38";
             this.pictureBox38.Size = new System.Drawing.Size(129, 134);
@@ -592,9 +743,13 @@
             this.pictureBox38.TabStop = false;
             this.pictureBox38.WaitOnLoad = true;
             this.pictureBox38.Click += new System.EventHandler(this.pictureBox38_Click);
+            this.pictureBox38.MouseEnter += new System.EventHandler(this.pictureBox38_MouseEnter);
+            this.pictureBox38.MouseLeave += new System.EventHandler(this.pictureBox38_MouseLeave);
             // 
             // pictureBox39
             // 
+            this.pictureBox39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox39.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox39.Location = new System.Drawing.Point(839, 596);
             this.pictureBox39.Name = "pictureBox39";
             this.pictureBox39.Size = new System.Drawing.Size(129, 134);
@@ -603,9 +758,13 @@
             this.pictureBox39.TabStop = false;
             this.pictureBox39.WaitOnLoad = true;
             this.pictureBox39.Click += new System.EventHandler(this.pictureBox39_Click);
+            this.pictureBox39.MouseEnter += new System.EventHandler(this.pictureBox39_MouseEnter);
+            this.pictureBox39.MouseLeave += new System.EventHandler(this.pictureBox39_MouseLeave);
             // 
             // pictureBox40
             // 
+            this.pictureBox40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox40.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox40.Location = new System.Drawing.Point(977, 596);
             this.pictureBox40.Name = "pictureBox40";
             this.pictureBox40.Size = new System.Drawing.Size(132, 134);
@@ -614,10 +773,12 @@
             this.pictureBox40.TabStop = false;
             this.pictureBox40.WaitOnLoad = true;
             this.pictureBox40.Click += new System.EventHandler(this.pictureBox40_Click);
+            this.pictureBox40.MouseEnter += new System.EventHandler(this.pictureBox40_MouseEnter);
+            this.pictureBox40.MouseLeave += new System.EventHandler(this.pictureBox40_MouseLeave);
             // 
             // groupBoxHelpers
             // 
-            this.groupBoxHelpers.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.groupBoxHelpers.BackColor = System.Drawing.Color.Lavender;
             this.groupBoxHelpers.Controls.Add(this.label14);
             this.groupBoxHelpers.Controls.Add(this.label13);
             this.groupBoxHelpers.Controls.Add(this.label12);
@@ -643,17 +804,17 @@
             this.groupBoxHelpers.Controls.Add(this.pictureBoxSecondChance);
             this.groupBoxHelpers.Controls.Add(this.pictureBox2x);
             this.groupBoxHelpers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxHelpers.Location = new System.Drawing.Point(1124, 411);
+            this.groupBoxHelpers.Location = new System.Drawing.Point(1124, 387);
             this.groupBoxHelpers.Name = "groupBoxHelpers";
-            this.groupBoxHelpers.Size = new System.Drawing.Size(382, 322);
+            this.groupBoxHelpers.Size = new System.Drawing.Size(382, 359);
             this.groupBoxHelpers.TabIndex = 45;
             this.groupBoxHelpers.TabStop = false;
-            this.groupBoxHelpers.Text = "HELPERS";
+            this.groupBoxHelpers.Text = "H E L P E R S";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(109, 256);
+            this.label14.Location = new System.Drawing.Point(106, 287);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(226, 20);
             this.label14.TabIndex = 24;
@@ -662,7 +823,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(110, 183);
+            this.label13.Location = new System.Drawing.Point(107, 204);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(198, 20);
             this.label13.TabIndex = 23;
@@ -671,7 +832,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(109, 107);
+            this.label12.Location = new System.Drawing.Point(113, 116);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(238, 20);
             this.label12.TabIndex = 22;
@@ -680,15 +841,16 @@
             // textBoxPriceOpenCards
             // 
             this.textBoxPriceOpenCards.Enabled = false;
-            this.textBoxPriceOpenCards.Location = new System.Drawing.Point(300, 284);
+            this.textBoxPriceOpenCards.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPriceOpenCards.Location = new System.Drawing.Point(299, 310);
             this.textBoxPriceOpenCards.Name = "textBoxPriceOpenCards";
-            this.textBoxPriceOpenCards.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPriceOpenCards.Size = new System.Drawing.Size(59, 30);
             this.textBoxPriceOpenCards.TabIndex = 21;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(252, 290);
+            this.label10.Location = new System.Drawing.Point(252, 320);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(48, 20);
             this.label10.TabIndex = 20;
@@ -697,15 +859,16 @@
             // textBoxAvaliableOpenCards
             // 
             this.textBoxAvaliableOpenCards.Enabled = false;
-            this.textBoxAvaliableOpenCards.Location = new System.Drawing.Point(190, 284);
+            this.textBoxAvaliableOpenCards.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAvaliableOpenCards.Location = new System.Drawing.Point(188, 313);
             this.textBoxAvaliableOpenCards.Name = "textBoxAvaliableOpenCards";
-            this.textBoxAvaliableOpenCards.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvaliableOpenCards.Size = new System.Drawing.Size(39, 30);
             this.textBoxAvaliableOpenCards.TabIndex = 19;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(107, 290);
+            this.label11.Location = new System.Drawing.Point(106, 323);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 20);
             this.label11.TabIndex = 18;
@@ -714,15 +877,16 @@
             // textBoxPriceFindNext
             // 
             this.textBoxPriceFindNext.Enabled = false;
-            this.textBoxPriceFindNext.Location = new System.Drawing.Point(300, 211);
+            this.textBoxPriceFindNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPriceFindNext.Location = new System.Drawing.Point(300, 227);
             this.textBoxPriceFindNext.Name = "textBoxPriceFindNext";
-            this.textBoxPriceFindNext.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPriceFindNext.Size = new System.Drawing.Size(59, 30);
             this.textBoxPriceFindNext.TabIndex = 17;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(252, 217);
+            this.label8.Location = new System.Drawing.Point(252, 237);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 20);
             this.label8.TabIndex = 16;
@@ -731,15 +895,16 @@
             // textBoxAvaliableFindNext
             // 
             this.textBoxAvaliableFindNext.Enabled = false;
-            this.textBoxAvaliableFindNext.Location = new System.Drawing.Point(189, 211);
+            this.textBoxAvaliableFindNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAvaliableFindNext.Location = new System.Drawing.Point(189, 230);
             this.textBoxAvaliableFindNext.Name = "textBoxAvaliableFindNext";
-            this.textBoxAvaliableFindNext.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvaliableFindNext.Size = new System.Drawing.Size(38, 30);
             this.textBoxAvaliableFindNext.TabIndex = 15;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(107, 217);
+            this.label9.Location = new System.Drawing.Point(106, 240);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 20);
             this.label9.TabIndex = 14;
@@ -748,15 +913,16 @@
             // textBoxPriceSecondChance
             // 
             this.textBoxPriceSecondChance.Enabled = false;
-            this.textBoxPriceSecondChance.Location = new System.Drawing.Point(300, 135);
+            this.textBoxPriceSecondChance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPriceSecondChance.Location = new System.Drawing.Point(300, 139);
             this.textBoxPriceSecondChance.Name = "textBoxPriceSecondChance";
-            this.textBoxPriceSecondChance.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPriceSecondChance.Size = new System.Drawing.Size(59, 30);
             this.textBoxPriceSecondChance.TabIndex = 13;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(252, 141);
+            this.label6.Location = new System.Drawing.Point(252, 145);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(48, 20);
             this.label6.TabIndex = 12;
@@ -765,15 +931,16 @@
             // textBoxAvalibleSecondChance
             // 
             this.textBoxAvalibleSecondChance.Enabled = false;
-            this.textBoxAvalibleSecondChance.Location = new System.Drawing.Point(189, 135);
+            this.textBoxAvalibleSecondChance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAvalibleSecondChance.Location = new System.Drawing.Point(188, 138);
             this.textBoxAvalibleSecondChance.Name = "textBoxAvalibleSecondChance";
-            this.textBoxAvalibleSecondChance.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvalibleSecondChance.Size = new System.Drawing.Size(39, 30);
             this.textBoxAvalibleSecondChance.TabIndex = 11;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(107, 141);
+            this.label7.Location = new System.Drawing.Point(108, 145);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(76, 20);
             this.label7.TabIndex = 10;
@@ -782,9 +949,10 @@
             // textBoxPrice2x
             // 
             this.textBoxPrice2x.Enabled = false;
+            this.textBoxPrice2x.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxPrice2x.Location = new System.Drawing.Point(300, 56);
             this.textBoxPrice2x.Name = "textBoxPrice2x";
-            this.textBoxPrice2x.Size = new System.Drawing.Size(47, 26);
+            this.textBoxPrice2x.Size = new System.Drawing.Size(59, 30);
             this.textBoxPrice2x.TabIndex = 9;
             // 
             // label5
@@ -799,9 +967,10 @@
             // textBoxAvaliable2x
             // 
             this.textBoxAvaliable2x.Enabled = false;
+            this.textBoxAvaliable2x.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxAvaliable2x.Location = new System.Drawing.Point(190, 54);
             this.textBoxAvaliable2x.Name = "textBoxAvaliable2x";
-            this.textBoxAvaliable2x.Size = new System.Drawing.Size(47, 26);
+            this.textBoxAvaliable2x.Size = new System.Drawing.Size(37, 30);
             this.textBoxAvaliable2x.TabIndex = 6;
             // 
             // label4
@@ -824,7 +993,9 @@
             // 
             // pictureBoxOpenCards
             // 
-            this.pictureBoxOpenCards.Location = new System.Drawing.Point(6, 256);
+            this.pictureBoxOpenCards.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxOpenCards.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pictureBoxOpenCards.Location = new System.Drawing.Point(6, 283);
             this.pictureBoxOpenCards.Name = "pictureBoxOpenCards";
             this.pictureBoxOpenCards.Size = new System.Drawing.Size(94, 60);
             this.pictureBoxOpenCards.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -834,7 +1005,9 @@
             // 
             // pictureBoxFindNext
             // 
-            this.pictureBoxFindNext.Location = new System.Drawing.Point(6, 183);
+            this.pictureBoxFindNext.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxFindNext.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pictureBoxFindNext.Location = new System.Drawing.Point(6, 200);
             this.pictureBoxFindNext.Name = "pictureBoxFindNext";
             this.pictureBoxFindNext.Size = new System.Drawing.Size(94, 60);
             this.pictureBoxFindNext.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -844,7 +1017,9 @@
             // 
             // pictureBoxSecondChance
             // 
-            this.pictureBoxSecondChance.Location = new System.Drawing.Point(6, 107);
+            this.pictureBoxSecondChance.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBoxSecondChance.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pictureBoxSecondChance.Location = new System.Drawing.Point(6, 116);
             this.pictureBoxSecondChance.Name = "pictureBoxSecondChance";
             this.pictureBoxSecondChance.Size = new System.Drawing.Size(94, 60);
             this.pictureBoxSecondChance.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -854,7 +1029,9 @@
             // 
             // pictureBox2x
             // 
-            this.pictureBox2x.Location = new System.Drawing.Point(6, 32);
+            this.pictureBox2x.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox2x.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pictureBox2x.Location = new System.Drawing.Point(6, 31);
             this.pictureBox2x.Name = "pictureBox2x";
             this.pictureBox2x.Size = new System.Drawing.Size(94, 60);
             this.pictureBox2x.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -876,17 +1053,16 @@
             this.groupBox2.Controls.Add(this.labelCurrentPlayer);
             this.groupBox2.Controls.Add(this.labelP2points);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(1124, 40);
+            this.groupBox2.Location = new System.Drawing.Point(1124, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(382, 365);
+            this.groupBox2.Size = new System.Drawing.Size(382, 377);
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "GAME INFO";
             // 
             // textBoxTime
             // 
             this.textBoxTime.Enabled = false;
-            this.textBoxTime.Location = new System.Drawing.Point(225, 265);
+            this.textBoxTime.Location = new System.Drawing.Point(258, 315);
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.Size = new System.Drawing.Size(100, 30);
             this.textBoxTime.TabIndex = 9;
@@ -895,7 +1071,7 @@
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(238, 237);
+            this.labelTime.Location = new System.Drawing.Point(278, 287);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(64, 25);
             this.labelTime.TabIndex = 8;
@@ -905,7 +1081,7 @@
             // 
             this.textBoxScoreMultiplier.Enabled = false;
             this.textBoxScoreMultiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxScoreMultiplier.Location = new System.Drawing.Point(154, 135);
+            this.textBoxScoreMultiplier.Location = new System.Drawing.Point(150, 135);
             this.textBoxScoreMultiplier.Name = "textBoxScoreMultiplier";
             this.textBoxScoreMultiplier.Size = new System.Drawing.Size(100, 36);
             this.textBoxScoreMultiplier.TabIndex = 7;
@@ -915,7 +1091,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(113, 112);
+            this.label1.Location = new System.Drawing.Point(106, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(187, 20);
             this.label1.TabIndex = 6;
@@ -942,10 +1118,10 @@
             // textBoxCurrentPlayer
             // 
             this.textBoxCurrentPlayer.Enabled = false;
-            this.textBoxCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.textBoxCurrentPlayer.Location = new System.Drawing.Point(60, 60);
+            this.textBoxCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.textBoxCurrentPlayer.Location = new System.Drawing.Point(38, 61);
             this.textBoxCurrentPlayer.Name = "textBoxCurrentPlayer";
-            this.textBoxCurrentPlayer.Size = new System.Drawing.Size(287, 30);
+            this.textBoxCurrentPlayer.Size = new System.Drawing.Size(287, 36);
             this.textBoxCurrentPlayer.TabIndex = 3;
             this.textBoxCurrentPlayer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -963,7 +1139,7 @@
             // 
             this.labelCurrentPlayer.AutoSize = true;
             this.labelCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelCurrentPlayer.Location = new System.Drawing.Point(127, 28);
+            this.labelCurrentPlayer.Location = new System.Drawing.Point(113, 38);
             this.labelCurrentPlayer.Name = "labelCurrentPlayer";
             this.labelCurrentPlayer.Size = new System.Drawing.Size(137, 20);
             this.labelCurrentPlayer.TabIndex = 0;
@@ -988,7 +1164,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1516, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1494, 28);
             this.menuStrip1.TabIndex = 61;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -1155,12 +1331,22 @@
             this.aboutToolStripMenuItem.Text = "&About...";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 736);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1494, 22);
+            this.statusStrip1.TabIndex = 62;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
             // HardPairGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Beige;
-            this.ClientSize = new System.Drawing.Size(1516, 745);
+            this.BackColor = System.Drawing.Color.Pink;
+            this.ClientSize = new System.Drawing.Size(1494, 758);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBoxHelpers);
@@ -1361,5 +1547,6 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.TextBox textBoxTime;
         private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.StatusStrip statusStrip1;
     }
 }

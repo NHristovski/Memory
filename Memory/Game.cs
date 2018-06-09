@@ -188,7 +188,7 @@ namespace Memory
                 winner = " DRAW! ";
             }
 
-            PlayerDocument.Players.Add(Player1);
+            //PlayerDocument.Players.Add(Player1);
             using (StreamWriter sw = File.AppendText(Paths.pathToPairGameScores))
             {
                 var phrase = string.Join(",", Player1.ToString().Split(new char[] { ' ' }));
@@ -196,7 +196,7 @@ namespace Memory
                 if (!Player2.isBot())
                 { 
                     phrase = string.Join(",", Player2.ToString().Split(new char[] { ' ' }));
-                    PlayerDocument.Players.Add(Player2);
+                    //PlayerDocument.Players.Add(Player2);
                     sw.WriteLine(phrase);
                 }
             }
