@@ -23,7 +23,7 @@ namespace Memory
         List<cEventSuppressor> suppressors;
         public string openFileName;
         public string saveFileName;
-        System.Windows.Forms.Timer timer;
+        System.Threading.Timer timer;
 
 
         public NormalPairGameForm(Player Player1, Player Player2)
@@ -111,23 +111,18 @@ namespace Memory
             
         }
 
-        private void tick(object sender, EventArgs e)
+        private void tick(Object stateInfo)
         {
             game.Time += 1;
             textBoxTime.Text = game.getTimeRepresentation();
         }
+
         private void init()
         {
 
             textBoxTime.Text = game.getTimeRepresentation();
 
-            timer = new System.Windows.Forms.Timer
-            {
-                Enabled = true,
-                Interval = 1000,
-            };
-            timer.Tick += new EventHandler(tick);
-            timer.Start();
+            timer = new System.Threading.Timer(tick, new AutoResetEvent(false), 0, 1000);
 
             openFileName = string.Empty;
             saveFileName = string.Empty;
@@ -270,7 +265,7 @@ namespace Memory
                 updateLabels();
                 this.Refresh();
 
-                timer.Stop();
+                timer.Dispose();
 
                 game.Player1.Score.Time = game.getTimeRepresentation();
                 game.Player2.Score.Time = game.getTimeRepresentation();

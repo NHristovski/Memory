@@ -11,7 +11,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace Memory
 {
     public partial class HardPairGameForm : PairGameForm
@@ -24,7 +23,7 @@ namespace Memory
         public string openFileName;
         public string saveFileName;
 
-        System.Windows.Forms.Timer timer;
+        System.Threading.Timer timer;
 
         public HardPairGameForm(Player Player1, Player Player2)
         {
@@ -137,7 +136,7 @@ namespace Memory
             
         }
 
-        private void tick(object sender,EventArgs e)
+        private void tick(Object stateInfo)
         {
             game.Time += 1;
             textBoxTime.Text = game.getTimeRepresentation();
@@ -147,13 +146,7 @@ namespace Memory
 
             textBoxTime.Text = game.getTimeRepresentation();
 
-            timer = new System.Windows.Forms.Timer
-            {
-                Enabled = true,
-                Interval = 1000,
-            };
-            timer.Tick += new EventHandler(tick);
-            timer.Start();
+            timer = new System.Threading.Timer(tick, new AutoResetEvent(false), 0, 1000);
 
             saveFileName = string.Empty;
             openFileName = string.Empty;
@@ -312,7 +305,7 @@ namespace Memory
                 updateLabels();
                 this.Refresh();
 
-                timer.Stop();
+                timer.Dispose();
 
                 game.Player1.Score.Time = game.getTimeRepresentation();
                 game.Player2.Score.Time = game.getTimeRepresentation();

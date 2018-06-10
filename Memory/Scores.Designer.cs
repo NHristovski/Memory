@@ -59,12 +59,12 @@
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 38);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 39);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1016, 323);
+            this.dataGridView1.Size = new System.Drawing.Size(1015, 322);
             this.dataGridView1.TabIndex = 1;
             // 
             // buttonSequenceGame
@@ -108,7 +108,7 @@
             this.groupBoxFilter.Controls.Add(this.checkBoxNormal);
             this.groupBoxFilter.Location = new System.Drawing.Point(12, 368);
             this.groupBoxFilter.Name = "groupBoxFilter";
-            this.groupBoxFilter.Size = new System.Drawing.Size(453, 100);
+            this.groupBoxFilter.Size = new System.Drawing.Size(428, 100);
             this.groupBoxFilter.TabIndex = 7;
             this.groupBoxFilter.TabStop = false;
             this.groupBoxFilter.Text = "Filter";
@@ -118,7 +118,7 @@
             this.checkBoxHard.AutoSize = true;
             this.checkBoxHard.Checked = true;
             this.checkBoxHard.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxHard.Location = new System.Drawing.Point(317, 40);
+            this.checkBoxHard.Location = new System.Drawing.Point(308, 40);
             this.checkBoxHard.Name = "checkBoxHard";
             this.checkBoxHard.Size = new System.Drawing.Size(113, 24);
             this.checkBoxHard.TabIndex = 1;
@@ -131,7 +131,7 @@
             this.checkBoxEasy.AutoSize = true;
             this.checkBoxEasy.Checked = true;
             this.checkBoxEasy.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxEasy.Location = new System.Drawing.Point(1, 40);
+            this.checkBoxEasy.Location = new System.Drawing.Point(6, 40);
             this.checkBoxEasy.Name = "checkBoxEasy";
             this.checkBoxEasy.Size = new System.Drawing.Size(113, 24);
             this.checkBoxEasy.TabIndex = 0;

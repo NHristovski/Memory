@@ -23,7 +23,9 @@ namespace Memory
         List<cEventSuppressor> suppressors;
         public string openFileName;
         public string saveFileName;
-        System.Windows.Forms.Timer timer;
+
+        //System.Windows.Forms.Timer timer;
+        System.Threading.Timer timer;
 
         public EasyPairGameForm(Player Player1,Player Player2)
         {
@@ -113,7 +115,7 @@ namespace Memory
             this.Refresh();
         }
 
-        private void tick(object sender, EventArgs e)
+        private void tick(Object stateInfo)
         {
             game.Time += 1;
             textBoxTime.Text = game.getTimeRepresentation();
@@ -123,13 +125,8 @@ namespace Memory
 
             textBoxTime.Text = game.getTimeRepresentation();
 
-            timer = new System.Windows.Forms.Timer
-            {
-                Enabled = true,
-                Interval = 1000,
-            };
-            timer.Tick += new EventHandler(tick);
-            timer.Start();
+            timer = new System.Threading.Timer(tick, new AutoResetEvent(false), 0, 1000);
+
 
             DoubleBuffered = true;
 
@@ -212,7 +209,6 @@ namespace Memory
 
         private void updateLabels()
         {
-
             textBoxCurrentPlayer.Text = game.GetCurrentPlayerName();
             textBoxP1Points.Text = game.Player1.Score.Points + "";
             textBoxP2Points.Text = game.Player2.Score.Points + "";
@@ -223,8 +219,8 @@ namespace Memory
             textBoxAvaliableOpenCards.Text = game.getOpenCardsAvaliable();
             textBoxAvalibleSecondChance.Text = game.getSecondChanceAvaliable();
 
+            //textBoxTime.Text = game.getTimeRepresentation();
             this.Refresh();
-
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -252,7 +248,7 @@ namespace Memory
                 updateLabels();
                 this.Refresh();
 
-                timer.Stop();
+                timer.Dispose();
 
                 game.Player1.Score.Time = game.getTimeRepresentation();
                 game.Player2.Score.Time = game.getTimeRepresentation();
@@ -287,10 +283,11 @@ namespace Memory
 
                 if (!game.ShouldEnd())
                 {
+                    updateLabels();
+                    this.Refresh();
                     playBotMoves(); // play the next move
                 }
             }
-           
             updateLabels();
             this.Refresh();
         }
