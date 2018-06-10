@@ -1334,9 +1334,9 @@
             // statusStrip1
             // 
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip1.Location = new System.Drawing.Point(0, 736);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 734);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1494, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1494, 24);
             this.statusStrip1.TabIndex = 62;
             this.statusStrip1.Text = "statusStrip1";
             // 

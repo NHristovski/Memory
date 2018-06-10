@@ -146,20 +146,20 @@ namespace Memory
             }
             else if (comboBox1.SelectedItem.ToString().Equals("Duration"))
             {
-                currentPairGamePlayers = PlayerDocument.sortByTime(currentPlayers);
+                currentPlayers = PlayerDocument.sortByTime(currentPlayers);
             }
             else // date
             {
-                currentPairGamePlayers = PlayerDocument.sortByDate(currentPlayers);
+                currentPlayers = PlayerDocument.sortByDate(currentPlayers);
             }
 
             if (pairGameView)
             {
-                UpdateGridPairGame(currentPairGamePlayers);
+                UpdateGridPairGame(currentPlayers);
             }
             else
             {
-                UpdateGridSequenceGame(playerDocumentForSequenceGame.Players);
+                UpdateGridSequenceGame(currentPlayers);
             }
         }
 
@@ -167,46 +167,50 @@ namespace Memory
         {
             if (!checkBoxEasy.Checked)
             {
-                currentPairGamePlayers.RemoveAll(p => ((PairGamePlayer)p).type.Equals("EasyGame"));
-                UpdateGridPairGame(currentPairGamePlayers);
+                currentPlayers.RemoveAll(p => ((PairGamePlayer)p).type.Equals("EasyGame"));
+                UpdateGridPairGame(currentPlayers);
             }
             else
             {
-                currentPairGamePlayers.AddRange(playerDocumentForPairGame.Players.Where(p => ((PairGamePlayer)p).type.Equals("EasyGame")).ToList());
-                comboBox1_SelectedValueChanged(null, null);
+                currentPlayers.AddRange(playerDocumentForPairGame.Players.Where(p => ((PairGamePlayer)p).type.Equals("EasyGame")).ToList());
             }
+            comboBox1_SelectedValueChanged(null, null);
         }
 
         private void checkBoxNormal_CheckedChanged(object sender, EventArgs e)
         {
             if (!checkBoxNormal.Checked)
             {
-                currentPairGamePlayers.RemoveAll(p => ((PairGamePlayer)p).type.Equals("MediumGame"));
-                UpdateGridPairGame(currentPairGamePlayers);
+                currentPlayers.RemoveAll(p => ((PairGamePlayer)p).type.Equals("MediumGame"));
+                UpdateGridPairGame(currentPlayers);
             }
             else
             {
-                currentPairGamePlayers.AddRange(playerDocumentForPairGame.Players.Where(p => ((PairGamePlayer)p).type.Equals("MediumGame")).ToList());
-                comboBox1_SelectedValueChanged(null, null);
+                currentPlayers.AddRange(playerDocumentForPairGame.Players.Where(p => ((PairGamePlayer)p).type.Equals("MediumGame")).ToList());
             }
+            comboBox1_SelectedValueChanged(null, null);
+
         }
 
         private void checkBoxHard_CheckedChanged(object sender, EventArgs e)
         {
             if (!checkBoxHard.Checked)
             {
-                currentPairGamePlayers.RemoveAll(p => ((PairGamePlayer)p).type.Equals("HardGame"));
-                UpdateGridPairGame(currentPairGamePlayers);
+                currentPlayers.RemoveAll(p => ((PairGamePlayer)p).type.Equals("HardGame"));
+                UpdateGridPairGame(currentPlayers);
             }
             else
             {
-                currentPairGamePlayers.AddRange(playerDocumentForPairGame.Players.Where(p => ((PairGamePlayer)p).type.Equals("HardGame")).ToList());
-                comboBox1_SelectedValueChanged(null, null);
+                currentPlayers.AddRange(playerDocumentForPairGame.Players.Where(p => ((PairGamePlayer)p).type.Equals("HardGame")).ToList());
             }
+            comboBox1_SelectedValueChanged(null, null);
         }
 
         private void buttonPairGame_Click(object sender, EventArgs e)
         {
+            //// Should this be like this?? CHECK AFTER SEQ GAME IS FINISHED
+            playerDocumentForSequenceGame.Players = currentPlayers;
+
             groupBoxFilter.Visible = true;
             pairGameView = true;
             currentPlayers = currentPairGamePlayers;
@@ -219,6 +223,9 @@ namespace Memory
 
         private void buttonSequenceGame_Click(object sender, EventArgs e)
         {
+            //// Should this be like this?? CHECK AFTER SEQ GAME IS FINISHED
+            currentPairGamePlayers = currentPlayers;
+
             groupBoxFilter.Visible = false;
             pairGameView = false;
             currentPlayers = playerDocumentForSequenceGame.Players;
