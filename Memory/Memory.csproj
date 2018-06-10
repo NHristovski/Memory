@@ -167,9 +167,6 @@
     <None Include="bin\Debug\shapes\spade\spade_still.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="bin\Debug\shapes\heart\heart_close.gif" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="bin\Debug\shapes\heart\heart_open.gif" />
   </ItemGroup>
   <ItemGroup>
@@ -177,7 +174,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\2x.png" />
+    <Content Include="Resources\arrow_close.gif" />
+    <Content Include="Resources\arrow_open.gif" />
+    <Content Include="Resources\arrow_still.jpg" />
     <Content Include="Resources\closed_card.jpg" />
+    <Content Include="Resources\diamond_close.gif" />
+    <Content Include="Resources\diamond_open.gif" />
+    <Content Include="Resources\diamond_still.jpg" />
     <Content Include="Resources\find_next.jpg" />
     <Content Include="Resources\heart_close.gif" />
     <Content Include="Resources\heart_open.gif" />
@@ -188,7 +191,13 @@
     <Content Include="Resources\I_close.gif" />
     <Content Include="Resources\I_open.gif" />
     <Content Include="Resources\I_still.jpg" />
+    <Content Include="Resources\mars_close.gif" />
+    <Content Include="Resources\mars_open.gif" />
+    <Content Include="Resources\mars_still.jpg" />
     <Content Include="Resources\memory_icon.ico" />
+    <Content Include="Resources\moon_close.gif" />
+    <Content Include="Resources\moon_open.gif" />
+    <Content Include="Resources\moon_still.jpg" />
     <Content Include="Resources\open_cards.jpg" />
     <Content Include="Resources\pair_game_score.txt" />
     <Content Include="Resources\ready_to_open.gif" />
