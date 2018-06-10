@@ -10,6 +10,7 @@ namespace Memory
     [Serializable]
     public class Card
     {
+        //test
         public string Shape { get; set; }
         public Image OpenCard { get; set; }
         public Image CloseCard { get; set; }
