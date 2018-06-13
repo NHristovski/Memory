@@ -187,5 +187,40 @@ namespace Memory
         }
     }
 
+    public class SequenceGamePlayer : Player
+    {
+        public int TotalTime { get; private set; }
+
+        public SequenceGamePlayer(string name) : base(name, null)
+        {
+            TotalTime = 0;
+        }
+
+        public void GivePoints(int points)
+        {
+            Score.Points += points;
+        }
+
+        public void ReducePoints(int points)
+        {
+            if (Score.Points >= points)
+            {
+                Score.Points -= points;
+            }
+            // Maybe exception ?
+        }
+
+        // Useless
+
+        public override Tuple<string, string> ChoseMove(List<Tuple<string, string>> unpairedOpenPairs, List<string> openedCards, HashSet<string> validPicutreBoxes, Dictionary<string, Card> cardsDictionary, Random rand)
+        {
+            return null;
+        }
+
+        public override bool isBot()
+        {
+            return false;
+        }
+    }
 
 }

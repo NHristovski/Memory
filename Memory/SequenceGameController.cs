@@ -26,6 +26,10 @@ namespace Memory
         public int SequencerTimeInMilliseconds { get; set; } // Shouldnt be changed (Repeats every second level)
         protected int CurrentSequencerTime { get; set; } // How many milliseconds will the Sequencer be opened
         //
+        // Player needed
+        private int ElapsedRoundTimeInSeconds { get; set; }
+        private int PointsMultiplier { get; set; }
+        private static readonly int points = 100;
 
         protected DockingStationManager dockingStationManager { get; set; }
         protected PictureBoxManager pictureBoxManager { get; set; }
@@ -54,6 +58,7 @@ namespace Memory
 
         public void InitializeGame() // Call only once
         {
+            PointsMultiplier = 1;
             NumberOfDockingStations = StartNumberOfDockingStations;
             RoundTimer.Interval = 1000;
             InitializeRound();
@@ -65,6 +70,8 @@ namespace Memory
 
         protected void InitializeRound()
         {
+            ElapsedRoundTimeInSeconds = 0;
+
             if (CurrentRound % 2 == 0) // Second level
             {
                 RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / SecondLevelDivisor - SecondLevelTimeReducerInSeconds;
@@ -91,16 +98,39 @@ namespace Memory
         private void roundTimer_Tick(object sender, EventArgs e)
         {
             RemainingRoundTimeInSeconds--;
-            int minutes = RemainingRoundTimeInSeconds / 60;
-            int seconds = RemainingRoundTimeInSeconds - minutes * 60;
+            ElapsedRoundTimeInSeconds++;
 
-            ParentForm.setRoundTimeLabel(String.Format("{0:00}:{1:00}", minutes, seconds));
+            ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds) + " : " + ElapsedRoundTimeInSeconds.ToString());
 
             if(RemainingRoundTimeInSeconds == 0)
             {
                 RoundTimer.Stop();
                 enddGame();
             }
+        }
+
+        protected void EndOfRound()
+        {
+            // Give player points
+            ((SequenceGamePlayer)Player1).GivePoints(points * PointsMultiplier);
+            // Increase multiplier
+            PointsMultiplier++;
+
+            RoundTimer.Stop();
+            MessageBox.Show("End of round");
+
+            if (CurrentRound % 2 == 0) // If second level finished
+            {
+                NumberOfDockingStations++;
+            }
+
+            if (CurrentRound == (EndNumberOfDockingStations - StartNumberOfDockingStations + 1) * 2)
+            {
+                enddGame();
+            }
+
+            CurrentRound++;
+            pictureBoxManager.resetPictureBoxes();
         }
 
         public void HandlePictureBoxRelease(PictureBox dockingPictureBox)
@@ -140,6 +170,15 @@ namespace Memory
                                                   Image.FromFile(Paths.pathToResources + shape + "_close.gif"),
                                                   Image.FromFile(Paths.pathToResources + shape + "_still.jpg"));
         }
+
+        public string getTimeRepresentation(int timeInSeconds)
+        {
+            return (timeInSeconds > 3600) ?
+                string.Format("{0:00}:{1:00}:{2:00}", timeInSeconds / 3600, (timeInSeconds % 3600) / 60, (timeInSeconds % 3600) % 60)
+                :
+                string.Format("{0:00}:{1:00}", timeInSeconds / 60, timeInSeconds % 60);
+        }
+        // *
 
         public void DrawDockingStations(Graphics g)
         {
@@ -183,28 +222,6 @@ namespace Memory
         protected override void startGame()
         {
             throw new NotImplementedException();
-        }
-
-        protected void EndOfRound()
-        {
-            // Give player points
-            // Increase multiplier
-            // RoundTimer.Stop();
-            RoundTimer.Stop();
-            MessageBox.Show("End of round");
-
-            if (CurrentRound % 2 == 0) // If second level finished
-            {
-                NumberOfDockingStations++;
-            }
-
-            if (CurrentRound == (EndNumberOfDockingStations - StartNumberOfDockingStations + 1 ) * 2)
-            {
-                enddGame();
-            }
-
-            CurrentRound++;
-            pictureBoxManager.resetPictureBoxes();
         }
 
         public void resetGame() // Will be changed !!
