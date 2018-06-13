@@ -47,6 +47,9 @@
   <ItemGroup>
     <Compile Include="DockingStation.cs" />
     <Compile Include="DockingStationManager.cs" />
+    <Compile Include="DoubleBufferedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Events.cs" />
     <Compile Include="IObserver.cs" />
     <Compile Include="NotEnoughScoreException.cs" />
@@ -207,9 +210,12 @@
     <Content Include="Resources\floppy_close.gif" />
     <Content Include="Resources\floppy_open.gif" />
     <Content Include="Resources\floppy_still.jpg" />
+    <None Include="Resources\green_cup.png" />
+    <None Include="Resources\green_cup_dark.png" />
     <Content Include="Resources\heart_close.gif" />
     <Content Include="Resources\heart_open.gif" />
     <Content Include="Resources\heart_still.jpg" />
+    <Content Include="Resources\high.png" />
     <Content Include="Resources\IRed_close.gif" />
     <Content Include="Resources\IRed_open.gif" />
     <Content Include="Resources\IRed_still.jpg" />

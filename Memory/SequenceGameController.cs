@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Memory
@@ -12,7 +9,7 @@ namespace Memory
     {
         // Variables for Game Modes: Easy, Normal, Hard
         public GameModes gameMode { get; set; }
-        private static readonly int numberOfLevels = 2;
+        //private static readonly int numberOfLevels = 2;
 
         protected int CurrentRound { get; set; }
         protected int NumberOfDockingStations { get; set; }
@@ -68,6 +65,7 @@ namespace Memory
             pictureBoxManager.DisplayPictureBoxes();
             sequencerManager.CreateSequencerPictureBox(pictureBoxManager.getPictureBoxVerticalLocation(), dockingStationManager.getDockingStationVerticalLocation());
             RoundTimer.Tick += new EventHandler(roundTimer_Tick);
+            pictureBoxManager.bringPictureBoxesToFront();
         }
 
         protected void InitializeRound()

@@ -17,6 +17,7 @@ namespace Memory
         public SequenceGameForm()
         {
             InitializeComponent();
+            this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
         }
