@@ -82,9 +82,11 @@ namespace Memory
         {
             State = STATES.NORMAL_STATE;
             Player2 = player2;
-            shapes = new string[] { "spade", "heart", "I", "IRed",
-                "V", "X", "arrow", "diamond", "mars", "moon",
-                "star", "triangle", "venera"}; // not complete
+
+            shapes = new string[] { "trinity_knot", "pi", "spade", "heart",
+                                    "X", "tree", "arrow", "diamond", "mars",
+                                    "I", "IRed", "V", "moon", "star", "floppy",
+                                    "triangle","venera", "yin_yang", "delta"};
 
             this.x2Price = x2Price;
             this.secondChancePrice = secondChancePrice;

@@ -45,9 +45,11 @@ namespace Memory
             dockingStationManager = new DockingStationManager(this, parent.Width, parent.Height);
             pictureBoxManager = new PictureBoxManager(this, parent);
             DockingRelations = new Dictionary<PictureBox, DockingStation>();
-            shapes = new string[] { "trinity_knot", "pi", "spade", "heart", "X", "tree", "arrow", "diamond", "mars", "I",
-                "IRed", "V", "moon", "star", "floppy", "triangle",
-                "venera", "yin_yang", "delta"};
+
+            shapes = new string[] { "trinity_knot", "pi", "spade", "heart",
+                                    "X", "tree", "arrow", "diamond", "mars",
+                                    "I", "IRed", "V", "moon", "star", "floppy",
+                                    "triangle","venera", "yin_yang", "delta"};
 
             // "trinity_knot", "pi", "yin_yang", "delta", "tree", "floppy"
             sequencerManager = new SequencerManager(parent, this);

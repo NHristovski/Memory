@@ -127,6 +127,7 @@
     <Compile Include="Starter.Designer.cs">
       <DependentUpon>Starter.cs</DependentUpon>
     </Compile>
+    <Compile Include="ThreadHelperClass.cs" />
     <EmbeddedResource Include="EasyPairGame.resx">
       <DependentUpon>EasyPairGame.cs</DependentUpon>
     </EmbeddedResource>
