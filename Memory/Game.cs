@@ -163,13 +163,6 @@ namespace Memory
                 cards.RemoveAt(index);
             }
 
-            /*StringBuilder sb = new StringBuilder();
-
-            foreach (var elem in cardsDictionary)
-            {
-                sb.Append(elem.Key.Name).Append("-").Append(elem.Value.Shape).Append("\n");
-            } 
-            MessageBox.Show(sb.ToString());*/
         }
 
 
@@ -190,7 +183,6 @@ namespace Memory
                 winner = " DRAW! ";
             }
 
-            //PlayerDocument.Players.Add(Player1);
             using (StreamWriter sw = File.AppendText(Paths.pathToPairGameScores))
             {
                 var phrase = string.Join(",", Player1.ToString().Split(new char[] { ' ' }));
@@ -198,7 +190,6 @@ namespace Memory
                 if (!Player2.isBot())
                 { 
                     phrase = string.Join(",", Player2.ToString().Split(new char[] { ' ' }));
-                    //PlayerDocument.Players.Add(Player2);
                     sw.WriteLine(phrase);
                 }
             }
