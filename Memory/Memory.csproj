@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="DockingStation.cs" />
     <Compile Include="DockingStationManager.cs" />
     <Compile Include="DoubleBufferedPanel.cs">
@@ -131,6 +137,9 @@
       <DependentUpon>Starter.cs</DependentUpon>
     </Compile>
     <Compile Include="ThreadHelperClass.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EasyPairGame.resx">
       <DependentUpon>EasyPairGame.cs</DependentUpon>
     </EmbeddedResource>

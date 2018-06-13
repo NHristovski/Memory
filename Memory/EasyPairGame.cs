@@ -931,7 +931,9 @@ namespace Memory
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tuka treba da gi pisuva pravilata na igrata");
+            //MessageBox.Show("Tuka treba da gi pisuva pravilata na igrata");
+            About about = new About();
+            about.Show();
         }
 
     }
