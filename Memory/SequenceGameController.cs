@@ -41,7 +41,11 @@ namespace Memory
             dockingStationManager = new DockingStationManager(this, parent.Width, parent.Height);
             pictureBoxManager = new PictureBoxManager(this, parent);
             DockingRelations = new Dictionary<PictureBox, DockingStation>();
-            shapes = new string[] { "spade", "heart", "I", "IRed", "V", "X" };
+            shapes = new string[] { "trinity_knot", "pi", "spade", "heart", "X", "tree", "arrow", "diamond", "mars", "I",
+                "IRed", "V", "moon", "star", "floppy", "triangle",
+                "venera", "yin_yang", "delta"};
+
+            // "trinity_knot", "pi", "yin_yang", "delta", "tree", "floppy"
             sequencerManager = new SequencerManager(parent, this);
             ParentForm = parent;
             RoundTimer = new Timer();
@@ -57,6 +61,31 @@ namespace Memory
             pictureBoxManager.DisplayPictureBoxes();
             sequencerManager.CreateSequencerPictureBox(pictureBoxManager.getPictureBoxVerticalLocation(), dockingStationManager.getDockingStationVerticalLocation());
             RoundTimer.Tick += new EventHandler(roundTimer_Tick);
+        }
+
+        protected void InitializeRound()
+        {
+            if (CurrentRound % 2 == 0) // Second level
+            {
+                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / SecondLevelDivisor - SecondLevelTimeReducerInSeconds;
+                CurrentSequencerTime = SequencerTimeInMilliseconds - 500;
+            }
+            else // First level
+            {
+                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / FirstLevelDivisor - FirstLevelTimeReducerInSeconds;
+                CurrentSequencerTime = SequencerTimeInMilliseconds;
+            }
+
+            //sequencerManager.sequencingTimer.Interval = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
+            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            ParentForm.Invalidate();
+            sequencerManager.setCardSequence(GenerateRandomCardSequence());
+            sequencerManager.SequencerTime = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
+            //RoundTimer.Interval = RemainingRoundTimeInSeconds * 1000;
+            MessageBox.Show("Round: " + CurrentRound.ToString() + " - " + gameMode.ToString()
+                          + "\nDockers: " + NumberOfDockingStations
+                          + "\nRound time: " + RemainingRoundTimeInSeconds + "s"
+                          + "\nSequencer time: " + CurrentSequencerTime + "ms");
         }
 
         private void roundTimer_Tick(object sender, EventArgs e)
@@ -154,31 +183,6 @@ namespace Memory
         protected override void startGame()
         {
             throw new NotImplementedException();
-        }
-
-        protected void InitializeRound()
-        {
-            if (CurrentRound % 2 == 0) // Second level
-            {
-                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / SecondLevelDivisor - SecondLevelTimeReducerInSeconds;
-                CurrentSequencerTime = SequencerTimeInMilliseconds - 500;
-            }
-            else // First level
-            {
-                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / FirstLevelDivisor - FirstLevelTimeReducerInSeconds;
-                CurrentSequencerTime = SequencerTimeInMilliseconds;
-            }
-
-            //sequencerManager.sequencingTimer.Interval = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
-            dockingStationManager.GenerateStations(NumberOfDockingStations);
-            ParentForm.Invalidate();
-            sequencerManager.setCardSequence(GenerateRandomCardSequence());
-            sequencerManager.SequencerTime = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
-            //RoundTimer.Interval = RemainingRoundTimeInSeconds * 1000;
-            MessageBox.Show("Round: " + CurrentRound.ToString() + " - " + gameMode.ToString()
-                          + "\nDockers: " + NumberOfDockingStations
-                          + "\nRound time: " + RemainingRoundTimeInSeconds + "s"
-                          + "\nSequencer time: " + CurrentSequencerTime + "ms");
         }
 
         protected void EndOfRound()

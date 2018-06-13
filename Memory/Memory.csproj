@@ -178,10 +178,16 @@
     <Content Include="Resources\arrow_open.gif" />
     <Content Include="Resources\arrow_still.jpg" />
     <Content Include="Resources\closed_card.jpg" />
+    <Content Include="Resources\delta_close.gif" />
+    <Content Include="Resources\delta_open.gif" />
+    <Content Include="Resources\delta_still.jpg" />
     <Content Include="Resources\diamond_close.gif" />
     <Content Include="Resources\diamond_open.gif" />
     <Content Include="Resources\diamond_still.jpg" />
     <Content Include="Resources\find_next.jpg" />
+    <Content Include="Resources\floppy_close.gif" />
+    <Content Include="Resources\floppy_open.gif" />
+    <Content Include="Resources\floppy_still.jpg" />
     <Content Include="Resources\heart_close.gif" />
     <Content Include="Resources\heart_open.gif" />
     <Content Include="Resources\heart_still.jpg" />
@@ -200,6 +206,9 @@
     <Content Include="Resources\moon_still.jpg" />
     <Content Include="Resources\open_cards.jpg" />
     <Content Include="Resources\pair_game_score.txt" />
+    <Content Include="Resources\pi_close.gif" />
+    <Content Include="Resources\pi_open.gif" />
+    <Content Include="Resources\pi_still.jpg" />
     <Content Include="Resources\ready_to_open.gif" />
     <Content Include="Resources\second_chance.jpg" />
     <Content Include="Resources\spade_close.gif" />
@@ -208,9 +217,15 @@
     <Content Include="Resources\star_close.gif" />
     <Content Include="Resources\star_open.gif" />
     <Content Include="Resources\star_still.jpg" />
+    <Content Include="Resources\tree_close.gif" />
+    <Content Include="Resources\tree_open.gif" />
+    <Content Include="Resources\tree_still.jpg" />
     <Content Include="Resources\triangle_close.gif" />
     <Content Include="Resources\triangle_open.gif" />
     <Content Include="Resources\triangle_still.jpg" />
+    <Content Include="Resources\trinity_knot_close.gif" />
+    <Content Include="Resources\trinity_knot_open.gif" />
+    <Content Include="Resources\trinity_knot_still.jpg" />
     <Content Include="Resources\V_close.gif" />
     <Content Include="Resources\V_open.gif" />
     <Content Include="Resources\V_still.jpg" />
@@ -220,6 +235,9 @@
     <Content Include="Resources\X_close.gif" />
     <Content Include="Resources\X_open.gif" />
     <Content Include="Resources\X_still.jpg" />
+    <Content Include="Resources\yin_yang_close.gif" />
+    <Content Include="Resources\yin_yang_open.gif" />
+    <Content Include="Resources\yin_yang_still.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
