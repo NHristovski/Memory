@@ -112,7 +112,7 @@ namespace Memory
         protected void EndOfRound()
         {
             // Give player points
-            ((SequenceGamePlayer)Player1).GivePoints(points * PointsMultiplier);
+            //((SequenceGamePlayer)Player1).GivePoints(points * PointsMultiplier);
             // Increase multiplier
             PointsMultiplier++;
 
@@ -131,6 +131,7 @@ namespace Memory
 
             CurrentRound++;
             pictureBoxManager.resetPictureBoxes();
+            //dockingStationManager.resetDockingStations();
         }
 
         public void HandlePictureBoxRelease(PictureBox dockingPictureBox)

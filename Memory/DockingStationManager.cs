@@ -105,8 +105,8 @@ namespace Memory
 
         public void resetDockingStations()
         {
-            Stations.ForEach(s => s.Docked = false);
-            Stations.Clear();
+            Stations.ForEach(s => s.resetDockingStation());
+            //Stations.Clear();
         }
     }
 }
