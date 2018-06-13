@@ -86,7 +86,7 @@ namespace Memory
             shapes = new string[] { "trinity_knot", "pi", "spade", "heart",
                                     "X", "tree", "arrow", "diamond", "mars",
                                     "I", "IRed", "V", "moon", "star", "floppy",
-                                    "triangle","venera", "yin_yang", "delta"};
+                                    "triangle","venera", "yin_yang", "delta","git"};
 
             this.x2Price = x2Price;
             this.secondChancePrice = secondChancePrice;
@@ -141,12 +141,12 @@ namespace Memory
             for (int i = 0; i < pictureBoxes.Count / 2; i++)
             {
                 int index = rand.Next(shapes.Length); // chose one shape
-                //if (picked.Contains(index)) // see if it is already chosen
-                //{
-                  //  i--;
-                //}
-                //else
-               // {
+                if (picked.Contains(index)) // see if it is already chosen
+                {
+                    i--;
+                }
+                else
+                {
                     picked.Add(index);
                     string shape = shapes[index];
 
@@ -155,7 +155,7 @@ namespace Memory
                     Card card = new Card(shape, images.Item1, images.Item2, images.Item3);
                     cards.Add(card);
                     cards.Add(card);
-              //  }
+                }
 
             }
             for (int i = 0; i < pictureBoxes.Count; i++)

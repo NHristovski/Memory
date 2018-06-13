@@ -210,6 +210,9 @@
     <Content Include="Resources\floppy_close.gif" />
     <Content Include="Resources\floppy_open.gif" />
     <Content Include="Resources\floppy_still.jpg" />
+    <Content Include="Resources\git_close.gif" />
+    <Content Include="Resources\git_open.gif" />
+    <Content Include="Resources\git_still.jpg" />
     <None Include="Resources\green_cup.png" />
     <None Include="Resources\green_cup_dark.png" />
     <Content Include="Resources\heart_close.gif" />
