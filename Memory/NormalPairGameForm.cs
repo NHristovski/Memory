@@ -114,6 +114,7 @@ namespace Memory
         private void tick(Object stateInfo)
         {
             game.Time += 1;
+            ThreadHelperClass.SetText(this, textBoxTime, game.getTimeRepresentation());
         }
 
         private void init()
