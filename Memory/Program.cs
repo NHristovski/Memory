@@ -16,7 +16,7 @@ namespace Memory
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new StarterForm()); // new SequenceGameForm());
+            Application.Run(new StarterForm()); // new SequenceGameLauncher()
         }
     }
 }

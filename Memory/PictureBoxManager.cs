@@ -153,13 +153,6 @@ namespace Memory
 
         public void resetPictureBoxes()
         {
-            //foreach (PictureBox pb in PictureBoxes)
-            //{
-            //    Point initialLocation = getPictureBoxInitialLocation(pb);
-            //    if (initialLocation != Point.Empty)
-            //        pb.Location = initialLocation;
-            //}
-
             PictureBoxes.ForEach(pb => this.resetPictureBox(pb));
         }
 
@@ -171,6 +164,14 @@ namespace Memory
         public void forbidPictureBoxInteraction()
         {
             PictureBoxes.ForEach(pb => pb.Enabled = false);
+        }
+
+        public void bringPictureBoxesToFront()
+        {
+            for(int i = PictureBoxes.Count() - 1; i >= 0; i--)
+            {
+                PictureBoxes[i].BringToFront();
+            }
         }
     }
 }

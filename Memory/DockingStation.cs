@@ -51,5 +51,11 @@ namespace Memory
             redPen.Dispose();
             pn.Dispose();
         }
+
+        public void resetDockingStation()
+        {
+            Docked = false;
+            DockedCard = null;
+        }
     }
 }

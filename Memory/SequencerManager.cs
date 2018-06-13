@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -144,6 +145,11 @@ namespace Memory
             }
 
             return true;
+        }
+
+        public Point getSequencerMiddlePoint()
+        {
+            return new Point(SequencingPictureBox.Location.X, SequencingPictureBox.Location.Y + height / 2); 
         }
     }
 }
