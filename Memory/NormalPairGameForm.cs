@@ -114,7 +114,6 @@ namespace Memory
         private void tick(Object stateInfo)
         {
             game.Time += 1;
-            textBoxTime.Text = game.getTimeRepresentation();
         }
 
         private void init()
@@ -240,6 +239,8 @@ namespace Memory
             textBoxAvaliableFindNext.Text = game.getFindNextAvaliable();
             textBoxAvaliableOpenCards.Text = game.getOpenCardsAvaliable();
             textBoxAvalibleSecondChance.Text = game.getSecondChanceAvaliable();
+
+            textBoxTime.Text = game.getTimeRepresentation();
 
             this.Refresh();
         }
