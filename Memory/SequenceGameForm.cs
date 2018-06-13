@@ -17,14 +17,12 @@ namespace Memory
         public SequenceGameForm()
         {
             InitializeComponent();
-            SequenceGameControllerFactory factory = new SequenceGameControllerFactory(null, this);
-            GameController = factory.createSequenceGameController(GameModes.Easy);
         }
 
         private void buttonGenerateStations_Click(object sender, EventArgs e)
         {
-            GameController.InitializeGame();
-            Invalidate();
+            //GameController.InitializeGame();
+            //Invalidate();
         }
 
         private void SequenceGameForm_Paint(object sender, PaintEventArgs e)
@@ -40,6 +38,12 @@ namespace Memory
         public void setRoundTimeLabel(string content)
         {
             lblRoundTime.Text = content;
+        }
+
+        private void SequenceGameForm_Load(object sender, EventArgs e)
+        {
+            //GameController.InitializeGame();
+            Invalidate();
         }
     }
 }

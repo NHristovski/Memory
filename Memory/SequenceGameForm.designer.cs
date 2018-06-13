@@ -73,6 +73,7 @@
             this.Name = "SequenceGameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SequenceGameForm";
+            this.Load += new System.EventHandler(this.SequenceGameForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SequenceGameForm_Paint);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -190,10 +190,14 @@ namespace Memory
     public class SequenceGamePlayer : Player
     {
         public int TotalTime { get; private set; }
+        public string GameType { get; set; }
+        public int Level { get; set; }
 
         public SequenceGamePlayer(string name) : base(name, null)
         {
             TotalTime = 0;
+            GameType = "";
+            Level = 0;
         }
 
         public void GivePoints(int points)
