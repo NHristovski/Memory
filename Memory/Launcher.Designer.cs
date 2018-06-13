@@ -47,6 +47,7 @@
             this.buttonStart = new System.Windows.Forms.Button();
             this.errorProviderP1Name = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderP2Name = new System.Windows.Forms.ErrorProvider(this.components);
+            this.buttonOpen = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxBotLevel.SuspendLayout();
@@ -81,7 +82,7 @@
             this.groupBox1.Controls.Add(this.radioButtonHard);
             this.groupBox1.Controls.Add(this.radioButtonMedium);
             this.groupBox1.Controls.Add(this.radioButtonEasy);
-            this.groupBox1.Location = new System.Drawing.Point(31, 139);
+            this.groupBox1.Location = new System.Drawing.Point(31, 112);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(203, 197);
             this.groupBox1.TabIndex = 3;
@@ -91,7 +92,7 @@
             // radioButtonHard
             // 
             this.radioButtonHard.AutoSize = true;
-            this.radioButtonHard.Location = new System.Drawing.Point(16, 134);
+            this.radioButtonHard.Location = new System.Drawing.Point(16, 153);
             this.radioButtonHard.Name = "radioButtonHard";
             this.radioButtonHard.Size = new System.Drawing.Size(68, 21);
             this.radioButtonHard.TabIndex = 2;
@@ -101,7 +102,7 @@
             // radioButtonMedium
             // 
             this.radioButtonMedium.AutoSize = true;
-            this.radioButtonMedium.Location = new System.Drawing.Point(16, 86);
+            this.radioButtonMedium.Location = new System.Drawing.Point(16, 96);
             this.radioButtonMedium.Name = "radioButtonMedium";
             this.radioButtonMedium.Size = new System.Drawing.Size(83, 21);
             this.radioButtonMedium.TabIndex = 1;
@@ -141,7 +142,7 @@
             this.groupBox2.Controls.Add(this.textBoxPlayer2Name);
             this.groupBox2.Location = new System.Drawing.Point(382, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(314, 381);
+            this.groupBox2.Size = new System.Drawing.Size(314, 346);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Player 2";
@@ -161,9 +162,9 @@
             this.groupBoxBotLevel.Controls.Add(this.radioButtonBotHard);
             this.groupBoxBotLevel.Controls.Add(this.radioButtonBotMedium);
             this.groupBoxBotLevel.Controls.Add(this.radioButtonBotEasy);
-            this.groupBoxBotLevel.Location = new System.Drawing.Point(23, 213);
+            this.groupBoxBotLevel.Location = new System.Drawing.Point(23, 196);
             this.groupBoxBotLevel.Name = "groupBoxBotLevel";
-            this.groupBoxBotLevel.Size = new System.Drawing.Size(247, 152);
+            this.groupBoxBotLevel.Size = new System.Drawing.Size(247, 136);
             this.groupBoxBotLevel.TabIndex = 8;
             this.groupBoxBotLevel.TabStop = false;
             this.groupBoxBotLevel.Text = "Bot Level";
@@ -171,7 +172,7 @@
             // radioButtonBotHard
             // 
             this.radioButtonBotHard.AutoSize = true;
-            this.radioButtonBotHard.Location = new System.Drawing.Point(9, 106);
+            this.radioButtonBotHard.Location = new System.Drawing.Point(9, 107);
             this.radioButtonBotHard.Name = "radioButtonBotHard";
             this.radioButtonBotHard.Size = new System.Drawing.Size(68, 21);
             this.radioButtonBotHard.TabIndex = 3;
@@ -203,7 +204,7 @@
             // radioButtonBot
             // 
             this.radioButtonBot.AutoSize = true;
-            this.radioButtonBot.Location = new System.Drawing.Point(23, 170);
+            this.radioButtonBot.Location = new System.Drawing.Point(23, 169);
             this.radioButtonBot.Name = "radioButtonBot";
             this.radioButtonBot.Size = new System.Drawing.Size(50, 21);
             this.radioButtonBot.TabIndex = 7;
@@ -228,7 +229,7 @@
             // 
             this.buttonStart.BackColor = System.Drawing.SystemColors.Info;
             this.buttonStart.ForeColor = System.Drawing.Color.Black;
-            this.buttonStart.Location = new System.Drawing.Point(47, 360);
+            this.buttonStart.Location = new System.Drawing.Point(31, 315);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(158, 43);
             this.buttonStart.TabIndex = 7;
@@ -244,12 +245,25 @@
             // 
             this.errorProviderP2Name.ContainerControl = this;
             // 
+            // buttonOpen
+            // 
+            this.buttonOpen.BackColor = System.Drawing.SystemColors.Info;
+            this.buttonOpen.ForeColor = System.Drawing.Color.Black;
+            this.buttonOpen.Location = new System.Drawing.Point(218, 315);
+            this.buttonOpen.Name = "buttonOpen";
+            this.buttonOpen.Size = new System.Drawing.Size(158, 43);
+            this.buttonOpen.TabIndex = 8;
+            this.buttonOpen.Text = "O P E N";
+            this.buttonOpen.UseVisualStyleBackColor = false;
+            this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
+            // 
             // Launcher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(708, 415);
+            this.ClientSize = new System.Drawing.Size(708, 373);
+            this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -290,5 +304,6 @@
         private System.Windows.Forms.Label labelPlayer2Name;
         private System.Windows.Forms.ErrorProvider errorProviderP1Name;
         private System.Windows.Forms.ErrorProvider errorProviderP2Name;
+        private System.Windows.Forms.Button buttonOpen;
     }
 }
