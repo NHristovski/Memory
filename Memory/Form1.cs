@@ -30,8 +30,10 @@ namespace Memory
             //this.Hide();
             //epg.ShowDialog();
             //this.Show();
-            Launcher launcher = new Launcher();
-            launcher.ShowDialog();
+            //Launcher launcher = new Launcher();
+            //launcher.ShowDialog();
+            Starter starter = new Starter();
+            starter.ShowDialog();
         }
 
         private void buttonEnd_Click(object sender, EventArgs e)

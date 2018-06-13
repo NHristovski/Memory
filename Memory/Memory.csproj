@@ -115,6 +115,12 @@
     <Compile Include="Scores.Designer.cs">
       <DependentUpon>Scores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Starter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Starter.Designer.cs">
+      <DependentUpon>Starter.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="EasyPairGame.resx">
       <DependentUpon>EasyPairGame.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +146,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Scores.resx">
       <DependentUpon>Scores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Starter.resx">
+      <DependentUpon>Starter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -194,12 +203,14 @@
     <Content Include="Resources\mars_close.gif" />
     <Content Include="Resources\mars_open.gif" />
     <Content Include="Resources\mars_still.jpg" />
+    <Content Include="Resources\medium.png" />
     <Content Include="Resources\memory_icon.ico" />
     <Content Include="Resources\moon_close.gif" />
     <Content Include="Resources\moon_open.gif" />
     <Content Include="Resources\moon_still.jpg" />
     <Content Include="Resources\open_cards.jpg" />
     <Content Include="Resources\pair_game_score.txt" />
+    <Content Include="Resources\pair_game_starter.png" />
     <Content Include="Resources\ready_to_open.gif" />
     <Content Include="Resources\second_chance.jpg" />
     <Content Include="Resources\spade_close.gif" />

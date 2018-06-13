@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -171,5 +174,78 @@ namespace Memory
             errorProviderP2Name.SetError(textBoxPlayer2Name, null);
         }
 
+        private void buttonOpen_Click(object sender, EventArgs e)
+        {
+            FileStream fileStream = null;
+            string openFileName = string.Empty;
+            try
+            {
+                var openFileDialog = new OpenFileDialog
+                {
+                    Title = "Open Pair Game",
+                    Filter = "Easy Pair Game (.easy)|*.easy|Normal Pair Game (.normal)|*.normal|Hard Pair Game (.hard)|*.hard"
+                };
+
+                var result = openFileDialog.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    openFileName = openFileDialog.FileName;
+
+                    if (openFileName != string.Empty && openFileName != null)
+                    {
+                        IFormatter formatter = new BinaryFormatter();
+                        fileStream = new FileStream(openFileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+
+                        PairGame g = (PairGame)(formatter.Deserialize(fileStream));
+
+                        if (openFileName.EndsWith(".easy"))
+                        {
+                            this.Dispose();
+                            EasyPairGameForm easy = new EasyPairGameForm(g.Player1, g.Player2);
+                            easy.game.setInfo(g.getInfo());
+                            easy.game.Time = g.Time;
+                            easy.saveFileName = openFileName;
+                            staticRunNewPairGame(easy);
+
+                        }
+                        else if (openFileName.EndsWith(".normal"))
+                        {
+                            this.Dispose();
+                            var normal = new NormalPairGameForm(g.Player1, g.Player2);
+                            normal.game.setInfo(g.getInfo());
+                            normal.game.Time = g.Time;
+                            normal.saveFileName = openFileName;
+                            staticRunNewPairGame(normal);
+                        }
+                        else if (openFileName.EndsWith(".hard"))
+                        {
+                            this.Dispose();
+                            var hard = new HardPairGameForm(g.Player1, g.Player2);
+                            hard.game.setInfo(g.getInfo());
+                            hard.game.Time = g.Time;
+                            hard.saveFileName = openFileName;
+                            staticRunNewPairGame(hard);
+                        }
+                        else
+                        {
+                            throw new InvalidDataException("This file can not be opened!");
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("There was a problem opening this file!\nOriginal message: " + ex.Message);
+            }
+            finally
+            {
+                if (fileStream != null)
+                {
+                    fileStream.Close();
+                }
+            }
+        }
     }
 }

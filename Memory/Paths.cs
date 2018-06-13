@@ -33,5 +33,6 @@ namespace Memory
 
         public static readonly string pathToPairGameScores = pathToResources + "pair_game_score.txt";
 
+        public static readonly string pathToMediumGamePicture = pathToResources + "pair_game_starter.png";
     }
 }
