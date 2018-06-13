@@ -86,6 +86,7 @@ namespace Memory
             //sequencerManager.sequencingTimer.Interval = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
             dockingStationManager.GenerateStations(NumberOfDockingStations);
             ParentForm.Invalidate();
+            ParentForm.setRoundLabel(CurrentRound);
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
             sequencerManager.SequencerTime = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
             //RoundTimer.Interval = RemainingRoundTimeInSeconds * 1000;
@@ -100,7 +101,7 @@ namespace Memory
             RemainingRoundTimeInSeconds--;
             ElapsedRoundTimeInSeconds++;
 
-            ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds) + " : " + ElapsedRoundTimeInSeconds.ToString());
+            ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds));
 
             if(RemainingRoundTimeInSeconds == 0)
             {
@@ -112,7 +113,8 @@ namespace Memory
         protected void EndOfRound()
         {
             // Give player points
-            //((SequenceGamePlayer)Player1).GivePoints(points * PointsMultiplier);
+            ((SequenceGamePlayer)Player1).GivePoints(points * PointsMultiplier);
+            ParentForm.setPointsLabel(Player1.Score.Points);
             // Increase multiplier
             PointsMultiplier++;
 
@@ -254,6 +256,11 @@ namespace Memory
         public override DialogResult endGame()
         {
             throw new NotImplementedException();
+        }
+
+        public int calculatePanelsPosition(int panelHeight) // X coordinate
+        {
+            return sequencerManager.getSequencerMiddlePoint().Y - (panelHeight / 2);
         }
     }
 }

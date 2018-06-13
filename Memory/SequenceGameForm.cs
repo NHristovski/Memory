@@ -17,13 +17,15 @@ namespace Memory
         public SequenceGameForm()
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
         }
 
-        private void buttonGenerateStations_Click(object sender, EventArgs e)
-        {
-            //GameController.InitializeGame();
-            //Invalidate();
-        }
+        //private void buttonGenerateStations_Click(object sender, EventArgs e)
+        //{
+        //    //GameController.InitializeGame();
+        //    //Invalidate();
+        //}
 
         private void SequenceGameForm_Paint(object sender, PaintEventArgs e)
         {
@@ -40,9 +42,21 @@ namespace Memory
             lblRoundTime.Text = content;
         }
 
+        public void setRoundLabel(int round)
+        {
+            lblRound.Text = round.ToString();
+        }
+
+        public void setPointsLabel(int points)
+        {
+            lblPoints.Text = points.ToString();
+        }
+
         private void SequenceGameForm_Load(object sender, EventArgs e)
         {
             //GameController.InitializeGame();
+            lblPlayerName.Text = GameController.Player1.Name;
+            pnlPlayerStats.Top = GameController.calculatePanelsPosition(pnlPlayerStats.Height);
             Invalidate();
         }
     }
