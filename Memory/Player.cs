@@ -163,27 +163,24 @@ namespace Memory
             return chosingMoveStrategy
                 .ChoseMove(unpairedOpenPairs, openedCards, validPicutreBoxes, cardsDictionary, rand);
         }
-
-        public override void setEasyGameAvaliable()
+        private void setAvaliable()
         {
             x2Avaliable = 0;
             secondChanceAvaliable = 0;
             findNextAvaliable = 0;
             openCardsAvaliable = 0;
+        }
+        public override void setEasyGameAvaliable()
+        {
+            setAvaliable();
         }
         public override void setNormalGameAvaliable()
         {
-            x2Avaliable = 0;
-            secondChanceAvaliable = 0;
-            findNextAvaliable = 0;
-            openCardsAvaliable = 0;
+            setAvaliable();
         }
         public override void setHardGameAvaliable()
         {
-            x2Avaliable = 0;
-            secondChanceAvaliable = 0;
-            findNextAvaliable = 0;
-            openCardsAvaliable = 0;
+            setAvaliable();
         }
     }
 
