@@ -59,7 +59,7 @@ namespace Memory
             // kraj na igrata (end game metodot).
             //     *** Playerot treba da ima DateTime (koga pocnala igrata), score.Points
             //         i string duration ( tajmerot (kolku vreme do zavruvanje na igrata)) za da moze sort da se primeni.
-            
+
             //Vo klasata Paths dodadi static string do toj file.
 
             // E sega sto treba da pravi ovoj method:
@@ -70,6 +70,20 @@ namespace Memory
             //     ( jas gi zapisuvam vo csv format vo fileot i tuka samo pravam
             //       split(',') i gi dobivam delovite. Dzirni podole ako nesto ne e jasno).
             //done
+
+            string[] scores = File.ReadAllLines(Paths.pathToSequenceGameScores);
+            foreach (var str in scores)
+            {
+                string[] parts = str.Split(new char[] { ',' });
+                SequenceGamePlayer p = PlayerFactory.GetSequenceGamePlayer(parts[0]);
+                p.Score.Points = int.Parse(parts[1]);
+                p.Score.Time = parts[2];
+                p.Level = int.Parse(parts[3]);
+                p.gameStarted = Convert.ToDateTime(parts[4]);
+                p.GameType = parts[6];
+
+                playerDocumentForSequenceGame.addPlayer(p);
+            }
 
 
         }
@@ -107,8 +121,24 @@ namespace Memory
 
             // tuka za sekoj player dodavash row so negovite informacii
             // i na kraj dataGridView1.DataSource = table;
+            dataGridView1.Columns.Clear(); // Added
+            table.Columns.Clear();
+            table.Columns.Add("Rank", typeof(string));
+            table.Columns.Add("Name", typeof(string));
+            table.Columns.Add("Score", typeof(string));
+            table.Columns.Add("Duration", typeof(string));
+            table.Columns.Add("Level", typeof(int));
+            table.Columns.Add("Type", typeof(string));
+            table.Columns.Add("Date", typeof(string));
 
 
+            int counter = 1;
+            foreach (var player in players)
+            {
+                string[] parts = player.ToString().Split(new char[] { ' ' });
+                table.Rows.Add(counter, parts[0], parts[1], parts[2], parts[3], parts[6], parts[4]);
+                counter++;
+            }
 
             dataGridView1.DataSource = table;
         }
@@ -117,13 +147,13 @@ namespace Memory
         {
             DataTable table = new DataTable();
 
+            dataGridView1.Columns.Clear(); // Added
             table.Columns.Add("Rank", typeof(string));
             table.Columns.Add("Name", typeof(string));
             table.Columns.Add("Score", typeof(string));
             table.Columns.Add("Duration", typeof(string));
             table.Columns.Add("Type", typeof(string));
             table.Columns.Add("Date", typeof(string));
-
 
             int counter = 1;
             foreach (var player in players)
@@ -147,6 +177,10 @@ namespace Memory
             else if (comboBox1.SelectedItem.ToString().Equals("Duration"))
             {
                 currentPlayers = PlayerDocument.sortByTime(currentPlayers);
+            }
+            else if (comboBox1.SelectedItem.ToString().Equals("Level")) // Added - Darko
+            {
+                currentPlayers = PlayerDocument.sortByLevel(currentPlayers);
             }
             else // date
             {
@@ -209,7 +243,15 @@ namespace Memory
         private void buttonPairGame_Click(object sender, EventArgs e)
         {
             //// Should this be like this?? CHECK AFTER SEQ GAME IS FINISHED
-            playerDocumentForSequenceGame.Players = currentPlayers;
+            //playerDocumentForSequenceGame.Players = currentPlayers;
+
+            // Added - Darko
+            if (comboBox1.Items.Contains("Level"))
+            {
+                comboBox1.Items.Remove("Level");
+                comboBox1.SelectedIndex = 0;
+            }
+            // *
 
             groupBoxFilter.Visible = true;
             pairGameView = true;
@@ -224,7 +266,12 @@ namespace Memory
         private void buttonSequenceGame_Click(object sender, EventArgs e)
         {
             //// Should this be like this?? CHECK AFTER SEQ GAME IS FINISHED
-            currentPairGamePlayers = currentPlayers;
+            //currentPairGamePlayers = currentPlayers;
+
+            // Added - Darko
+            if (!comboBox1.Items.Contains("Level"))
+                comboBox1.Items.Add("Level");
+            // * 
 
             groupBoxFilter.Visible = false;
             pairGameView = false;
