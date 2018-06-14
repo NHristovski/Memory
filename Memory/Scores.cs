@@ -243,42 +243,47 @@ namespace Memory
         private void buttonPairGame_Click(object sender, EventArgs e)
         {
             //// Should this be like this?? CHECK AFTER SEQ GAME IS FINISHED
-            //playerDocumentForSequenceGame.Players = currentPlayers;
-
-            // Added - Darko
-            if (comboBox1.Items.Contains("Level"))
+            if (!pairGameView)
             {
-                comboBox1.Items.Remove("Level");
-                comboBox1.SelectedIndex = 0;
+                playerDocumentForSequenceGame.Players = currentPlayers;
+
+                // Added - Darko
+                if (comboBox1.Items.Contains("Level"))
+                {
+                    comboBox1.Items.Remove("Level");
+                    comboBox1.SelectedIndex = 0;
+                }
+                // *
+
+                groupBoxFilter.Visible = true;
+                pairGameView = true;
+                currentPlayers = currentPairGamePlayers;
+
+                comboBox1_SelectedValueChanged(null, null);
+                UpdateGridPairGame(currentPlayers);
             }
-            // *
-
-            groupBoxFilter.Visible = true;
-            pairGameView = true;
-            currentPlayers = currentPairGamePlayers;
-
-            comboBox1_SelectedValueChanged(null, null);
-            UpdateGridPairGame(currentPlayers);
-
             
         }
 
         private void buttonSequenceGame_Click(object sender, EventArgs e)
         {
             //// Should this be like this?? CHECK AFTER SEQ GAME IS FINISHED
-            //currentPairGamePlayers = currentPlayers;
+            if (pairGameView)
+            {
+                currentPairGamePlayers = currentPlayers;
 
-            // Added - Darko
-            if (!comboBox1.Items.Contains("Level"))
-                comboBox1.Items.Add("Level");
-            // * 
+                // Added - Darko
+                if (!comboBox1.Items.Contains("Level"))
+                    comboBox1.Items.Add("Level");
+                // * 
 
-            groupBoxFilter.Visible = false;
-            pairGameView = false;
-            currentPlayers = playerDocumentForSequenceGame.Players;
+                groupBoxFilter.Visible = false;
+                pairGameView = false;
+                currentPlayers = playerDocumentForSequenceGame.Players;
 
-            comboBox1_SelectedValueChanged(null, null);
-            UpdateGridSequenceGame(currentPlayers);
+                comboBox1_SelectedValueChanged(null, null);
+                UpdateGridSequenceGame(currentPlayers);
+            }
         }
     }
 }
