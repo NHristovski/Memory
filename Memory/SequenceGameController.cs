@@ -54,7 +54,6 @@ namespace Memory
             ParentForm = parent;
             RoundTimer = new Timer();
             CurrentRound = 1;
-            ((SequenceGamePlayer)Player1).GameType = gameMode.ToString();
         }
 
         public void InitializeGame() // Call only once
@@ -74,6 +73,7 @@ namespace Memory
         {
             ElapsedRoundTimeInSeconds = 0;
             ParentForm.setPointsLabel(Player1.Score.Points);
+            ((SequenceGamePlayer)Player1).Level = CurrentRound;
 
             if (CurrentRound % 2 == 0) // Second level
             {
