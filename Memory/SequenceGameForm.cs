@@ -13,6 +13,10 @@ namespace Memory
     public partial class SequenceGameForm : Form
     {
         public SequenceGameController GameController { get; set; }
+        private string[] endOfRoundMessages;
+        private string[] lostGameMessages;
+
+        private Random rand = new Random();
 
         public SequenceGameForm()
         {
@@ -20,6 +24,23 @@ namespace Memory
             this.DoubleBuffered = true;
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
+            messagesTimer.Interval = 2000;
+
+            endOfRoundMessages = new string[] {
+                "Nice job son !!",
+                "Good round son !!",
+                "You are killing it son !!",
+                "That was close !!"
+            };
+
+            lostGameMessages = new string[]
+            {
+                "You have 4 missed calls from Dad",
+                "Game Over",
+                "Well, better luck next time",
+                "Dad: Your grandma plays better than you",
+                "You ran out of time"
+            };
         }
 
         //private void buttonGenerateStations_Click(object sender, EventArgs e)
@@ -59,6 +80,59 @@ namespace Memory
             lblPlayerName.Text = GameController.Player1.Name;
             pnlPlayerStats.Top = GameController.calculatePanelsPosition(pnlPlayerStats.Height);
             Invalidate();
+        }
+
+        public void resetGame()
+        {
+            SequenceGameControllerFactory f = new SequenceGameControllerFactory(GameController.Player1, this);
+            GameController = f.createSequenceGameController(GameController.gameMode);
+            GameController.InitializeGame();
+        }
+
+        public void endOfRound()
+        {
+            string message = "Dad: " + endOfRoundMessages[rand.Next(endOfRoundMessages.Length)];
+            lblMessage.ForeColor = Color.PowderBlue;
+            lblMessage.Text = message;
+            lblMessage.Left = (this.Width / 2) - (lblMessage.Width / 2);
+            messagesTimer.Start();
+        }
+
+        public void lostGame(string str)
+        {
+            GameController.savePlayer();
+            string message = lostGameMessages[rand.Next(endOfRoundMessages.Length)];
+            lblMessage.ForeColor = Color.Gold;
+            lblMessage.Text = message;
+            lblMessage.Left = (this.Width / 2) - (lblMessage.Width / 2);
+            messagesTimer.Start();
+            DialogResult result = MessageBox.Show(str, "Game status", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+                GameController.resetGame();
+            else
+                this.Close();
+        }
+
+        public void winGame(string str) // No more rounds
+        {
+            GameController.savePlayer();
+            lblMessage.ForeColor = Color.PowderBlue;
+            messagesTimer.Interval = 5000;
+            lblMessage.Text = "Dad: You have done very good job, I am proud of you son !!";
+            lblMessage.Left = (this.Width / 2) - (lblMessage.Width / 2);
+            messagesTimer.Start();
+            messagesTimer.Interval = 2000;
+            DialogResult result = MessageBox.Show(str, "Game status", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+                GameController.resetGame();
+            else
+                this.Close();
+        }
+
+        private void messagesTimer_Tick(object sender, EventArgs e)
+        {
+            lblMessage.Text = "";
+            messagesTimer.Stop();
         }
     }
 }

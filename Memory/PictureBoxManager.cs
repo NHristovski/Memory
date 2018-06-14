@@ -156,6 +156,12 @@ namespace Memory
             PictureBoxes.ForEach(pb => this.resetPictureBox(pb));
         }
 
+        public void disposePictureBoxes()
+        {
+            PictureBoxes.ForEach(pb => pb.Dispose());
+            PictureBoxes.Clear();
+        }
+
         public void allowPictureBoxInteraction()
         {
             PictureBoxes.ForEach(pb => pb.Enabled = true);

@@ -57,7 +57,7 @@ namespace Memory
 
             this.Hide();
             form.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void SequenceGameLauncher_Load(object sender, EventArgs e)
