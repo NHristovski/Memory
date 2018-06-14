@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Memory
@@ -71,6 +72,8 @@ namespace Memory
         protected void InitializeRound()
         {
             ElapsedRoundTimeInSeconds = 0;
+            ParentForm.setPointsLabel(Player1.Score.Points);
+            ((SequenceGamePlayer)Player1).Level = CurrentRound;
 
             if (CurrentRound % 2 == 0) // Second level
             {
@@ -87,13 +90,14 @@ namespace Memory
             dockingStationManager.GenerateStations(NumberOfDockingStations);
             ParentForm.Invalidate();
             ParentForm.setRoundLabel(CurrentRound);
+            ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds));
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
             sequencerManager.SequencerTime = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
             //RoundTimer.Interval = RemainingRoundTimeInSeconds * 1000;
-            MessageBox.Show("Round: " + CurrentRound.ToString() + " - " + gameMode.ToString()
-                          + "\nDockers: " + NumberOfDockingStations
-                          + "\nRound time: " + RemainingRoundTimeInSeconds + "s"
-                          + "\nSequencer time: " + CurrentSequencerTime + "ms");
+            //MessageBox.Show("Round: " + CurrentRound.ToString() + " - " + gameMode.ToString()
+            //              + "\nDockers: " + NumberOfDockingStations
+            //              + "\nRound time: " + RemainingRoundTimeInSeconds + "s"
+            //              + "\nSequencer time: " + CurrentSequencerTime + "ms");
         }
 
         private void roundTimer_Tick(object sender, EventArgs e)
@@ -106,12 +110,13 @@ namespace Memory
             if(RemainingRoundTimeInSeconds == 0)
             {
                 RoundTimer.Stop();
-                enddGame();
+                outOfTime();
             }
         }
 
         protected void EndOfRound()
         {
+            ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
             // Give player points
             ((SequenceGamePlayer)Player1).GivePoints(points * PointsMultiplier);
             ParentForm.setPointsLabel(Player1.Score.Points);
@@ -119,7 +124,7 @@ namespace Memory
             PointsMultiplier++;
 
             RoundTimer.Stop();
-            MessageBox.Show("End of round");
+            //MessageBox.Show("End of round");
 
             if (CurrentRound % 2 == 0) // If second level finished
             {
@@ -128,11 +133,14 @@ namespace Memory
 
             if (CurrentRound == (EndNumberOfDockingStations - StartNumberOfDockingStations + 1) * 2)
             {
-                enddGame();
+                finishedGame();
             }
+            else
+                ParentForm.endOfRound();
 
             CurrentRound++;
             pictureBoxManager.resetPictureBoxes();
+            ParentForm.setRoundTimeLabel(getTimeRepresentation(0));
             //dockingStationManager.resetDockingStations();
         }
 
@@ -227,30 +235,42 @@ namespace Memory
             throw new NotImplementedException();
         }
 
-        public void resetGame() // Will be changed !!
+        //public void resetGame() // Will be changed !!
+        //{
+        //    pictureBoxManager.resetPictureBoxes();
+        //    ParentForm.Invalidate();
+        //    pictureBoxManager.disposePictureBoxes();
+        //    dockingStationManager.resetDockingStations();
+        //    sequencerManager.disposeSequencer();
+        //    Player1.Score.Points = 0;
+        //    ((SequenceGamePlayer)Player1).Level = 0;
+        //    ParentForm.Invalidate();
+        //    ParentForm.resetGame();
+        //}
+
+        public void resetGame() // Less painful
         {
+            CurrentRound = 1;
+            PointsMultiplier = 1;
+            NumberOfDockingStations = StartNumberOfDockingStations;
             pictureBoxManager.resetPictureBoxes();
-            dockingStationManager.resetDockingStations();
-            dockingStationManager.GenerateStations(NumberOfDockingStations);
-            sequencerManager.setCardSequence(GenerateRandomCardSequence());
+            Player1.Score.Points = 0;
+            ((SequenceGamePlayer)Player1).Level = 1;
+            InitializeRound();
         }
 
         // One method for finishedGame
-        // One method for end of game due to elapsed round time
-
-        public void enddGame() // Will be changed !!
+        public void finishedGame()
         {
-            if (NumberOfDockingStations < 5)
-                NumberOfDockingStations++;
-            DialogResult result = MessageBox.Show("WIN !!!\nDo you want to continue ?", "Game status", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-                resetGame();
-            //sequencerManager.CurrentSequence.Clear();
-            //pictureBoxManager.resetPictureBoxes();
+            ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
+            ParentForm.winGame("WIN WIN WIN !!!\nDo you want to start again ?");
+        }
 
-            // Decide what to do if he cancels (Exit ?  )
-
-            ParentForm.Invalidate();
+        // One method for end of game due to elapsed round time
+        public void outOfTime()
+        {
+            ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
+            ParentForm.lostGame("Lost the game, want to try again ?");
         }
 
         public override DialogResult endGame()
@@ -261,6 +281,18 @@ namespace Memory
         public int calculatePanelsPosition(int panelHeight) // X coordinate
         {
             return sequencerManager.getSequencerMiddlePoint().Y - (panelHeight / 2);
+        }
+
+        public void savePlayer()
+        {
+            Player1.Score.Time = getTimeRepresentation(((SequenceGamePlayer)Player1).TotalTime);
+            // Niksi
+            using (StreamWriter sw = File.AppendText(Paths.pathToSequenceGameScores))
+            {
+                var phrase = string.Join(",", Player1.ToString().Split(new char[] { ' ' }));
+                sw.WriteLine(phrase);
+            }
+
         }
     }
 }

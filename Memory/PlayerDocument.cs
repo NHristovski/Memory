@@ -36,10 +36,17 @@ namespace Memory
             return players.OrderBy(player => player.Score.Time)
                 .ThenByDescending(player => player.Score.Points).ToList(); 
         }
+
         public static List<Player> sortByDate(List<Player> players)
         {
             return players.OrderByDescending(player => player.gameStarted)
                 .ThenByDescending(player => player.Score.Points).ToList();
+        }
+
+        public static List<Player> sortByLevel(List<Player> players)
+        {
+            return players.OrderByDescending(player => ((SequenceGamePlayer)player).Level)
+                          .ThenByDescending(player => player.Score.Points).ToList();
         }
 
         public override string ToString()

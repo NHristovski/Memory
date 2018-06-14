@@ -27,9 +27,9 @@ namespace Memory
         {
             Player player;
 
-            if (tbPlayerName.Text.Equals(String.Empty))
+            if (tbPlayerName.Text.Equals(String.Empty) || tbPlayerName.Text.Contains(","))
             {
-                errorProviderName.SetError(tbPlayerName, "Please enter name!");
+                errorProviderName.SetError(tbPlayerName, "Please enter correct name!");
                 return;
             }
 
@@ -39,17 +39,17 @@ namespace Memory
             if (rbEasy.Checked)
             {
                 GameController = ControllerFactory.createSequenceGameController(GameModes.Easy);
-                ((SequenceGamePlayer)player).GameType = "EasyGame";
+                ((SequenceGamePlayer)player).GameType = "Easy";
             }
             else if (rbMedium.Checked)
             {
                 GameController = ControllerFactory.createSequenceGameController(GameModes.Normal);
-                ((SequenceGamePlayer)player).GameType = "NormalGame";
+                ((SequenceGamePlayer)player).GameType = "Normal";
             }
             else if (rbHard.Checked)
             {
                 GameController = ControllerFactory.createSequenceGameController(GameModes.Hard);
-                ((SequenceGamePlayer)player).GameType = "HardGame";
+                ((SequenceGamePlayer)player).GameType = "Hard";
             }
 
             form.GameController = GameController;
@@ -57,7 +57,7 @@ namespace Memory
 
             this.Hide();
             form.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void SequenceGameLauncher_Load(object sender, EventArgs e)

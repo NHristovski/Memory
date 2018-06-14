@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SequenceGameForm));
             this.buttonStartSequence = new System.Windows.Forms.Button();
             this.lblRoundTime = new System.Windows.Forms.Label();
@@ -38,6 +39,8 @@
             this.lblRound = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.pnlPlayerStats = new System.Windows.Forms.Panel();
+            this.messagesTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblMessage = new System.Windows.Forms.Label();
             this.pnlPlayerStats.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,12 +154,29 @@
             this.pnlPlayerStats.Size = new System.Drawing.Size(317, 164);
             this.pnlPlayerStats.TabIndex = 9;
             // 
+            // messagesTimer
+            // 
+            this.messagesTimer.Interval = 1000;
+            this.messagesTimer.Tick += new System.EventHandler(this.messagesTimer_Tick);
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.BackColor = System.Drawing.Color.Transparent;
+            this.lblMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Gold;
+            this.lblMessage.Location = new System.Drawing.Point(377, 9);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 31);
+            this.lblMessage.TabIndex = 10;
+            // 
             // SequenceGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(840, 564);
+            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.pnlPlayerStats);
             this.Name = "SequenceGameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -166,6 +186,7 @@
             this.pnlPlayerStats.ResumeLayout(false);
             this.pnlPlayerStats.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -179,5 +200,7 @@
         private System.Windows.Forms.Label lblRound;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel pnlPlayerStats;
+        private System.Windows.Forms.Timer messagesTimer;
+        private System.Windows.Forms.Label lblMessage;
     }
 }

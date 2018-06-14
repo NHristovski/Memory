@@ -151,5 +151,11 @@ namespace Memory
         {
             return new Point(SequencingPictureBox.Location.X, SequencingPictureBox.Location.Y + height / 2); 
         }
+
+        public void disposeSequencer()
+        {
+            SequencingPictureBox.Dispose();
+            SequencingPictureBox = null;
+        }
     }
 }
