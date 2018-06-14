@@ -74,11 +74,21 @@ namespace Memory
             lblPoints.Text = points.ToString();
         }
 
+        public void updateHelperLabels()
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)GameController.Player1;
+            lblIncreaseMultiplier.Text = player.increaseMultiplierHelper.ToString();
+            lblExtraTime.Text = player.extraTimeHelper.ToString();
+            lblShowSequence.Text = player.showSequenceHelper.ToString();
+        }
+
         private void SequenceGameForm_Load(object sender, EventArgs e)
         {
             //GameController.InitializeGame();
             lblPlayerName.Text = GameController.Player1.Name;
+            updateHelperLabels();
             pnlPlayerStats.Top = GameController.calculatePanelsPosition(pnlPlayerStats.Height);
+            pnlHelpers.Top = GameController.calculatePanelsPosition(pnlHelpers.Height);
             Invalidate();
         }
 
@@ -133,6 +143,24 @@ namespace Memory
         {
             lblMessage.Text = "";
             messagesTimer.Stop();
+        }
+
+        private void btnUseShowSequence_Click(object sender, EventArgs e)
+        {
+            GameController.useShowSequence();
+            updateHelperLabels();
+        }
+
+        private void btnUseExtraTime_Click(object sender, EventArgs e)
+        {
+            GameController.useExtraTime();
+            updateHelperLabels();
+        }
+
+        private void btnUseMultiplier_Click(object sender, EventArgs e)
+        {
+            GameController.useIncreaseMultiplier();
+            updateHelperLabels();
         }
     }
 }

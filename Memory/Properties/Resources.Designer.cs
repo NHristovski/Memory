@@ -63,6 +63,16 @@ namespace Memory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap extra_time {
+            get {
+                object obj = ResourceManager.GetObject("extra_time", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap green_cup {
             get {
                 object obj = ResourceManager.GetObject("green_cup", resourceCulture);
@@ -73,9 +83,19 @@ namespace Memory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap green_cup_dark {
+        internal static System.Drawing.Bitmap points_p {
             get {
-                object obj = ResourceManager.GetObject("green_cup_dark", resourceCulture);
+                object obj = ResourceManager.GetObject("points_p", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap show_sequence {
+            get {
+                object obj = ResourceManager.GetObject("show_sequence", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

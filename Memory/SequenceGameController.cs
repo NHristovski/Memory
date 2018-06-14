@@ -294,5 +294,40 @@ namespace Memory
             }
 
         }
+
+        // Helpers
+
+        public void useShowSequence()
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            if (player.showSequenceHelper > 0)
+            {
+                player.showSequenceHelper--;
+                RoundTimer.Stop();
+                sequencerManager.setCardSequence(sequencerManager.CurrentSequence);
+                sequencerManager.startCardSequence();
+                RoundTimer.Start();
+            }
+        }
+
+        public void useExtraTime()
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            if (player.extraTimeHelper > 0)
+            {
+                player.extraTimeHelper--;
+                RemainingRoundTimeInSeconds += 10;
+            }
+        }
+
+        public void useIncreaseMultiplier()
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            if (player.increaseMultiplierHelper > 0)
+            {
+                player.increaseMultiplierHelper--;
+                PointsMultiplier++;
+            }
+        }
     }
 }

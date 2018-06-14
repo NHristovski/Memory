@@ -190,11 +190,21 @@ namespace Memory
         public string GameType { get; set; }
         public int Level { get; set; }
 
+        // Helpers
+        public int showSequenceHelper { get; set; }
+        public int extraTimeHelper { get; set; }
+        public int increaseMultiplierHelper { get; set; }
+
         public SequenceGamePlayer(string name) : base(name, null)
         {
             TotalTime = 0;
             GameType = "";
             Level = 0;
+
+            // Helpers
+            showSequenceHelper = 1;
+            extraTimeHelper = 1;
+            increaseMultiplierHelper = 1;
         }
 
         public void GivePoints(int points)

@@ -57,6 +57,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Events.cs" />
+    <Compile Include="FlatButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="IObserver.cs" />
     <Compile Include="NotEnoughScoreException.cs" />
     <Compile Include="PictureBoxManager.cs" />
@@ -215,6 +218,7 @@
     <Content Include="Resources\diamond_close.gif" />
     <Content Include="Resources\diamond_open.gif" />
     <Content Include="Resources\diamond_still.jpg" />
+    <None Include="Resources\extra_time.png" />
     <Content Include="Resources\find_next.jpg" />
     <Content Include="Resources\floppy_close.gif" />
     <Content Include="Resources\floppy_open.gif" />
@@ -248,8 +252,11 @@
     <Content Include="Resources\pi_open.gif" />
     <Content Include="Resources\pi_still.jpg" />
     <Content Include="Resources\pair_game_starter.png" />
+    <None Include="Resources\points.png" />
+    <None Include="Resources\points_p.png" />
     <Content Include="Resources\ready_to_open.gif" />
     <Content Include="Resources\second_chance.jpg" />
+    <None Include="Resources\show_sequence.png" />
     <Content Include="Resources\spade_close.gif" />
     <Content Include="Resources\spade_open.gif" />
     <Content Include="Resources\spade_still.jpg" />
