@@ -44,10 +44,12 @@
             // lblPlayerName
             // 
             this.lblPlayerName.AutoSize = true;
-            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerName.BackColor = System.Drawing.Color.Transparent;
+            this.lblPlayerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayerName.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.lblPlayerName.Location = new System.Drawing.Point(28, 20);
             this.lblPlayerName.Name = "lblPlayerName";
-            this.lblPlayerName.Size = new System.Drawing.Size(89, 17);
+            this.lblPlayerName.Size = new System.Drawing.Size(100, 17);
             this.lblPlayerName.TabIndex = 0;
             this.lblPlayerName.Text = "Player Name";
             // 
@@ -61,9 +63,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.groupBox1.Controls.Add(this.rbHard);
             this.groupBox1.Controls.Add(this.rbMedium);
             this.groupBox1.Controls.Add(this.rbEasy);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox1.Location = new System.Drawing.Point(31, 88);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
@@ -71,7 +76,7 @@
             this.groupBox1.Size = new System.Drawing.Size(200, 126);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "GAME DIFFICULTY";
+            this.groupBox1.Text = "Game difficulty";
             // 
             // rbHard
             // 
@@ -79,9 +84,9 @@
             this.rbHard.Location = new System.Drawing.Point(12, 100);
             this.rbHard.Margin = new System.Windows.Forms.Padding(2);
             this.rbHard.Name = "rbHard";
-            this.rbHard.Size = new System.Drawing.Size(56, 17);
+            this.rbHard.Size = new System.Drawing.Size(52, 17);
             this.rbHard.TabIndex = 2;
-            this.rbHard.Text = "HARD";
+            this.rbHard.Text = "Hard";
             this.rbHard.UseVisualStyleBackColor = true;
             // 
             // rbMedium
@@ -90,9 +95,9 @@
             this.rbMedium.Location = new System.Drawing.Point(12, 64);
             this.rbMedium.Margin = new System.Windows.Forms.Padding(2);
             this.rbMedium.Name = "rbMedium";
-            this.rbMedium.Size = new System.Drawing.Size(71, 17);
+            this.rbMedium.Size = new System.Drawing.Size(64, 17);
             this.rbMedium.TabIndex = 1;
-            this.rbMedium.Text = "NORMAL";
+            this.rbMedium.Text = "Normal";
             this.rbMedium.UseVisualStyleBackColor = true;
             // 
             // rbEasy
@@ -102,16 +107,17 @@
             this.rbEasy.Location = new System.Drawing.Point(12, 28);
             this.rbEasy.Margin = new System.Windows.Forms.Padding(2);
             this.rbEasy.Name = "rbEasy";
-            this.rbEasy.Size = new System.Drawing.Size(53, 17);
+            this.rbEasy.Size = new System.Drawing.Size(52, 17);
             this.rbEasy.TabIndex = 0;
             this.rbEasy.TabStop = true;
-            this.rbEasy.Text = "EASY";
+            this.rbEasy.Text = "Easy";
             this.rbEasy.UseVisualStyleBackColor = true;
             // 
             // btnStart
             // 
-            this.btnStart.BackColor = System.Drawing.SystemColors.Info;
-            this.btnStart.ForeColor = System.Drawing.Color.Black;
+            this.btnStart.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.btnStart.Location = new System.Drawing.Point(73, 231);
             this.btnStart.Margin = new System.Windows.Forms.Padding(2);
             this.btnStart.Name = "btnStart";
@@ -130,6 +136,7 @@
             this.AcceptButton = this.btnStart;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::Memory.Properties.Resources.green_cup;
             this.ClientSize = new System.Drawing.Size(261, 277);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.groupBox1);
