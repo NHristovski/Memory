@@ -210,9 +210,9 @@ namespace Memory
             PlayerGender = Gender.Male;
 
             // Helpers
-            showSequenceHelper = 1;
-            extraTimeHelper = 1;
-            increaseMultiplierHelper = 1;
+            showSequenceHelper = 0;
+            extraTimeHelper = 0;
+            increaseMultiplierHelper = 0;
         }
 
         public void GivePoints(int points)
