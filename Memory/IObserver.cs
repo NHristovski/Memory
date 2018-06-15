@@ -432,16 +432,22 @@ namespace Memory
 
         public void DoubleMultiplier()
         {
-            if (((PairGameHumanPlayer)currentPlayer).x2Avaliable < 1)
+            if (((PairGamePlayer)currentPlayer).x2Avaliable < 1)
             {
-                throw new HelperNotAvaliableException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new HelperNotAvaliableException();
+                }
             }
             if (currentPlayer.Score.Points < Game.x2Price)
             {
-                throw new NotEnoughScoreException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new NotEnoughScoreException();
+                }
             }
 
-            ((PairGameHumanPlayer)currentPlayer).Usex2(Game.x2Price);
+            ((PairGamePlayer)currentPlayer).Usex2(Game.x2Price);
             this.scoreMultiplier *= 2;
         }
 
@@ -450,22 +456,31 @@ namespace Memory
         {
             if (!secondCard)
             {
-                throw new CardNotOpenedException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new CardNotOpenedException();
+                }
             }
-            if (((PairGameHumanPlayer)currentPlayer).findNextAvaliable < 1)
+            if (((PairGamePlayer)currentPlayer).findNextAvaliable < 1)
             {
-                throw new HelperNotAvaliableException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new HelperNotAvaliableException();
+                }
             }
             if (currentPlayer.Score.Points < Game.findNextPrice)
             {
-                throw new NotEnoughScoreException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new NotEnoughScoreException();
+                }
             }
-
+            
             foreach (var pbox in validCards)
             {
                 if (getCard(pbox).Equals(getCard(pb.Name)) && !(pbox.Equals(pb.Name)))
                 {
-                    ((PairGameHumanPlayer)currentPlayer).UseFindNext(Game.findNextPrice);
+                    ((PairGamePlayer)currentPlayer).UseFindNext(Game.findNextPrice);
                     return stringToPb[pbox];
                 }
             }
@@ -475,35 +490,53 @@ namespace Memory
 
         public void OpenCards()
         {
-            if (((PairGameHumanPlayer)currentPlayer).openCardsAvaliable < 1)
+            if (((PairGamePlayer)currentPlayer).openCardsAvaliable < 1)
             {
-                throw new HelperNotAvaliableException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new HelperNotAvaliableException();
+                }
             }
             if (currentPlayer.Score.Points < Game.openCardsPrice)
             {
-                throw new NotEnoughScoreException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new NotEnoughScoreException();
+                }
             }
 
-            ((PairGameHumanPlayer)currentPlayer).UseOpenCards(Game.openCardsPrice);
+            ((PairGamePlayer)currentPlayer).UseOpenCards(Game.openCardsPrice);
         }
 
         public void SecondChance()
         {
             if (!secondCard)
             {
-                throw new CardNotOpenedException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new CardNotOpenedException();
+                }
             }
-            if (((PairGameHumanPlayer)currentPlayer).secondChanceAvaliable < 1)
+            if (((PairGamePlayer)currentPlayer).secondChanceAvaliable < 1)
             {
-                throw new HelperNotAvaliableException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new HelperNotAvaliableException();
+                }
             }
             if (currentPlayer.Score.Points < Game.secondChancePrice)
             {
-                throw new NotEnoughScoreException();
+                if (!currentPlayer.isBot())
+                {
+                    throw new NotEnoughScoreException();
+                }
             }
 
-            ((PairGameHumanPlayer)currentPlayer).UseSecondChance(Game.secondChancePrice);
-            Game.GoInStateSecondChance();
+            ((PairGamePlayer)currentPlayer).UseSecondChance(Game.secondChancePrice);
+            if (!currentPlayer.isBot())
+            {
+                Game.GoInStateSecondChance();
+            }
         }
         public void makeCardsStill()
         {

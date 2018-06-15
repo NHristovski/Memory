@@ -214,6 +214,7 @@
     <None Include="Resources\cart.png" />
     <None Include="Resources\cart1.png" />
     <None Include="Resources\boy.png" />
+    <Content Include="Resources\clock.png" />
     <Content Include="Resources\closed_card.jpg" />
     <Content Include="Resources\delta_close.gif" />
     <Content Include="Resources\delta_open.gif" />
@@ -223,6 +224,7 @@
     <Content Include="Resources\diamond_still.jpg" />
     <None Include="Resources\extra_time.png" />
     <Content Include="Resources\find_next.jpg" />
+    <Content Include="Resources\find_next.png" />
     <Content Include="Resources\floppy_close.gif" />
     <Content Include="Resources\floppy_open.gif" />
     <Content Include="Resources\floppy_still.jpg" />

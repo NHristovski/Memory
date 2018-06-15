@@ -55,16 +55,6 @@
             this.pictureBoxSecondChance = new System.Windows.Forms.PictureBox();
             this.pictureBox2x = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBoxTime = new System.Windows.Forms.TextBox();
-            this.textBoxScoreMultiplier = new System.Windows.Forms.TextBox();
-            this.labelTime = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxP2Points = new System.Windows.Forms.TextBox();
-            this.textBoxP1Points = new System.Windows.Forms.TextBox();
-            this.textBoxCurrentPlayer = new System.Windows.Forms.TextBox();
-            this.labelP1points = new System.Windows.Forms.Label();
-            this.labelCurrentPlayer = new System.Windows.Forms.Label();
-            this.labelP2points = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,6 +94,22 @@
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.pictureBoxMoney3 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMoney4 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMoney5 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMoney6 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMoney2 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxMoney1 = new System.Windows.Forms.PictureBox();
+            this.pictureBoxTime = new System.Windows.Forms.PictureBox();
+            this.textBoxTime = new System.Windows.Forms.TextBox();
+            this.textBoxScoreMultiplier = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxP2Points = new System.Windows.Forms.TextBox();
+            this.textBoxP1Points = new System.Windows.Forms.TextBox();
+            this.textBoxCurrentPlayer = new System.Windows.Forms.TextBox();
+            this.labelP1points = new System.Windows.Forms.Label();
+            this.labelCurrentPlayer = new System.Windows.Forms.Label();
+            this.labelP2points = new System.Windows.Forms.Label();
             this.groupBoxHelpers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxOpenCards)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFindNext)).BeginInit();
@@ -127,11 +133,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTime)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxHelpers
             // 
             this.groupBoxHelpers.BackColor = System.Drawing.Color.Lavender;
+            this.groupBoxHelpers.Controls.Add(this.pictureBoxMoney6);
+            this.groupBoxHelpers.Controls.Add(this.pictureBoxMoney5);
+            this.groupBoxHelpers.Controls.Add(this.pictureBoxMoney4);
+            this.groupBoxHelpers.Controls.Add(this.pictureBoxMoney3);
             this.groupBoxHelpers.Controls.Add(this.label14);
             this.groupBoxHelpers.Controls.Add(this.label13);
             this.groupBoxHelpers.Controls.Add(this.label12);
@@ -395,9 +412,11 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.GhostWhite;
+            this.groupBox2.Controls.Add(this.pictureBoxMoney2);
+            this.groupBox2.Controls.Add(this.pictureBoxMoney1);
+            this.groupBox2.Controls.Add(this.pictureBoxTime);
             this.groupBox2.Controls.Add(this.textBoxTime);
             this.groupBox2.Controls.Add(this.textBoxScoreMultiplier);
-            this.groupBox2.Controls.Add(this.labelTime);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.textBoxP2Points);
             this.groupBox2.Controls.Add(this.textBoxP1Points);
@@ -412,105 +431,6 @@
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             // 
-            // textBoxTime
-            // 
-            this.textBoxTime.Enabled = false;
-            this.textBoxTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTime.Location = new System.Drawing.Point(256, 280);
-            this.textBoxTime.Name = "textBoxTime";
-            this.textBoxTime.Size = new System.Drawing.Size(100, 30);
-            this.textBoxTime.TabIndex = 62;
-            this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxScoreMultiplier
-            // 
-            this.textBoxScoreMultiplier.Enabled = false;
-            this.textBoxScoreMultiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxScoreMultiplier.Location = new System.Drawing.Point(137, 135);
-            this.textBoxScoreMultiplier.Name = "textBoxScoreMultiplier";
-            this.textBoxScoreMultiplier.Size = new System.Drawing.Size(100, 36);
-            this.textBoxScoreMultiplier.TabIndex = 7;
-            this.textBoxScoreMultiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // labelTime
-            // 
-            this.labelTime.AutoSize = true;
-            this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            this.labelTime.Location = new System.Drawing.Point(271, 252);
-            this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(64, 25);
-            this.labelTime.TabIndex = 61;
-            this.labelTime.Text = "TIME";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(106, 112);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(187, 20);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "SCORE MULTIPLIER";
-            // 
-            // textBoxP2Points
-            // 
-            this.textBoxP2Points.Enabled = false;
-            this.textBoxP2Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxP2Points.Location = new System.Drawing.Point(25, 279);
-            this.textBoxP2Points.Name = "textBoxP2Points";
-            this.textBoxP2Points.Size = new System.Drawing.Size(100, 30);
-            this.textBoxP2Points.TabIndex = 5;
-            // 
-            // textBoxP1Points
-            // 
-            this.textBoxP1Points.Enabled = false;
-            this.textBoxP1Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxP1Points.Location = new System.Drawing.Point(25, 213);
-            this.textBoxP1Points.Name = "textBoxP1Points";
-            this.textBoxP1Points.Size = new System.Drawing.Size(100, 30);
-            this.textBoxP1Points.TabIndex = 4;
-            // 
-            // textBoxCurrentPlayer
-            // 
-            this.textBoxCurrentPlayer.Enabled = false;
-            this.textBoxCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
-            this.textBoxCurrentPlayer.ForeColor = System.Drawing.Color.RoyalBlue;
-            this.textBoxCurrentPlayer.Location = new System.Drawing.Point(48, 60);
-            this.textBoxCurrentPlayer.Name = "textBoxCurrentPlayer";
-            this.textBoxCurrentPlayer.Size = new System.Drawing.Size(287, 36);
-            this.textBoxCurrentPlayer.TabIndex = 3;
-            this.textBoxCurrentPlayer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // labelP1points
-            // 
-            this.labelP1points.AutoSize = true;
-            this.labelP1points.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelP1points.Location = new System.Drawing.Point(6, 190);
-            this.labelP1points.Name = "labelP1points";
-            this.labelP1points.Size = new System.Drawing.Size(131, 20);
-            this.labelP1points.TabIndex = 1;
-            this.labelP1points.Text = "Player1 Points";
-            // 
-            // labelCurrentPlayer
-            // 
-            this.labelCurrentPlayer.AutoSize = true;
-            this.labelCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelCurrentPlayer.Location = new System.Drawing.Point(117, 26);
-            this.labelCurrentPlayer.Name = "labelCurrentPlayer";
-            this.labelCurrentPlayer.Size = new System.Drawing.Size(137, 20);
-            this.labelCurrentPlayer.TabIndex = 0;
-            this.labelCurrentPlayer.Text = "Current Player:";
-            // 
-            // labelP2points
-            // 
-            this.labelP2points.AutoSize = true;
-            this.labelP2points.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelP2points.Location = new System.Drawing.Point(6, 256);
-            this.labelP2points.Name = "labelP2points";
-            this.labelP2points.Size = new System.Drawing.Size(131, 20);
-            this.labelP2points.TabIndex = 2;
-            this.labelP2points.Text = "Player2 Points";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -520,7 +440,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(982, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1027, 28);
             this.menuStrip1.TabIndex = 60;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -932,16 +852,175 @@
             this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Location = new System.Drawing.Point(0, 693);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(982, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1027, 22);
             this.statusStrip1.TabIndex = 61;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // pictureBoxMoney3
+            // 
+            this.pictureBoxMoney3.Location = new System.Drawing.Point(353, 56);
+            this.pictureBoxMoney3.Name = "pictureBoxMoney3";
+            this.pictureBoxMoney3.Size = new System.Drawing.Size(40, 30);
+            this.pictureBoxMoney3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMoney3.TabIndex = 65;
+            this.pictureBoxMoney3.TabStop = false;
+            // 
+            // pictureBoxMoney4
+            // 
+            this.pictureBoxMoney4.Location = new System.Drawing.Point(353, 135);
+            this.pictureBoxMoney4.Name = "pictureBoxMoney4";
+            this.pictureBoxMoney4.Size = new System.Drawing.Size(40, 30);
+            this.pictureBoxMoney4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMoney4.TabIndex = 66;
+            this.pictureBoxMoney4.TabStop = false;
+            // 
+            // pictureBoxMoney5
+            // 
+            this.pictureBoxMoney5.Location = new System.Drawing.Point(353, 211);
+            this.pictureBoxMoney5.Name = "pictureBoxMoney5";
+            this.pictureBoxMoney5.Size = new System.Drawing.Size(40, 30);
+            this.pictureBoxMoney5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMoney5.TabIndex = 67;
+            this.pictureBoxMoney5.TabStop = false;
+            // 
+            // pictureBoxMoney6
+            // 
+            this.pictureBoxMoney6.Location = new System.Drawing.Point(353, 284);
+            this.pictureBoxMoney6.Name = "pictureBoxMoney6";
+            this.pictureBoxMoney6.Size = new System.Drawing.Size(40, 30);
+            this.pictureBoxMoney6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMoney6.TabIndex = 68;
+            this.pictureBoxMoney6.TabStop = false;
+            // 
+            // pictureBoxMoney2
+            // 
+            this.pictureBoxMoney2.Location = new System.Drawing.Point(117, 304);
+            this.pictureBoxMoney2.Name = "pictureBoxMoney2";
+            this.pictureBoxMoney2.Size = new System.Drawing.Size(40, 30);
+            this.pictureBoxMoney2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMoney2.TabIndex = 78;
+            this.pictureBoxMoney2.TabStop = false;
+            // 
+            // pictureBoxMoney1
+            // 
+            this.pictureBoxMoney1.Location = new System.Drawing.Point(117, 218);
+            this.pictureBoxMoney1.Name = "pictureBoxMoney1";
+            this.pictureBoxMoney1.Size = new System.Drawing.Size(40, 30);
+            this.pictureBoxMoney1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxMoney1.TabIndex = 77;
+            this.pictureBoxMoney1.TabStop = false;
+            // 
+            // pictureBoxTime
+            // 
+            this.pictureBoxTime.Location = new System.Drawing.Point(314, 82);
+            this.pictureBoxTime.Name = "pictureBoxTime";
+            this.pictureBoxTime.Size = new System.Drawing.Size(79, 61);
+            this.pictureBoxTime.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxTime.TabIndex = 76;
+            this.pictureBoxTime.TabStop = false;
+            // 
+            // textBoxTime
+            // 
+            this.textBoxTime.Enabled = false;
+            this.textBoxTime.Location = new System.Drawing.Point(300, 146);
+            this.textBoxTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxTime.Name = "textBoxTime";
+            this.textBoxTime.Size = new System.Drawing.Size(100, 30);
+            this.textBoxTime.TabIndex = 75;
+            this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxScoreMultiplier
+            // 
+            this.textBoxScoreMultiplier.Enabled = false;
+            this.textBoxScoreMultiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxScoreMultiplier.Location = new System.Drawing.Point(81, 142);
+            this.textBoxScoreMultiplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxScoreMultiplier.Name = "textBoxScoreMultiplier";
+            this.textBoxScoreMultiplier.Size = new System.Drawing.Size(68, 36);
+            this.textBoxScoreMultiplier.TabIndex = 74;
+            this.textBoxScoreMultiplier.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(31, 111);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(168, 18);
+            this.label1.TabIndex = 73;
+            this.label1.Text = "SCORE MULTIPLIER";
+            // 
+            // textBoxP2Points
+            // 
+            this.textBoxP2Points.Enabled = false;
+            this.textBoxP2Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxP2Points.Location = new System.Drawing.Point(11, 304);
+            this.textBoxP2Points.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxP2Points.Name = "textBoxP2Points";
+            this.textBoxP2Points.Size = new System.Drawing.Size(100, 30);
+            this.textBoxP2Points.TabIndex = 72;
+            this.textBoxP2Points.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxP1Points
+            // 
+            this.textBoxP1Points.Enabled = false;
+            this.textBoxP1Points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxP1Points.Location = new System.Drawing.Point(11, 218);
+            this.textBoxP1Points.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxP1Points.Name = "textBoxP1Points";
+            this.textBoxP1Points.Size = new System.Drawing.Size(100, 30);
+            this.textBoxP1Points.TabIndex = 71;
+            this.textBoxP1Points.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // textBoxCurrentPlayer
+            // 
+            this.textBoxCurrentPlayer.Enabled = false;
+            this.textBoxCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.textBoxCurrentPlayer.Location = new System.Drawing.Point(11, 41);
+            this.textBoxCurrentPlayer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.textBoxCurrentPlayer.Name = "textBoxCurrentPlayer";
+            this.textBoxCurrentPlayer.Size = new System.Drawing.Size(407, 36);
+            this.textBoxCurrentPlayer.TabIndex = 70;
+            this.textBoxCurrentPlayer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // labelP1points
+            // 
+            this.labelP1points.AutoSize = true;
+            this.labelP1points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.labelP1points.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
+            this.labelP1points.Location = new System.Drawing.Point(6, 190);
+            this.labelP1points.Name = "labelP1points";
+            this.labelP1points.Size = new System.Drawing.Size(151, 25);
+            this.labelP1points.TabIndex = 68;
+            this.labelP1points.Text = "Player1 Points";
+            // 
+            // labelCurrentPlayer
+            // 
+            this.labelCurrentPlayer.AutoSize = true;
+            this.labelCurrentPlayer.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.labelCurrentPlayer.Location = new System.Drawing.Point(126, 15);
+            this.labelCurrentPlayer.Name = "labelCurrentPlayer";
+            this.labelCurrentPlayer.Size = new System.Drawing.Size(149, 24);
+            this.labelCurrentPlayer.TabIndex = 67;
+            this.labelCurrentPlayer.Text = "Current Player:";
+            // 
+            // labelP2points
+            // 
+            this.labelP2points.AutoSize = true;
+            this.labelP2points.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.labelP2points.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.labelP2points.Location = new System.Drawing.Point(6, 276);
+            this.labelP2points.Name = "labelP2points";
+            this.labelP2points.Size = new System.Drawing.Size(151, 25);
+            this.labelP2points.TabIndex = 69;
+            this.labelP2points.Text = "Player2 Points";
             // 
             // EasyPairGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
-            this.ClientSize = new System.Drawing.Size(982, 715);
+            this.ClientSize = new System.Drawing.Size(1027, 715);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBoxHelpers);
@@ -992,6 +1071,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMoney1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTime)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1024,14 +1110,6 @@
         private System.Windows.Forms.TextBox textBoxAvalibleSecondChance;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBoxScoreMultiplier;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxP2Points;
-        private System.Windows.Forms.TextBox textBoxP1Points;
-        private System.Windows.Forms.TextBox textBoxCurrentPlayer;
-        private System.Windows.Forms.Label labelP1points;
-        private System.Windows.Forms.Label labelCurrentPlayer;
-        private System.Windows.Forms.Label labelP2points;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
@@ -1054,8 +1132,6 @@
         private System.Windows.Forms.ToolStripMenuItem setBotLevelEasyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setBotLevelNormalToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem setBotLevelHardToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBoxTime;
-        private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
@@ -1073,5 +1149,21 @@
         private System.Windows.Forms.PictureBox pictureBox15;
         private System.Windows.Forms.PictureBox pictureBox16;
         private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.PictureBox pictureBoxMoney6;
+        private System.Windows.Forms.PictureBox pictureBoxMoney5;
+        private System.Windows.Forms.PictureBox pictureBoxMoney4;
+        private System.Windows.Forms.PictureBox pictureBoxMoney3;
+        private System.Windows.Forms.PictureBox pictureBoxMoney2;
+        private System.Windows.Forms.PictureBox pictureBoxMoney1;
+        private System.Windows.Forms.PictureBox pictureBoxTime;
+        private System.Windows.Forms.TextBox textBoxTime;
+        private System.Windows.Forms.TextBox textBoxScoreMultiplier;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBoxP2Points;
+        private System.Windows.Forms.TextBox textBoxP1Points;
+        private System.Windows.Forms.TextBox textBoxCurrentPlayer;
+        private System.Windows.Forms.Label labelP1points;
+        private System.Windows.Forms.Label labelCurrentPlayer;
+        private System.Windows.Forms.Label labelP2points;
     }
 }
