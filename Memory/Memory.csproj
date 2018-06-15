@@ -211,6 +211,9 @@
     <Content Include="Resources\arrow_close.gif" />
     <Content Include="Resources\arrow_open.gif" />
     <Content Include="Resources\arrow_still.jpg" />
+    <None Include="Resources\cart.png" />
+    <None Include="Resources\cart1.png" />
+    <None Include="Resources\boy.png" />
     <Content Include="Resources\closed_card.jpg" />
     <Content Include="Resources\delta_close.gif" />
     <Content Include="Resources\delta_open.gif" />
@@ -232,6 +235,7 @@
     <Content Include="Resources\heart_open.gif" />
     <Content Include="Resources\heart_still.jpg" />
     <Content Include="Resources\high.png" />
+    <None Include="Resources\info.png" />
     <Content Include="Resources\IRed_close.gif" />
     <Content Include="Resources\IRed_open.gif" />
     <Content Include="Resources\IRed_still.jpg" />
@@ -243,6 +247,7 @@
     <Content Include="Resources\mars_still.jpg" />
     <Content Include="Resources\medium.png" />
     <Content Include="Resources\memory_icon.ico" />
+    <None Include="Resources\money-bag.png" />
     <Content Include="Resources\moon_close.gif" />
     <Content Include="Resources\moon_open.gif" />
     <Content Include="Resources\moon_still.jpg" />
@@ -272,12 +277,16 @@
     <Content Include="Resources\trinity_knot_close.gif" />
     <Content Include="Resources\trinity_knot_open.gif" />
     <Content Include="Resources\trinity_knot_still.jpg" />
+    <None Include="Resources\trophy.png" />
+    <None Include="Resources\trophy_p.png" />
     <Content Include="Resources\V_close.gif" />
     <Content Include="Resources\V_open.gif" />
     <Content Include="Resources\V_still.jpg" />
     <Content Include="Resources\venera_close.gif" />
     <Content Include="Resources\venera_open.gif" />
     <Content Include="Resources\venera_still.jpg" />
+    <None Include="Resources\woman.png" />
+    <None Include="Resources\woman_p.png" />
     <Content Include="Resources\X_close.gif" />
     <Content Include="Resources\X_open.gif" />
     <Content Include="Resources\X_still.jpg" />

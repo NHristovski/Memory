@@ -105,6 +105,11 @@ namespace Memory
             RemainingRoundTimeInSeconds--;
             ElapsedRoundTimeInSeconds++;
 
+            if (RemainingRoundTimeInSeconds <= 5)
+                ParentForm.setRoundTimeLabelColor(Color.Crimson);
+            else
+                ParentForm.setRoundTimeLabelColor(SystemColors.ButtonFace);
+
             ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds));
 
             if(RemainingRoundTimeInSeconds == 0)
@@ -304,9 +309,10 @@ namespace Memory
             {
                 player.showSequenceHelper--;
                 RoundTimer.Stop();
+                pictureBoxManager.forbidPictureBoxInteraction();
                 sequencerManager.setCardSequence(sequencerManager.CurrentSequence);
                 sequencerManager.startCardSequence();
-                RoundTimer.Start();
+
             }
         }
 
@@ -328,6 +334,27 @@ namespace Memory
                 player.increaseMultiplierHelper--;
                 PointsMultiplier++;
             }
+        }
+
+        public void buySequenceHelper(int points)
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            player.ReducePoints(points);
+            player.showSequenceHelper++;
+        }
+
+        public void buyTimeHelper(int points)
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            player.ReducePoints(points);
+            player.extraTimeHelper++;
+        }
+
+        public void buyMultiplierHelper(int points)
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            player.ReducePoints(points);
+            player.increaseMultiplierHelper++;
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Memory
 
             using (Font font = new Font(FontFamily.GenericSansSerif, 10))
             {
-                SolidBrush br = new SolidBrush(Color.White);
+                SolidBrush br = new SolidBrush(Color.FromArgb(150, Color.White)); // Color.White);
                 g.FillRectangle(br, Station);
                 SolidBrush brush = new SolidBrush(ContentColor);
                 g.DrawString(Content, font, brush, Station.X + Station.Width / 2 - 5, Station.Y + Station.Height / 2 - 5);

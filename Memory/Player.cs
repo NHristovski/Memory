@@ -218,7 +218,8 @@ namespace Memory
             {
                 Score.Points -= points;
             }
-            // Maybe exception ?
+            else
+                throw new NotEnoughScoreException();
         }
 
         public void addTime(int seconds)
