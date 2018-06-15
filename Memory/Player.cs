@@ -184,11 +184,18 @@ namespace Memory
         }
     }
 
+    public enum Gender
+    {
+        Male,
+        Female
+    }
+
     public class SequenceGamePlayer : Player
     {
         public int TotalTime { get; private set; }
         public string GameType { get; set; }
         public int Level { get; set; }
+        public Gender PlayerGender { get; set; }
 
         // Helpers
         public int showSequenceHelper { get; set; }
@@ -200,6 +207,7 @@ namespace Memory
             TotalTime = 0;
             GameType = "";
             Level = 0;
+            PlayerGender = Gender.Male;
 
             // Helpers
             showSequenceHelper = 1;

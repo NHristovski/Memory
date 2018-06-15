@@ -27,11 +27,17 @@ namespace Memory
         {
             Player player;
 
-            if (tbPlayerName.Text.Equals(String.Empty) || tbPlayerName.Text.Contains(","))
+            if (tbPlayerName.Text.Equals(String.Empty) || tbPlayerName.Text.Contains(",") || tbPlayerName.Text.Contains(" "))
             {
                 errorProviderName.SetError(tbPlayerName, "Please enter correct name!");
                 return;
             }
+            else if(tbPlayerName.Text.Count() <= 0 || tbPlayerName.Text.Count() > 10)
+            {
+                errorProviderName.SetError(tbPlayerName, "Name should have less than 10 characters !");
+                return;
+            }
+
 
             player = PlayerFactory.GetSequenceGamePlayer(tbPlayerName.Text);
             SequenceGameControllerFactory ControllerFactory = new SequenceGameControllerFactory(player, form);
@@ -52,12 +58,21 @@ namespace Memory
                 ((SequenceGamePlayer)player).GameType = "Hard";
             }
 
+            if (rbMale.Checked)
+            {
+                ((SequenceGamePlayer)player).PlayerGender = Gender.Male;
+            }
+            else // Female
+            {
+                ((SequenceGamePlayer)player).PlayerGender = Gender.Female;
+            }
+
             form.GameController = GameController;
             GameController.InitializeGame();
 
             this.Hide();
             form.ShowDialog();
-            this.Show();
+            this.Close();
         }
 
         private void SequenceGameLauncher_Load(object sender, EventArgs e)

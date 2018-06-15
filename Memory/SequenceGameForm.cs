@@ -22,6 +22,7 @@ namespace Memory
         private Tuple<Panel, Panel, Boolean> currentMovingPanel;
         // *
 
+        private bool gameStarted;
         private Random rand = new Random();
 
         public SequenceGameForm()
@@ -33,6 +34,7 @@ namespace Memory
             messagesTimer.Interval = 2000;
             helpPanelOpened = false;
             storePanelOpened = false;
+            gameStarted = false;
 
             endOfRoundMessages = new string[] {
                 "Nice job son !!",
@@ -64,6 +66,7 @@ namespace Memory
 
         private void buttonStartSequence_Click(object sender, EventArgs e)
         {
+            gameStarted = true;
             pbHelp.Enabled = false;
             pbStore.Enabled = false;
             buttonStartSequence.Enabled = false;
@@ -101,6 +104,11 @@ namespace Memory
         private void SequenceGameForm_Load(object sender, EventArgs e)
         {
             //GameController.InitializeGame();
+
+            if (((SequenceGamePlayer)GameController.Player1).PlayerGender == Gender.Male)
+                pbGender.Image = Properties.Resources.boy;
+            else // Female
+                pbGender.Image = Properties.Resources.girl;
 
             lblPlayerName.Text = GameController.Player1.Name;
             updateHelperLabels();
@@ -299,6 +307,12 @@ namespace Memory
             {
                 lblStoreError.Text = String.Format("Error: You need {0}$ to buy multiplier \nhelper!", tbPointsPrice.Text);
             }
+        }
+
+        private void SequenceGameForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (gameStarted)
+                GameController.savePlayer();
         }
     }
 }

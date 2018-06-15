@@ -650,7 +650,8 @@
             this.Controls.Add(this.pnlPlayerStats);
             this.Name = "SequenceGameForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SequenceGameForm";
+            this.Text = "Sequence Game";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SequenceGameForm_FormClosing);
             this.Load += new System.EventHandler(this.SequenceGameForm_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.SequenceGameForm_Paint);
             this.pnlPlayerStats.ResumeLayout(false);
