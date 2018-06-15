@@ -184,17 +184,35 @@ namespace Memory
         }
     }
 
+    public enum Gender
+    {
+        Male,
+        Female
+    }
+
     public class SequenceGamePlayer : Player
     {
         public int TotalTime { get; private set; }
         public string GameType { get; set; }
         public int Level { get; set; }
+        public Gender PlayerGender { get; set; }
+
+        // Helpers
+        public int showSequenceHelper { get; set; }
+        public int extraTimeHelper { get; set; }
+        public int increaseMultiplierHelper { get; set; }
 
         public SequenceGamePlayer(string name) : base(name, null)
         {
             TotalTime = 0;
             GameType = "";
             Level = 0;
+            PlayerGender = Gender.Male;
+
+            // Helpers
+            showSequenceHelper = 0;
+            extraTimeHelper = 0;
+            increaseMultiplierHelper = 0;
         }
 
         public void GivePoints(int points)
@@ -208,7 +226,8 @@ namespace Memory
             {
                 Score.Points -= points;
             }
-            // Maybe exception ?
+            else
+                throw new NotEnoughScoreException();
         }
 
         public void addTime(int seconds)

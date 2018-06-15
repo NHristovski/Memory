@@ -105,6 +105,11 @@ namespace Memory
             RemainingRoundTimeInSeconds--;
             ElapsedRoundTimeInSeconds++;
 
+            if (RemainingRoundTimeInSeconds <= 5)
+                ParentForm.setRoundTimeLabelColor(Color.Crimson);
+            else
+                ParentForm.setRoundTimeLabelColor(SystemColors.ButtonFace);
+
             ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds));
 
             if(RemainingRoundTimeInSeconds == 0)
@@ -293,6 +298,63 @@ namespace Memory
                 sw.WriteLine(phrase);
             }
 
+        }
+
+        // Helpers
+
+        public void useShowSequence()
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            if (player.showSequenceHelper > 0)
+            {
+                player.showSequenceHelper--;
+                RoundTimer.Stop();
+                pictureBoxManager.forbidPictureBoxInteraction();
+                sequencerManager.setCardSequence(sequencerManager.CurrentSequence);
+                sequencerManager.startCardSequence();
+
+            }
+        }
+
+        public void useExtraTime()
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            if (player.extraTimeHelper > 0)
+            {
+                player.extraTimeHelper--;
+                RemainingRoundTimeInSeconds += 10;
+            }
+        }
+
+        public void useIncreaseMultiplier()
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            if (player.increaseMultiplierHelper > 0)
+            {
+                player.increaseMultiplierHelper--;
+                PointsMultiplier++;
+            }
+        }
+
+        public void buySequenceHelper(int points)
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            player.ReducePoints(points);
+            player.showSequenceHelper++;
+        }
+
+        public void buyTimeHelper(int points)
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            player.ReducePoints(points);
+            player.extraTimeHelper++;
+        }
+
+        public void buyMultiplierHelper(int points)
+        {
+            SequenceGamePlayer player = (SequenceGamePlayer)Player1;
+            player.ReducePoints(points);
+            player.increaseMultiplierHelper++;
         }
     }
 }

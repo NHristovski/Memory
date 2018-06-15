@@ -36,9 +36,9 @@ namespace Memory
             //!!!
             // DA SE POSTAVI SLIKA OD SEQ GAME VO CONSTRUCTOROT NA KLASAVA
 
-            SequenceGameForm sequenceGameForm = new SequenceGameForm();
+            SequenceGameLauncher sequenceGameLauncher = new SequenceGameLauncher();
             this.Dispose();
-            sequenceGameForm.ShowDialog();
+            sequenceGameLauncher.ShowDialog();
         }
     }
 }
