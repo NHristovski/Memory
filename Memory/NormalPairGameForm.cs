@@ -94,9 +94,9 @@ namespace Memory
             };
 
             int x2Price = 200;
-            int secondChancePrice = 350;
-            int findNextPrice = 450;
-            int openCardsPrice = 900;
+            int secondChancePrice = 300;
+            int findNextPrice = 400;
+            int openCardsPrice = 950;
 
             game = new PairGame(Player1, Player2, realPicBoxes, picBoxes, x2Price, secondChancePrice, findNextPrice, openCardsPrice);
 
@@ -144,8 +144,8 @@ namespace Memory
 
             int x2Price = 200;
             int secondChancePrice = 300;
-            int findNextPrice = 450;
-            int openCardsPrice = 900;
+            int findNextPrice = 400;
+            int openCardsPrice = 950;
 
 
             textBoxPrice2x.Text = x2Price + "";
