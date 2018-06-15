@@ -71,6 +71,22 @@ namespace Memory
         {
             return base.ToString() + " " + type;
         }
+        public virtual void Usex2(int price)
+        {
+
+        }
+        public virtual void UseSecondChance(int price)
+        {
+
+        }
+        public virtual void UseOpenCards(int price)
+        {
+
+        }
+        public virtual void UseFindNext(int price)
+        {
+
+        }
     }
 
     [Serializable]
@@ -123,22 +139,22 @@ namespace Memory
             openCardsAvaliable = 1;
         }
 
-        public void Usex2(int price)
+        public override void Usex2(int price)
         {
             x2Avaliable--;
             Score.Points -= price;
         }
-        public void UseSecondChance(int price)
+        public override void UseSecondChance(int price)
         {
             secondChanceAvaliable--;
             Score.Points -= price;
         }
-        public void UseOpenCards(int price)
+        public override void UseOpenCards(int price)
         {
             openCardsAvaliable--;
             Score.Points -= price;
         }
-        public void UseFindNext(int price)
+        public override void UseFindNext(int price)
         {
             findNextAvaliable--;
             Score.Points -= price;
@@ -181,6 +197,18 @@ namespace Memory
         public override void setHardGameAvaliable()
         {
             setAvaliable();
+        }
+        public override void Usex2(int price)
+        {
+        }
+        public override void UseSecondChance(int price)
+        {
+        }
+        public override void UseOpenCards(int price)
+        {
+        }
+        public override void UseFindNext(int price)
+        {
         }
     }
 

@@ -25,16 +25,18 @@ namespace Memory
 
         public static readonly string pathTo2xImage = pathToResources + "2x.png";
 
-        public static readonly string pathToFindNextImage = pathToResources + "find_next.jpg";
+        public static readonly string pathToFindNextImage = pathToResources + "find_next.png";
 
-        public static readonly string pathToOpenCardsImage = pathToResources + "open_cards.jpg";
+        public static readonly string pathToOpenCardsImage = pathToResources + "open_cards.png";
 
-        public static readonly string pathToSecondChanceImage = pathToResources + "second_chance.jpg";
+        public static readonly string pathToSecondChanceImage = pathToResources + "second_chance.png";
 
         public static readonly string pathToPairGameScores = pathToResources + "pair_game_score.txt";
 
         public static readonly string pathToMediumGamePicture = pathToResources + "pair_game_starter.png";
 
         public static readonly string pathToSequenceGameScores = pathToResources + "sequence_game_score.txt";
+
+        public static readonly string pathToClock = pathToResources + "clock.png";
     }
 }

@@ -306,7 +306,10 @@ namespace Memory
 
         public void OpenCards()
         {
-            Observer.OpenCards();
+            if (!BotTurn())
+            {
+                Observer.OpenCards();
+            }
         }
 
         public void makeCardStill(PictureBox pb)
@@ -316,12 +319,18 @@ namespace Memory
 
         public void makeCardsStill()
         {
-            Observer.makeCardsStill();
+            if (!BotTurn())
+            {
+                Observer.makeCardsStill();
+            }
         }
 
         public void closeValidCards()
         {
-            Observer.closeValidCards();
+            if (!BotTurn())
+            {
+                Observer.closeValidCards();
+            }
         }
         public bool isValid(PictureBox pb)
         {

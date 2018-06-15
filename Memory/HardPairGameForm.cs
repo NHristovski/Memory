@@ -158,6 +158,14 @@ namespace Memory
             pictureBoxOpenCards.Image = Image.FromFile(Paths.pathToOpenCardsImage);
             pictureBoxFindNext.Image = Image.FromFile(Paths.pathToFindNextImage);
 
+            pictureBoxTime.Image = Image.FromFile(Paths.pathToClock);
+            pictureBoxMoney1.Image = Properties.Resources.money_bag;
+            pictureBoxMoney2.Image = Properties.Resources.money_bag;
+            pictureBoxMoney3.Image = Properties.Resources.money_bag;
+            pictureBoxMoney4.Image = Properties.Resources.money_bag;
+            pictureBoxMoney5.Image = Properties.Resources.money_bag;
+            pictureBoxMoney6.Image = Properties.Resources.money_bag;
+
             int x2Price = 400;
             int secondChancePrice = 500;
             int findNextPrice = 900;
@@ -616,7 +624,10 @@ namespace Memory
 
                 game.OpenCards();
                 game.makeCardsStill();
-                Thread.Sleep(2000);
+                if (!game.BotTurn())
+                {
+                    Thread.Sleep(2000);
+                }
                 game.closeValidCards();
 
                 resumeAllPictureBoxes();
@@ -629,6 +640,10 @@ namespace Memory
             catch (HelperNotAvaliableException ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                resumeAllPictureBoxes();
             }
         }
 
