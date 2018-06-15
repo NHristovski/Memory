@@ -19,22 +19,28 @@ namespace Memory
         // Moving panels
         private bool helpPanelOpened;
         private bool storePanelOpened;
-        private Tuple<Panel, Panel, Boolean> currentMovingPanel;
+        private Tuple<Panel, Panel, int, Boolean> currentMovingPanel;
         // *
 
         private bool gameStarted;
         private Random rand = new Random();
 
+        // Resolution issues
+        private int firstMovingX;
+        private int firstX;
+
         public SequenceGameForm()
         {
             InitializeComponent();
             this.DoubleBuffered = true;
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
+            //this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            //this.MaximizeBox = false;
             messagesTimer.Interval = 2000;
             helpPanelOpened = false;
             storePanelOpened = false;
             gameStarted = false;
+            firstMovingX = 0;
+            firstX = 0;
 
             endOfRoundMessages = new string[] {
                 "Nice job son !!",
@@ -212,34 +218,64 @@ namespace Memory
         {
             Panel firstPanel = currentMovingPanel.Item1;
             Panel secondPanel = currentMovingPanel.Item2;
-            bool panelOpened = currentMovingPanel.Item3;
+            int openedWidth = currentMovingPanel.Item3;
+            bool panelOpened = currentMovingPanel.Item4;
+
 
             firstPanel.BringToFront();
             secondPanel.BringToFront();
 
-            if (panelOpened)
+            if (panelOpened) // Move right
             {
-                if (firstPanel.Left + 10 > 840)
+
+                //if (firstPanel.Left + 10 > firstPanel.Width)
+                //{
+                //    firstPanel.Left = this.Width; // 840;
+                //    secondPanel.Left = this.Width - pb.Width; // 805;
+                //    panelMovingTimer.Stop();
+                //    return;
+                //}
+
+                if(openedWidth - 10 < 0)
                 {
-                    firstPanel.Left = 840;
-                    secondPanel.Left = 805;
+                    firstPanel.Left += openedWidth;
+                    secondPanel.Left += openedWidth;
+                    currentMovingPanel = new Tuple<Panel, Panel, int, bool>(firstPanel, secondPanel, firstPanel.Width, false);
+                    pbHelp.Enabled = true;
+                    pbStore.Enabled = true;
                     panelMovingTimer.Stop();
                     return;
                 }
 
+                openedWidth -= 10;
+                currentMovingPanel = new Tuple<Panel, Panel, int, bool>(firstPanel, secondPanel, openedWidth, panelOpened);
                 firstPanel.Left += 10;
                 secondPanel.Left += 10;
             }
-            else
+            else // Move Left
             {
-                if (firstPanel.Left - 10 < 610)
+                //if (firstPanel.Left - 10 < this.Width - firstPanel.Width) // firstPanel.Left - 10 < 610)
+                //{
+                //    firstPanel.Left = this.Width - firstPanel.Width; // 610;
+                //    secondPanel.Left = this.Width - secondPanel.Width; // 575;
+                //    panelMovingTimer.Stop();
+                //    return;
+                //}
+
+                if(openedWidth + 10 > firstPanel.Width)
                 {
-                    firstPanel.Left = 610;
-                    secondPanel.Left = 575;
+                    firstPanel.Left -= firstPanel.Width - openedWidth;
+                    secondPanel.Left -= firstPanel.Width - openedWidth;
+                    currentMovingPanel = new Tuple<Panel, Panel, int, bool>(firstPanel, secondPanel, firstPanel.Width, true);
+                    pbHelp.Enabled = true;
+                    pbStore.Enabled = true;
                     panelMovingTimer.Stop();
                     return;
                 }
 
+                
+                openedWidth += 10;
+                currentMovingPanel = new Tuple<Panel, Panel, int, bool>(firstPanel, secondPanel, openedWidth, panelOpened);
                 firstPanel.Left -= 10;
                 secondPanel.Left -= 10;
             }
@@ -248,21 +284,33 @@ namespace Memory
 
         private void pbHelp_Click(object sender, EventArgs e)
         {
-            //if (storePanelOpened)
-            //    pbStore_Click(null, null);
+            int openedWidth;
+            if (helpPanelOpened)
+            {
+                openedWidth = pnlHelp2.Width;
+            }
+            else
+                openedWidth = 0;
 
-            currentMovingPanel = new Tuple<Panel, Panel, bool>(pnlHelp2, pnlHelp, helpPanelOpened);
+            currentMovingPanel = new Tuple<Panel, Panel, int, bool>(pnlHelp2, pnlHelp, openedWidth, helpPanelOpened);
+            pbStore.Enabled = false;
             panelMovingTimer.Start();
             helpPanelOpened = !helpPanelOpened;
         }
 
         private void pbStore_Click(object sender, EventArgs e)
         {
-            //if (helpPanelOpened)
-            //    pbHelp_Click(null, null);
+            int openedWidth;
+            if (storePanelOpened)
+            {
+                openedWidth = pnlStore2.Width;
+            }
+            else
+                openedWidth = 0;
 
             lblStoreError.Text = "";
-            currentMovingPanel = new Tuple<Panel, Panel, bool>(pnlStore2, pnlStore, storePanelOpened);
+            currentMovingPanel = new Tuple<Panel, Panel, int, bool>(pnlStore2, pnlStore, openedWidth, storePanelOpened);
+            pbHelp.Enabled = false;
             panelMovingTimer.Start();
             storePanelOpened = !storePanelOpened;
         }
