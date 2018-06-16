@@ -25,10 +25,6 @@ namespace Memory
         private bool gameStarted;
         private Random rand = new Random();
 
-        // Resolution issues
-        private int firstMovingX;
-        private int firstX;
-
         public SequenceGameForm()
         {
             InitializeComponent();
@@ -39,8 +35,6 @@ namespace Memory
             helpPanelOpened = false;
             storePanelOpened = false;
             gameStarted = false;
-            firstMovingX = 0;
-            firstX = 0;
 
             endOfRoundMessages = new string[] {
                 "Nice job son !!",
@@ -57,6 +51,8 @@ namespace Memory
                 "Dad: Your grandma plays better than you",
                 "You ran out of time"
             };
+
+            setHelperButtonsAvailability(false);
         }
 
         //private void buttonGenerateStations_Click(object sender, EventArgs e)
@@ -79,6 +75,7 @@ namespace Memory
             GameController.StartSequencer();
         }
 
+
         public void setRoundTimeLabel(string content)
         {
             lblRoundTime.Text = content;
@@ -97,6 +94,13 @@ namespace Memory
         public void setPointsLabel(int points)
         {
             lblPoints.Text = points.ToString();
+        }
+
+        public void setHelperButtonsAvailability(bool enable)
+        {
+            btnUseShowSequence.Enabled = enable;
+            btnUseExtraTime.Enabled = enable;
+            btnUseMultiplier.Enabled = enable;
         }
 
         public void updateHelperLabels()
@@ -272,7 +276,6 @@ namespace Memory
                     panelMovingTimer.Stop();
                     return;
                 }
-
                 
                 openedWidth += 10;
                 currentMovingPanel = new Tuple<Panel, Panel, int, bool>(firstPanel, secondPanel, openedWidth, panelOpened);

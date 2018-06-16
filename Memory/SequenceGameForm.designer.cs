@@ -105,7 +105,7 @@
             this.buttonStartSequence.Name = "buttonStartSequence";
             this.buttonStartSequence.Size = new System.Drawing.Size(104, 29);
             this.buttonStartSequence.TabIndex = 1;
-            this.buttonStartSequence.Text = "Start";
+            this.buttonStartSequence.Text = "Start round";
             this.buttonStartSequence.UseVisualStyleBackColor = true;
             this.buttonStartSequence.Click += new System.EventHandler(this.buttonStartSequence_Click);
             // 
