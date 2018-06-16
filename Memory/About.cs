@@ -23,5 +23,7 @@ namespace Memory
         {
             System.Diagnostics.Process.Start("https://github.com/NHristovski/Memory");
         }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e) {}
     }
 }

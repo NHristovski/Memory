@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="richTextBox3.Text" xml:space="preserve">
-    <value>If you choose to play with an opponent, you must first enter your name, then select the difficulty of the game and finally select whether you want to play with a friend or a bot (automated player). If you choose with a friend, you need to enter his name and click "START" for the beginning of the game. If, however, you choose to play with a bot, you need to select its level.</value>
+    <value>If you choose to play with an opponent, you must first enter your name, then select the difficulty of the game and finally select whether you want to play with a friend or a bot (automated player). If you choose with a friend, you need to enter his/hers name and click "START" for the beginning of the game. If, however, you choose to play with a bot, you need to select its level.</value>
   </data>
   <data name="richTextBox4.Text" xml:space="preserve">
     <value>The game is played so that each participant plays alternately. First, you pick a card from the offered ones, and then try to find its corresponding pair. If you find the matching pair, you get 100 points, and it's your turn again, otherwise it's the opponents turn. The game lasts as long as there are matching cards. The player with the most points wins.</value>
@@ -132,6 +132,10 @@
 On the right side of each helper there is its price, or how many points do you need in order for you to buy that helper, and from the left side of each helper is located the available helpers you can call during the current game. To activate an assistant you need to click on its picture. In order to use helpers "Two chances to quess the pair" or "Automatically finds the pair", you need to open one card and then call them.</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>To start a new game, you need to select "START" and then you need to choose whether you want "Sequential Game" or "Pair game", depending on whether you want to play _________________ or with an opponent, respectively.</value>
+    <value>To start a new game, you need to select "START" and then you need to choose whether you want "Sequence" or "Pair Up", depending on whether you want to play by yo
+urself or with an opponent, respectively.</value>
+  </data>
+  <data name="richTextBox6.Text" xml:space="preserve">
+    <value>This game has 6 rounds and in order to start each one you should press the Start button. When the round is started Sequencer shows few cards which should be placed below (on the docking stations) in the exact order in which they were presented. Between each round you can use the earned points to buy helpers from the store. You can use these helpers to reach to the higher rounds much easier. To reset a card you only need to double click on it.</value>
   </data>
 </root>
