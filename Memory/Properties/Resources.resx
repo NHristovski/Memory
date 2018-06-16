@@ -136,6 +136,9 @@
   <data name="points_p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\points_p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="launcher_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\launcher_bg.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="trophy_p" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\trophy_p.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -145,7 +148,13 @@
   <data name="green_cup" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\green_cup.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="from1_bg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\from1_bg1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="girl" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\woman.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sequence" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sequence.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
