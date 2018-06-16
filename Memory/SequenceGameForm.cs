@@ -69,6 +69,14 @@ namespace Memory
         private void buttonStartSequence_Click(object sender, EventArgs e)
         {
             gameStarted = true;
+            if (storePanelOpened || helpPanelOpened)
+            {
+                lblOpenedPanels.Text = "Error: Make sure that both Store and Help are closed !!";
+                return;
+            }
+            else // Safety 
+                lblOpenedPanels.Text = "";
+
             pbHelp.Enabled = false;
             pbStore.Enabled = false;
             buttonStartSequence.Enabled = false;
@@ -121,7 +129,7 @@ namespace Memory
                 pbGender.Image = Properties.Resources.girl;
 
             lblPlayerName.Text = GameController.Player1.Name;
-            updateHelperLabels();
+            //updateHelperLabels();
             pnlPlayerStats.Top = GameController.calculatePanelsPosition(pnlPlayerStats.Height);
             pnlHelpers.Top = GameController.calculatePanelsPosition(pnlHelpers.Height);
             Invalidate();
@@ -168,7 +176,7 @@ namespace Memory
         public void winGame(string str) // No more rounds
         {
             buttonStartSequence.Enabled = true;
-            GameController.savePlayer();
+            GameController.savePlayer(); // Not HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             lblMessage.ForeColor = Color.PowderBlue;
             messagesTimer.Interval = 5000;
             lblMessage.Text = "Dad: You have done very good job, I am proud of you son !!";
@@ -290,6 +298,9 @@ namespace Memory
             int openedWidth;
             if (helpPanelOpened)
             {
+                if (!storePanelOpened)
+                    lblOpenedPanels.Text = "";
+
                 openedWidth = pnlHelp2.Width;
             }
             else
@@ -306,6 +317,9 @@ namespace Memory
             int openedWidth;
             if (storePanelOpened)
             {
+                if (!helpPanelOpened)
+                    lblOpenedPanels.Text = "";
+
                 openedWidth = pnlStore2.Width;
             }
             else
@@ -362,6 +376,7 @@ namespace Memory
 
         private void SequenceGameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            GameController.stopTimers();
             if (gameStarted)
                 GameController.savePlayer();
         }

@@ -243,6 +243,16 @@ namespace Memory
             increaseMultiplierHelper = 0;
         }
 
+        public void ResetPlayer()
+        {
+            TotalTime = 0;
+            Level = 1;
+            base.ResetScore();
+            showSequenceHelper = 0;
+            extraTimeHelper = 0;
+            increaseMultiplierHelper = 0;
+        }
+
         public void GivePoints(int points)
         {
             Score.Points += points;

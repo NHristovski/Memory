@@ -153,14 +153,15 @@ namespace Memory
             else
                 RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / SecondLevelDivisor - SecondLevelTimeReducerInSeconds;
 
-            if (CurrentRound == (EndNumberOfDockingStations - StartNumberOfDockingStations + 1) * 2)
+            CurrentRound++;
+
+            if (CurrentRound == (EndNumberOfDockingStations - StartNumberOfDockingStations + 1) * 2 + 1)
             {
                 finishedGame();
             }
             else
                 ParentForm.endOfRound();
 
-            CurrentRound++;
             pictureBoxManager.resetPictureBoxes();
             ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds));
             ParentForm.setRoundLabel(CurrentRound);
@@ -272,8 +273,19 @@ namespace Memory
             PointsMultiplier = 1;
             NumberOfDockingStations = StartNumberOfDockingStations;
             pictureBoxManager.resetPictureBoxes();
-            Player1.Score.Points = 0;
-            ((SequenceGamePlayer)Player1).Level = 1;
+
+            // Resetting Player
+
+            //Player1.Score.Points = 0;
+            //((SequenceGamePlayer)Player1).Level = 1;
+
+            ((SequenceGamePlayer)Player1).ResetPlayer();
+            ParentForm.updateHelperLabels();
+
+            /////
+
+            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            ParentForm.Invalidate();
             InitializeRound();
         }
 
@@ -372,6 +384,11 @@ namespace Memory
             player.ReducePoints(points);
             ParentForm.setPointsLabel(player.Score.Points);
             player.increaseMultiplierHelper++;
+        }
+
+        public void stopTimers()
+        {
+            RoundTimer.Stop();
         }
     }
 }

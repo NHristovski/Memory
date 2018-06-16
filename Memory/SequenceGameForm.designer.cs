@@ -78,6 +78,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblOpenedPanels = new System.Windows.Forms.Label();
             this.pnlPlayerStats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -360,6 +361,7 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Control;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Enabled = false;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.richTextBox1.Location = new System.Drawing.Point(12, 38);
@@ -635,12 +637,24 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Store";
             // 
+            // lblOpenedPanels
+            // 
+            this.lblOpenedPanels.AutoSize = true;
+            this.lblOpenedPanels.BackColor = System.Drawing.Color.Transparent;
+            this.lblOpenedPanels.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOpenedPanels.ForeColor = System.Drawing.Color.Crimson;
+            this.lblOpenedPanels.Location = new System.Drawing.Point(4, 548);
+            this.lblOpenedPanels.Name = "lblOpenedPanels";
+            this.lblOpenedPanels.Size = new System.Drawing.Size(0, 13);
+            this.lblOpenedPanels.TabIndex = 16;
+            // 
             // SequenceGameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(840, 564);
+            this.Controls.Add(this.lblOpenedPanels);
             this.Controls.Add(this.pnlStore);
             this.Controls.Add(this.pnlStore2);
             this.Controls.Add(this.pnlHelp);
@@ -730,5 +744,6 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pbGender;
+        private System.Windows.Forms.Label lblOpenedPanels;
     }
 }
