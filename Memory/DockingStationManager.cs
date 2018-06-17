@@ -12,7 +12,19 @@ namespace Memory
     {
         public static readonly int dockingStationsDistance = 15;
         public static readonly int bottomOffset = 180;
-        public static readonly int dockingOffset = (DockingStation.width * DockingStation.height * 20) / 100;
+        //public static readonly int dockingOffset = (DockingStation.width * DockingStation.height * 20) / 100;
+
+        // Responsive
+        private static readonly float widthPercent = 11.7f;
+        private static readonly float heightPercent = 19.9f;
+
+        public int dockingStationWidth { get { return (int)Math.Ceiling((ParentWidth / 100.0) * widthPercent); } }
+
+        public int dockingStationHeight { get { return (int)Math.Ceiling((ParentHeight / 100.0) * heightPercent); } }
+
+        public int dockingOffset { get { return (dockingStationWidth * dockingStationHeight * 20) / 100; } }
+        //
+
         public int LeftOffset { get; set; }
 
         public List<DockingStation> Stations { get; set; }
@@ -32,13 +44,16 @@ namespace Memory
         public void GenerateStations(int n)
         {
             Stations.Clear();
-            LeftOffset = (ParentWidth - n * (DockingStation.width + dockingStationsDistance)) / 2;
+            //LeftOffset = (ParentWidth - n * (DockingStation.width + dockingStationsDistance)) / 2;
+            LeftOffset = (ParentWidth - n * (dockingStationWidth + dockingStationsDistance)) / 2;
             int Offset = 0;
             for (int i = 0; i < n; i++)
             {
-                DockingStation station = new DockingStation(LeftOffset + Offset, ParentHeight - bottomOffset, Color.DarkSeaGreen, (i + 1).ToString());
+                // new Rectangle(x, y, width, height)
+                DockingStation station = new DockingStation(new Rectangle(LeftOffset + Offset, ParentHeight - bottomOffset,
+                    dockingStationWidth, dockingStationHeight), Color.DarkSeaGreen, (i + 1).ToString());
                 Stations.Add(station);
-                Offset += DockingStation.width + dockingStationsDistance;
+                Offset += dockingStationWidth + dockingStationsDistance;
             }
         }
 

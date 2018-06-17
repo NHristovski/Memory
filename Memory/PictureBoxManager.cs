@@ -11,9 +11,22 @@ namespace Memory
 {
     public class PictureBoxManager
     {
-        public static readonly int pictureBoxWidth = 100; // 90
-        public static readonly int pictureBoxHeight = 120;
-        public static readonly int pictureBoxOffset = 30;
+        //public static readonly int pictureBoxWidth = 100; // 90
+        //public static readonly int pictureBoxHeight = 120;
+        //public static readonly int pictureBoxOffset = 30;
+
+
+        // Responsive pbs.
+        private static readonly float widthPercent = 11.7f;
+        private static readonly float heightPercent = 19.9f;
+        private static readonly float offsetPercent = 30; // Relative to PbWidth
+        public int pictureBoxWidth { get { return (int)Math.Ceiling((Parent.Width / 100.0) * widthPercent); } }
+
+        public int pictureBoxHeight { get { return (int)Math.Ceiling((Parent.Height / 100.0) * heightPercent); } }
+
+        public int pictureBoxOffset { get { return (int)Math.Ceiling((pictureBoxWidth / 100.0) * offsetPercent); } }
+        //
+
         public int LeftOffset
         {
             get
@@ -82,6 +95,7 @@ namespace Memory
 
         private void pictureBox_MouseDown(object sender, MouseEventArgs e)
         {
+            //MessageBox.Show(String.Format("{0} x {1} - {2}", pictureBoxWidth, pictureBoxHeight, pictureBoxOffset));
             HoldingPoint = e.Location;
             ActivePictureBox = (PictureBox)sender;
         }
