@@ -247,5 +247,7 @@ namespace Memory
                 }
             }
         }
+
+        private void groupBoxBotLevel_Enter(object sender, EventArgs e){}
     }
 }

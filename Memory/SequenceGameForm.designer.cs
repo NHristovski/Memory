@@ -79,6 +79,7 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblOpenedPanels = new System.Windows.Forms.Label();
+            // this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.pnlPlayerStats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -745,5 +746,6 @@
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pbGender;
         private System.Windows.Forms.Label lblOpenedPanels;
+        // private System.Windows.Forms.ColorDialog colorDialog1;
     }
 }
