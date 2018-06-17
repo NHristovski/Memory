@@ -497,10 +497,10 @@
             // textBoxTime
             // 
             this.textBoxTime.Enabled = false;
-            this.textBoxTime.Location = new System.Drawing.Point(300, 146);
+            this.textBoxTime.Location = new System.Drawing.Point(296, 146);
             this.textBoxTime.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxTime.Name = "textBoxTime";
-            this.textBoxTime.Size = new System.Drawing.Size(100, 30);
+            this.textBoxTime.Size = new System.Drawing.Size(113, 30);
             this.textBoxTime.TabIndex = 75;
             this.textBoxTime.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

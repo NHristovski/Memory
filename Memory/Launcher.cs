@@ -158,6 +158,10 @@ namespace Memory
             {
                 errorProviderP2Name.SetError(textBoxPlayer2Name, "Please enter name!");
             }
+            else if (textBoxPlayer2Name.Text.Contains(" "))
+            {
+                errorProviderP2Name.SetError(textBoxPlayer2Name, "The name should not contain \" \" (empty space)!");
+            }
             else
             {
                 errorProviderP2Name.SetError(textBoxPlayer2Name, null);
