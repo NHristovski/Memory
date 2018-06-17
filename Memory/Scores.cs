@@ -84,6 +84,7 @@ namespace Memory
                 p.gameStarted = DateTime.ParseExact(parts[4], "M/d/yyyy", CultureInfo.InvariantCulture);
 
                 //p.gameStarted = Convert.ToDateTime(parts[4]);
+
                 p.GameType = parts[6];
 
                 playerDocumentForSequenceGame.addPlayer(p);
@@ -99,12 +100,14 @@ namespace Memory
             string[] scores = File.ReadAllLines(Paths.pathToPairGameScores);
             foreach (var str in scores)
             {
+
                 string[] parts = str.Split(new char[] { ',' });
                 Player p = PlayerFactory.GetPairGameHumanPlayer(parts[0],parts[4]);
                 p.Score.Points = int.Parse(parts[1]);
                 p.Score.Time = parts[2];
                 p.gameStarted = DateTime.ParseExact(parts[3], "M/d/yyyy", CultureInfo.InvariantCulture);
 
+                //MessageBox.Show(p.ToString());
                 playerDocumentForPairGame.addPlayer(p);
             }
             
@@ -162,7 +165,8 @@ namespace Memory
             int counter = 1;
             foreach (var player in players)
             {
-                string[] parts = player.ToString().Split(new char[] { ' ' });
+                //MessageBox.Show(player.ToString());
+                string[] parts = (player).ToString().Split(new char[] { ' ' });
                 table.Rows.Add(counter,parts[0], parts[1], parts[2], parts[4], parts[3]);
                 counter++;
             }
