@@ -36,7 +36,7 @@ namespace Memory
         }
         public override string ToString()
         {
-            return string.Format("{0} {1} {2}", Name, Score.ToString(), gameStarted.ToString("MM/dd/yyyy")); // gameStarted.ToString());
+            return string.Format("{0} {1} {2}", Name, Score.ToString(), gameStarted.ToString("M/d/yyyy")); // 
         }
 
         public abstract bool isBot();                       
