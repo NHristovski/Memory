@@ -85,7 +85,7 @@ namespace Memory
 
                 //p.gameStarted = Convert.ToDateTime(parts[4]);
 
-                p.GameType = parts[6];
+                p.GameType = parts[5];
 
                 playerDocumentForSequenceGame.addPlayer(p);
             }
@@ -143,7 +143,7 @@ namespace Memory
             foreach (var player in players)
             {
                 string[] parts = player.ToString().Split(new char[] { ' ' });
-                table.Rows.Add(counter, parts[0], parts[1], parts[2], parts[3], parts[6], parts[4]);
+                table.Rows.Add(counter, parts[0], parts[1], parts[2], parts[3], parts[5], parts[4]);
                 counter++;
             }
 
