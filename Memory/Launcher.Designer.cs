@@ -58,7 +58,7 @@
             // textBoxPlayer1Name
             // 
             this.textBoxPlayer1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPlayer1Name.Location = new System.Drawing.Point(27, 38);
+            this.textBoxPlayer1Name.Location = new System.Drawing.Point(27, 43);
             this.textBoxPlayer1Name.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPlayer1Name.MaxLength = 15;
             this.textBoxPlayer1Name.Multiline = true;
@@ -72,11 +72,11 @@
             // 
             this.labelPlayer1Name.AutoSize = true;
             this.labelPlayer1Name.BackColor = System.Drawing.Color.Transparent;
-            this.labelPlayer1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.labelPlayer1Name.Location = new System.Drawing.Point(23, 20);
+            this.labelPlayer1Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.labelPlayer1Name.Location = new System.Drawing.Point(23, 16);
             this.labelPlayer1Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayer1Name.Name = "labelPlayer1Name";
-            this.labelPlayer1Name.Size = new System.Drawing.Size(109, 17);
+            this.labelPlayer1Name.Size = new System.Drawing.Size(147, 25);
             this.labelPlayer1Name.TabIndex = 1;
             this.labelPlayer1Name.Text = "Player1 Name";
             // 
@@ -86,23 +86,24 @@
             this.groupBox1.Controls.Add(this.radioButtonHard);
             this.groupBox1.Controls.Add(this.radioButtonMedium);
             this.groupBox1.Controls.Add(this.radioButtonEasy);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox1.Location = new System.Drawing.Point(27, 91);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(177, 160);
+            this.groupBox1.Size = new System.Drawing.Size(180, 144);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "DIFFICULTY OF THE GAME";
+            this.groupBox1.Text = "Game Difficulty";
             // 
             // radioButtonHard
             // 
             this.radioButtonHard.AutoSize = true;
-            this.radioButtonHard.Location = new System.Drawing.Point(14, 124);
+            this.radioButtonHard.Location = new System.Drawing.Point(38, 110);
             this.radioButtonHard.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonHard.Name = "radioButtonHard";
-            this.radioButtonHard.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonHard.Size = new System.Drawing.Size(83, 24);
             this.radioButtonHard.TabIndex = 2;
             this.radioButtonHard.Text = "HARD";
             this.radioButtonHard.UseVisualStyleBackColor = true;
@@ -110,10 +111,10 @@
             // radioButtonMedium
             // 
             this.radioButtonMedium.AutoSize = true;
-            this.radioButtonMedium.Location = new System.Drawing.Point(14, 78);
+            this.radioButtonMedium.Location = new System.Drawing.Point(38, 69);
             this.radioButtonMedium.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonMedium.Name = "radioButtonMedium";
-            this.radioButtonMedium.Size = new System.Drawing.Size(75, 17);
+            this.radioButtonMedium.Size = new System.Drawing.Size(104, 24);
             this.radioButtonMedium.TabIndex = 1;
             this.radioButtonMedium.Text = "MEDIUM";
             this.radioButtonMedium.UseVisualStyleBackColor = true;
@@ -122,10 +123,10 @@
             // 
             this.radioButtonEasy.AutoSize = true;
             this.radioButtonEasy.Checked = true;
-            this.radioButtonEasy.Location = new System.Drawing.Point(14, 35);
+            this.radioButtonEasy.Location = new System.Drawing.Point(38, 33);
             this.radioButtonEasy.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonEasy.Name = "radioButtonEasy";
-            this.radioButtonEasy.Size = new System.Drawing.Size(57, 17);
+            this.radioButtonEasy.Size = new System.Drawing.Size(77, 24);
             this.radioButtonEasy.TabIndex = 0;
             this.radioButtonEasy.TabStop = true;
             this.radioButtonEasy.Text = "EASY";
@@ -134,7 +135,7 @@
             // textBoxPlayer2Name
             // 
             this.textBoxPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPlayer2Name.Location = new System.Drawing.Point(20, 81);
+            this.textBoxPlayer2Name.Location = new System.Drawing.Point(21, 90);
             this.textBoxPlayer2Name.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPlayer2Name.MaxLength = 15;
             this.textBoxPlayer2Name.Multiline = true;
@@ -152,12 +153,13 @@
             this.groupBox2.Controls.Add(this.radioButtonBot);
             this.groupBox2.Controls.Add(this.radioButtonHuman);
             this.groupBox2.Controls.Add(this.textBoxPlayer2Name);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.groupBox2.Location = new System.Drawing.Point(334, 10);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(275, 281);
+            this.groupBox2.Size = new System.Drawing.Size(273, 305);
             this.groupBox2.TabIndex = 6;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Player 2";
@@ -165,11 +167,11 @@
             // labelPlayer2Name
             // 
             this.labelPlayer2Name.AutoSize = true;
-            this.labelPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.labelPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.labelPlayer2Name.Location = new System.Drawing.Point(16, 63);
             this.labelPlayer2Name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelPlayer2Name.Name = "labelPlayer2Name";
-            this.labelPlayer2Name.Size = new System.Drawing.Size(85, 13);
+            this.labelPlayer2Name.Size = new System.Drawing.Size(147, 25);
             this.labelPlayer2Name.TabIndex = 8;
             this.labelPlayer2Name.Text = "Player2 Name";
             // 
@@ -179,12 +181,13 @@
             this.groupBoxBotLevel.Controls.Add(this.radioButtonBotHard);
             this.groupBoxBotLevel.Controls.Add(this.radioButtonBotMedium);
             this.groupBoxBotLevel.Controls.Add(this.radioButtonBotEasy);
+            this.groupBoxBotLevel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.groupBoxBotLevel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.groupBoxBotLevel.Location = new System.Drawing.Point(20, 159);
+            this.groupBoxBotLevel.Location = new System.Drawing.Point(38, 176);
             this.groupBoxBotLevel.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxBotLevel.Name = "groupBoxBotLevel";
             this.groupBoxBotLevel.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxBotLevel.Size = new System.Drawing.Size(216, 110);
+            this.groupBoxBotLevel.Size = new System.Drawing.Size(186, 118);
             this.groupBoxBotLevel.TabIndex = 8;
             this.groupBoxBotLevel.TabStop = false;
             this.groupBoxBotLevel.Text = "Bot Level";
@@ -193,10 +196,10 @@
             // radioButtonBotHard
             // 
             this.radioButtonBotHard.AutoSize = true;
-            this.radioButtonBotHard.Location = new System.Drawing.Point(8, 87);
+            this.radioButtonBotHard.Location = new System.Drawing.Point(41, 87);
             this.radioButtonBotHard.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonBotHard.Name = "radioButtonBotHard";
-            this.radioButtonBotHard.Size = new System.Drawing.Size(60, 17);
+            this.radioButtonBotHard.Size = new System.Drawing.Size(83, 24);
             this.radioButtonBotHard.TabIndex = 3;
             this.radioButtonBotHard.Text = "HARD";
             this.radioButtonBotHard.UseVisualStyleBackColor = true;
@@ -204,10 +207,10 @@
             // radioButtonBotMedium
             // 
             this.radioButtonBotMedium.AutoSize = true;
-            this.radioButtonBotMedium.Location = new System.Drawing.Point(8, 54);
+            this.radioButtonBotMedium.Location = new System.Drawing.Point(41, 59);
             this.radioButtonBotMedium.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonBotMedium.Name = "radioButtonBotMedium";
-            this.radioButtonBotMedium.Size = new System.Drawing.Size(75, 17);
+            this.radioButtonBotMedium.Size = new System.Drawing.Size(104, 24);
             this.radioButtonBotMedium.TabIndex = 3;
             this.radioButtonBotMedium.Text = "MEDIUM";
             this.radioButtonBotMedium.UseVisualStyleBackColor = true;
@@ -216,10 +219,10 @@
             // 
             this.radioButtonBotEasy.AutoSize = true;
             this.radioButtonBotEasy.Checked = true;
-            this.radioButtonBotEasy.Location = new System.Drawing.Point(8, 24);
+            this.radioButtonBotEasy.Location = new System.Drawing.Point(39, 31);
             this.radioButtonBotEasy.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonBotEasy.Name = "radioButtonBotEasy";
-            this.radioButtonBotEasy.Size = new System.Drawing.Size(57, 17);
+            this.radioButtonBotEasy.Size = new System.Drawing.Size(77, 24);
             this.radioButtonBotEasy.TabIndex = 3;
             this.radioButtonBotEasy.TabStop = true;
             this.radioButtonBotEasy.Text = "EASY";
@@ -228,10 +231,11 @@
             // radioButtonBot
             // 
             this.radioButtonBot.AutoSize = true;
-            this.radioButtonBot.Location = new System.Drawing.Point(20, 137);
+            this.radioButtonBot.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.radioButtonBot.Location = new System.Drawing.Point(21, 143);
             this.radioButtonBot.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonBot.Name = "radioButtonBot";
-            this.radioButtonBot.Size = new System.Drawing.Size(44, 17);
+            this.radioButtonBot.Size = new System.Drawing.Size(65, 29);
             this.radioButtonBot.TabIndex = 7;
             this.radioButtonBot.Text = "Bot";
             this.radioButtonBot.UseVisualStyleBackColor = true;
@@ -241,10 +245,11 @@
             // 
             this.radioButtonHuman.AutoSize = true;
             this.radioButtonHuman.Checked = true;
-            this.radioButtonHuman.Location = new System.Drawing.Point(20, 28);
+            this.radioButtonHuman.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.radioButtonHuman.Location = new System.Drawing.Point(21, 27);
             this.radioButtonHuman.Margin = new System.Windows.Forms.Padding(2);
             this.radioButtonHuman.Name = "radioButtonHuman";
-            this.radioButtonHuman.Size = new System.Drawing.Size(64, 17);
+            this.radioButtonHuman.Size = new System.Drawing.Size(101, 29);
             this.radioButtonHuman.TabIndex = 6;
             this.radioButtonHuman.TabStop = true;
             this.radioButtonHuman.Text = "Human";
@@ -253,10 +258,11 @@
             // 
             // buttonStart
             // 
-            this.buttonStart.BackColor = System.Drawing.SystemColors.Info;
+            this.buttonStart.BackColor = System.Drawing.Color.LavenderBlush;
             this.buttonStart.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonStart.ForeColor = System.Drawing.Color.Black;
-            this.buttonStart.Location = new System.Drawing.Point(27, 256);
+            this.buttonStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonStart.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonStart.Location = new System.Drawing.Point(27, 280);
             this.buttonStart.Margin = new System.Windows.Forms.Padding(2);
             this.buttonStart.Name = "buttonStart";
             this.buttonStart.Size = new System.Drawing.Size(138, 35);
@@ -275,25 +281,26 @@
             // 
             // buttonOpen
             // 
-            this.buttonOpen.BackColor = System.Drawing.SystemColors.Info;
+            this.buttonOpen.BackColor = System.Drawing.Color.LavenderBlush;
             this.buttonOpen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.buttonOpen.ForeColor = System.Drawing.Color.Black;
-            this.buttonOpen.Location = new System.Drawing.Point(191, 256);
+            this.buttonOpen.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonOpen.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.buttonOpen.Location = new System.Drawing.Point(180, 280);
             this.buttonOpen.Margin = new System.Windows.Forms.Padding(2);
             this.buttonOpen.Name = "buttonOpen";
             this.buttonOpen.Size = new System.Drawing.Size(138, 35);
             this.buttonOpen.TabIndex = 8;
-            this.buttonOpen.Text = "O P E N";
+            this.buttonOpen.Text = "CONTINUE";
             this.buttonOpen.UseVisualStyleBackColor = false;
             this.buttonOpen.Click += new System.EventHandler(this.buttonOpen_Click);
             // 
             // Launcher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.BackgroundImage = global::Memory.Properties.Resources.green_cup;
-            this.ClientSize = new System.Drawing.Size(619, 303);
+            this.ClientSize = new System.Drawing.Size(618, 320);
             this.Controls.Add(this.buttonOpen);
             this.Controls.Add(this.buttonStart);
             this.Controls.Add(this.groupBox2);

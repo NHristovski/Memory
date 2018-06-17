@@ -40,10 +40,10 @@
             // 
             this.pictureBox1.Enabled = false;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(97, 51);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Location = new System.Drawing.Point(120, 23);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(268, 150);
+            this.pictureBox1.Size = new System.Drawing.Size(357, 185);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
@@ -55,10 +55,10 @@
             this.buttonEnd.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonEnd.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonEnd.Font = new System.Drawing.Font("Eras Demi ITC", 16F);
-            this.buttonEnd.Location = new System.Drawing.Point(140, 374);
-            this.buttonEnd.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonEnd.Location = new System.Drawing.Point(198, 412);
+            this.buttonEnd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonEnd.Name = "buttonEnd";
-            this.buttonEnd.Size = new System.Drawing.Size(155, 40);
+            this.buttonEnd.Size = new System.Drawing.Size(207, 49);
             this.buttonEnd.TabIndex = 2;
             this.buttonEnd.Text = "END";
             this.buttonEnd.UseVisualStyleBackColor = false;
@@ -70,10 +70,10 @@
             this.buttonShowScores.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonShowScores.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonShowScores.Font = new System.Drawing.Font("Eras Demi ITC", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonShowScores.Location = new System.Drawing.Point(140, 319);
-            this.buttonShowScores.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonShowScores.Location = new System.Drawing.Point(198, 346);
+            this.buttonShowScores.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonShowScores.Name = "buttonShowScores";
-            this.buttonShowScores.Size = new System.Drawing.Size(155, 40);
+            this.buttonShowScores.Size = new System.Drawing.Size(207, 49);
             this.buttonShowScores.TabIndex = 1;
             this.buttonShowScores.Text = "HIGH SCORE";
             this.buttonShowScores.UseVisualStyleBackColor = false;
@@ -86,10 +86,10 @@
             this.buttonStartGame.Cursor = System.Windows.Forms.Cursors.Hand;
             this.buttonStartGame.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.buttonStartGame.Font = new System.Drawing.Font("Eras Demi ITC", 16F);
-            this.buttonStartGame.Location = new System.Drawing.Point(140, 264);
-            this.buttonStartGame.Margin = new System.Windows.Forms.Padding(2);
+            this.buttonStartGame.Location = new System.Drawing.Point(198, 274);
+            this.buttonStartGame.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonStartGame.Name = "buttonStartGame";
-            this.buttonStartGame.Size = new System.Drawing.Size(155, 40);
+            this.buttonStartGame.Size = new System.Drawing.Size(207, 49);
             this.buttonStartGame.TabIndex = 0;
             this.buttonStartGame.Text = "START";
             this.buttonStartGame.UseVisualStyleBackColor = false;
@@ -98,17 +98,17 @@
             // StarterForm
             // 
             this.AcceptButton = this.buttonStartGame;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Memory.Properties.Resources.from1_bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.buttonEnd;
-            this.ClientSize = new System.Drawing.Size(462, 465);
+            this.ClientSize = new System.Drawing.Size(616, 518);
             this.Controls.Add(this.buttonStartGame);
             this.Controls.Add(this.buttonShowScores);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEnd);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "StarterForm";
             this.Text = "Memory";
             this.Load += new System.EventHandler(this.Form1_Load);

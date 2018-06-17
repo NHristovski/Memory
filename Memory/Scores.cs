@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -99,7 +100,7 @@ namespace Memory
                 Player p = PlayerFactory.GetPairGameHumanPlayer(parts[0],parts[5]);
                 p.Score.Points = int.Parse(parts[1]);
                 p.Score.Time = parts[2];
-                p.gameStarted = Convert.ToDateTime(parts[3]);
+                p.gameStarted = DateTime.ParseExact(parts[3], "M/d/yyyy", CultureInfo.InvariantCulture);
 
                 playerDocumentForPairGame.addPlayer(p);
             }
@@ -159,7 +160,7 @@ namespace Memory
             foreach (var player in players)
             {
                 string[] parts = player.ToString().Split(new char[] { ' ' });
-                table.Rows.Add(counter,parts[0], parts[1], parts[2], parts[5], parts[3]);
+                table.Rows.Add(counter,parts[0], parts[1], parts[2], parts[4], parts[3]);
                 counter++;
             }
 

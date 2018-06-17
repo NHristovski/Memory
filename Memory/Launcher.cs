@@ -48,6 +48,45 @@ namespace Memory
             changeVisibility();
         }
 
+        private bool InvalidP1Name()
+        {
+            if (textBoxPlayer1Name.Text.Equals(String.Empty))
+            {
+                errorProviderP1Name.SetError(textBoxPlayer1Name, "Please enter name!");
+                return true;
+            }
+            else if (textBoxPlayer1Name.Text.Contains(" "))
+            {
+                errorProviderP1Name.SetError(textBoxPlayer1Name, "The name can not have \" \" (empty space)!");
+                return true;
+            }
+            else if (textBoxPlayer1Name.Text.Contains(","))
+            {
+                errorProviderP1Name.SetError(textBoxPlayer1Name, "The name can not have \",\" (comma)!");
+                return true;
+            }
+            return false;
+        }
+        private bool InvalidP2Name()
+        {
+            if (radioButtonHuman.Checked && textBoxPlayer2Name.Text.Equals(String.Empty))
+            {
+                errorProviderP2Name.SetError(textBoxPlayer2Name, "Please enter name!");
+                return true;
+            }
+            else if (radioButtonHuman.Checked && textBoxPlayer2Name.Text.Contains(" "))
+            {
+                errorProviderP2Name.SetError(textBoxPlayer2Name, "The name can not have \" \" (empty space)!");
+                return true;
+            }
+            else if (radioButtonHuman.Checked && textBoxPlayer2Name.Text.Contains(","))
+            {
+                errorProviderP2Name.SetError(textBoxPlayer2Name, "The name can not have \",\" (comma)!");
+                return true;
+            }
+            return false;
+        }
+
         private void buttonStart_Click(object sender, EventArgs e)
         {
 
@@ -55,25 +94,14 @@ namespace Memory
             Player Player1;
             Player Player2;
 
-            bool ShouldReturn = false;
+            var invalidP1Name = InvalidP1Name();
+            var invalidP2Name = InvalidP2Name();
 
-            if (textBoxPlayer1Name.Text.Equals(String.Empty))
+            if (invalidP1Name || invalidP2Name)
             {
-                errorProviderP1Name.SetError(textBoxPlayer1Name, "Please enter name!");
-                ShouldReturn = true;
-            }
-            if (radioButtonHuman.Checked && textBoxPlayer2Name.Text.Equals(String.Empty))
-            {
-                
-                errorProviderP2Name.SetError(textBoxPlayer2Name, "Please enter name!");
-                ShouldReturn = true;
-            }
-            if (ShouldReturn)
-            {
-                MessageBox.Show("Please enter the name of the players!");
+                MessageBox.Show("Please enter the valid names for the players!");
                 return;
             }
-            
             
 
             if (radioButtonBot.Checked)
@@ -146,6 +174,14 @@ namespace Memory
             {
                 errorProviderP1Name.SetError(textBoxPlayer1Name, "Please enter name!");
             }
+            else if (textBoxPlayer1Name.Text.Contains(" "))
+            {
+                errorProviderP1Name.SetError(textBoxPlayer1Name, "The name can not have \" \" (empty space)!");
+            }
+            else if (textBoxPlayer1Name.Text.Contains(","))
+            {
+                errorProviderP1Name.SetError(textBoxPlayer1Name, "The name can not have \",\" (comma)!");
+            }
             else
             {
                 errorProviderP1Name.SetError(textBoxPlayer1Name, null);
@@ -157,6 +193,14 @@ namespace Memory
             if (textBoxPlayer2Name.Text.Equals(String.Empty))
             {
                 errorProviderP2Name.SetError(textBoxPlayer2Name, "Please enter name!");
+            }
+            else if (textBoxPlayer2Name.Text.Contains(" "))
+            {
+                errorProviderP2Name.SetError(textBoxPlayer2Name, "The name can not have \" \" (empty space)!");
+            }
+            else if (textBoxPlayer2Name.Text.Contains(","))
+            {
+                errorProviderP2Name.SetError(textBoxPlayer2Name, "The name can not have \",\" (comma)!");
             }
             else
             {
