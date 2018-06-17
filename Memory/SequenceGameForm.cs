@@ -22,7 +22,6 @@ namespace Memory
         private Tuple<Panel, Panel, int, Boolean> currentMovingPanel;
         // *
 
-        private bool gameStarted;
         private Random rand = new Random();
 
         public SequenceGameForm()
@@ -34,7 +33,6 @@ namespace Memory
             messagesTimer.Interval = 2000;
             helpPanelOpened = false;
             storePanelOpened = false;
-            gameStarted = false;
 
             endOfRoundMessages = new string[] {
                 "Nice job son !!",
@@ -68,7 +66,6 @@ namespace Memory
 
         private void buttonStartSequence_Click(object sender, EventArgs e)
         {
-            gameStarted = true;
             if (storePanelOpened || helpPanelOpened)
             {
                 lblOpenedPanels.Text = "Error: Make sure that both Store and Help are closed !!";
@@ -159,7 +156,6 @@ namespace Memory
         public void lostGame(string str)
         {
             buttonStartSequence.Enabled = true;
-            GameController.savePlayer();
             string message = lostGameMessages[rand.Next(endOfRoundMessages.Length)];
             lblMessage.ForeColor = Color.Gold;
             lblMessage.Text = message;
@@ -176,7 +172,6 @@ namespace Memory
         public void winGame(string str) // No more rounds
         {
             buttonStartSequence.Enabled = true;
-            GameController.savePlayer(); // Not HERE !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             lblMessage.ForeColor = Color.PowderBlue;
             messagesTimer.Interval = 5000;
             lblMessage.Text = "Dad: You have done very good job, I am proud of you son !!";
@@ -376,9 +371,7 @@ namespace Memory
 
         private void SequenceGameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            GameController.stopTimers();
-            if (gameStarted)
-                GameController.savePlayer();
+            GameController.closeGame();
         }
     }
 }

@@ -37,6 +37,8 @@ namespace Memory
         protected SequenceGameForm ParentForm { get; set; }
         protected Timer RoundTimer { get; set; }
 
+        private bool inRound;
+
         //private Semaphore _pool;
 
         protected string[] shapes;
@@ -57,6 +59,7 @@ namespace Memory
             ParentForm = parent;
             RoundTimer = new Timer();
             CurrentRound = 1;
+            inRound = false;
         }
 
         public void InitializeGame() // Call only once
@@ -107,6 +110,8 @@ namespace Memory
 
         public void StartSequencer()
         {
+            inRound = true;
+
             if (CurrentRound != 1)
                 InitializeRound();
 
@@ -292,7 +297,10 @@ namespace Memory
         // One method for finishedGame
         public void finishedGame()
         {
+            RoundTimer.Stop();
             ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
+            savePlayer();
+            inRound = false;
             ParentForm.winGame("WIN WIN WIN !!!\nDo you want to start again ?");
         }
 
@@ -300,6 +308,8 @@ namespace Memory
         public void outOfTime()
         {
             ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
+            savePlayer();
+            inRound = false;
             ParentForm.lostGame("Lost the game, want to try again ?");
         }
 
@@ -386,9 +396,14 @@ namespace Memory
             player.increaseMultiplierHelper++;
         }
 
-        public void stopTimers()
+        public void closeGame()
         {
             RoundTimer.Stop();
+            if (inRound)
+            {
+                ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
+                savePlayer();
+            }
         }
     }
 }
