@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+//using System.Threading;
 using System.Windows.Forms;
 
 namespace Memory
 {
     public class SequenceGameController : Game
     {
-        // Variables for Game Modes: Easy, Normal, Hard
+        // * Variables for Game Modes: Easy, Normal, Hard
         public GameModes gameMode { get; set; }
-        //private static readonly int numberOfLevels = 2;
 
         protected int CurrentRound { get; set; }
         protected int NumberOfDockingStations { get; set; }
@@ -23,11 +23,12 @@ namespace Memory
         public int SecondLevelDivisor { get; set; }
         public int SequencerTimeInMilliseconds { get; set; } // Shouldnt be changed (Repeats every second level)
         protected int CurrentSequencerTime { get; set; } // How many milliseconds will the Sequencer be opened
-        //
+        // *
         // Player needed
         private int ElapsedRoundTimeInSeconds { get; set; }
         private int PointsMultiplier { get; set; }
         private static readonly int points = 100;
+        //
 
         protected DockingStationManager dockingStationManager { get; set; }
         protected PictureBoxManager pictureBoxManager { get; set; }
@@ -35,6 +36,10 @@ namespace Memory
         protected Dictionary<PictureBox, DockingStation> DockingRelations { get; set; } // Check while refactoring
         protected SequenceGameForm ParentForm { get; set; }
         protected Timer RoundTimer { get; set; }
+
+        private bool inRound;
+
+        //private Semaphore _pool;
 
         protected string[] shapes;
 
@@ -54,6 +59,7 @@ namespace Memory
             ParentForm = parent;
             RoundTimer = new Timer();
             CurrentRound = 1;
+            inRound = false;
         }
 
         public void InitializeGame() // Call only once
@@ -61,6 +67,8 @@ namespace Memory
             PointsMultiplier = 1;
             NumberOfDockingStations = StartNumberOfDockingStations;
             RoundTimer.Interval = 1000;
+            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            ParentForm.Invalidate();
             InitializeRound();
             pictureBoxManager.GeneratePictureBoxes(shapes);
             pictureBoxManager.DisplayPictureBoxes();
@@ -86,9 +94,6 @@ namespace Memory
                 CurrentSequencerTime = SequencerTimeInMilliseconds;
             }
 
-            //sequencerManager.sequencingTimer.Interval = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
-            dockingStationManager.GenerateStations(NumberOfDockingStations);
-            ParentForm.Invalidate();
             ParentForm.setRoundLabel(CurrentRound);
             ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds));
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
@@ -98,6 +103,17 @@ namespace Memory
             //              + "\nDockers: " + NumberOfDockingStations
             //              + "\nRound time: " + RemainingRoundTimeInSeconds + "s"
             //              + "\nSequencer time: " + CurrentSequencerTime + "ms");
+        }
+
+        public void StartSequencer()
+        {
+            inRound = true;
+
+            if (CurrentRound != 1)
+                InitializeRound();
+
+            pictureBoxManager.forbidPictureBoxInteraction();
+            sequencerManager.startCardSequence();
         }
 
         private void roundTimer_Tick(object sender, EventArgs e)
@@ -134,18 +150,26 @@ namespace Memory
             if (CurrentRound % 2 == 0) // If second level finished
             {
                 NumberOfDockingStations++;
+                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / FirstLevelDivisor - FirstLevelTimeReducerInSeconds;
             }
+            else
+                RemainingRoundTimeInSeconds = (NumberOfDockingStations * 10) / SecondLevelDivisor - SecondLevelTimeReducerInSeconds;
 
-            if (CurrentRound == (EndNumberOfDockingStations - StartNumberOfDockingStations + 1) * 2)
+            CurrentRound++;
+
+            if (CurrentRound == (EndNumberOfDockingStations - StartNumberOfDockingStations + 1) * 2 + 1)
             {
                 finishedGame();
             }
             else
                 ParentForm.endOfRound();
 
-            CurrentRound++;
             pictureBoxManager.resetPictureBoxes();
-            ParentForm.setRoundTimeLabel(getTimeRepresentation(0));
+            ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds));
+            ParentForm.setRoundLabel(CurrentRound);
+            ParentForm.setHelperButtonsAvailability(false);
+            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            ParentForm.Invalidate();
             //dockingStationManager.resetDockingStations();
         }
 
@@ -220,18 +244,10 @@ namespace Memory
             return randomCards;
         }
 
-        public void StartSequencer()
-        {
-            if (CurrentRound != 1)
-                InitializeRound();
-
-            pictureBoxManager.forbidPictureBoxInteraction();
-            sequencerManager.startCardSequence();
-        }
-
         public void HandleSequencerTermination()
         {
             pictureBoxManager.allowPictureBoxInteraction();
+            ParentForm.setHelperButtonsAvailability(true);
             RoundTimer.Start();
         }
 
@@ -240,34 +256,30 @@ namespace Memory
             throw new NotImplementedException();
         }
 
-        //public void resetGame() // Will be changed !!
-        //{
-        //    pictureBoxManager.resetPictureBoxes();
-        //    ParentForm.Invalidate();
-        //    pictureBoxManager.disposePictureBoxes();
-        //    dockingStationManager.resetDockingStations();
-        //    sequencerManager.disposeSequencer();
-        //    Player1.Score.Points = 0;
-        //    ((SequenceGamePlayer)Player1).Level = 0;
-        //    ParentForm.Invalidate();
-        //    ParentForm.resetGame();
-        //}
-
         public void resetGame() // Less painful
         {
             CurrentRound = 1;
             PointsMultiplier = 1;
             NumberOfDockingStations = StartNumberOfDockingStations;
             pictureBoxManager.resetPictureBoxes();
-            Player1.Score.Points = 0;
-            ((SequenceGamePlayer)Player1).Level = 1;
+
+            // Resetting Player
+            ((SequenceGamePlayer)Player1).ResetPlayer();
+            ParentForm.updateHelperLabels();
+            /////
+
+            dockingStationManager.GenerateStations(NumberOfDockingStations);
+            ParentForm.Invalidate();
             InitializeRound();
         }
 
         // One method for finishedGame
         public void finishedGame()
         {
+            RoundTimer.Stop();
             ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
+            savePlayer();
+            inRound = false;
             ParentForm.winGame("WIN WIN WIN !!!\nDo you want to start again ?");
         }
 
@@ -275,6 +287,8 @@ namespace Memory
         public void outOfTime()
         {
             ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
+            savePlayer();
+            inRound = false;
             ParentForm.lostGame("Lost the game, want to try again ?");
         }
 
@@ -301,18 +315,18 @@ namespace Memory
         }
 
         // Helpers
-
         public void useShowSequence()
         {
             SequenceGamePlayer player = (SequenceGamePlayer)Player1;
             if (player.showSequenceHelper > 0)
             {
                 player.showSequenceHelper--;
+                ParentForm.updateHelperLabels();
                 RoundTimer.Stop();
                 pictureBoxManager.forbidPictureBoxInteraction();
+                ParentForm.setHelperButtonsAvailability(false);
                 sequencerManager.setCardSequence(sequencerManager.CurrentSequence);
                 sequencerManager.startCardSequence();
-
             }
         }
 
@@ -340,6 +354,7 @@ namespace Memory
         {
             SequenceGamePlayer player = (SequenceGamePlayer)Player1;
             player.ReducePoints(points);
+            ParentForm.setPointsLabel(player.Score.Points);
             player.showSequenceHelper++;
         }
 
@@ -347,6 +362,7 @@ namespace Memory
         {
             SequenceGamePlayer player = (SequenceGamePlayer)Player1;
             player.ReducePoints(points);
+            ParentForm.setPointsLabel(player.Score.Points);
             player.extraTimeHelper++;
         }
 
@@ -354,7 +370,18 @@ namespace Memory
         {
             SequenceGamePlayer player = (SequenceGamePlayer)Player1;
             player.ReducePoints(points);
+            ParentForm.setPointsLabel(player.Score.Points);
             player.increaseMultiplierHelper++;
+        }
+
+        public void closeGame()
+        {
+            RoundTimer.Stop();
+            if (inRound)
+            {
+                ((SequenceGamePlayer)Player1).addTime(ElapsedRoundTimeInSeconds);
+                savePlayer();
+            }
         }
     }
 }

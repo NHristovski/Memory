@@ -38,7 +38,6 @@ namespace Memory
                 return;
             }
 
-
             player = PlayerFactory.GetSequenceGamePlayer(tbPlayerName.Text);
             SequenceGameControllerFactory ControllerFactory = new SequenceGameControllerFactory(player, form);
 

@@ -22,12 +22,7 @@ namespace Memory
         private Tuple<Panel, Panel, int, Boolean> currentMovingPanel;
         // *
 
-        private bool gameStarted;
         private Random rand = new Random();
-
-        // Resolution issues
-        private int firstMovingX;
-        private int firstX;
 
         public SequenceGameForm()
         {
@@ -38,9 +33,6 @@ namespace Memory
             messagesTimer.Interval = 2000;
             helpPanelOpened = false;
             storePanelOpened = false;
-            gameStarted = false;
-            firstMovingX = 0;
-            firstX = 0;
 
             endOfRoundMessages = new string[] {
                 "Nice job son !!",
@@ -57,6 +49,8 @@ namespace Memory
                 "Dad: Your grandma plays better than you",
                 "You ran out of time"
             };
+
+            setHelperButtonsAvailability(false);
         }
 
         //private void buttonGenerateStations_Click(object sender, EventArgs e)
@@ -72,12 +66,20 @@ namespace Memory
 
         private void buttonStartSequence_Click(object sender, EventArgs e)
         {
-            gameStarted = true;
+            if (storePanelOpened || helpPanelOpened)
+            {
+                lblOpenedPanels.Text = "Error: Make sure that both Store and Help are closed !!";
+                return;
+            }
+            else // Safety 
+                lblOpenedPanels.Text = "";
+
             pbHelp.Enabled = false;
             pbStore.Enabled = false;
             buttonStartSequence.Enabled = false;
             GameController.StartSequencer();
         }
+
 
         public void setRoundTimeLabel(string content)
         {
@@ -99,6 +101,13 @@ namespace Memory
             lblPoints.Text = points.ToString();
         }
 
+        public void setHelperButtonsAvailability(bool enable)
+        {
+            btnUseShowSequence.Enabled = enable;
+            btnUseExtraTime.Enabled = enable;
+            btnUseMultiplier.Enabled = enable;
+        }
+
         public void updateHelperLabels()
         {
             SequenceGamePlayer player = (SequenceGamePlayer)GameController.Player1;
@@ -117,7 +126,7 @@ namespace Memory
                 pbGender.Image = Properties.Resources.girl;
 
             lblPlayerName.Text = GameController.Player1.Name;
-            updateHelperLabels();
+            //updateHelperLabels();
             pnlPlayerStats.Top = GameController.calculatePanelsPosition(pnlPlayerStats.Height);
             pnlHelpers.Top = GameController.calculatePanelsPosition(pnlHelpers.Height);
             Invalidate();
@@ -147,7 +156,6 @@ namespace Memory
         public void lostGame(string str)
         {
             buttonStartSequence.Enabled = true;
-            GameController.savePlayer();
             string message = lostGameMessages[rand.Next(endOfRoundMessages.Length)];
             lblMessage.ForeColor = Color.Gold;
             lblMessage.Text = message;
@@ -164,7 +172,6 @@ namespace Memory
         public void winGame(string str) // No more rounds
         {
             buttonStartSequence.Enabled = true;
-            GameController.savePlayer();
             lblMessage.ForeColor = Color.PowderBlue;
             messagesTimer.Interval = 5000;
             lblMessage.Text = "Dad: You have done very good job, I am proud of you son !!";
@@ -272,7 +279,6 @@ namespace Memory
                     panelMovingTimer.Stop();
                     return;
                 }
-
                 
                 openedWidth += 10;
                 currentMovingPanel = new Tuple<Panel, Panel, int, bool>(firstPanel, secondPanel, openedWidth, panelOpened);
@@ -287,6 +293,9 @@ namespace Memory
             int openedWidth;
             if (helpPanelOpened)
             {
+                if (!storePanelOpened)
+                    lblOpenedPanels.Text = "";
+
                 openedWidth = pnlHelp2.Width;
             }
             else
@@ -303,6 +312,9 @@ namespace Memory
             int openedWidth;
             if (storePanelOpened)
             {
+                if (!helpPanelOpened)
+                    lblOpenedPanels.Text = "";
+
                 openedWidth = pnlStore2.Width;
             }
             else
@@ -359,8 +371,7 @@ namespace Memory
 
         private void SequenceGameForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (gameStarted)
-                GameController.savePlayer();
+            GameController.closeGame();
         }
     }
 }
