@@ -275,7 +275,7 @@ namespace Memory
 
         public override string ToString()
         {
-            return string.Format("{0} {1} {2} {3} {4}", Name, Score.ToString(), Level.ToString(), gameStarted.ToString("M/d/yyyy HH:mm:ss"), GameType);
+            return string.Format("{0} {1} {2} {3} {4}", Name, Score.ToString(), Level.ToString(), gameStarted.ToString("M/d/yyyy"), GameType);
         }
 
         // Useless

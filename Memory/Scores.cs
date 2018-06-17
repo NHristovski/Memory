@@ -80,7 +80,10 @@ namespace Memory
                 p.Score.Points = int.Parse(parts[1]);
                 p.Score.Time = parts[2];
                 p.Level = int.Parse(parts[3]);
-                p.gameStarted = Convert.ToDateTime(parts[4]);
+
+                p.gameStarted = DateTime.ParseExact(parts[4], "M/d/yyyy", CultureInfo.InvariantCulture);
+
+                //p.gameStarted = Convert.ToDateTime(parts[4]);
                 p.GameType = parts[6];
 
                 playerDocumentForSequenceGame.addPlayer(p);
@@ -97,7 +100,7 @@ namespace Memory
             foreach (var str in scores)
             {
                 string[] parts = str.Split(new char[] { ',' });
-                Player p = PlayerFactory.GetPairGameHumanPlayer(parts[0],parts[5]);
+                Player p = PlayerFactory.GetPairGameHumanPlayer(parts[0],parts[4]);
                 p.Score.Points = int.Parse(parts[1]);
                 p.Score.Time = parts[2];
                 p.gameStarted = DateTime.ParseExact(parts[3], "M/d/yyyy", CultureInfo.InvariantCulture);
