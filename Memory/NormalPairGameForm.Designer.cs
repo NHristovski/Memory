@@ -225,7 +225,7 @@
             // 
             this.textBoxScoreMultiplier.Enabled = false;
             this.textBoxScoreMultiplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxScoreMultiplier.Location = new System.Drawing.Point(70, 143);
+            this.textBoxScoreMultiplier.Location = new System.Drawing.Point(61, 134);
             this.textBoxScoreMultiplier.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxScoreMultiplier.Name = "textBoxScoreMultiplier";
             this.textBoxScoreMultiplier.Size = new System.Drawing.Size(68, 36);
