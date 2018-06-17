@@ -94,9 +94,6 @@ namespace Memory
                 CurrentSequencerTime = SequencerTimeInMilliseconds;
             }
 
-            //sequencerManager.sequencingTimer.Interval = CurrentSequencerTime > 0 ? CurrentSequencerTime : 1;
-            //dockingStationManager.GenerateStations(NumberOfDockingStations);
-            //ParentForm.Invalidate();
             ParentForm.setRoundLabel(CurrentRound);
             ParentForm.setRoundTimeLabel(getTimeRepresentation(RemainingRoundTimeInSeconds));
             sequencerManager.setCardSequence(GenerateRandomCardSequence());
@@ -259,19 +256,6 @@ namespace Memory
             throw new NotImplementedException();
         }
 
-        //public void resetGame() // Will be changed !!
-        //{
-        //    pictureBoxManager.resetPictureBoxes();
-        //    ParentForm.Invalidate();
-        //    pictureBoxManager.disposePictureBoxes();
-        //    dockingStationManager.resetDockingStations();
-        //    sequencerManager.disposeSequencer();
-        //    Player1.Score.Points = 0;
-        //    ((SequenceGamePlayer)Player1).Level = 0;
-        //    ParentForm.Invalidate();
-        //    ParentForm.resetGame();
-        //}
-
         public void resetGame() // Less painful
         {
             CurrentRound = 1;
@@ -280,13 +264,8 @@ namespace Memory
             pictureBoxManager.resetPictureBoxes();
 
             // Resetting Player
-
-            //Player1.Score.Points = 0;
-            //((SequenceGamePlayer)Player1).Level = 1;
-
             ((SequenceGamePlayer)Player1).ResetPlayer();
             ParentForm.updateHelperLabels();
-
             /////
 
             dockingStationManager.GenerateStations(NumberOfDockingStations);
@@ -336,7 +315,6 @@ namespace Memory
         }
 
         // Helpers
-
         public void useShowSequence()
         {
             SequenceGamePlayer player = (SequenceGamePlayer)Player1;

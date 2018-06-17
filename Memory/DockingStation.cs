@@ -9,8 +9,8 @@ namespace Memory
 {
     public class DockingStation
     {
-        public static readonly int width = 100; // 90
-        public static readonly int height = 120;
+        //public static readonly int width = 100; // 90
+        //public static readonly int height = 120;
 
         public Color StationColor { get; set; }
         public Rectangle Station { get; set; }
@@ -29,8 +29,8 @@ namespace Memory
             Docked = false;
         }
 
-        public DockingStation(int x, int y, Color rectangleColor, string content, Color? contentColor = null)
-            : this(new Rectangle(x, y, width, height), rectangleColor, content, contentColor) { }
+        //public DockingStation(int x, int y, Color rectangleColor, string content, Color? contentColor = null)
+        //    : this(new Rectangle(x, y, width, height), rectangleColor, content, contentColor) { }
 
         public void DrawDockingStation(Graphics g)
         {

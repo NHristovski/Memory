@@ -10,8 +10,15 @@ namespace Memory
 {
     public class SequencerManager
     {
-        private static readonly int width = 120;
-        private static readonly int height = 150;
+        private static readonly float widthPercent = 14f;
+        private static readonly float heightPercent = 24.9f;
+        //private static readonly int width = 120;
+        //private static readonly int height = 150;
+
+        // Responsive sequencer
+        public int width { get { return (int)Math.Ceiling((Parent.Width / 100.0) * widthPercent); } }
+
+        public int height { get { return (int)Math.Ceiling((Parent.Height / 100.0) * heightPercent); } }
 
         private int topY;
         private int bottomY;
