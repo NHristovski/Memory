@@ -67,10 +67,12 @@ namespace Memory
         public virtual void setHardGameAvaliable()
         {
         }
+
         public override string ToString()
         {
             return base.ToString() + " " + type;
         }
+
         public virtual void Usex2(int price)
         {
 
@@ -159,7 +161,7 @@ namespace Memory
             findNextAvaliable--;
             Score.Points -= price;
         }
-    }
+    }   
 
     [Serializable]
     public class Bot : PairGamePlayer
