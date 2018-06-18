@@ -51,7 +51,7 @@ namespace Memory
 
             shapes = new string[] { "trinity_knot", "pi", "spade", "heart",
                                     "X", "tree", "arrow", "diamond", "mars",
-                                    "I", "IRed", "V", "moon", "star", "floppy",
+                                    "I", "IRed", "V", "moon", "git", "star", "floppy",
                                     "triangle","venera", "yin_yang", "delta"};
 
             // "trinity_knot", "pi", "yin_yang", "delta", "tree", "floppy"

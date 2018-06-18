@@ -15,8 +15,8 @@ namespace Memory
         //public static readonly int dockingOffset = (DockingStation.width * DockingStation.height * 20) / 100;
 
         // Responsive
-        private static readonly float widthPercent = 11.7f;
-        private static readonly float heightPercent = 19.9f;
+        private static readonly float widthPercent = 12.7f;
+        private static readonly float heightPercent = 20.9f;
         private static readonly float offsetPercent = 10f;
         private static readonly float dockingStationOffsetPercent = 1.8f;
 
