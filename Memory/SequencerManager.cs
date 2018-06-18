@@ -48,7 +48,8 @@ namespace Memory
             topY = availableTopCoordinate;
             bottomY = availableBottomCoordinate;
 
-            int locationX = Parent.Width / 2 - width / 2;
+            float parentPercent = 2f; // Centering issue
+            int locationX = (int)(Parent.Width - (Parent.Width / 100) * parentPercent) / 2 - (width / 2);
             int locationY = topY + ((bottomY - topY) / 2 - height / 2);
 
             PictureBox pb = new PictureBox()

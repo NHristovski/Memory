@@ -17,9 +17,10 @@ namespace Memory
 
 
         // Responsive pbs.
-        private static readonly float widthPercent = 11.7f;
-        private static readonly float heightPercent = 19.9f;
+        private static readonly float widthPercent = 12.7f;
+        private static readonly float heightPercent = 20.9f;
         private static readonly float offsetPercent = 30; // Relative to PbWidth
+
         public int pictureBoxWidth { get { return (int)Math.Ceiling((Parent.Width / 100.0) * widthPercent); } }
 
         public int pictureBoxHeight { get { return (int)Math.Ceiling((Parent.Height / 100.0) * heightPercent); } }
@@ -86,7 +87,10 @@ namespace Memory
         {
             foreach (PictureBox pb in PictureBoxes)
             {
-                pb.Top = 50;
+                //pb.Top = 50;
+                // Responsive pbs
+                float topOffsetPercent = 8.3f;
+                pb.Top = (int)Math.Ceiling((Parent.Height / 100.0) * topOffsetPercent);
                 pb.Left = LeftOffset + (PictureBoxes.IndexOf(pb) * pictureBoxOffset);
                 PictureBoxInitialLocations.Add(pb, pb.Location);
                 Parent.Controls.Add(pb);

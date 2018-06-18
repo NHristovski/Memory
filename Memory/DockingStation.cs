@@ -36,7 +36,7 @@ namespace Memory
         {
             Pen pn = new Pen(StationColor, 2);
             g.DrawRectangle(pn, Station);
-            Pen redPen = new Pen(Color.Red, 2);
+            Pen redPen = new Pen(Color.CornflowerBlue, 2);
             g.DrawRectangle(redPen, Station.Location.X - 2, Station.Location.Y - 2, Station.Width + 4, Station.Height + 4);
 
             using (Font font = new Font(FontFamily.GenericSansSerif, 10))
