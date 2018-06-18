@@ -10,19 +10,25 @@ namespace Memory
 {
     public class DockingStationManager
     {
-        public static readonly int dockingStationsDistance = 15;
-        public static readonly int bottomOffset = 180;
+        //public static readonly int dockingStationsDistance = 15;
+        //public static readonly int bottomOffset = 180;
         //public static readonly int dockingOffset = (DockingStation.width * DockingStation.height * 20) / 100;
 
         // Responsive
         private static readonly float widthPercent = 11.7f;
         private static readonly float heightPercent = 19.9f;
+        private static readonly float offsetPercent = 10f;
+        private static readonly float dockingStationOffsetPercent = 1.8f;
 
         public int dockingStationWidth { get { return (int)Math.Ceiling((ParentWidth / 100.0) * widthPercent); } }
 
         public int dockingStationHeight { get { return (int)Math.Ceiling((ParentHeight / 100.0) * heightPercent); } }
 
         public int dockingOffset { get { return (dockingStationWidth * dockingStationHeight * 20) / 100; } }
+
+        public int bottomOffset { get { return (int)Math.Ceiling((ParentHeight / 100.0) * offsetPercent + dockingStationHeight); } }
+
+        public int dockingStationsDistance { get { return (int)Math.Ceiling((ParentWidth / 100.0) * dockingStationOffsetPercent); } }
         //
 
         public int LeftOffset { get; set; }
