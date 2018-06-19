@@ -153,6 +153,16 @@ namespace Memory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PG_cstill {
+            get {
+                object obj = ResourceManager.GetObject("PG_cstill", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap points_p {
             get {
                 object obj = ResourceManager.GetObject("points_p", resourceCulture);
@@ -163,9 +173,9 @@ namespace Memory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap sequence {
+        internal static System.Drawing.Bitmap SG_cstill {
             get {
-                object obj = ResourceManager.GetObject("sequence", resourceCulture);
+                object obj = ResourceManager.GetObject("SG_cstill", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

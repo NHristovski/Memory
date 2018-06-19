@@ -12,12 +12,14 @@ namespace Memory
 {
     public partial class Starter : Form
     {
+        //private bool hoveredOff = true;
+
         public Starter()
         {
             InitializeComponent();
             this.Icon = new Icon(Paths.pathToMemoryIcon);
             this.MaximizeBox = false;
-            pictureBoxPairGame.Image = Image.FromFile(Paths.pathToMediumGamePicture);
+            //pictureBoxPairGame.Image = Image.FromFile(Paths.pathToMediumGamePicture);
 
         }
 
