@@ -126,6 +126,12 @@ namespace Memory
                 pbGender.Image = Properties.Resources.girl;
 
             lblPlayerName.Text = GameController.Player1.Name;
+
+            while (lblPlayerName.Width > 107)
+            {
+                lblPlayerName.Font = new Font("Microsoft Sans Serif", lblPlayerName.Font.Size - 1, FontStyle.Bold);
+            }
+
             //updateHelperLabels();
             pnlPlayerStats.Top = GameController.calculatePanelsPosition(pnlPlayerStats.Height);
             pnlHelpers.Top = GameController.calculatePanelsPosition(pnlHelpers.Height);
