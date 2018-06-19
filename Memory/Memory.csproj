@@ -265,6 +265,10 @@
     <Content Include="Resources\moon_still.jpg" />
     <Content Include="Resources\open_cards.jpg" />
     <Content Include="Resources\pair_game_score.txt" />
+    <None Include="Resources\PG_still.jpg" />
+    <None Include="Resources\PG.gif" />
+    <None Include="Resources\PG_reverse.gif" />
+    <None Include="Resources\PG_cstill.jpg" />
     <Content Include="Resources\pi_close.gif" />
     <Content Include="Resources\pi_open.gif" />
     <Content Include="Resources\pi_still.jpg" />
@@ -275,6 +279,10 @@
     <Content Include="Resources\second_chance.jpg" />
     <None Include="Resources\show_sequence.png" />
     <None Include="Resources\sequence.png" />
+    <None Include="Resources\SG_still.jpg" />
+    <None Include="Resources\SG.gif" />
+    <None Include="Resources\SG_reverse.gif" />
+    <None Include="Resources\SG_cstill.jpg" />
     <Content Include="Resources\spade_close.gif" />
     <Content Include="Resources\spade_open.gif" />
     <Content Include="Resources\spade_still.jpg" />
