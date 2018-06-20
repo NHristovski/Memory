@@ -127,7 +127,9 @@ namespace Memory
 
             lblPlayerName.Text = GameController.Player1.Name;
 
-            while (lblPlayerName.Width > 107)
+            float widthPercent = 12.5f; // Relative to form width
+
+            while (lblPlayerName.Width > (int)Math.Ceiling((this.Width / 100.0) * widthPercent))
             {
                 lblPlayerName.Font = new Font("Microsoft Sans Serif", lblPlayerName.Font.Size - 1, FontStyle.Bold);
             }
